@@ -67,6 +67,54 @@
                         background-size: cover;
                         background-color: #fef9f0;
                 }
+
+                /* Strict Center Image Dimensions with Scale Zoom to prevent Grid stretching */
+                .center-diagram-img {
+                        width: 160px !important;
+                        height: 160px !important;
+                        transform: scale(1.5) !important;
+                        transition: all 0.5s ease;
+                }
+
+                .center-diagram-img:hover {
+                        transform: scale(1.6) !important;
+                }
+
+                @media (min-width: 768px) {
+                        .center-diagram-img {
+                                width: 280px !important;
+                                height: 280px !important;
+                                transform: scale(1.75) !important;
+                        }
+
+                        .center-diagram-img:hover {
+                                transform: scale(1.85) !important;
+                        }
+                }
+
+                @media (min-width: 1024px) {
+                        .center-diagram-img {
+                                width: 320px !important;
+                                height: 320px !important;
+                                transform: scale(1.85) !important;
+                        }
+
+                        .center-diagram-img:hover {
+                                transform: scale(1.95) !important;
+                        }
+                }
+
+                @media (min-width: 1280px) {
+                        .center-diagram-img {
+                                width: 340px !important;
+                                height: 340px !important;
+                                transform: scale(1.95) !important;
+                        }
+
+                        .center-diagram-img:hover {
+                                transform: scale(2.05) !important;
+                        }
+                }
         </style>
         <!-- Tailwind CSS -->
         <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -285,7 +333,8 @@
                 class="pt-[120px] md:pt-[130px] lg:pt-[110px] pb-[70px] md:pb-[100px] lg:pb-[95px] bg-surface relative overflow-hidden hero-bg">
                 <div
                         class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                        <div class="z-10 text-left transform lg:-translate-x-[65px] lg:-translate-y-[40px] xl:-translate-x-[95px] xl:-translate-y-[55px]">
+                        <div
+                                class="z-10 text-left transform lg:-translate-x-[65px] lg:-translate-y-[40px] xl:-translate-x-[95px] xl:-translate-y-[55px]">
                                 <h1
                                         class="font-headline-xl text-[46px] sm:text-[48px] md:text-[58px] lg:text-[68px] xl:text-[76px] text-primary font-normal mb-stack-md leading-[1.05]">
                                         <span class="lg:whitespace-nowrap"><span class="font-bold">Decipher.</span><br
@@ -302,7 +351,8 @@
                                 </a>
                         </div>
                         <!-- Meditating man concentric circles illustration on the right -->
-                        <div class="z-10 flex justify-center items-end w-full mt-[-95px] sm:mt-[-55px] lg:mt-[-90px] xl:mt-[-115px] overflow-visible">
+                        <div
+                                class="z-10 flex justify-center items-end w-full mt-[-95px] sm:mt-[-55px] lg:mt-[-90px] xl:mt-[-115px] overflow-visible">
                                 <img src="man.png" alt="Self, Family, Society, Existence meditating illustration"
                                         class="w-[290%] sm:w-[160%] lg:w-[270%] xl:w-[300%] max-w-none sm:max-w-[650px] lg:max-w-none h-auto object-contain select-none pointer-events-none transform scale-y-[1.12] translate-y-[83px] sm:translate-y-[93px] lg:translate-y-[80px] xl:translate-y-[115px] translate-x-0 sm:translate-x-0 lg:translate-x-[120px] xl:translate-x-[150px]" />
                         </div>
@@ -369,7 +419,8 @@
         </section>
         <!-- Social Proof -->
         <section class="py-24 md:py-36 lg:py-48 bg-surface">
-                <div class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center">
+                <div
+                        class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 md:grid-cols-[1.16fr_0.84fr] gap-6 md:gap-8 lg:gap-10 items-stretch">
                         <div
                                 class="rounded-lg overflow-hidden border border-outline-variant/20 relative aspect-video shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
                                 <img alt="A large diverse group of smiling people posing together outdoors"
@@ -377,20 +428,222 @@
                                         data-alt="A vibrant, high-quality photograph of a very large, diverse community group standing closely together outdoors in a sunny park setting. Hundreds of people of various ages are smiling warmly at the camera, wearing casual, colorful everyday clothing. The scene is brightly lit by natural sunlight, creating a cheerful, highly relatable, and positive mood. The image is framed as a wide landscape shot, emphasizing a profound sense of scale and shared human connection within a warm, inviting environment."
                                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQKPkgUQyO3L0jXwcaRQDW3RcvOTrnzJOPMEaDQ3NrERfrRKXSWCGZ-UXl_Xlqfcunh1T4uJsBUY1gIQcu7OFzhAbDXeVi1qxT1w--bYtBrNSv2m8KpnXfmhVT6CCUAEXWBGDoX0cxfGLjBPMxyVLlPHgxGE8zg_uQHKibOIjxKYRDNtsB_5dcG34kEBVj2dwCGmyi984FkJDsSO-zD1b7lIO5GlgyxDiCtCl0UEZYYTzdM4x0Nw-FLQ8-OgzXPD8gh1vT4qiN_4k" />
                         </div>
-                        <div class="md:pl-stack-lg">
+                        <div class="flex flex-col justify-between h-full py-1.5 md:pl-2">
                                 <h2
-                                        class="font-headline-xl text-[44px] md:text-[60px] lg:text-[76px] text-primary font-black mb-stack-md leading-[0.95] md:leading-[0.95] lg:leading-[0.95]">
+                                        class="font-headline-xl text-[44px] md:text-[60px] lg:text-[82px] xl:text-[88px] text-primary font-black leading-[0.95] md:leading-[0.95] lg:leading-[0.95]">
                                         1 lakh+ <br />Families
                                 </h2>
                                 <p
-                                        class="font-headline-md text-[20px] md:text-[24px] lg:text-[28px] text-primary/80 font-normal leading-snug">
-                                        have found greater clarity<br />
-                                        in themselves, their relationships,<br />
-                                        and their lives.
+                                        class="font-headline-md text-[22px] md:text-[28px] lg:text-[33px] xl:text-[36px] text-primary/80 font-normal leading-snug">
+                                        <span class="block md:whitespace-nowrap">have found greater clarity</span>
+                                        <span class="block md:whitespace-nowrap">in themselves, their
+                                                relationships,</span>
+                                        <span class="block md:whitespace-nowrap">and their lives.</span>
                                 </p>
                         </div>
                 </div>
         </section>
+
+        <!-- Holistic Picture of Life Section -->
+        <section class="py-14 md:py-32 bg-[#022a73] relative overflow-hidden z-10 border-t border-b border-white/5">
+                <div class="max-w-[1200px] mx-auto px-gutter relative z-10">
+                        <!-- Headings -->
+                        <div class="text-center mb-8 md:mb-16">
+                                <h2
+                                        class="font-headline-lg text-[32px] md:text-[44px] lg:text-[56px] text-[#fe8a29] font-bold leading-tight">
+                                        Get a Holistic Picture of Life.
+                                </h2>
+                                <p
+                                        class="text-white/80 text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-normal mt-3 max-w-2xl mx-auto">
+                                        Engage in discussions without any judgements or filters.
+                                </p>
+                        </div>
+
+                        <!-- RESPONSIVE UNIFIED DIAMOND DIAGRAM LAYOUT (Visible only on Desktop - MD and up) -->
+                        <div
+                                class="hidden md:flex flex-col items-center max-w-[950px] mx-auto relative z-10 w-full px-2 sm:px-4">
+                                <!-- Row 1: Top Node Text (Family & Relationships) -->
+                                <div class="text-center mb-2 md:mb-3 max-w-none select-none animate-fade-in">
+                                        <h3
+                                                class="text-white font-bold text-[14px] tracking-tight md:tracking-normal md:text-[20px] lg:text-[24px] mb-0.5 md:mb-1 whitespace-nowrap">
+                                                Family & Relationships</h3>
+                                        <p
+                                                class="text-white/70 text-[12.5px] md:text-[14px] lg:text-[16px] leading-relaxed whitespace-nowrap">
+                                                Can expectations in relationships be understood?
+                                        </p>
+                                </div>
+
+                                <!-- Row 2: Left Text, Center Image, Right Text -->
+                                <div
+                                        class="w-full grid grid-cols-[1fr_90px_1fr] md:grid-cols-[1fr_auto_1fr] gap-2 sm:gap-4 md:gap-6 lg:gap-12 items-center">
+                                        <!-- Left Column: Happiness -->
+                                        <div class="text-center select-none">
+                                                <h3
+                                                        class="text-white font-bold text-[14px] tracking-tight md:tracking-normal md:text-[20px] lg:text-[24px] mb-0.5 md:mb-1 whitespace-nowrap">
+                                                        Happiness</h3>
+                                                <p
+                                                        class="text-white/70 text-[12.5px] md:text-[14px] lg:text-[16px] leading-relaxed whitespace-normal md:whitespace-nowrap">
+                                                        What is comprehensive happiness?
+                                                </p>
+                                        </div>
+
+                                        <!-- Center Column: Image -->
+                                        <div class="flex justify-center z-20">
+                                                <img src="ess.png" alt="Holistic Picture of Life Dimensions"
+                                                        class="center-diagram-img object-contain select-none pointer-events-none" />
+                                        </div>
+
+                                        <!-- Right Column: Expand Perspectives -->
+                                        <div class="text-center select-none">
+                                                <h3
+                                                        class="text-white font-bold text-[14px] tracking-tight md:tracking-normal md:text-[20px] lg:text-[24px] mb-0.5 md:mb-1 whitespace-nowrap">
+                                                        Expand Perspectives</h3>
+                                                <p
+                                                        class="text-white/70 text-[12.5px] md:text-[14px] lg:text-[16px] leading-relaxed whitespace-normal md:whitespace-nowrap">
+                                                        What is the ultimate purpose of life?
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- Row 3: Bottom Node Text (Make Sense of the World) -->
+                                <div class="text-center mt-2 md:mt-3 max-w-none select-none animate-fade-in">
+                                        <h3
+                                                class="text-white font-bold text-[14px] tracking-tight md:tracking-normal md:text-[20px] lg:text-[24px] mb-0.5 md:mb-1 whitespace-nowrap">
+                                                Make Sense of the World</h3>
+                                        <p
+                                                class="text-white/70 text-[12.5px] md:text-[14px] lg:text-[16px] leading-relaxed whitespace-nowrap">
+                                                How can I contribute meaningfully?
+                                        </p>
+                                </div>
+                        </div>
+
+                        <!-- ADAPTIVE MOBILE LAYOUT (Visible only on Mobile - less than MD) -->
+                        <div class="flex md:hidden flex-col items-center w-full relative z-10 px-4">
+                                <!-- Large Center Image on Top -->
+                                <div
+                                        class="w-[340px] h-[260px] xs:w-[380px] xs:h-[280px] sm:w-[420px] sm:h-[300px] max-w-full flex items-center justify-center relative overflow-visible mt-3 mb-8">
+                                        <img src="ess.png" alt="Holistic Picture of Life Dimensions"
+                                                class="w-full h-full object-contain select-none pointer-events-none z-10 transform scale-[1.7] -translate-y-6 xs:scale-[1.8] xs:-translate-y-8 sm:scale-[1.9] sm:-translate-y-10" />
+                                </div>
+
+                                <!-- Four Points Stacked Vertically as a List -->
+                                <div class="flex flex-col gap-6 w-full pl-2">
+                                        <!-- Point 1 -->
+                                        <div class="border-l-[3px] border-[#fe8a29] pl-4 select-none">
+                                                <h3 class="text-white font-bold text-[17px] leading-tight">Family &
+                                                        Relationships</h3>
+                                                <p class="text-white/70 text-[13px] leading-relaxed mt-1">Can
+                                                        expectations in relationships be understood?</p>
+                                        </div>
+                                        <!-- Point 2 -->
+                                        <div class="border-l-[3px] border-[#fe8a29] pl-4 select-none">
+                                                <h3 class="text-white font-bold text-[17px] leading-tight">Happiness
+                                                </h3>
+                                                <p class="text-white/70 text-[13px] leading-relaxed mt-1">What is
+                                                        comprehensive happiness?</p>
+                                        </div>
+                                        <!-- Point 3 -->
+                                        <div class="border-l-[3px] border-[#fe8a29] pl-4 select-none">
+                                                <h3 class="text-white font-bold text-[17px] leading-tight">Expand
+                                                        Perspectives</h3>
+                                                <p class="text-white/70 text-[13px] leading-relaxed mt-1">What is the
+                                                        ultimate purpose of life?</p>
+                                        </div>
+                                        <!-- Point 4 -->
+                                        <div class="border-l-[3px] border-[#fe8a29] pl-4 select-none">
+                                                <h3 class="text-white font-bold text-[17px] leading-tight">Make Sense of
+                                                        the World</h3>
+                                                <p class="text-white/70 text-[13px] leading-relaxed mt-1">How can I
+                                                        contribute meaningfully?</p>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </section>
+
+        <!-- Testimonials: Real Experiences. Real People. -->
+        <section class="py-28 sm:py-36 md:py-44 lg:py-52 bg-[#fef9f0] relative overflow-hidden z-10">
+                <div class="max-w-[1200px] mx-auto px-6 md:px-8 relative z-10">
+                        <!-- Heading -->
+                        <div class="mb-12 md:mb-16">
+                                <h2
+                                        class="font-headline-xl text-[38px] md:text-[50px] lg:text-[56px] leading-[1.1] text-[#fe8a29] select-none">
+                                        <span class="font-bold block">Real Experiences.</span>
+                                        <span class="font-normal block">Real People.</span>
+                                </h2>
+                        </div>
+
+                        <!-- Testimonial Cards Grid -->
+                        <div
+                                class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-stretch mt-12 md:mt-20 pl-10 sm:pl-12 md:pl-0 pr-4 sm:pr-6 md:pr-0">
+                                <!-- Boni Patel Card -->
+                                <div
+                                        class="group relative bg-white shadow-[0_15px_45px_rgba(0,0,0,0.08)] rounded-[20px] pt-12 pb-12 sm:pt-14 sm:pb-14 pl-14 sm:pl-20 pr-8 sm:pr-10 min-h-[220px] sm:min-h-[250px] flex flex-col justify-center border border-gray-100/80 hover:-translate-y-1 hover:shadow-[0_20px_55px_rgba(0,0,0,0.12)] transition-all duration-300">
+                                        <!-- Sharp Blue Vertical Bar on Right Edge -->
+                                        <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73]"></div>
+
+                                        <!-- Overlapping Avatar -->
+                                        <div
+                                                class="absolute -left-10 sm:-left-12 top-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden shadow-[0_8px_25px_rgba(0,0,0,0.12)] border border-gray-200 bg-gray-100 flex items-center justify-center">
+                                                <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300"
+                                                        fill="currentColor" viewBox="0 0 24 24">
+                                                        <path
+                                                                d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                </svg>
+                                        </div>
+                                        <!-- Content -->
+                                        <div class="flex flex-col select-none">
+                                                <h4
+                                                        class="text-[#022a73] font-bold text-[18px] sm:text-[20px] leading-tight">
+                                                        Boni Patel</h4>
+                                                <p
+                                                        class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5 sm:mt-1">
+                                                        Manager, Samarth Diamond<br>Visnagar</p>
+                                                <div
+                                                        class="mt-4 text-[#1d1c16] text-[14px] sm:text-[15px] leading-relaxed">
+                                                        “इससे मुझमे और परिवार में तृप्ति का स्तर बढ़ता देख पाया।”
+                                                        <span
+                                                                class="italic text-[13px] sm:text-[14px] text-[#747682] mt-1.5 block leading-normal">(It
+                                                                brought growing contentment—in me and in my
+                                                                family.)</span>
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <!-- Shriram Narasimhan Card -->
+                                <div
+                                        class="group relative bg-white shadow-[0_15px_45px_rgba(0,0,0,0.08)] rounded-[20px] pt-12 pb-12 sm:pt-14 sm:pb-14 pl-14 sm:pl-20 pr-8 sm:pr-10 min-h-[220px] sm:min-h-[250px] flex flex-col justify-center border border-gray-100/80 hover:-translate-y-1 hover:shadow-[0_20px_55px_rgba(0,0,0,0.12)] transition-all duration-300">
+                                        <!-- Sharp Blue Vertical Bar on Right Edge -->
+                                        <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73]"></div>
+
+                                        <!-- Overlapping Avatar -->
+                                        <div
+                                                class="absolute -left-10 sm:-left-12 top-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden shadow-[0_8px_25px_rgba(0,0,0,0.12)] border border-gray-200 bg-gray-100 flex items-center justify-center">
+                                                <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300"
+                                                        fill="currentColor" viewBox="0 0 24 24">
+                                                        <path
+                                                                d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                </svg>
+                                        </div>
+                                        <!-- Content -->
+                                        <div class="flex flex-col select-none">
+                                                <h4
+                                                        class="text-[#022a73] font-bold text-[18px] sm:text-[20px] leading-tight">
+                                                        Shriram Narasimhan</h4>
+                                                <p
+                                                        class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5 sm:mt-1">
+                                                        Ex MNC Manager</p>
+                                                <div
+                                                        class="mt-4 text-[#1d1c16] text-[14px] sm:text-[15px] leading-relaxed italic">
+                                                        “A real, honest suitcase of knowledge & living I can unpack the
+                                                        rest of my Life that results in meaningful Social Action too.”
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </section>
+
         <!-- What is Sah Astitva Answers? -->
         <section class="py-28 md:py-40 lg:py-56 bg-primary relative overflow-hidden">
                 <!-- Topographic background image -->
