@@ -9,7 +9,7 @@
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com" rel="preconnect" />
         <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap"
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&amp;family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Public+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap"
                 rel="stylesheet" />
         <!-- Material Symbols -->
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -29,6 +29,22 @@
                 h6 {
                         font-family: 'DM Sans', sans-serif;
                         font-weight: 700;
+                }
+
+                @media (min-width: 768px) {
+
+                        h1,
+                        h2,
+                        h3,
+                        h4,
+                        h5,
+                        h6,
+                        .font-headline-xl,
+                        .font-headline-lg,
+                        .font-headline-md,
+                        .font-headline-sm {
+                                font-family: 'DM Sans', sans-serif !important;
+                        }
                 }
 
                 .material-symbols-outlined {
@@ -82,37 +98,38 @@
 
                 @media (min-width: 768px) {
                         .center-diagram-img {
-                                width: 280px !important;
-                                height: 280px !important;
-                                transform: scale(1.75) !important;
+                                width: 360px !important;
+                                height: 360px !important;
+                                transform: scale(2.3) !important;
+                                transition: all 0.5s ease;
                         }
 
                         .center-diagram-img:hover {
-                                transform: scale(1.85) !important;
+                                transform: scale(2.4) !important;
                         }
                 }
 
                 @media (min-width: 1024px) {
                         .center-diagram-img {
-                                width: 320px !important;
-                                height: 320px !important;
-                                transform: scale(1.85) !important;
+                                width: 420px !important;
+                                height: 420px !important;
+                                transform: scale(2.4) !important;
                         }
 
                         .center-diagram-img:hover {
-                                transform: scale(1.95) !important;
+                                transform: scale(2.5) !important;
                         }
                 }
 
                 @media (min-width: 1280px) {
                         .center-diagram-img {
-                                width: 340px !important;
-                                height: 340px !important;
-                                transform: scale(1.95) !important;
+                                width: 460px !important;
+                                height: 460px !important;
+                                transform: scale(2.5) !important;
                         }
 
                         .center-diagram-img:hover {
-                                transform: scale(2.05) !important;
+                                transform: scale(2.6) !important;
                         }
                 }
         </style>
@@ -268,10 +285,10 @@
         </script>
 </head>
 
-<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden">
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden md:overflow-hidden">
         <!-- TopNavBar -->
         <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
-                <div class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter py-4">
+                <div class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter py-4 md:py-6">
                         <a class="flex items-center" href="#">
                                 <img src="logo.png" alt="Sah Astitva Answers"
                                         class="-my-16 md:-my-24 lg:-my-[200px] -ml-8 md:-ml-16 lg:-ml-36 h-40 md:h-56 lg:h-[440px] w-auto object-contain" />
@@ -328,513 +345,571 @@
                         Attend a Workshop
                 </a>
         </div>
-        <!-- Hero Section -->
-        <section
-                class="pt-[120px] md:pt-[130px] lg:pt-[110px] pb-[70px] md:pb-[100px] lg:pb-[95px] bg-surface relative overflow-hidden hero-bg">
-                <div
-                        class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+        <!-- Main Desktop Scroll Snapping Container -->
+        <div class="snap-container md:h-screen md:overflow-y-auto md:scroll-smooth">
+                <!-- Hero Section -->
+                <section
+                        class="snap-section pt-[120px] md:pt-0 pb-[70px] md:pb-0 bg-surface relative overflow-hidden hero-bg md:h-screen md:min-h-screen md:flex md:items-center">
                         <div
-                                class="z-10 text-left transform lg:-translate-x-[65px] lg:-translate-y-[40px] xl:-translate-x-[95px] xl:-translate-y-[55px]">
-                                <h1
-                                        class="font-headline-xl text-[46px] sm:text-[48px] md:text-[58px] lg:text-[68px] xl:text-[76px] text-primary font-normal mb-stack-md leading-[1.05]">
-                                        <span class="lg:whitespace-nowrap"><span class="font-bold">Decipher.</span><br
-                                                        class="lg:hidden" /><span> Your life.</span></span><br />
-                                        <span class="lg:whitespace-nowrap"><span class="font-bold">Navigate</span><br
-                                                        class="lg:hidden" /><span> through Living.</span></span>
-                                </h1>
-                                <p class="font-body-lg text-body-lg text-on-surface mb-stack-lg max-w-lg ml-0 mr-auto">
-                                        A transformative 3-day workshop to get a grand unified view of everything
-                                </p>
-                                <a class="inline-flex bg-primary text-on-primary rounded-full px-8 py-3 font-label-md text-label-md hover:opacity-80 transition-opacity"
-                                        href="#">
-                                        Attend a Workshop
-                                </a>
+                                class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
+                                <div
+                                        class="z-10 text-left transform lg:-translate-x-[115px] lg:-translate-y-[40px] xl:-translate-x-[165px] xl:-translate-y-[55px]">
+                                        <h1
+                                                class="font-headline-xl text-[46px] sm:text-[48px] md:text-[52px] lg:text-[66px] xl:text-[78px] text-[#244996] font-normal mb-stack-md leading-[1.05]">
+                                                <span class="lg:whitespace-nowrap"><span
+                                                                class="font-bold">Decipher.</span><br
+                                                                class="lg:hidden" /><span> Your
+                                                                life.</span></span><br />
+                                                <span class="lg:whitespace-nowrap"><span
+                                                                class="font-bold">Navigate</span><br
+                                                                class="lg:hidden" /><span> through Living.</span></span>
+                                        </h1>
+                                        <p class="font-body-lg text-[24px] lg:text-[28px] text-[#545454] mb-stack-lg max-w-lg lg:max-w-none ml-0 mr-auto"
+                                                style="font-family: 'Public Sans', sans-serif;">
+                                                A transformative 3-day workshop to get <br class="hidden lg:inline" /> a
+                                                grand unified view of everything
+                                        </p>
+                                        <a class="inline-flex bg-[#244996] text-[#ffffff] rounded-full px-9 py-3.5 font-bold text-[17px] hover:opacity-80 transition-opacity"
+                                                style="font-family: 'Public Sans', sans-serif;" href="#">
+                                                Attend a Workshop
+                                        </a>
+                                </div>
+                                <!-- Meditating man concentric circles illustration on the right for mobile/tablet -->
+                                <div
+                                        class="z-10 flex justify-center items-end w-full mt-[-95px] sm:mt-[-55px] lg:hidden overflow-visible">
+                                        <img src="man.png"
+                                                alt="Self, Family, Society, Existence meditating illustration"
+                                                class="w-[315%] sm:w-[175%] lg:w-[290%] xl:w-[325%] max-w-none sm:max-w-[700px] lg:max-w-none h-auto object-contain select-none pointer-events-none transform scale-y-[1.12] translate-y-[83px] sm:translate-y-[93px] lg:translate-y-[80px] xl:translate-y-[115px] translate-x-0 sm:translate-x-0 lg:translate-x-[200px] xl:translate-x-[260px]" />
+                                </div>
                         </div>
-                        <!-- Meditating man concentric circles illustration on the right -->
+                        <!-- Absolute positioned large desktop meditating man, grounded perfectly to the bottom screen edge -->
                         <div
-                                class="z-10 flex justify-center items-end w-full mt-[-95px] sm:mt-[-55px] lg:mt-[-90px] xl:mt-[-115px] overflow-visible">
+                                class="hidden lg:block absolute right-0 bottom-0 w-[45%] h-[100vh] overflow-visible z-10 pointer-events-none">
                                 <img src="man.png" alt="Self, Family, Society, Existence meditating illustration"
-                                        class="w-[290%] sm:w-[160%] lg:w-[270%] xl:w-[300%] max-w-none sm:max-w-[650px] lg:max-w-none h-auto object-contain select-none pointer-events-none transform scale-y-[1.12] translate-y-[83px] sm:translate-y-[93px] lg:translate-y-[80px] xl:translate-y-[115px] translate-x-0 sm:translate-x-0 lg:translate-x-[120px] xl:translate-x-[150px]" />
+                                        class="h-full w-auto object-contain object-bottom select-none pointer-events-none transform scale-[1.90] lg:scale-[1.90] xl:scale-[2.14] origin-bottom-right translate-y-[80px] xl:translate-y-[105px] translate-x-[320px] xl:translate-x-[460px]" />
                         </div>
-                </div>
-        </section>
-        <!-- For Every Stage of Life -->
-        <section class="pt-[180px] pb-section-padding-v relative overflow-hidden"
-                style="background: linear-gradient(to top right, rgba(254, 138, 41, 0.25) 0%, rgba(254, 138, 41, 0.02) 60%, transparent 90%), #fef9f0;">
-                <!-- Full width centered section heading -->
-                <div class="max-w-[1200px] mx-auto px-gutter mb-6 md:mb-8">
-                        <h2
-                                class="font-headline-lg text-[32px] md:text-[44px] lg:text-[56px] text-primary font-bold text-center leading-tight">
-                                For Every Stage of Life,<br />
-                                <span class="font-normal">For Every Question of Life.</span>
-                        </h2>
-                </div>
-                <div
-                        class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center -mt-4 md:-mt-8">
-                        <div class="z-10 text-left">
-                                <h3
-                                        class="font-headline-md text-[18px] md:text-[22px] lg:text-[24px] text-primary mb-stack-xs leading-snug font-bold md:whitespace-nowrap lg:whitespace-nowrap">
-                                        The Sah Astitva Answers <span class="font-normal text-primary/80">provide
-                                                logical, rational
-                                                solutions</span>
-                                </h3>
-                                <p class="font-body-lg text-[15px] md:text-[17px] text-primary/70 mb-stack-md">
-                                        A way to examine, understand and live life.
-                                </p>
-                                <div class="flex flex-wrap justify-start gap-3 mb-stack-lg max-w-lg">
-                                        <span
-                                                class="px-4 py-1.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md text-label-md bg-white shadow-sm">Love</span>
-                                        <span
-                                                class="px-4 py-1.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md text-label-md bg-white shadow-sm">Happiness</span>
-                                        <span
-                                                class="px-4 py-1.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md text-label-md bg-white shadow-sm">Relationship</span>
-                                        <span
-                                                class="px-4 py-1.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md text-label-md bg-white shadow-sm">Spirituality</span>
-                                        <span
-                                                class="px-4 py-1.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md text-label-md bg-white shadow-sm">Marriage</span>
-                                        <span
-                                                class="px-4 py-1.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md text-label-md bg-white shadow-sm">Career</span>
-                                        <span
-                                                class="px-4 py-1.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md text-label-md bg-white shadow-sm">Desire</span>
-                                        <span
-                                                class="px-4 py-1.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md text-label-md bg-white shadow-sm">Ego</span>
-                                        <span
-                                                class="px-4 py-1.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md text-label-md bg-white shadow-sm">Mind</span>
-                                </div>
-                                <a class="inline-flex items-center gap-2 bg-[#fe8a29] text-white rounded-full px-6 py-2.5 font-label-md text-label-md hover:bg-[#e0751b] transition-colors shadow-sm"
-                                        href="#">
-                                        Explore more
-                                        <span
-                                                class="material-symbols-outlined text-[18px] text-white">arrow_outward</span>
-                                </a>
-                        </div>
-                        <!-- Globe image container strictly placed in the right column to prevent any overlap with text -->
-                        <div
-                                class="w-full h-[300px] md:h-[400px] lg:h-[500px] flex items-center justify-center relative overflow-visible">
-                                <img src="Earth.png"
-                                        class="h-full w-auto object-contain mix-blend-multiply origin-center -scale-x-[1.3] scale-y-[1.3] sm:-scale-x-[1.45] sm:scale-y-[1.45] md:-scale-x-[1.9] md:scale-y-[1.9] lg:-scale-x-[2.3] lg:scale-y-[2.3] transition-transform duration-500"
-                                        alt="Globe watercolor illustration" />
-                        </div>
-                </div>
-        </section>
-        <!-- Social Proof -->
-        <section class="py-24 md:py-36 lg:py-48 bg-surface">
-                <div
-                        class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 md:grid-cols-[1.16fr_0.84fr] gap-6 md:gap-8 lg:gap-10 items-stretch">
-                        <div
-                                class="rounded-lg overflow-hidden border border-outline-variant/20 relative aspect-video shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
-                                <img alt="A large diverse group of smiling people posing together outdoors"
-                                        class="w-full h-full object-cover"
-                                        data-alt="A vibrant, high-quality photograph of a very large, diverse community group standing closely together outdoors in a sunny park setting. Hundreds of people of various ages are smiling warmly at the camera, wearing casual, colorful everyday clothing. The scene is brightly lit by natural sunlight, creating a cheerful, highly relatable, and positive mood. The image is framed as a wide landscape shot, emphasizing a profound sense of scale and shared human connection within a warm, inviting environment."
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQKPkgUQyO3L0jXwcaRQDW3RcvOTrnzJOPMEaDQ3NrERfrRKXSWCGZ-UXl_Xlqfcunh1T4uJsBUY1gIQcu7OFzhAbDXeVi1qxT1w--bYtBrNSv2m8KpnXfmhVT6CCUAEXWBGDoX0cxfGLjBPMxyVLlPHgxGE8zg_uQHKibOIjxKYRDNtsB_5dcG34kEBVj2dwCGmyi984FkJDsSO-zD1b7lIO5GlgyxDiCtCl0UEZYYTzdM4x0Nw-FLQ8-OgzXPD8gh1vT4qiN_4k" />
-                        </div>
-                        <div class="flex flex-col justify-between h-full py-1.5 md:pl-2">
-                                <h2
-                                        class="font-headline-xl text-[44px] md:text-[60px] lg:text-[82px] xl:text-[88px] text-primary font-black leading-[0.95] md:leading-[0.95] lg:leading-[0.95]">
-                                        1 lakh+ <br />Families
+                </section>
+                <!-- For Every Stage of Life -->
+                <section class="snap-section pt-[180px] md:pt-0 pb-section-padding-v md:pb-0 relative overflow-hidden md:h-screen md:min-h-screen md:flex md:flex-col md:justify-center w-full"
+                        style="background: linear-gradient(to top right, rgba(254, 138, 41, 0.25) 0%, rgba(254, 138, 41, 0.02) 60%, transparent 90%), #fef9f0;">
+                        <!-- Full width centered section heading -->
+                        <div class="max-w-[1200px] mx-auto px-gutter mb-6 md:mb-8 w-full">
+                                <h2 class="font-headline-lg text-[32px] md:text-[48px] lg:text-[72px] xl:text-[82px] text-[#244996] font-bold text-center leading-tight"
+                                        style="font-family: 'DM Sans', sans-serif;">
+                                        For Every Stage of Life,<br />
+                                        <span class="font-normal">For Every Question of Life.</span>
                                 </h2>
-                                <p
-                                        class="font-headline-md text-[22px] md:text-[28px] lg:text-[33px] xl:text-[36px] text-primary/80 font-normal leading-snug">
-                                        <span class="block md:whitespace-nowrap">have found greater clarity</span>
-                                        <span class="block md:whitespace-nowrap">in themselves, their
-                                                relationships,</span>
-                                        <span class="block md:whitespace-nowrap">and their lives.</span>
-                                </p>
                         </div>
-                </div>
-        </section>
-
-        <!-- Holistic Picture of Life Section -->
-        <section class="py-14 md:py-32 bg-[#022a73] relative overflow-hidden z-10 border-t border-b border-white/5">
-                <div class="max-w-[1200px] mx-auto px-gutter relative z-10">
-                        <!-- Headings -->
-                        <div class="text-center mb-8 md:mb-16">
-                                <h2
-                                        class="font-headline-lg text-[32px] md:text-[44px] lg:text-[56px] text-[#fe8a29] font-bold leading-tight">
-                                        Get a Holistic Picture of Life.
-                                </h2>
-                                <p
-                                        class="text-white/80 text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-normal mt-3 max-w-2xl mx-auto">
-                                        Engage in discussions without any judgements or filters.
-                                </p>
-                        </div>
-
-                        <!-- RESPONSIVE UNIFIED DIAMOND DIAGRAM LAYOUT (Visible only on Desktop - MD and up) -->
                         <div
-                                class="hidden md:flex flex-col items-center max-w-[950px] mx-auto relative z-10 w-full px-2 sm:px-4">
-                                <!-- Row 1: Top Node Text (Family & Relationships) -->
-                                <div class="text-center mb-2 md:mb-3 max-w-none select-none animate-fade-in">
+                                class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center -mt-4 md:-mt-8 w-full">
+                                <div
+                                        class="z-10 text-left transform lg:-translate-x-[50px] lg:-translate-y-[40px] xl:-translate-x-[90px] xl:-translate-y-[60px]">
                                         <h3
-                                                class="text-white font-bold text-[14px] tracking-tight md:tracking-normal md:text-[20px] lg:text-[24px] mb-0.5 md:mb-1 whitespace-nowrap">
-                                                Family & Relationships</h3>
+                                                class="font-headline-md text-[18px] md:text-[22px] lg:text-[32px] text-[#244996] mb-stack-xs leading-snug font-bold md:whitespace-nowrap lg:whitespace-nowrap">
+                                                The Sah Astitva Answers <span
+                                                        class="font-normal text-[#244996]/80">provide
+                                                        logical, rational
+                                                        solutions</span>
+                                        </h3>
                                         <p
-                                                class="text-white/70 text-[12.5px] md:text-[14px] lg:text-[16px] leading-relaxed whitespace-nowrap">
-                                                Can expectations in relationships be understood?
+                                                class="font-body-lg text-[15px] md:text-[17px] lg:text-[26px] text-[#244996]/70 mb-stack-md">
+                                                A way to examine, understand and live life.
+                                        </p>
+                                        <div
+                                                class="flex flex-wrap justify-start gap-3 lg:gap-4 mb-stack-lg max-w-lg lg:max-w-[950px]">
+                                                <span
+                                                        class="px-4 py-1.5 lg:px-6 lg:py-2.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md lg:text-[19px] bg-white shadow-sm">Love</span>
+                                                <span
+                                                        class="px-4 py-1.5 lg:px-6 lg:py-2.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md lg:text-[19px] bg-white shadow-sm">Happiness</span>
+                                                <span
+                                                        class="px-4 py-1.5 lg:px-6 lg:py-2.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md lg:text-[19px] bg-white shadow-sm">Relationship</span>
+                                                <span
+                                                        class="px-4 py-1.5 lg:px-6 lg:py-2.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md lg:text-[19px] bg-white shadow-sm">Spirituality</span>
+                                                <span
+                                                        class="px-4 py-1.5 lg:px-6 lg:py-2.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md lg:text-[19px] bg-white shadow-sm">Marriage</span>
+                                                <span
+                                                        class="px-4 py-1.5 lg:px-6 lg:py-2.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md lg:text-[19px] bg-white shadow-sm">Career</span>
+                                                <span
+                                                        class="px-4 py-1.5 lg:px-6 lg:py-2.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md lg:text-[19px] bg-white shadow-sm">Desire</span>
+                                                <span
+                                                        class="px-4 py-1.5 lg:px-6 lg:py-2.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md lg:text-[19px] bg-white shadow-sm">Ego</span>
+                                                <span
+                                                        class="px-4 py-1.5 lg:px-6 lg:py-2.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md lg:text-[19px] bg-white shadow-sm">Mind</span>
+                                        </div>
+                                        <a class="inline-flex items-center gap-2 bg-[#fe8a29] text-white rounded-full px-6 py-2.5 lg:px-8 lg:py-3.5 font-label-md lg:text-[19px] hover:bg-[#e0751b] transition-colors shadow-sm"
+                                                href="#">
+                                                Explore more
+                                                <span
+                                                        class="material-symbols-outlined text-[18px] lg:text-[22px] text-white">arrow_outward</span>
+                                        </a>
+                                </div>
+                                <!-- Globe image container strictly placed in the right column to prevent any overlap with text -->
+                                <div
+                                        class="w-full h-[260px] sm:h-[320px] md:h-[360px] lg:h-[680px] xl:h-[740px] flex items-center justify-center relative overflow-visible">
+                                        <img src="Earth.png"
+                                                class="h-full w-auto object-contain mix-blend-multiply origin-center -scale-x-[1.3] scale-y-[1.3] sm:-scale-x-[1.45] sm:scale-y-[1.45] md:-scale-x-[1.9] md:scale-y-[1.9] lg:-scale-x-[4.4] lg:scale-y-[4.4] xl:-scale-x-[5.2] xl:scale-y-[5.2] transition-transform duration-500"
+                                                alt="Globe watercolor illustration" />
+                                </div>
+                        </div>
+                </section>
+
+                <!-- Social Proof -->
+                <section
+                        class="snap-section snap-center-section py-24 md:py-0 bg-surface md:h-[calc(100vh-320px)] md:min-h-[520px] md:flex md:items-center w-full">
+                        <div
+                                class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-6 md:gap-10 lg:gap-14 xl:gap-16 items-stretch w-full">
+                                <div
+                                        class="rounded-lg overflow-hidden border border-outline-variant/20 relative aspect-video shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+                                        <img alt="A large diverse group of smiling people posing together outdoors"
+                                                class="w-full h-full object-cover"
+                                                data-alt="A vibrant, high-quality photograph of a very large, diverse community group standing closely together outdoors in a sunny park setting. Hundreds of people of various ages are smiling warmly at the camera, wearing casual, colorful everyday clothing. The scene is brightly lit by natural sunlight, creating a cheerful, highly relatable, and positive mood. The image is framed as a wide landscape shot, emphasizing a profound sense of scale and shared human connection within a warm, inviting environment."
+                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQKPkgUQyO3L0jXwcaRQDW3RcvOTrnzJOPMEaDQ3NrERfrRKXSWCGZ-UXl_Xlqfcunh1T4uJsBUY1gIQcu7OFzhAbDXeVi1qxT1w--bYtBrNSv2m8KpnXfmhVT6CCUAEXWBGDoX0cxfGLjBPMxyVLlPHgxGE8zg_uQHKibOIjxKYRDNtsB_5dcG34kEBVj2dwCGmyi984FkJDsSO-zD1b7lIO5GlgyxDiCtCl0UEZYYTzdM4x0Nw-FLQ8-OgzXPD8gh1vT4qiN_4k" />
+                                </div>
+                                <div class="flex flex-col justify-center gap-4 md:gap-6 h-full py-1.5 md:pl-2">
+                                        <h2
+                                                class="font-headline-xl text-[44px] md:text-[58px] lg:text-[76px] xl:text-[88px] text-primary font-black leading-[0.95] md:leading-[0.95] lg:leading-[0.95]">
+                                                1 lakh+ <br />Families
+                                        </h2>
+                                        <p class="text-[22px] md:text-[22px] lg:text-[25px] xl:text-[27px] text-primary/80 font-normal leading-snug"
+                                                style="font-family: 'Public Sans', sans-serif;">
+                                                <span class="block md:whitespace-nowrap">have found greater
+                                                        clarity</span>
+                                                <span class="block md:whitespace-nowrap">in themselves, their
+                                                        relationships,</span>
+                                                <span class="block md:whitespace-nowrap">and their lives.</span>
+                                        </p>
+                                </div>
+                        </div>
+                </section>
+
+                <!-- Holistic Picture of Life Section -->
+                <section
+                        class="snap-section py-14 md:py-0 bg-[#244996] relative overflow-hidden z-10 border-t border-b border-white/5 md:h-screen md:min-h-screen md:flex md:flex-col md:justify-center w-full">
+                        <div class="max-w-[1200px] mx-auto px-gutter relative z-10 w-full">
+                                <!-- Headings -->
+                                <div class="text-center mb-8 md:mb-16">
+                                        <h2 class="font-headline-lg text-[32px] md:text-[48px] lg:text-[62px] xl:text-[72px] text-[#FF8210] font-bold leading-tight"
+                                                style="font-family: 'DM Sans', sans-serif;">
+                                                Get a Holistic Picture of Life.
+                                        </h2>
+                                        <p class="text-white/80 md:text-white text-[16px] sm:text-[18px] md:text-[24px] lg:text-[26px] font-normal mt-3 max-w-[900px] mx-auto"
+                                                style="font-family: 'Public Sans', sans-serif;">
+                                                Engage in discussions without any judgements or filters.
                                         </p>
                                 </div>
 
-                                <!-- Row 2: Left Text, Center Image, Right Text -->
+                                <!-- RESPONSIVE UNIFIED DIAMOND DIAGRAM LAYOUT (Visible only on Desktop - MD and up) -->
                                 <div
-                                        class="w-full grid grid-cols-[1fr_90px_1fr] md:grid-cols-[1fr_auto_1fr] gap-2 sm:gap-4 md:gap-6 lg:gap-12 items-center">
-                                        <!-- Left Column: Happiness -->
-                                        <div class="text-center select-none">
+                                        class="hidden md:flex flex-col items-center max-w-[1250px] mx-auto relative z-10 w-full px-2 sm:px-4">
+                                        <!-- Row 1: Top Node Text (Family & Relationships) -->
+                                        <div class="text-center mb-2 md:mb-3 max-w-none select-none animate-fade-in">
                                                 <h3
-                                                        class="text-white font-bold text-[14px] tracking-tight md:tracking-normal md:text-[20px] lg:text-[24px] mb-0.5 md:mb-1 whitespace-nowrap">
-                                                        Happiness</h3>
-                                                <p
-                                                        class="text-white/70 text-[12.5px] md:text-[14px] lg:text-[16px] leading-relaxed whitespace-normal md:whitespace-nowrap">
-                                                        What is comprehensive happiness?
+                                                        class="text-white font-bold text-[14px] tracking-tight md:tracking-normal md:text-[25px] lg:text-[28px] mb-0.5 md:mb-1 whitespace-nowrap">
+                                                        Family & Relationships</h3>
+                                                <p class="text-white/70 md:text-white text-[12.5px] md:text-[21px] lg:text-[23px] leading-relaxed whitespace-nowrap"
+                                                        style="font-family: 'Public Sans', sans-serif;">
+                                                        Can expectations in relationships be understood?
                                                 </p>
                                         </div>
 
-                                        <!-- Center Column: Image -->
-                                        <div class="flex justify-center z-20">
+                                        <!-- Row 2: Left Text, Center Image, Right Text -->
+                                        <div
+                                                class="w-full grid grid-cols-[1fr_90px_1fr] md:grid-cols-[1fr_260px_1fr] lg:grid-cols-[1fr_320px_1fr] xl:grid-cols-[1fr_360px_1fr] gap-2 sm:gap-4 md:gap-6 lg:gap-12 items-center">
+                                                <!-- Left Column: Happiness -->
+                                                <div class="text-center select-none">
+                                                        <h3
+                                                                class="text-white font-bold text-[14px] tracking-tight md:tracking-normal md:text-[25px] lg:text-[28px] mb-0.5 md:mb-1 whitespace-nowrap">
+                                                                Happiness</h3>
+                                                        <p class="text-white/70 md:text-white text-[12.5px] md:text-[21px] lg:text-[23px] leading-relaxed whitespace-normal md:whitespace-nowrap"
+                                                                style="font-family: 'Public Sans', sans-serif;">
+                                                                What is comprehensive happiness?
+                                                        </p>
+                                                </div>
+
+                                                <!-- Center Column: Image -->
+                                                <div class="flex justify-center z-20">
+                                                        <img src="ess.png" alt="Holistic Picture of Life Dimensions"
+                                                                class="center-diagram-img object-contain select-none pointer-events-none" />
+                                                </div>
+
+                                                <!-- Right Column: Expand Perspectives -->
+                                                <div class="text-center select-none">
+                                                        <h3
+                                                                class="text-white font-bold text-[14px] tracking-tight md:tracking-normal md:text-[25px] lg:text-[28px] mb-0.5 md:mb-1 whitespace-nowrap">
+                                                                Expand Perspectives</h3>
+                                                        <p class="text-white/70 md:text-white text-[12.5px] md:text-[21px] lg:text-[23px] leading-relaxed whitespace-normal md:whitespace-nowrap"
+                                                                style="font-family: 'Public Sans', sans-serif;">
+                                                                What is the ultimate purpose of life?
+                                                        </p>
+                                                </div>
+                                        </div>
+
+                                        <!-- Row 3: Bottom Node Text (Make Sense of the World) -->
+                                        <div class="text-center mt-2 md:mt-3 max-w-none select-none animate-fade-in">
+                                                <h3
+                                                        class="text-white font-bold text-[14px] tracking-tight md:tracking-normal md:text-[25px] lg:text-[28px] mb-0.5 md:mb-1 whitespace-nowrap">
+                                                        Make Sense of the World</h3>
+                                                <p class="text-white/70 md:text-white text-[12.5px] md:text-[21px] lg:text-[23px] leading-relaxed whitespace-nowrap"
+                                                        style="font-family: 'Public Sans', sans-serif;">
+                                                        How can I contribute meaningfully?
+                                                </p>
+                                        </div>
+                                </div>
+
+                                <!-- ADAPTIVE MOBILE LAYOUT (Visible only on Mobile - less than MD) -->
+                                <div class="flex md:hidden flex-col items-center w-full relative z-10 px-4">
+                                        <!-- Large Center Image on Top -->
+                                        <div
+                                                class="w-[340px] h-[260px] xs:w-[380px] xs:h-[280px] sm:w-[420px] sm:h-[300px] max-w-full flex items-center justify-center relative overflow-visible mt-3 mb-8">
                                                 <img src="ess.png" alt="Holistic Picture of Life Dimensions"
-                                                        class="center-diagram-img object-contain select-none pointer-events-none" />
+                                                        class="w-full h-full object-contain select-none pointer-events-none z-10 transform scale-[1.7] -translate-y-6 xs:scale-[1.8] xs:-translate-y-8 sm:scale-[1.9] sm:-translate-y-10" />
                                         </div>
 
-                                        <!-- Right Column: Expand Perspectives -->
-                                        <div class="text-center select-none">
-                                                <h3
-                                                        class="text-white font-bold text-[14px] tracking-tight md:tracking-normal md:text-[20px] lg:text-[24px] mb-0.5 md:mb-1 whitespace-nowrap">
-                                                        Expand Perspectives</h3>
-                                                <p
-                                                        class="text-white/70 text-[12.5px] md:text-[14px] lg:text-[16px] leading-relaxed whitespace-normal md:whitespace-nowrap">
-                                                        What is the ultimate purpose of life?
-                                                </p>
+                                        <!-- Four Points Stacked Vertically as a List -->
+                                        <div class="flex flex-col gap-6 w-full pl-2">
+                                                <!-- Point 1 -->
+                                                <div class="border-l-[3px] border-[#fe8a29] pl-4 select-none">
+                                                        <h3 class="text-white font-bold text-[17px] leading-tight">
+                                                                Family &
+                                                                Relationships</h3>
+                                                        <p class="text-white/70 text-[13px] leading-relaxed mt-1">Can
+                                                                expectations in relationships be understood?</p>
+                                                </div>
+                                                <!-- Point 2 -->
+                                                <div class="border-l-[3px] border-[#fe8a29] pl-4 select-none">
+                                                        <h3 class="text-white font-bold text-[17px] leading-tight">
+                                                                Happiness
+                                                        </h3>
+                                                        <p class="text-white/70 text-[13px] leading-relaxed mt-1">What
+                                                                is
+                                                                comprehensive happiness?</p>
+                                                </div>
+                                                <!-- Point 3 -->
+                                                <div class="border-l-[3px] border-[#fe8a29] pl-4 select-none">
+                                                        <h3 class="text-white font-bold text-[17px] leading-tight">
+                                                                Expand
+                                                                Perspectives</h3>
+                                                        <p class="text-white/70 text-[13px] leading-relaxed mt-1">What
+                                                                is the
+                                                                ultimate purpose of life?</p>
+                                                </div>
+                                                <!-- Point 4 -->
+                                                <div class="border-l-[3px] border-[#fe8a29] pl-4 select-none">
+                                                        <h3 class="text-white font-bold text-[17px] leading-tight">Make
+                                                                Sense of
+                                                                the World</h3>
+                                                        <p class="text-white/70 text-[13px] leading-relaxed mt-1">How
+                                                                can I
+                                                                contribute meaningfully?</p>
+                                                </div>
                                         </div>
-                                </div>
-
-                                <!-- Row 3: Bottom Node Text (Make Sense of the World) -->
-                                <div class="text-center mt-2 md:mt-3 max-w-none select-none animate-fade-in">
-                                        <h3
-                                                class="text-white font-bold text-[14px] tracking-tight md:tracking-normal md:text-[20px] lg:text-[24px] mb-0.5 md:mb-1 whitespace-nowrap">
-                                                Make Sense of the World</h3>
-                                        <p
-                                                class="text-white/70 text-[12.5px] md:text-[14px] lg:text-[16px] leading-relaxed whitespace-nowrap">
-                                                How can I contribute meaningfully?
-                                        </p>
                                 </div>
                         </div>
+                </section>
 
-                        <!-- ADAPTIVE MOBILE LAYOUT (Visible only on Mobile - less than MD) -->
-                        <div class="flex md:hidden flex-col items-center w-full relative z-10 px-4">
-                                <!-- Large Center Image on Top -->
+                <!-- Testimonials: Real Experiences. Real People. -->
+                <section
+                        class="snap-section snap-center-section py-28 sm:py-0 bg-[#fef9f0] relative overflow-hidden z-10 md:h-[65vh] md:min-h-[480px] md:flex md:flex-col md:justify-center w-full">
+                        <div class="max-w-[1200px] mx-auto px-6 md:px-8 relative z-10 w-full">
+                                <!-- Heading -->
+                                <div class="mb-12 md:mb-16">
+                                        <h2
+                                                class="font-headline-xl text-[42px] md:text-[62px] lg:text-[76px] xl:text-[88px] leading-[1.1] text-[#fe8a29] select-none">
+                                                <span class="font-bold block">Real Experiences.</span>
+                                                <span class="font-normal block">Real People.</span>
+                                        </h2>
+                                </div>
+
+                                <!-- Testimonial Cards Grid -->
                                 <div
-                                        class="w-[340px] h-[260px] xs:w-[380px] xs:h-[280px] sm:w-[420px] sm:h-[300px] max-w-full flex items-center justify-center relative overflow-visible mt-3 mb-8">
-                                        <img src="ess.png" alt="Holistic Picture of Life Dimensions"
-                                                class="w-full h-full object-contain select-none pointer-events-none z-10 transform scale-[1.7] -translate-y-6 xs:scale-[1.8] xs:-translate-y-8 sm:scale-[1.9] sm:-translate-y-10" />
-                                </div>
-
-                                <!-- Four Points Stacked Vertically as a List -->
-                                <div class="flex flex-col gap-6 w-full pl-2">
-                                        <!-- Point 1 -->
-                                        <div class="border-l-[3px] border-[#fe8a29] pl-4 select-none">
-                                                <h3 class="text-white font-bold text-[17px] leading-tight">Family &
-                                                        Relationships</h3>
-                                                <p class="text-white/70 text-[13px] leading-relaxed mt-1">Can
-                                                        expectations in relationships be understood?</p>
-                                        </div>
-                                        <!-- Point 2 -->
-                                        <div class="border-l-[3px] border-[#fe8a29] pl-4 select-none">
-                                                <h3 class="text-white font-bold text-[17px] leading-tight">Happiness
-                                                </h3>
-                                                <p class="text-white/70 text-[13px] leading-relaxed mt-1">What is
-                                                        comprehensive happiness?</p>
-                                        </div>
-                                        <!-- Point 3 -->
-                                        <div class="border-l-[3px] border-[#fe8a29] pl-4 select-none">
-                                                <h3 class="text-white font-bold text-[17px] leading-tight">Expand
-                                                        Perspectives</h3>
-                                                <p class="text-white/70 text-[13px] leading-relaxed mt-1">What is the
-                                                        ultimate purpose of life?</p>
-                                        </div>
-                                        <!-- Point 4 -->
-                                        <div class="border-l-[3px] border-[#fe8a29] pl-4 select-none">
-                                                <h3 class="text-white font-bold text-[17px] leading-tight">Make Sense of
-                                                        the World</h3>
-                                                <p class="text-white/70 text-[13px] leading-relaxed mt-1">How can I
-                                                        contribute meaningfully?</p>
-                                        </div>
-                                </div>
-                        </div>
-                </div>
-        </section>
-
-        <!-- Testimonials: Real Experiences. Real People. -->
-        <section class="py-28 sm:py-36 md:py-44 lg:py-52 bg-[#fef9f0] relative overflow-hidden z-10">
-                <div class="max-w-[1200px] mx-auto px-6 md:px-8 relative z-10">
-                        <!-- Heading -->
-                        <div class="mb-12 md:mb-16">
-                                <h2
-                                        class="font-headline-xl text-[38px] md:text-[50px] lg:text-[56px] leading-[1.1] text-[#fe8a29] select-none">
-                                        <span class="font-bold block">Real Experiences.</span>
-                                        <span class="font-normal block">Real People.</span>
-                                </h2>
-                        </div>
-
-                        <!-- Testimonial Cards Grid -->
-                        <div
-                                class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-stretch mt-12 md:mt-20 pl-10 sm:pl-12 md:pl-0 pr-4 sm:pr-6 md:pr-0">
-                                <!-- Boni Patel Card -->
-                                <div
-                                        class="group relative bg-white shadow-[0_15px_45px_rgba(0,0,0,0.08)] rounded-[20px] pt-12 pb-12 sm:pt-14 sm:pb-14 pl-14 sm:pl-20 pr-8 sm:pr-10 min-h-[220px] sm:min-h-[250px] flex flex-col justify-center border border-gray-100/80 hover:-translate-y-1 hover:shadow-[0_20px_55px_rgba(0,0,0,0.12)] transition-all duration-300">
-                                        <!-- Sharp Blue Vertical Bar on Right Edge -->
-                                        <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73]"></div>
-
-                                        <!-- Overlapping Avatar -->
+                                        class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-stretch mt-12 md:mt-8 lg:mt-12 xl:mt-16 pl-10 sm:pl-12 md:pl-0 pr-4 sm:pr-6 md:pr-0 w-full">
+                                        <!-- Boni Patel Card -->
                                         <div
-                                                class="absolute -left-10 sm:-left-12 top-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden shadow-[0_8px_25px_rgba(0,0,0,0.12)] border border-gray-200 bg-gray-100 flex items-center justify-center">
-                                                <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300"
-                                                        fill="currentColor" viewBox="0 0 24 24">
-                                                        <path
-                                                                d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                                                </svg>
-                                        </div>
-                                        <!-- Content -->
-                                        <div class="flex flex-col select-none">
-                                                <h4
-                                                        class="text-[#022a73] font-bold text-[18px] sm:text-[20px] leading-tight">
-                                                        Boni Patel</h4>
-                                                <p
-                                                        class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5 sm:mt-1">
-                                                        Manager, Samarth Diamond<br>Visnagar</p>
+                                                class="group relative bg-white shadow-[0_15px_45px_rgba(0,0,0,0.08)] rounded-[20px] pt-12 pb-12 sm:pt-14 sm:pb-14 pl-14 sm:pl-20 pr-8 sm:pr-10 min-h-[220px] sm:min-h-[250px] flex flex-col justify-center border border-gray-100/80 hover:-translate-y-1 hover:shadow-[0_20px_55px_rgba(0,0,0,0.12)] transition-all duration-300">
+                                                <!-- Sharp Blue Vertical Bar on Right Edge -->
+                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73]"></div>
+
+                                                <!-- Overlapping Avatar -->
                                                 <div
-                                                        class="mt-4 text-[#1d1c16] text-[14px] sm:text-[15px] leading-relaxed">
-                                                        “इससे मुझमे और परिवार में तृप्ति का स्तर बढ़ता देख पाया।”
+                                                        class="absolute -left-10 sm:-left-12 top-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden shadow-[0_8px_25px_rgba(0,0,0,0.12)] border border-gray-200 bg-gray-100 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300"
+                                                                fill="currentColor" viewBox="0 0 24 24">
+                                                                <path
+                                                                        d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                        </svg>
+                                                </div>
+                                                <!-- Content -->
+                                                <div class="flex flex-col select-none">
+                                                        <h4 class="text-[#022a73] font-normal text-[20px] sm:text-[22px] leading-tight"
+                                                                style="font-family: 'DM Sans', sans-serif;">
+                                                                Boni Patel</h4>
+                                                        <p
+                                                                class="text-[#747682] text-[14px] sm:text-[15px] font-medium mt-0.5 sm:mt-1">
+                                                                Manager, Samarth Diamond<br>Visnagar</p>
+                                                        <div class="mt-4 text-[#1d1c16] text-[19px] sm:text-[20px] leading-relaxed"
+                                                                style="font-family: 'Alegreya Sans', sans-serif;">
+                                                                “इससे मुझमे और परिवार में तृप्ति का स्तर बढ़ता देख पाया।”
+                                                                <span class="italic text-[16px] sm:text-[17px] text-[#747682] mt-1.5 block leading-normal"
+                                                                        style="font-family: 'Alegreya Sans', sans-serif;">(It
+                                                                        brought growing contentment—in me and in my
+                                                                        family.)</span>
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <!-- Shriram Narasimhan Card -->
+                                        <div
+                                                class="group relative bg-white shadow-[0_15px_45px_rgba(0,0,0,0.08)] rounded-[20px] pt-12 pb-12 sm:pt-14 sm:pb-14 pl-14 sm:pl-20 pr-8 sm:pr-10 min-h-[220px] sm:min-h-[250px] flex flex-col justify-center border border-gray-100/80 hover:-translate-y-1 hover:shadow-[0_20px_55px_rgba(0,0,0,0.12)] transition-all duration-300">
+                                                <!-- Sharp Blue Vertical Bar on Right Edge -->
+                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73]"></div>
+
+                                                <!-- Overlapping Avatar -->
+                                                <div
+                                                        class="absolute -left-10 sm:-left-12 top-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden shadow-[0_8px_25px_rgba(0,0,0,0.12)] border border-gray-200 bg-gray-100 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300"
+                                                                fill="currentColor" viewBox="0 0 24 24">
+                                                                <path
+                                                                        d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                        </svg>
+                                                </div>
+                                                <!-- Content -->
+                                                <div class="flex flex-col select-none">
+                                                        <h4 class="text-[#022a73] font-normal text-[20px] sm:text-[22px] leading-tight"
+                                                                style="font-family: 'DM Sans', sans-serif;">
+                                                                Shriram Narasimhan</h4>
+                                                        <p
+                                                                class="text-[#747682] text-[14px] sm:text-[15px] font-medium mt-0.5 sm:mt-1">
+                                                                Ex MNC Manager</p>
+                                                        <div class="mt-4 text-[#1d1c16] text-[19px] sm:text-[20px] leading-relaxed italic"
+                                                                style="font-family: 'Alegreya Sans', sans-serif;">
+                                                                “A real, honest suitcase of knowledge & living I can
+                                                                unpack the
+                                                                rest of my Life that results in meaningful Social Action
+                                                                too.”
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
+
+                <!-- What is Sah Astitva Answers? -->
+                <section
+                        class="snap-section py-28 md:py-0 bg-primary relative overflow-hidden md:h-screen md:min-h-screen md:flex md:flex-col md:justify-center w-full">
+                        <!-- Topographic background image -->
+                        <div class="absolute inset-0 z-0 pointer-events-none">
+                                <img src="Sah.png" class="w-full h-full object-cover opacity-80"
+                                        alt="Topographic background texture" />
+                        </div>
+                        <div class="max-w-[1200px] mx-auto px-gutter relative z-10 w-full">
+                                <div class="text-on-primary">
+                                        <h2 class="font-headline-xl text-[42px] md:text-[62px] lg:text-[78px] xl:text-[88px] font-bold mb-stack-sm leading-tight text-white md:whitespace-nowrap"
+                                                style="font-family: 'DM Sans', sans-serif;">
+                                                What is Sah Astitva Answers?
+                                        </h2>
+                                        <p class="font-headline-md text-[24px] md:text-[32px] lg:text-[38px] text-[#fe8a29] font-normal mb-stack-lg leading-snug"
+                                                style="font-family: 'Public Sans', sans-serif;">
+                                                A 3-Day Journey to understand your true potential as a human being
+                                        </p>
+                                        <ul class="flex flex-col gap-6 md:gap-7 text-white">
+                                                <li class="flex items-start gap-4">
                                                         <span
-                                                                class="italic text-[13px] sm:text-[14px] text-[#747682] mt-1.5 block leading-normal">(It
-                                                                brought growing contentment—in me and in my
-                                                                family.)</span>
-                                                </div>
-                                        </div>
-                                </div>
-
-                                <!-- Shriram Narasimhan Card -->
-                                <div
-                                        class="group relative bg-white shadow-[0_15px_45px_rgba(0,0,0,0.08)] rounded-[20px] pt-12 pb-12 sm:pt-14 sm:pb-14 pl-14 sm:pl-20 pr-8 sm:pr-10 min-h-[220px] sm:min-h-[250px] flex flex-col justify-center border border-gray-100/80 hover:-translate-y-1 hover:shadow-[0_20px_55px_rgba(0,0,0,0.12)] transition-all duration-300">
-                                        <!-- Sharp Blue Vertical Bar on Right Edge -->
-                                        <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73]"></div>
-
-                                        <!-- Overlapping Avatar -->
-                                        <div
-                                                class="absolute -left-10 sm:-left-12 top-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden shadow-[0_8px_25px_rgba(0,0,0,0.12)] border border-gray-200 bg-gray-100 flex items-center justify-center">
-                                                <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300"
-                                                        fill="currentColor" viewBox="0 0 24 24">
-                                                        <path
-                                                                d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                                                </svg>
-                                        </div>
-                                        <!-- Content -->
-                                        <div class="flex flex-col select-none">
-                                                <h4
-                                                        class="text-[#022a73] font-bold text-[18px] sm:text-[20px] leading-tight">
-                                                        Shriram Narasimhan</h4>
-                                                <p
-                                                        class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5 sm:mt-1">
-                                                        Ex MNC Manager</p>
-                                                <div
-                                                        class="mt-4 text-[#1d1c16] text-[14px] sm:text-[15px] leading-relaxed italic">
-                                                        “A real, honest suitcase of knowledge & living I can unpack the
-                                                        rest of my Life that results in meaningful Social Action too.”
-                                                </div>
+                                                                class="flex-shrink-0 w-[28px] h-[28px] md:w-[34px] md:h-[34px] rounded-none border-2 border-white flex items-center justify-center mt-1 text-white">
+                                                                <svg class="w-[15px] h-[15px] md:w-[20px] md:h-[20px] fill-none stroke-current stroke-[3]"
+                                                                        viewBox="0 0 24 24">
+                                                                        <path stroke-linecap="round"
+                                                                                stroke-linejoin="round"
+                                                                                d="M5 13l4 4L19 7" />
+                                                                </svg>
+                                                        </span>
+                                                        <span class="text-[22px] md:text-[26px] lg:text-[30px] font-medium leading-snug"
+                                                                style="font-family: 'Public Sans', sans-serif;">Develop
+                                                                a clear understanding of your own mind</span>
+                                                </li>
+                                                <li class="flex items-start gap-4">
+                                                        <span
+                                                                class="flex-shrink-0 w-[28px] h-[28px] md:w-[34px] md:h-[34px] rounded-none border-2 border-white flex items-center justify-center mt-1 text-white">
+                                                                <svg class="w-[15px] h-[15px] md:w-[20px] md:h-[20px] fill-none stroke-current stroke-[3]"
+                                                                        viewBox="0 0 24 24">
+                                                                        <path stroke-linecap="round"
+                                                                                stroke-linejoin="round"
+                                                                                d="M5 13l4 4L19 7" />
+                                                                </svg>
+                                                        </span>
+                                                        <span class="text-[22px] md:text-[26px] lg:text-[30px] font-medium leading-snug"
+                                                                style="font-family: 'Public Sans', sans-serif;">Make
+                                                                sense of your relationships and family</span>
+                                                </li>
+                                                <li class="flex items-start gap-4">
+                                                        <span
+                                                                class="flex-shrink-0 w-[28px] h-[28px] md:w-[34px] md:h-[34px] rounded-none border-2 border-white flex items-center justify-center mt-1 text-white">
+                                                                <svg class="w-[15px] h-[15px] md:w-[20px] md:h-[20px] fill-none stroke-current stroke-[3]"
+                                                                        viewBox="0 0 24 24">
+                                                                        <path stroke-linecap="round"
+                                                                                stroke-linejoin="round"
+                                                                                d="M5 13l4 4L19 7" />
+                                                                </svg>
+                                                        </span>
+                                                        <span class="text-[22px] md:text-[26px] lg:text-[30px] font-medium leading-snug"
+                                                                style="font-family: 'Public Sans', sans-serif;">Find
+                                                                a framework for every decision in life</span>
+                                                </li>
+                                                <li class="flex items-start gap-4">
+                                                        <span
+                                                                class="flex-shrink-0 w-[28px] h-[28px] md:w-[34px] md:h-[34px] rounded-none border-2 border-white flex items-center justify-center mt-1 text-white">
+                                                                <svg class="w-[15px] h-[15px] md:w-[20px] md:h-[20px] fill-none stroke-current stroke-[3]"
+                                                                        viewBox="0 0 24 24">
+                                                                        <path stroke-linecap="round"
+                                                                                stroke-linejoin="round"
+                                                                                d="M5 13l4 4L19 7" />
+                                                                </svg>
+                                                        </span>
+                                                        <span class="text-[22px] md:text-[26px] lg:text-[30px] font-medium leading-snug"
+                                                                style="font-family: 'Public Sans', sans-serif;">Examine
+                                                                society, nature, and reality — together</span>
+                                                </li>
+                                                <li class="flex items-start gap-4">
+                                                        <span
+                                                                class="flex-shrink-0 w-[28px] h-[28px] md:w-[34px] md:h-[34px] rounded-none border-2 border-white flex items-center justify-center mt-1 text-white">
+                                                                <svg class="w-[15px] h-[15px] md:w-[20px] md:h-[20px] fill-none stroke-current stroke-[3]"
+                                                                        viewBox="0 0 24 24">
+                                                                        <path stroke-linecap="round"
+                                                                                stroke-linejoin="round"
+                                                                                d="M5 13l4 4L19 7" />
+                                                                </svg>
+                                                        </span>
+                                                        <span class="text-[22px] md:text-[26px] lg:text-[30px] font-medium leading-snug"
+                                                                style="font-family: 'Public Sans', sans-serif;">Leave
+                                                                with clarity you can actually live by</span>
+                                                </li>
+                                        </ul>
+                                        <div class="mt-stack-lg">
+                                                <a class="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-[#fe8a29] text-white font-label-md text-[17px] hover:bg-[#e0751b] transition-colors shadow-sm font-bold"
+                                                        href="#">
+                                                        Explore the Journey
+                                                </a>
                                         </div>
                                 </div>
                         </div>
-                </div>
-        </section>
+                </section>
 
-        <!-- What is Sah Astitva Answers? -->
-        <section class="py-28 md:py-40 lg:py-56 bg-primary relative overflow-hidden">
-                <!-- Topographic background image -->
-                <div class="absolute inset-0 z-0 pointer-events-none">
-                        <img src="Sah.png" class="w-full h-full object-cover opacity-80"
-                                alt="Topographic background texture" />
-                </div>
-                <div class="max-w-[1200px] mx-auto px-gutter relative z-10">
-                        <div class="text-on-primary">
-                                <h2
-                                        class="font-headline-xl text-[38px] md:text-[50px] lg:text-[62px] font-bold mb-stack-sm leading-tight text-white md:whitespace-nowrap">
-                                        What is Sah Astitva Answers?
-                                </h2>
-                                <p
-                                        class="font-headline-md text-[20px] md:text-[25px] lg:text-[30px] text-[#fe8a29] font-normal mb-stack-lg leading-snug">
-                                        A 3-Day Journey to understand your true potential as a human being
-                                </p>
-                                <ul class="flex flex-col gap-6 md:gap-7 text-white">
-                                        <li class="flex items-start gap-4">
-                                                <span
-                                                        class="flex-shrink-0 w-[24px] h-[24px] md:w-[28px] md:h-[28px] rounded-none border-2 border-white flex items-center justify-center mt-1 text-white">
-                                                        <svg class="w-[13px] h-[13px] md:w-[16px] md:h-[16px] fill-none stroke-current stroke-[3]"
-                                                                viewBox="0 0 24 24">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                                        d="M5 13l4 4L19 7" />
-                                                        </svg>
-                                                </span>
-                                                <span
-                                                        class="text-[18px] md:text-[22px] lg:text-[26px] font-medium leading-snug">Develop
-                                                        a clear understanding of your own mind</span>
-                                        </li>
-                                        <li class="flex items-start gap-4">
-                                                <span
-                                                        class="flex-shrink-0 w-[24px] h-[24px] md:w-[28px] md:h-[28px] rounded-none border-2 border-white flex items-center justify-center mt-1 text-white">
-                                                        <svg class="w-[13px] h-[13px] md:w-[16px] md:h-[16px] fill-none stroke-current stroke-[3]"
-                                                                viewBox="0 0 24 24">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                                        d="M5 13l4 4L19 7" />
-                                                        </svg>
-                                                </span>
-                                                <span
-                                                        class="text-[18px] md:text-[22px] lg:text-[26px] font-medium leading-snug">Make
-                                                        sense of your relationships and family</span>
-                                        </li>
-                                        <li class="flex items-start gap-4">
-                                                <span
-                                                        class="flex-shrink-0 w-[24px] h-[24px] md:w-[28px] md:h-[28px] rounded-none border-2 border-white flex items-center justify-center mt-1 text-white">
-                                                        <svg class="w-[13px] h-[13px] md:w-[16px] md:h-[16px] fill-none stroke-current stroke-[3]"
-                                                                viewBox="0 0 24 24">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                                        d="M5 13l4 4L19 7" />
-                                                        </svg>
-                                                </span>
-                                                <span
-                                                        class="text-[18px] md:text-[22px] lg:text-[26px] font-medium leading-snug">Find
-                                                        a framework for every decision in life</span>
-                                        </li>
-                                        <li class="flex items-start gap-4">
-                                                <span
-                                                        class="flex-shrink-0 w-[24px] h-[24px] md:w-[28px] md:h-[28px] rounded-none border-2 border-white flex items-center justify-center mt-1 text-white">
-                                                        <svg class="w-[13px] h-[13px] md:w-[16px] md:h-[16px] fill-none stroke-current stroke-[3]"
-                                                                viewBox="0 0 24 24">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                                        d="M5 13l4 4L19 7" />
-                                                        </svg>
-                                                </span>
-                                                <span
-                                                        class="text-[18px] md:text-[22px] lg:text-[26px] font-medium leading-snug">Examine
-                                                        society, nature, and reality — together</span>
-                                        </li>
-                                        <li class="flex items-start gap-4">
-                                                <span
-                                                        class="flex-shrink-0 w-[24px] h-[24px] md:w-[28px] md:h-[28px] rounded-none border-2 border-white flex items-center justify-center mt-1 text-white">
-                                                        <svg class="w-[13px] h-[13px] md:w-[16px] md:h-[16px] fill-none stroke-current stroke-[3]"
-                                                                viewBox="0 0 24 24">
-                                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                                        d="M5 13l4 4L19 7" />
-                                                        </svg>
-                                                </span>
-                                                <span
-                                                        class="text-[18px] md:text-[22px] lg:text-[26px] font-medium leading-snug">Leave
-                                                        with clarity you can actually live by</span>
-                                        </li>
-                                </ul>
-                                <div class="mt-stack-lg">
-                                        <a class="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-[#fe8a29] text-white font-label-md text-[17px] hover:bg-[#e0751b] transition-colors shadow-sm font-bold"
-                                                href="#">
-                                                Explore the Journey
-                                        </a>
-                                </div>
-                        </div>
-                </div>
-        </section>
-        <!-- Footer Pre-Section -->
-        <section
-                class="pt-[100px] md:pt-[160px] lg:pt-[220px] bg-[#fef9f0] relative pb-[280px] md:pb-[380px] lg:pb-[480px]">
-                <div class="max-w-[1200px] mx-auto px-gutter relative z-10">
-                        <h2
-                                class="font-headline-xl text-[32px] md:text-[44px] lg:text-[52px] text-[#1b365d] font-bold mb-4 text-center leading-tight">
-                                Wondering Where To Begin?
-                        </h2>
-                        <p
-                                class="text-[16px] md:text-[18px] lg:text-[20px] text-[#2b4c7e] text-center mb-16 max-w-4xl mx-auto leading-relaxed">
-                                Whether you want to explore, experience, or simply understand more — there’s a place to
-                                start.
-                        </p>
-                        <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.95fr_0.95fr] gap-8 lg:gap-10">
-                                <!-- Column 1 (Highlighted & Large) -->
-                                <div class="pl-6 border-l-4 border-[#fe8a29] flex flex-col items-start">
-                                        <h3
-                                                class="font-bold text-[22px] sm:text-[24px] md:text-[28px] lg:text-[32px] text-[#2c2c2c] mb-2 leading-snug whitespace-nowrap">
-                                                Attend The 3-Day Workshop
-                                        </h3>
-                                        <p
-                                                class="text-[18px] md:text-[20px] lg:text-[22px] text-[#5c5c5c] leading-relaxed max-w-md">
-                                                A deeper in-person experience <span class="block">of Jeevan
-                                                        Vidya.</span>
-                                        </p>
-                                        <a class="inline-flex px-8 py-2.5 rounded-full border-2 border-[#fe8a29] text-[#fe8a29] bg-[#fffbf4] font-bold text-[17px] hover:bg-[#fe8a29]/10 transition-colors mt-6 shadow-sm"
-                                                href="#">
-                                                Attend Workshop
-                                        </a>
-                                </div>
-                                <!-- Column 2 -->
-                                <div
-                                        class="pl-5 border-l border-[#fe8a29]/40 flex flex-col items-start justify-start pt-1">
-                                        <h3
-                                                class="font-bold text-[18px] md:text-[20px] lg:text-[22px] text-[#2c2c2c] mb-1.5 leading-snug whitespace-nowrap">
-                                                Join The 3-Hour Online Session
-                                        </h3>
-                                        <p
-                                                class="text-[14px] md:text-[15px] lg:text-[15.5px] text-[#5c5c5c] leading-relaxed">
-                                                A short introduction to the <span class="block">dialogue and core
-                                                        ideas.</span>
-                                        </p>
-                                        <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
-                                                href="#">
-                                                Join Online
-                                        </a>
-                                </div>
-                                <!-- Column 3 -->
-                                <div
-                                        class="pl-5 border-l border-[#fe8a29]/40 flex flex-col items-start justify-start pt-1">
-                                        <h3
-                                                class="font-bold text-[18px] md:text-[20px] lg:text-[22px] text-[#2c2c2c] mb-1.5 leading-snug whitespace-nowrap">
-                                                Explore More
-                                        </h3>
-                                        <p
-                                                class="text-[14px] md:text-[15px] lg:text-[15.5px] text-[#5c5c5c] leading-relaxed">
-                                                Read foundational ideas, <span class="block">questions and
-                                                        reflections.</span>
-                                        </p>
-                                        <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
-                                                href="#">
-                                                Read More
-                                        </a>
-                                </div>
-                        </div>
-                </div>
-                <!-- Mountain Landscape Absolute Background -->
-                <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                        <img alt="Silhouetted mountain layers fading into the background"
-                                class="w-full h-full object-cover object-bottom"
-                                style="-webkit-mask-image: linear-gradient(to top, black 25%, transparent 85%); mask-image: linear-gradient(to top, black 25%, transparent 85%);"
-                                src="footer.png" />
-                </div>
-        </section>
-        <!-- Footer (JSON Shared Component) -->
-        <footer class="w-full relative overflow-hidden bg-[#0a2558] py-5 md:py-6 z-10 border-t border-white/5">
+                <!-- Unified Footer Snapping Section -->
                 <div
-                        class="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 max-w-[1200px] mx-auto px-gutter text-center md:text-left">
-                        <!-- Left Column: Copyright Text -->
-                        <div class="text-white/60 text-[13px] md:text-[14px] font-normal font-body-md">
-                                © 2024 Sah Astitva Answers. All rights reserved.
-                        </div>
-                        <!-- Right Column: Links in a Single Line -->
-                        <div
-                                class="flex flex-row flex-wrap gap-x-6 md:gap-x-8 gap-y-2 items-center justify-center md:justify-end">
-                                <a class="text-[13px] md:text-[14px] text-white/70 hover:text-white transition-colors font-medium font-body-md"
-                                        href="#">Instagram</a>
-                                <a class="text-[13px] md:text-[14px] text-white/70 hover:text-white transition-colors font-medium font-body-md"
-                                        href="#">LinkedIn</a>
-                                <a class="text-[13px] md:text-[14px] text-white/70 hover:text-white transition-colors font-medium font-body-md"
-                                        href="#">X</a>
-                        </div>
+                        class="snap-section md:h-screen md:min-h-screen md:flex md:flex-col bg-[#fef9f0] relative overflow-hidden w-full">
+                        <!-- Footer Pre-Section -->
+                        <section
+                                class="pt-[100px] md:pt-0 bg-transparent relative pb-[30px] md:pb-0 md:flex-grow md:flex md:flex-col md:justify-between z-10 w-full">
+                                <div
+                                        class="max-w-[1200px] mx-auto px-gutter relative z-10 w-full -mt-8 md:-mt-16 lg:-mt-24 md:flex-grow md:flex md:flex-col md:justify-center">
+                                        <h2 class="font-headline-xl text-[42px] md:text-[62px] lg:text-[76px] xl:text-[88px] text-[#244996] font-bold mb-4 text-center leading-tight"
+                                                style="font-family: 'DM Sans', sans-serif;">
+                                                Wondering Where To Begin?
+                                        </h2>
+                                        <p class="text-[20px] md:text-[24px] lg:text-[28px] text-[#244996] text-center mb-16 w-full max-w-none mx-auto leading-relaxed md:whitespace-nowrap"
+                                                style="font-family: 'Public Sans', sans-serif;">
+                                                Whether you want to explore, experience, or simply understand more —
+                                                there’s a place to
+                                                start.
+                                        </p>
+                                        <div
+                                                class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.95fr_0.95fr] gap-8 lg:gap-10">
+                                                <!-- Column 1 (Highlighted & Large) -->
+                                                <div class="pl-6 border-l-4 border-[#fe8a29] flex flex-col items-start">
+                                                        <h3
+                                                                class="font-bold text-[24px] sm:text-[27px] md:text-[32px] lg:text-[36px] text-[#28221b] mb-2 leading-snug whitespace-nowrap">
+                                                                Attend The 3-Day Workshop
+                                                        </h3>
+                                                        <p class="text-[18px] md:text-[20px] lg:text-[22px] text-[#5c5c5c] leading-relaxed max-w-md"
+                                                                style="font-family: 'Public Sans', sans-serif;">
+                                                                A deeper in-person experience <span class="block">of
+                                                                        Jeevan
+                                                                        Vidya.</span>
+                                                        </p>
+                                                        <a class="inline-flex px-8 py-2.5 rounded-full border-2 border-[#fe8a29] text-[#fe8a29] bg-[#fffbf4] font-bold text-[17px] hover:bg-[#fe8a29]/10 transition-colors mt-6 shadow-sm"
+                                                                href="#">
+                                                                Attend Workshop
+                                                        </a>
+                                                </div>
+                                                <!-- Column 2 -->
+                                                <div
+                                                        class="pl-5 border-l border-[#fe8a29]/40 flex flex-col items-start justify-start pt-1">
+                                                        <h3
+                                                                class="font-bold text-[20px] md:text-[22px] lg:text-[25px] text-[#28221b] mb-1.5 leading-snug whitespace-nowrap">
+                                                                Join The 3-Hour Online Session
+                                                        </h3>
+                                                        <p class="text-[15px] md:text-[16px] lg:text-[17.5px] text-[#5c5c5c] leading-relaxed"
+                                                                style="font-family: 'Public Sans', sans-serif;">
+                                                                A short introduction to the <span class="block">dialogue
+                                                                        and core
+                                                                        ideas.</span>
+                                                        </p>
+                                                        <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
+                                                                href="#">
+                                                                Join Online
+                                                        </a>
+                                                </div>
+                                                <!-- Column 3 -->
+                                                <div
+                                                        class="pl-5 border-l border-[#fe8a29]/40 flex flex-col items-start justify-start pt-1">
+                                                        <h3
+                                                                class="font-bold text-[20px] md:text-[22px] lg:text-[25px] text-[#28221b] mb-1.5 leading-snug whitespace-nowrap">
+                                                                Explore More
+                                                        </h3>
+                                                        <p class="text-[15px] md:text-[16px] lg:text-[17.5px] text-[#5c5c5c] leading-relaxed"
+                                                                style="font-family: 'Public Sans', sans-serif;">
+                                                                <span class="whitespace-nowrap">Read foundational
+                                                                        ideas,</span> <span
+                                                                        class="sm:block whitespace-nowrap">questions and
+                                                                        reflections.</span>
+                                                        </p>
+                                                        <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
+                                                                href="#">
+                                                                Read More
+                                                        </a>
+                                                </div>
+                                        </div>
+                                </div>
+                                <!-- Mountain Landscape Absolute Background -->
+                                <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                                        <img alt="Silhouetted mountain layers fading into the background"
+                                                class="w-full h-full object-cover object-bottom"
+                                                style="-webkit-mask-image: linear-gradient(to top, black 25%, transparent 85%); mask-image: linear-gradient(to top, black 25%, transparent 85%);"
+                                                src="footer.png" />
+                                </div>
+                                <!-- Footer content placed directly at the bottom of the section -->
+                                <div
+                                        class="w-full relative z-20 py-5 md:py-6 border-t border-white/10 mt-12 md:mt-auto">
+                                        <div
+                                                class="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 max-w-[1200px] mx-auto px-gutter text-center md:text-left">
+                                                <!-- Left Column: Copyright Text -->
+                                                <div class="text-white/70 text-[13px] md:text-[14px] font-normal"
+                                                        style="font-family: 'Public Sans', sans-serif;">
+                                                        © 2026 Sah Astitva Answers. All rights reserved.
+                                                </div>
+                                                <!-- Right Column: Links in a Single Line -->
+                                                <div
+                                                        class="flex flex-row flex-wrap gap-x-6 md:gap-x-8 gap-y-2 items-center justify-center md:justify-end">
+                                                        <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                                                                style="font-family: 'Public Sans', sans-serif;"
+                                                                href="#">Instagram</a>
+                                                        <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                                                                style="font-family: 'Public Sans', sans-serif;"
+                                                                href="#">LinkedIn</a>
+                                                        <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                                                                style="font-family: 'Public Sans', sans-serif;"
+                                                                href="#">X</a>
+                                                </div>
+                                        </div>
+                                </div>
+                        </section>
                 </div>
-        </footer>
+        </div>
 
-        <!-- Mobile Menu JavaScript Interaction -->
+        <!-- Mobile Menu & Premium Fluid Desktop Scroll Snapper -->
         <script>
                 document.addEventListener('DOMContentLoaded', () => {
+                        // 1. Mobile Menu Functionality
                         const menuBtn = document.getElementById('mobile-menu-btn');
                         const closeBtn = document.getElementById('mobile-menu-close-btn');
                         const overlay = document.getElementById('mobile-menu-overlay');
@@ -858,6 +933,89 @@
                                 overlay.querySelectorAll('a').forEach(link => {
                                         link.addEventListener('click', closeMenu);
                                 });
+                        }
+
+                        // 2. High-performance Smooth Scroll Snapper (Only for Desktops/Laptops)
+                        const wrapper = document.querySelector('.snap-container');
+                        const sections = document.querySelectorAll('.snap-section');
+
+                        if (wrapper && sections.length > 0) {
+                                let currentSectionIndex = 0;
+                                let isScrolling = false;
+                                const scrollCooldown = 900; // time window to allow transition completion
+
+                                function scrollToSection(index) {
+                                        if (index < 0 || index >= sections.length) return;
+                                        isScrolling = true;
+                                        currentSectionIndex = index;
+
+                                        if (sections[index].classList.contains('snap-center-section')) {
+                                                const elementRect = sections[index].getBoundingClientRect();
+                                                const absoluteElementTop = elementRect.top + wrapper.scrollTop;
+                                                // Mathematically center the section so that the top visible peek (below the 72px navbar) is exactly, pixel-perfectly identical in height to the bottom visible peek
+                                                const targetScrollTop = absoluteElementTop - (wrapper.clientHeight - elementRect.height + (document.querySelector('nav') ? document.querySelector('nav').offsetHeight : 72)) / 2;
+
+                                                wrapper.scrollTo({
+                                                        top: targetScrollTop,
+                                                        behavior: 'smooth'
+                                                });
+                                        } else {
+                                                sections[index].scrollIntoView({
+                                                        behavior: 'smooth',
+                                                        block: 'start'
+                                                });
+                                        }
+
+                                        setTimeout(() => {
+                                                isScrolling = false;
+                                        }, scrollCooldown);
+                                }
+
+                                // Intercept mouse wheel scroll on desktop to snap instantly like water
+                                wrapper.addEventListener('wheel', (e) => {
+                                        if (window.innerWidth < 1024) return;
+
+                                        e.preventDefault();
+                                        if (isScrolling) return;
+
+                                        if (e.deltaY > 0) {
+                                                scrollToSection(currentSectionIndex + 1);
+                                        } else if (e.deltaY < 0) {
+                                                scrollToSection(currentSectionIndex - 1);
+                                        }
+                                }, { passive: false });
+
+                                // Keyboard Arrow/Page Snapping support
+                                window.addEventListener('keydown', (e) => {
+                                        if (window.innerWidth < 1024) return;
+
+                                        if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+                                                e.preventDefault();
+                                                scrollToSection(currentSectionIndex + 1);
+                                        } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+                                                e.preventDefault();
+                                                scrollToSection(currentSectionIndex - 1);
+                                        }
+                                });
+
+                                // Sync active index on scrollbar or external scroll
+                                const observerOptions = {
+                                        root: wrapper,
+                                        threshold: 0.3
+                                };
+
+                                const observer = new IntersectionObserver((entries) => {
+                                        entries.forEach((entry) => {
+                                                if (entry.isIntersecting && !isScrolling) {
+                                                        const index = Array.from(sections).indexOf(entry.target);
+                                                        if (index !== -1) {
+                                                                currentSectionIndex = index;
+                                                        }
+                                                }
+                                        });
+                                }, observerOptions);
+
+                                sections.forEach(section => observer.observe(section));
                         }
                 });
         </script>
