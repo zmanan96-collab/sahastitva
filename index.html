@@ -134,18 +134,28 @@
                 }
 
                 /* Laptop/Notebook screens with constrained vertical height: scale down all Sections 1-7 sizes to fit perfectly in 100vh */
-                @media (min-width: 1024px) and (max-width: 1600px), (min-width: 1024px) and (max-height: 850px) {
+                @media (min-width: 1024px) and (max-width: 1600px),
+                (min-width: 1024px) and (max-height: 850px) {
+
                         /* Section 1: Hero Section */
                         #sec-hero h1 {
                                 font-size: 56px !important;
                         }
+
                         #sec-hero p {
                                 font-size: 20px !important;
                                 margin-bottom: 24px !important;
                         }
+
                         #sec-hero .lg\:-translate-y-\[40px\],
                         #sec-hero .xl\:-translate-y-\[55px\] {
-                                transform: translate(-80px, -20px) !important;
+                                transform: translate(-10px, -20px) !important;
+                        }
+
+                        /* Custom meditating man scaling for laptops to touch the ground and prevent cutting */
+                        #sec-hero .hidden.lg\:block img {
+                                transform: scale(1.35) translate(80px, 15px) !important;
+                                transform-origin: bottom right !important;
                         }
 
                         /* Section 2: Stages of Life & Earth Globe Section */
@@ -153,33 +163,41 @@
                                 font-size: 48px !important;
                                 margin-bottom: 8px !important;
                         }
+
                         #sec-stages h3 {
                                 font-size: 24px !important;
                         }
+
                         #sec-stages p {
                                 font-size: 18px !important;
                         }
+
                         #sec-stages .lg\:-translate-y-\[40px\],
                         #sec-stages .xl\:-translate-y-\[60px\] {
                                 transform: translate(-30px, -20px) !important;
                         }
+
                         #sec-stages .flex-wrap {
                                 margin-bottom: 16px !important;
                                 gap: 10px !important;
                         }
+
                         #sec-stages .flex-wrap span {
                                 font-size: 14.5px !important;
                                 padding: 4px 14px !important;
                         }
+
                         #sec-stages a {
                                 font-size: 15px !important;
                                 padding: 8px 24px !important;
                         }
+
                         /* Scale down the Earth globe container and scale to prevent overflowing the bottom */
                         #sec-stages .lg\:h-\[680px\],
                         #sec-stages .xl\:h-\[740px\] {
                                 height: 350px !important;
                         }
+
                         #sec-stages .lg\:h-\[680px\] img,
                         #sec-stages .xl\:h-\[740px\] img {
                                 transform: scaleX(-2.5) scaleY(2.5) !important;
@@ -190,38 +208,50 @@
                                 height: 100vh !important;
                                 min-height: 100vh !important;
                         }
+
+                        #sec-families>div {
+                                transform: translateX(50px) !important;
+                        }
+
                         #sec-families h2 {
                                 font-size: 54px !important;
                         }
+
                         #sec-families p {
                                 font-size: 20px !important;
                         }
 
                         /* Section 4: Holistic Picture / Diamond Section */
                         #sec-holistic h2 {
-                                font-size: 44px !important;
-                                margin-bottom: 4px !important;
+                                font-size: 58px !important;
+                                margin-bottom: 8px !important;
                         }
+
                         #sec-holistic p.text-white\/80 {
-                                font-size: 18px !important;
-                                margin-top: 4px !important;
+                                font-size: 22px !important;
+                                margin-top: 6px !important;
                         }
+
                         #sec-holistic .text-center.mb-8 {
-                                margin-bottom: 12px !important;
+                                margin-bottom: 16px !important;
                         }
+
                         #sec-holistic .center-diagram-img {
-                                width: 240px !important;
-                                height: 240px !important;
-                                transform: scale(1.5) !important;
+                                width: 280px !important;
+                                height: 280px !important;
+                                transform: scale(2.0) !important;
                         }
+
                         #sec-holistic .center-diagram-img:hover {
-                                transform: scale(1.6) !important;
+                                transform: scale(2.1) !important;
                         }
+
                         #sec-holistic h3 {
-                                font-size: 18px !important;
+                                font-size: 24px !important;
                         }
+
                         #sec-holistic p {
-                                font-size: 15px !important;
+                                font-size: 17px !important;
                         }
 
                         /* Section 5: Testimonials Section */
@@ -229,56 +259,76 @@
                                 height: 100vh !important;
                                 min-height: 100vh !important;
                         }
+
+                        #sec-testimonials>div {
+                                max-width: 1050px !important;
+                        }
+
                         #sec-testimonials h2 {
                                 font-size: 52px !important;
                         }
+
                         #sec-testimonials .mb-12 {
                                 margin-bottom: 16px !important;
                         }
+
                         #sec-testimonials .grid {
                                 margin-top: 12px !important;
-                                gap: 24px !important;
+                                gap: 72px !important;
                         }
+
                         #sec-testimonials .group {
                                 padding-top: 20px !important;
                                 padding-bottom: 20px !important;
                                 min-height: 0 !important;
                         }
+
                         #sec-testimonials .group h4 {
                                 font-size: 17px !important;
                         }
+
                         #sec-testimonials .group p {
                                 font-size: 13px !important;
                         }
+
                         #sec-testimonials .group .mt-4 {
                                 font-size: 15.5px !important;
                                 margin-top: 6px !important;
                         }
 
                         /* Section 6: What is Sah Astitva Answers */
+                        #sec-whatis>div {
+                                transform: translateX(60px) !important;
+                        }
+
                         #sec-whatis h2 {
-                                font-size: 52px !important;
-                                margin-bottom: 6px !important;
+                                font-size: 64px !important;
+                                margin-bottom: 8px !important;
                         }
+
                         #sec-whatis p {
-                                font-size: 22px !important;
-                                margin-bottom: 16px !important;
+                                font-size: 26px !important;
+                                margin-bottom: 20px !important;
                         }
+
                         #sec-whatis ul {
-                                gap: 12px !important;
+                                gap: 14px !important;
                         }
+
                         #sec-whatis ul span.text-\[22px\],
                         #sec-whatis ul span.text-\[26px\],
                         #sec-whatis ul span.text-\[30px\] {
-                                font-size: 19px !important;
+                                font-size: 22px !important;
                         }
+
                         #sec-whatis ul .w-\[34px\] {
-                                width: 26px !important;
-                                height: 26px !important;
+                                width: 28px !important;
+                                height: 28px !important;
                         }
+
                         #sec-whatis ul .w-\[34px\] svg {
-                                width: 14px !important;
-                                height: 14px !important;
+                                width: 16px !important;
+                                height: 16px !important;
                         }
 
                         /* Section 7: Unified Footer Snapping Section */
@@ -586,14 +636,16 @@
                         </div>
                 </section>
                 <!-- For Every Stage of Life -->
-                <section id="sec-stages" class="snap-section pt-[180px] md:pt-0 pb-section-padding-v md:pb-0 relative overflow-hidden md:h-screen md:min-h-screen md:flex md:flex-col md:justify-center w-full"
+                <section id="sec-stages"
+                        class="snap-section pt-[180px] md:pt-0 pb-section-padding-v md:pb-0 relative overflow-hidden md:h-screen md:min-h-screen md:flex md:flex-col md:justify-center w-full"
                         style="background: linear-gradient(to top right, rgba(254, 138, 41, 0.25) 0%, rgba(254, 138, 41, 0.02) 60%, transparent 90%), #fef9f0;">
                         <!-- Full width centered section heading -->
                         <div class="max-w-[1200px] mx-auto px-gutter mb-6 md:mb-8 w-full">
                                 <h2 class="font-headline-lg text-[32px] md:text-[48px] lg:text-[72px] xl:text-[82px] text-[#244996] font-bold text-center leading-tight"
                                         style="font-family: 'DM Sans', sans-serif;">
                                         For Every Stage of Life,<br />
-                                        <span class="font-normal">For Every Question of Life.</span>
+                                        <span class="font-normal">For Every Question<br class="md:hidden" /> of
+                                                Life.</span>
                                 </h2>
                         </div>
                         <div
@@ -997,11 +1049,13 @@
                                 class="pt-[100px] md:pt-0 bg-transparent relative pb-[30px] md:pb-0 md:flex-grow md:flex md:flex-col md:justify-between z-10 w-full">
                                 <div id="begin-section-container"
                                         class="max-w-[1200px] mx-auto px-gutter relative z-10 w-full -mt-8 md:-mt-16 lg:-mt-24 md:flex-grow md:flex md:flex-col md:justify-center">
-                                        <h2 id="begin-section-heading" class="font-headline-xl text-[42px] md:text-[62px] lg:text-[76px] xl:text-[88px] text-[#244996] font-bold mb-4 text-center leading-tight"
+                                        <h2 id="begin-section-heading"
+                                                class="font-headline-xl text-[42px] md:text-[62px] lg:text-[76px] xl:text-[88px] text-[#244996] font-bold mb-4 text-center leading-tight"
                                                 style="font-family: 'DM Sans', sans-serif;">
                                                 Wondering Where To Begin?
                                         </h2>
-                                        <p id="begin-section-desc" class="text-[20px] md:text-[24px] lg:text-[28px] text-[#244996] text-center mb-16 w-full max-w-none mx-auto leading-relaxed md:whitespace-nowrap"
+                                        <p id="begin-section-desc"
+                                                class="text-[20px] md:text-[24px] lg:text-[28px] text-[#244996] text-center mb-16 w-full max-w-none mx-auto leading-relaxed md:whitespace-nowrap"
                                                 style="font-family: 'Public Sans', sans-serif;">
                                                 Whether you want to explore, experience, or simply understand more —
                                                 there’s a place to
@@ -1055,7 +1109,8 @@
                                                                 style="font-family: 'Public Sans', sans-serif;">
                                                                 <span class="sm:whitespace-nowrap">Read foundational
                                                                         ideas,</span> <span
-                                                                        class="sm:block sm:whitespace-nowrap">questions and
+                                                                        class="sm:block sm:whitespace-nowrap">questions
+                                                                        and
                                                                         reflections.</span>
                                                         </p>
                                                         <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
