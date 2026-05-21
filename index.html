@@ -132,6 +132,201 @@
                                 transform: scale(2.6) !important;
                         }
                 }
+
+                /* Laptop/Notebook screens with constrained vertical height: scale down all Sections 1-7 sizes to fit perfectly in 100vh */
+                @media (min-width: 1024px) and (max-height: 850px) {
+                        /* Section 1: Hero Section */
+                        #sec-hero h1 {
+                                font-size: 56px !important;
+                        }
+                        #sec-hero p {
+                                font-size: 20px !important;
+                                margin-bottom: 24px !important;
+                        }
+                        #sec-hero .lg\:-translate-y-\[40px\],
+                        #sec-hero .xl\:-translate-y-\[55px\] {
+                                transform: translate(-80px, -20px) !important;
+                        }
+
+                        /* Section 2: Stages of Life & Earth Globe Section */
+                        #sec-stages h2 {
+                                font-size: 48px !important;
+                                margin-bottom: 8px !important;
+                        }
+                        #sec-stages h3 {
+                                font-size: 24px !important;
+                        }
+                        #sec-stages p {
+                                font-size: 18px !important;
+                        }
+                        #sec-stages .lg\:-translate-y-\[40px\],
+                        #sec-stages .xl\:-translate-y-\[60px\] {
+                                transform: translate(-30px, -20px) !important;
+                        }
+                        #sec-stages .flex-wrap {
+                                margin-bottom: 16px !important;
+                                gap: 10px !important;
+                        }
+                        #sec-stages .flex-wrap span {
+                                font-size: 14.5px !important;
+                                padding: 4px 14px !important;
+                        }
+                        #sec-stages a {
+                                font-size: 15px !important;
+                                padding: 8px 24px !important;
+                        }
+                        /* Scale down the Earth globe container and scale to prevent overflowing the bottom */
+                        #sec-stages .lg\:h-\[680px\],
+                        #sec-stages .xl\:h-\[740px\] {
+                                height: 350px !important;
+                        }
+                        #sec-stages .lg\:h-\[680px\] img,
+                        #sec-stages .xl\:h-\[740px\] img {
+                                transform: scaleX(-2.5) scaleY(2.5) !important;
+                        }
+
+                        /* Section 3: Social Proof / Families Section */
+                        #sec-families {
+                                height: 100vh !important;
+                                min-height: 100vh !important;
+                        }
+                        #sec-families h2 {
+                                font-size: 54px !important;
+                        }
+                        #sec-families p {
+                                font-size: 20px !important;
+                        }
+
+                        /* Section 4: Holistic Picture / Diamond Section */
+                        #sec-holistic h2 {
+                                font-size: 44px !important;
+                                margin-bottom: 4px !important;
+                        }
+                        #sec-holistic p.text-white\/80 {
+                                font-size: 18px !important;
+                                margin-top: 4px !important;
+                        }
+                        #sec-holistic .text-center.mb-8 {
+                                margin-bottom: 12px !important;
+                        }
+                        #sec-holistic .center-diagram-img {
+                                width: 240px !important;
+                                height: 240px !important;
+                                transform: scale(1.5) !important;
+                        }
+                        #sec-holistic .center-diagram-img:hover {
+                                transform: scale(1.6) !important;
+                        }
+                        #sec-holistic h3 {
+                                font-size: 18px !important;
+                        }
+                        #sec-holistic p {
+                                font-size: 15px !important;
+                        }
+
+                        /* Section 5: Testimonials Section */
+                        #sec-testimonials {
+                                height: 100vh !important;
+                                min-height: 100vh !important;
+                        }
+                        #sec-testimonials h2 {
+                                font-size: 52px !important;
+                        }
+                        #sec-testimonials .mb-12 {
+                                margin-bottom: 16px !important;
+                        }
+                        #sec-testimonials .grid {
+                                margin-top: 12px !important;
+                                gap: 24px !important;
+                        }
+                        #sec-testimonials .group {
+                                padding-top: 20px !important;
+                                padding-bottom: 20px !important;
+                                min-height: 0 !important;
+                        }
+                        #sec-testimonials .group h4 {
+                                font-size: 17px !important;
+                        }
+                        #sec-testimonials .group p {
+                                font-size: 13px !important;
+                        }
+                        #sec-testimonials .group .mt-4 {
+                                font-size: 15.5px !important;
+                                margin-top: 6px !important;
+                        }
+
+                        /* Section 6: What is Sah Astitva Answers */
+                        #sec-whatis h2 {
+                                font-size: 52px !important;
+                                margin-bottom: 6px !important;
+                        }
+                        #sec-whatis p {
+                                font-size: 22px !important;
+                                margin-bottom: 16px !important;
+                        }
+                        #sec-whatis ul {
+                                gap: 12px !important;
+                        }
+                        #sec-whatis ul span.text-\[22px\],
+                        #sec-whatis ul span.text-\[26px\],
+                        #sec-whatis ul span.text-\[30px\] {
+                                font-size: 19px !important;
+                        }
+                        #sec-whatis ul .w-\[34px\] {
+                                width: 26px !important;
+                                height: 26px !important;
+                        }
+                        #sec-whatis ul .w-\[34px\] svg {
+                                width: 14px !important;
+                                height: 14px !important;
+                        }
+
+                        /* Section 7: Unified Footer Snapping Section */
+                        #begin-section-container {
+                                margin-top: -30px !important;
+                                padding-top: 15px !important;
+                                display: flex !important;
+                                flex-direction: column !important;
+                                justify-content: center !important;
+                        }
+
+                        #begin-section-heading {
+                                font-size: 48px !important;
+                                margin-bottom: 6px !important;
+                        }
+
+                        #begin-section-desc {
+                                font-size: 18px !important;
+                                margin-bottom: 24px !important;
+                        }
+
+                        #begin-section-grid {
+                                gap: 20px !important;
+                        }
+
+                        #begin-section-grid h3 {
+                                font-size: 18px !important;
+                                margin-bottom: 4px !important;
+                        }
+
+                        #begin-section-grid p {
+                                font-size: 14px !important;
+                                line-height: 1.35 !important;
+                        }
+
+                        #begin-section-grid a {
+                                margin-top: 10px !important;
+                                padding-top: 5px !important;
+                                padding-bottom: 5px !important;
+                                font-size: 14px !important;
+                        }
+
+                        #begin-section-footer {
+                                margin-top: auto !important;
+                                padding-top: 12px !important;
+                                padding-bottom: 12px !important;
+                        }
+                }
         </style>
         <!-- Tailwind CSS -->
         <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -349,7 +544,7 @@
         <!-- Main Desktop Scroll Snapping Container -->
         <div class="snap-container md:h-screen md:overflow-y-auto md:scroll-smooth">
                 <!-- Hero Section -->
-                <section
+                <section id="sec-hero"
                         class="snap-section pt-[120px] md:pt-0 pb-[70px] md:pb-0 bg-surface relative overflow-hidden hero-bg md:h-screen md:min-h-screen md:flex md:items-center">
                         <div
                                 class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
@@ -391,7 +586,7 @@
                         </div>
                 </section>
                 <!-- For Every Stage of Life -->
-                <section class="snap-section pt-[180px] md:pt-0 pb-section-padding-v md:pb-0 relative overflow-hidden md:h-screen md:min-h-screen md:flex md:flex-col md:justify-center w-full"
+                <section id="sec-stages" class="snap-section pt-[180px] md:pt-0 pb-section-padding-v md:pb-0 relative overflow-hidden md:h-screen md:min-h-screen md:flex md:flex-col md:justify-center w-full"
                         style="background: linear-gradient(to top right, rgba(254, 138, 41, 0.25) 0%, rgba(254, 138, 41, 0.02) 60%, transparent 90%), #fef9f0;">
                         <!-- Full width centered section heading -->
                         <div class="max-w-[1200px] mx-auto px-gutter mb-6 md:mb-8 w-full">
@@ -404,20 +599,20 @@
                         <div
                                 class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center -mt-4 md:-mt-8 w-full">
                                 <div
-                                        class="z-10 text-left transform lg:-translate-x-[50px] lg:-translate-y-[40px] xl:-translate-x-[90px] xl:-translate-y-[60px]">
+                                        class="z-10 text-center md:text-left transform lg:-translate-x-[50px] lg:-translate-y-[40px] xl:-translate-x-[90px] xl:-translate-y-[60px]">
                                         <h3
-                                                class="font-headline-md text-[18px] md:text-[22px] lg:text-[32px] text-[#244996] mb-stack-xs leading-snug font-bold md:whitespace-nowrap lg:whitespace-nowrap">
+                                                class="font-headline-md text-[18px] md:text-[22px] lg:text-[32px] text-[#244996] mb-stack-xs leading-snug font-bold md:whitespace-nowrap lg:whitespace-nowrap text-center md:text-left">
                                                 The Sah Astitva Answers <span
                                                         class="font-normal text-[#244996]/80">provide
                                                         logical, rational
                                                         solutions</span>
                                         </h3>
                                         <p
-                                                class="font-body-lg text-[15px] md:text-[17px] lg:text-[26px] text-[#244996]/70 mb-stack-md">
+                                                class="font-body-lg text-[15px] md:text-[17px] lg:text-[26px] text-[#244996]/70 mb-stack-md text-center md:text-left">
                                                 A way to examine, understand and live life.
                                         </p>
                                         <div
-                                                class="flex flex-wrap justify-start gap-3 lg:gap-4 mb-stack-lg max-w-lg lg:max-w-[950px]">
+                                                class="flex flex-wrap justify-center md:justify-start gap-3 lg:gap-4 mb-stack-lg max-w-lg lg:max-w-[950px] mx-auto md:mx-0">
                                                 <span
                                                         class="px-4 py-1.5 lg:px-6 lg:py-2.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md lg:text-[19px] bg-white shadow-sm">Love</span>
                                                 <span
@@ -455,7 +650,7 @@
                 </section>
 
                 <!-- Social Proof -->
-                <section
+                <section id="sec-families"
                         class="snap-section snap-center-section py-24 md:py-0 bg-surface md:h-[calc(100vh-320px)] md:min-h-[520px] md:flex md:items-center w-full">
                         <div
                                 class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-6 md:gap-10 lg:gap-14 xl:gap-16 items-stretch w-full">
@@ -484,7 +679,7 @@
                 </section>
 
                 <!-- Holistic Picture of Life Section -->
-                <section
+                <section id="sec-holistic"
                         class="snap-section py-14 md:py-0 bg-[#244996] relative overflow-hidden z-10 border-t border-b border-white/5 md:h-screen md:min-h-screen md:flex md:flex-col md:justify-center w-full">
                         <div class="max-w-[1200px] mx-auto px-gutter relative z-10 w-full">
                                 <!-- Headings -->
@@ -609,7 +804,7 @@
                 </section>
 
                 <!-- Testimonials: Real Experiences. Real People. -->
-                <section
+                <section id="sec-testimonials"
                         class="snap-section snap-center-section py-28 sm:py-0 bg-[#fef9f0] relative overflow-hidden z-10 md:h-[65vh] md:min-h-[480px] md:flex md:flex-col md:justify-center w-full">
                         <div class="max-w-[1200px] mx-auto px-6 md:px-8 relative z-10 w-full">
                                 <!-- Heading -->
@@ -695,7 +890,7 @@
                 </section>
 
                 <!-- What is Sah Astitva Answers? -->
-                <section
+                <section id="sec-whatis"
                         class="snap-section py-28 md:py-0 bg-primary relative overflow-hidden md:h-screen md:min-h-screen md:flex md:flex-col md:justify-center w-full">
                         <!-- Topographic background image -->
                         <div class="absolute inset-0 z-0 pointer-events-none">
@@ -795,24 +990,24 @@
                 </section>
 
                 <!-- Unified Footer Snapping Section -->
-                <div
+                <div id="sec-begin"
                         class="snap-section md:h-screen md:min-h-screen md:flex md:flex-col bg-[#fef9f0] relative overflow-hidden w-full">
                         <!-- Footer Pre-Section -->
                         <section
                                 class="pt-[100px] md:pt-0 bg-transparent relative pb-[30px] md:pb-0 md:flex-grow md:flex md:flex-col md:justify-between z-10 w-full">
-                                <div
+                                <div id="begin-section-container"
                                         class="max-w-[1200px] mx-auto px-gutter relative z-10 w-full -mt-8 md:-mt-16 lg:-mt-24 md:flex-grow md:flex md:flex-col md:justify-center">
-                                        <h2 class="font-headline-xl text-[42px] md:text-[62px] lg:text-[76px] xl:text-[88px] text-[#244996] font-bold mb-4 text-center leading-tight"
+                                        <h2 id="begin-section-heading" class="font-headline-xl text-[42px] md:text-[62px] lg:text-[76px] xl:text-[88px] text-[#244996] font-bold mb-4 text-center leading-tight"
                                                 style="font-family: 'DM Sans', sans-serif;">
                                                 Wondering Where To Begin?
                                         </h2>
-                                        <p class="text-[20px] md:text-[24px] lg:text-[28px] text-[#244996] text-center mb-16 w-full max-w-none mx-auto leading-relaxed md:whitespace-nowrap"
+                                        <p id="begin-section-desc" class="text-[20px] md:text-[24px] lg:text-[28px] text-[#244996] text-center mb-16 w-full max-w-none mx-auto leading-relaxed md:whitespace-nowrap"
                                                 style="font-family: 'Public Sans', sans-serif;">
                                                 Whether you want to explore, experience, or simply understand more —
                                                 there’s a place to
                                                 start.
                                         </p>
-                                        <div
+                                        <div id="begin-section-grid"
                                                 class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.95fr_0.95fr] gap-8 lg:gap-10">
                                                 <!-- Column 1 (Highlighted & Large) -->
                                                 <div class="pl-6 border-l-4 border-[#fe8a29] flex flex-col items-start">
@@ -878,7 +1073,7 @@
                                                 src="footer.png" />
                                 </div>
                                 <!-- Footer content placed directly at the bottom of the section -->
-                                <div
+                                <div id="begin-section-footer"
                                         class="w-full relative z-20 py-5 md:py-6 border-t border-white/10 mt-12 md:mt-auto">
                                         <div
                                                 class="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 max-w-[1200px] mx-auto px-gutter text-center md:text-left">
