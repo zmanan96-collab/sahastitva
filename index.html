@@ -158,44 +158,38 @@
                                 transform-origin: bottom right !important;
                         }
 
-                        /* Section 2: Stages of Life & Earth Globe Section */
+                        /* Section 2: Stages Section */
+                        #sec-stages {
+                                display: flex !important;
+                                flex-direction: column !important;
+                                justify-content: center !important;
+                        }
+
                         #sec-stages h2 {
-                                font-size: 48px !important;
-                                margin-bottom: 8px !important;
+                                font-size: 52px !important;
+                                margin-bottom: 12px !important;
                         }
 
-                        #sec-stages h3 {
+                        #sec-stages p.max-w-\[640px\] {
+                                font-size: 19px !important;
+                        }
+
+                        #sec-stages .grid {
+                                gap: 20px !important;
+                                margin-top: 24px !important;
+                        }
+
+                        #sec-stages .grid>div {
+                                padding: 24px !important;
+                        }
+
+                        #sec-stages .grid h3 {
                                 font-size: 24px !important;
+                                margin-bottom: 6px !important;
                         }
 
-                        #sec-stages p {
-                                font-size: 18px !important;
-                        }
-
-                        #sec-stages .lg\:-translate-y-\[40px\],
-                        #sec-stages .xl\:-translate-y-\[60px\] {
-                                transform: translate(-30px, -20px) !important;
-                        }
-
-                        #sec-stages .flex-wrap {
-                                margin-bottom: 16px !important;
-                                gap: 10px !important;
-                        }
-
-                        #sec-stages .flex-wrap span {
-                                font-size: 14.5px !important;
-                                padding: 4px 14px !important;
-                        }
-
-                        #sec-stages a {
-                                font-size: 15px !important;
-                                padding: 8px 24px !important;
-                        }
-
-                        /* Scale down the Earth globe container and scale to prevent overflowing the bottom */
-                        #sec-stages .lg\:h-\[680px\],
-                        #sec-stages .xl\:h-\[740px\] {
-                                height: 350px !important;
+                        #sec-stages .grid p {
+                                font-size: 16px !important;
                         }
 
                         #sec-stages .lg\:h-\[680px\] img,
@@ -248,133 +242,101 @@
                         }
 
                         #sec-holistic p.text-white\/80 {
-                                font-size: 22px !important;
-                                margin-top: 6px !important;
+                                font-size: 19px !important;
                         }
 
-                        #sec-holistic .text-center.mb-8 {
-                                margin-bottom: 16px !important;
+                        #sec-holistic .grid {
+                                gap: 24px !important;
+                                margin-top: 36px !important;
                         }
 
-                        #sec-holistic .center-diagram-img {
-                                width: 250px !important;
-                                height: 250px !important;
-                                transform: scale(2.10) !important;
-                        }
-
-                        #sec-holistic .center-diagram-img:hover {
-                                transform: scale(2.20) !important;
-                        }
-
-                        #sec-holistic h3 {
-                                font-size: 24px !important;
-                        }
-
-                        #sec-holistic p {
-                                font-size: 17px !important;
-                        }
-
-                        /* Section 5: Testimonials Section */
-                        #sec-testimonials {
-                                height: 100vh !important;
-                                min-height: 100vh !important;
-                        }
-
-                        #sec-testimonials>div {
-                                max-width: 1050px !important;
-                        }
-
-                        #sec-testimonials h2 {
-                                font-size: 52px !important;
-                                transform: translateY(-20px) !important;
-                        }
-
-                        #sec-testimonials .mb-12 {
-                                margin-bottom: 44px !important;
-                        }
-
-                        #sec-testimonials .grid {
-                                margin-top: 12px !important;
-                                gap: 72px !important;
-                        }
-
-                        #sec-testimonials .group {
-                                padding-top: 20px !important;
-                                padding-bottom: 20px !important;
-                                min-height: 0 !important;
-                        }
-
-                        #sec-testimonials .group h4 {
-                                font-size: 17px !important;
-                        }
-
-                        #sec-testimonials .group p {
-                                font-size: 13px !important;
-                        }
-
-                        #sec-testimonials .group .mt-4 {
-                                font-size: 15.5px !important;
-                                margin-top: 6px !important;
-                        }
-
-                        /* Section 6: What is Sah Astitva Answers */
-                        #sec-whatis>div {
-                                transform: translate(60px, 35px) !important;
-                        }
-
-                        #sec-whatis .absolute.inset-0 {
-                                left: -60px !important;
-                                width: calc(100% + 120px) !important;
-                        }
-
-                        #sec-whatis h2 {
-                                font-size: 64px !important;
-                                margin-bottom: 8px !important;
-                        }
-
-                        #sec-whatis p {
-                                font-size: 26px !important;
-                                margin-bottom: 20px !important;
-                        }
-
-                        #sec-whatis ul {
-                                gap: 14px !important;
-                        }
-
-                        #sec-whatis ul span.text-\[22px\],
-                        #sec-whatis ul span.text-\[26px\],
-                        #sec-whatis ul span.text-\[30px\] {
+                        #sec-holistic .grid h3 {
                                 font-size: 22px !important;
                         }
 
-                        #sec-whatis ul .w-\[34px\] {
-                                width: 28px !important;
-                                height: 28px !important;
+                        #sec-holistic .grid p {
+                                font-size: 16px !important;
                         }
 
-                        #sec-whatis ul .w-\[34px\] svg {
-                                width: 16px !important;
-                                height: 16px !important;
-                        }
-
-                        /* Section 7: Unified Footer Snapping Section */
-                        #begin-section-container {
-                                margin-top: -65px !important;
-                                padding-top: 15px !important;
+                        /* Section 5: Why Attend / Accordion Section */
+                        #sec-accordion {
                                 display: flex !important;
                                 flex-direction: column !important;
                                 justify-content: center !important;
-                                transform: translateY(-25px) !important;
                         }
 
-                        #begin-section-heading {
-                                font-size: 54px !important;
+                        #sec-accordion h2 {
+                                font-size: 52px !important;
+                                margin-bottom: 12px !important;
+                        }
+
+                        #sec-accordion p.text-black\/80 {
+                                font-size: 19px !important;
+                                margin-bottom: 32px !important;
+                        }
+
+                        #sec-accordion .grid {
+                                gap: 18px !important;
+                        }
+
+                        #sec-accordion .grid>div {
+                                padding-top: 18px !important;
+                                padding-bottom: 18px !important;
+                        }
+
+                        #sec-accordion .grid h3 {
+                                font-size: 22px !important;
+                        }
+
+                        #sec-accordion .grid p {
+                                font-size: 16px !important;
+                        }
+
+                        /* Section 6: Philosophy Section */
+                        #sec-philosophy {
+                                display: flex !important;
+                                flex-direction: column !important;
+                                justify-content: center !important;
+                        }
+
+                        #sec-philosophy h2 {
+                                font-size: 52px !important;
+                                margin-bottom: 12px !important;
+                        }
+
+                        #sec-philosophy p.max-w-\[640px\] {
+                                font-size: 19px !important;
+                                margin-bottom: 32px !important;
+                        }
+
+                        #sec-philosophy .grid {
+                                gap: 24px !important;
+                        }
+
+                        #sec-philosophy .grid h3 {
+                                font-size: 24px !important;
                                 margin-bottom: 6px !important;
                         }
 
-                        #begin-section-desc {
-                                font-size: 21px !important;
-                                margin-bottom: 24px !important;
+                        #sec-philosophy .grid p {
+                                font-size: 16px !important;
+                        }
+
+                        /* Section 7: How to Begin Section */
+                        #sec-begin {
+                                display: flex !important;
+                                flex-direction: column !important;
+                                justify-content: center !important;
+                        }
+
+                        #sec-begin h2 {
+                                font-size: 52px !important;
+                                margin-bottom: 12px !important;
+                        }
+
+                        #sec-begin p.text-white\/80 {
+                                font-size: 19px !important;
+                                margin-bottom: 36px !important;
                         }
 
                         #begin-section-grid {
@@ -404,10 +366,26 @@
                                 padding-bottom: 12px !important;
                         }
                 }
+
+                /* Continuous Infinite Testimonial Marquee Scroll with GPU acceleration */
+                @keyframes marqueeScroll {
+                        0% { transform: translate3d(0, 0, 0); }
+                        100% { transform: translate3d(-50%, 0, 0); }
+                }
+                
+                .animate-marquee {
+                        display: flex;
+                        width: max-content;
+                        animation: marqueeScroll 35s linear infinite;
+                        will-change: transform;
+                }
+                
+                .animate-marquee:hover {
+                        animation-play-state: paused;
+                }
         </style>
         <!-- Tailwind CSS -->
-        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-        <script id="tailwind-config">
+        <script>
                 tailwind.config = {
                         darkMode: "class",
                         theme: {
@@ -553,37 +531,192 @@
                                         }
                                 }
                         }
-                }
+                };
         </script>
+        <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                        // 1. Mobile Menu Functionality
+                        const menuBtn = document.getElementById('mobile-menu-btn');
+                        const closeBtn = document.getElementById('mobile-menu-close-btn');
+                        const overlay = document.getElementById('mobile-menu-overlay');
+
+                        if (menuBtn && closeBtn && overlay) {
+                                // Open menu
+                                menuBtn.addEventListener('click', () => {
+                                        overlay.classList.remove('translate-x-full');
+                                        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                                });
+
+                                // Close menu
+                                const closeMenu = () => {
+                                        overlay.classList.add('translate-x-full');
+                                        document.body.style.overflow = ''; // Restore scrolling
+                                };
+
+                                closeBtn.addEventListener('click', closeMenu);
+
+                                // Close overlay when clicking any link
+                                overlay.querySelectorAll('a').forEach(link => {
+                                        link.addEventListener('click', closeMenu);
+                                });
+                        }
+
+                        // Mobile Community Dropdown Accordion toggle
+                        const mobileCommBtn = document.getElementById('mobile-community-btn');
+                        const mobileCommDropdown = document.getElementById('mobile-community-dropdown');
+                        const mobileCommCaret = document.getElementById('mobile-community-caret');
+                        if (mobileCommBtn && mobileCommDropdown && mobileCommCaret) {
+                                mobileCommBtn.addEventListener('click', (e) => {
+                                        e.preventDefault();
+                                        const isOpen = mobileCommDropdown.style.maxHeight && mobileCommDropdown.style.maxHeight !== '0px';
+                                        if (isOpen) {
+                                                mobileCommDropdown.style.maxHeight = '0px';
+                                                mobileCommDropdown.classList.remove('py-3');
+                                                mobileCommDropdown.classList.add('py-0');
+                                                mobileCommCaret.classList.remove('rotate-180');
+                                        } else {
+                                                mobileCommDropdown.style.maxHeight = '200px';
+                                                mobileCommDropdown.classList.remove('py-0');
+                                                mobileCommDropdown.classList.add('py-3');
+                                                mobileCommCaret.classList.add('rotate-180');
+                                        }
+                                });
+                        }
+
+                        // 2. High-performance Smooth Scroll Snapper (Only for Desktops/Laptops)
+                        const wrapper = document.querySelector('.snap-container');
+                        const sections = document.querySelectorAll('.snap-section');
+
+                        if (wrapper && sections.length > 0) {
+                                let currentSectionIndex = 0;
+                                let isScrolling = false;
+                                const scrollCooldown = 900; // time window to allow transition completion
+
+                                function scrollToSection(index) {
+                                        if (index < 0 || index >= sections.length) return;
+                                        isScrolling = true;
+                                        currentSectionIndex = index;
+
+                                        if (sections[index].classList.contains('snap-center-section')) {
+                                                const elementRect = sections[index].getBoundingClientRect();
+                                                const absoluteElementTop = elementRect.top + wrapper.scrollTop;
+                                                // Mathematically center the section so that the top visible peek (below the 72px navbar) is exactly, pixel-perfectly identical in height to the bottom visible peek
+                                                const targetScrollTop = absoluteElementTop - (wrapper.clientHeight - elementRect.height + (document.querySelector('nav') ? document.querySelector('nav').offsetHeight : 72)) / 2;
+
+                                                wrapper.scrollTo({
+                                                        top: targetScrollTop,
+                                                        behavior: 'smooth'
+                                                });
+                                        } else {
+                                                sections[index].scrollIntoView({
+                                                        behavior: 'smooth',
+                                                        block: 'start'
+                                                });
+                                        }
+
+                                        setTimeout(() => {
+                                                isScrolling = false;
+                                        }, scrollCooldown);
+                                }
+
+                                // Intercept mouse wheel scroll on desktop to snap instantly like water
+                                wrapper.addEventListener('wheel', (e) => {
+                                        if (window.innerWidth < 1024) return;
+
+                                        e.preventDefault();
+                                        if (isScrolling) return;
+
+                                        if (e.deltaY > 0) {
+                                                scrollToSection(currentSectionIndex + 1);
+                                        } else if (e.deltaY < 0) {
+                                                scrollToSection(currentSectionIndex - 1);
+                                        }
+                                }, { passive: false });
+
+                                // Keyboard Arrow/Page Snapping support
+                                window.addEventListener('keydown', (e) => {
+                                        if (window.innerWidth < 1024) return;
+
+                                        if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+                                                e.preventDefault();
+                                                scrollToSection(currentSectionIndex + 1);
+                                        } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+                                                e.preventDefault();
+                                                scrollToSection(currentSectionIndex - 1);
+                                        }
+                                });
+
+                                // Sync active index on scrollbar or external scroll
+                                const observerOptions = {
+                                        root: wrapper,
+                                        threshold: 0.3
+                                };
+
+                                const observer = new IntersectionObserver((entries) => {
+                                        entries.forEach((entry) => {
+                                                if (entry.isIntersecting && !isScrolling) {
+                                                        const index = Array.from(sections).indexOf(entry.target);
+                                                        if (index !== -1) {
+                                                                currentSectionIndex = index;
+                                                        }
+                                                }
+                                        });
+                                }, observerOptions);
+
+                                sections.forEach(section => observer.observe(section));
+                        }
+                });
+        </script>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 </head>
 
 <body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden md:overflow-hidden">
         <!-- TopNavBar -->
         <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
-                <div class="flex justify-between items-center max-w-[1200px] mx-auto px-gutter py-4 md:py-6">
-                        <a class="flex items-center" href="#">
+                <div class="flex justify-between items-center max-w-[1300px] mx-auto px-6 lg:px-8 py-4 md:py-6">
+                        <a class="flex items-center" href="index.html">
                                 <img src="logo.png" alt="Sah Astitva Answers"
-                                        class="-my-16 md:-my-24 lg:-my-[200px] -ml-8 md:-ml-16 lg:-ml-36 h-40 md:h-56 lg:h-[440px] w-auto object-contain" />
+                                        class="-my-16 md:-my-24 lg:-my-[200px] -ml-8 md:-ml-16 lg:-ml-[160px] h-40 md:h-56 lg:h-[440px] w-auto object-contain" />
                         </a>
-                        <div class="hidden md:flex items-center gap-stack-lg">
-                                <a class="font-label-md text-label-md text-primary dark:text-primary-fixed-dim border-b-2 border-secondary pb-1 hover:opacity-80 transition-all duration-300"
-                                        href="#">
+                        <div class="hidden md:flex items-center gap-8">
+                                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                                        href="whyattend.html">
+                                        Workshop
+                                </a>
+                                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                                        href="philosophy.html">
                                         Philosophy
                                 </a>
-                                <a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
-                                        href="#">
-                                        Workshops
+                                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                                        href="journey.html">
+                                        Journey
                                 </a>
-                                <a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
-                                        href="#">
-                                        Community
+                                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                                        href="people.html">
+                                        People
                                 </a>
-                                <a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
-                                        href="#">
-                                        Journal
+                                <div class="relative group">
+                                        <button class="flex items-center gap-1 font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300 focus:outline-none">
+                                                Community
+                                                <svg class="w-4 h-4 text-primary transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
+                                                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 py-3 flex flex-col overflow-hidden">
+                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="blogs.html">Blogs</a>
+                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="media.html">News & Media</a>
+                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="stories.html">Stories</a>
+                                                </div>
+                                        </div>
+                                </div>
+                                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                                        href="faqs.html">
+                                        FAQs
                                 </a>
                         </div>
-                        <a class="hidden md:inline-flex bg-primary text-on-primary rounded-full px-6 py-2 font-label-md text-label-md hover:opacity-80 transition-all duration-300"
+                        <a class="hidden md:inline-flex bg-[#244996] text-white rounded-full px-6 py-2.5 font-semibold text-[15px] hover:bg-[#1a3570] transition-all duration-300"
                                 href="#">
                                 Attend a Workshop
                         </a>
@@ -602,17 +735,35 @@
                 </button>
                 <!-- Navigation Links -->
                 <div class="flex flex-col items-center gap-6">
-                        <a class="font-headline-md text-headline-md text-primary font-bold hover:opacity-80 transition-all duration-300"
-                                href="#">Philosophy</a>
                         <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
-                                href="#">Workshops</a>
+                                href="whyattend.html">Workshop</a>
                         <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
-                                href="#">Community</a>
+                                href="philosophy.html">Philosophy</a>
                         <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
-                                href="#">Journal</a>
+                                href="journey.html">Journey</a>
+                        <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                                href="people.html">People</a>
+                        
+                        <!-- Mobile Community Dropdown -->
+                        <div class="flex flex-col items-center w-full">
+                                <button id="mobile-community-btn" class="flex items-center gap-1.5 font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300 focus:outline-none">
+                                        Community
+                                        <svg id="mobile-community-caret" class="w-5 h-5 text-on-surface-variant transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                </button>
+                                <div id="mobile-community-dropdown" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out w-full flex flex-col items-center gap-4 bg-gray-50/50 rounded-xl mt-2 py-0">
+                                        <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200 mt-3" href="blogs.html">Blogs</a>
+                                        <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200" href="media.html">News & Media</a>
+                                        <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200 mb-3" href="stories.html">Stories</a>
+                                </div>
+                        </div>
+
+                        <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                                href="faqs.html">FAQs</a>
                 </div>
                 <!-- Call To Action -->
-                <a class="mt-4 bg-primary text-on-primary rounded-full px-8 py-3 font-label-md text-label-md hover:opacity-80 transition-all duration-300 shadow-md"
+                <a class="mt-4 bg-[#244996] text-white rounded-full px-8 py-3.5 font-semibold text-[16px] hover:bg-[#1a3570] transition-all duration-300 shadow-md"
                         href="#">
                         Attend a Workshop
                 </a>
@@ -622,11 +773,11 @@
         <div class="snap-container md:h-screen md:overflow-y-auto md:scroll-smooth">
                 <!-- Hero Section -->
                 <section id="sec-hero"
-                        class="snap-section pt-[120px] md:pt-0 pb-[70px] md:pb-0 bg-surface relative overflow-hidden hero-bg md:h-screen md:min-h-screen md:flex md:items-center">
+                        class="snap-section pt-[175px] md:pt-0 pb-0 md:pb-0 bg-surface relative overflow-hidden hero-bg md:h-screen md:min-h-screen md:flex md:items-center">
                         <div
                                 class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
                                 <div
-                                        class="z-10 text-left transform lg:-translate-x-[115px] lg:-translate-y-[40px] xl:-translate-x-[165px] xl:-translate-y-[55px]">
+                                        class="z-10 text-left pl-6 sm:pl-8 lg:pl-0 transform lg:-translate-x-[115px] lg:-translate-y-[40px] xl:-translate-x-[165px] xl:-translate-y-[55px]">
                                         <h1
                                                 class="font-headline-xl text-[46px] sm:text-[48px] md:text-[52px] lg:text-[66px] xl:text-[78px] text-[#244996] font-normal mb-stack-md leading-[1.05]">
                                                 <span class="lg:whitespace-nowrap"><span
@@ -642,17 +793,17 @@
                                                 A transformative 3-day workshop to get <br class="hidden lg:inline" /> a
                                                 grand unified view of everything
                                         </p>
-                                        <a class="inline-flex bg-[#244996] text-[#ffffff] rounded-full px-9 py-3.5 font-bold text-[17px] hover:opacity-80 transition-opacity"
+                                        <a class="inline-flex bg-[#244996] text-[#ffffff] rounded-full px-6 py-2.5 sm:px-9 sm:py-3.5 font-bold text-[15px] sm:text-[17px] hover:opacity-80 transition-opacity"
                                                 style="font-family: 'Public Sans', sans-serif;" href="#">
                                                 Attend a Workshop
                                         </a>
                                 </div>
                                 <!-- Meditating man concentric circles illustration on the right for mobile/tablet -->
                                 <div
-                                        class="z-10 flex justify-center items-end w-full mt-[-95px] sm:mt-[-55px] lg:hidden overflow-visible">
+                                        class="z-10 flex justify-center items-end w-full mt-4 sm:mt-[-55px] lg:hidden overflow-visible">
                                         <img src="man.png"
                                                 alt="Self, Family, Society, Existence meditating illustration"
-                                                class="w-[315%] sm:w-[175%] lg:w-[290%] xl:w-[325%] max-w-none sm:max-w-[700px] lg:max-w-none h-auto object-contain select-none pointer-events-none transform scale-y-[1.12] translate-y-[83px] sm:translate-y-[93px] lg:translate-y-[80px] xl:translate-y-[115px] translate-x-0 sm:translate-x-0 lg:translate-x-[200px] xl:translate-x-[260px]" />
+                                                class="w-[160%] max-w-[540px] sm:w-[175%] lg:w-[290%] xl:w-[325%] max-w-none sm:max-w-[700px] lg:max-w-none h-auto object-contain select-none pointer-events-none transform scale-y-[1.12] sm:scale-y-[1.12] sm:translate-y-[93px] lg:translate-y-[80px] xl:translate-y-[115px] translate-y-[8px] translate-x-0 sm:translate-x-0 lg:translate-x-[200px] xl:translate-x-[260px]" />
                                 </div>
                         </div>
                         <!-- Absolute positioned large desktop meditating man, grounded perfectly to the bottom screen edge -->
@@ -664,10 +815,10 @@
                 </section>
                 <!-- For Every Stage of Life -->
                 <section id="sec-stages"
-                        class="snap-section pt-[180px] md:pt-0 pb-section-padding-v md:pb-0 relative overflow-hidden md:h-screen md:min-h-screen md:flex md:flex-col md:justify-center w-full"
+                        class="snap-section pt-[110px] md:pt-0 pb-section-padding-v md:pb-0 relative overflow-hidden md:h-screen md:min-h-screen md:flex md:flex-col md:justify-center w-full"
                         style="background: linear-gradient(to top right, rgba(254, 138, 41, 0.25) 0%, rgba(254, 138, 41, 0.02) 60%, transparent 90%), #fef9f0;">
                         <!-- Full width centered section heading -->
-                        <div class="max-w-[1200px] mx-auto px-gutter mb-6 md:mb-8 w-full">
+                        <div class="max-w-[1200px] mx-auto px-6 md:px-gutter mb-6 md:mb-8 w-full">
                                 <h2 class="font-headline-lg text-[32px] md:text-[48px] lg:text-[72px] xl:text-[82px] text-[#244996] font-bold text-center leading-tight"
                                         style="font-family: 'DM Sans', sans-serif;">
                                         For Every Stage of Life,<br />
@@ -676,7 +827,7 @@
                                 </h2>
                         </div>
                         <div
-                                class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center -mt-4 md:-mt-8 w-full">
+                                class="max-w-[1200px] mx-auto px-6 md:px-gutter grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center -mt-4 md:-mt-8 w-full">
                                 <div
                                         class="z-10 text-center md:text-left transform lg:-translate-x-[50px] lg:-translate-y-[40px] xl:-translate-x-[90px] xl:-translate-y-[60px]">
                                         <h3
@@ -691,7 +842,7 @@
                                                 A way to examine, understand and live life.
                                         </p>
                                         <div
-                                                class="flex flex-wrap justify-center md:justify-start gap-3 lg:gap-4 mb-stack-lg max-w-lg lg:max-w-[950px] mx-auto md:mx-0">
+                                                class="flex flex-wrap justify-center md:justify-start gap-3 lg:gap-4 mb-10 md:mb-stack-lg max-w-lg lg:max-w-[950px] mx-auto md:mx-0">
                                                 <span
                                                         class="px-4 py-1.5 lg:px-6 lg:py-2.5 rounded-full border border-[#fe8a29]/30 text-primary font-label-md lg:text-[19px] bg-white shadow-sm">Love</span>
                                                 <span
@@ -720,7 +871,7 @@
                                 </div>
                                 <!-- Globe image container strictly placed in the right column to prevent any overlap with text -->
                                 <div
-                                        class="w-full h-[260px] sm:h-[320px] md:h-[360px] lg:h-[680px] xl:h-[740px] flex items-center justify-center relative overflow-visible">
+                                        class="w-full h-[260px] sm:h-[320px] md:h-[360px] lg:h-[680px] xl:h-[740px] flex items-center justify-center relative overflow-visible transform -translate-y-10 lg:translate-y-0">
                                         <img src="Earth.png"
                                                 class="h-full w-auto object-contain mix-blend-multiply origin-center -scale-x-[1.3] scale-y-[1.3] sm:-scale-x-[1.45] sm:scale-y-[1.45] md:-scale-x-[1.9] md:scale-y-[1.9] lg:-scale-x-[4.4] lg:scale-y-[4.4] xl:-scale-x-[5.2] xl:scale-y-[5.2] transition-transform duration-500"
                                                 alt="Globe watercolor illustration" />
@@ -732,7 +883,7 @@
                 <section id="sec-families"
                         class="snap-section snap-center-section py-24 md:py-0 bg-surface md:h-[calc(100vh-320px)] md:min-h-[520px] md:flex md:items-center w-full">
                         <div
-                                class="max-w-[1200px] mx-auto px-gutter grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-6 md:gap-10 lg:gap-14 xl:gap-16 items-stretch w-full">
+                                class="max-w-[1200px] mx-auto px-6 md:px-gutter grid grid-cols-1 md:grid-cols-[1fr_1.1fr] gap-6 md:gap-10 lg:gap-14 xl:gap-16 items-stretch w-full">
                                 <div
                                         class="rounded-lg overflow-hidden border border-outline-variant/20 relative aspect-video shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
                                         <img alt="A large diverse group of smiling people posing together outdoors"
@@ -884,88 +1035,172 @@
 
                 <!-- Testimonials: Real Experiences. Real People. -->
                 <section id="sec-testimonials"
-                        class="snap-section snap-center-section py-28 sm:py-0 bg-[#fef9f0] relative overflow-hidden z-10 md:h-[65vh] md:min-h-[480px] md:flex md:flex-col md:justify-center w-full">
-                        <div class="max-w-[1200px] mx-auto px-6 md:px-8 relative z-10 w-full">
+                        class="snap-section snap-center-section py-28 sm:py-0 bg-[#fef9f0] relative overflow-hidden z-10 md:h-[70vh] md:min-h-[520px] md:flex md:flex-col md:justify-center w-full">
+                        <div class="max-w-[1200px] mx-auto px-6 md:px-8 relative z-10 w-full mb-8 md:mb-12">
                                 <!-- Heading -->
-                                <div class="mb-12 md:mb-16">
+                                <div class="text-left">
                                         <h2
-                                                class="font-headline-xl text-[42px] md:text-[62px] lg:text-[76px] xl:text-[88px] leading-[1.1] text-[#fe8a29] select-none">
+                                                class="font-headline-xl text-[38px] sm:text-[46px] md:text-[56px] lg:text-[72px] leading-[1.1] text-[#fe8a29] select-none">
                                                 <span class="font-bold block">Real Experiences.</span>
                                                 <span class="font-normal block">Real People.</span>
                                         </h2>
                                 </div>
+                        </div>
 
-                                <!-- Testimonial Cards Grid -->
-                                <div
-                                        class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-stretch mt-12 md:mt-8 lg:mt-12 xl:mt-16 pl-10 sm:pl-12 md:pl-0 pr-4 sm:pr-6 md:pr-0 w-full">
+                        <!-- Full Width Testimonial Cards Marquee -->
+                        <div class="relative w-full overflow-hidden z-10 py-6">
+                                <!-- Gradient overlays to fade out edges beautifully -->
+                                <div class="absolute left-0 top-0 bottom-0 w-16 md:w-36 bg-gradient-to-r from-[#fef9f0] via-[#fef9f0]/80 to-transparent z-20 pointer-events-none"></div>
+                                <div class="absolute right-0 top-0 bottom-0 w-16 md:w-36 bg-gradient-to-l from-[#fef9f0] via-[#fef9f0]/80 to-transparent z-20 pointer-events-none"></div>
+                                
+                                <div class="animate-marquee gap-8 md:gap-12 px-6">
+                                        <!-- ORIGINAL SET OF 4 CARDS -->
                                         <!-- Boni Patel Card -->
-                                        <div
-                                                class="group relative bg-white shadow-[0_15px_45px_rgba(0,0,0,0.08)] rounded-[20px] pt-12 pb-12 sm:pt-14 sm:pb-14 pl-14 sm:pl-20 pr-8 sm:pr-10 min-h-[220px] sm:min-h-[250px] flex flex-col justify-center border border-gray-100/80 hover:-translate-y-1 hover:shadow-[0_20px_55px_rgba(0,0,0,0.12)] transition-all duration-300">
+                                        <div class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
                                                 <!-- Sharp Blue Vertical Bar on Right Edge -->
-                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73]"></div>
-
+                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]"></div>
                                                 <!-- Overlapping Avatar -->
-                                                <div
-                                                        class="absolute -left-10 sm:-left-12 top-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden shadow-[0_8px_25px_rgba(0,0,0,0.12)] border border-gray-200 bg-gray-100 flex items-center justify-center">
-                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300"
-                                                                fill="currentColor" viewBox="0 0 24 24">
-                                                                <path
-                                                                        d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+                                                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
                                                         </svg>
                                                 </div>
                                                 <!-- Content -->
                                                 <div class="flex flex-col select-none">
-                                                        <h4 class="text-[#022a73] font-normal text-[20px] sm:text-[22px] leading-tight"
-                                                                style="font-family: 'DM Sans', sans-serif;">
-                                                                Boni Patel</h4>
-                                                        <p
-                                                                class="text-[#747682] text-[14px] sm:text-[15px] font-medium mt-0.5 sm:mt-1">
-                                                                Manager, Samarth Diamond<br>Visnagar</p>
-                                                        <div class="mt-4 text-[#1d1c16] text-[19px] sm:text-[20px] leading-relaxed"
-                                                                style="font-family: 'Alegreya Sans', sans-serif;">
+                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight" style="font-family: 'DM Sans', sans-serif;">Boni Patel</h4>
+                                                        <p class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">Manager, Samarth Diamond · Visnagar</p>
+                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed" style="font-family: 'Alegreya Sans', sans-serif;">
                                                                 “इससे मुझमे और परिवार में तृप्ति का स्तर बढ़ता देख पाया।”
-                                                                <span class="italic text-[16px] sm:text-[17px] text-[#747682] mt-1.5 block leading-normal"
-                                                                        style="font-family: 'Alegreya Sans', sans-serif;">(It
-                                                                        brought growing contentment—in me and in my
-                                                                        family.)</span>
+                                                                <span class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(It brought growing contentment—in me and in my family.)</span>
                                                         </div>
                                                 </div>
                                         </div>
 
                                         <!-- Shriram Narasimhan Card -->
-                                        <div
-                                                class="group relative bg-white shadow-[0_15px_45px_rgba(0,0,0,0.08)] rounded-[20px] pt-12 pb-12 sm:pt-14 sm:pb-14 pl-14 sm:pl-20 pr-8 sm:pr-10 min-h-[220px] sm:min-h-[250px] flex flex-col justify-center border border-gray-100/80 hover:-translate-y-1 hover:shadow-[0_20px_55px_rgba(0,0,0,0.12)] transition-all duration-300">
-                                                <!-- Sharp Blue Vertical Bar on Right Edge -->
-                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73]"></div>
-
-                                                <!-- Overlapping Avatar -->
-                                                <div
-                                                        class="absolute -left-10 sm:-left-12 top-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden shadow-[0_8px_25px_rgba(0,0,0,0.12)] border border-gray-200 bg-gray-100 flex items-center justify-center">
-                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300"
-                                                                fill="currentColor" viewBox="0 0 24 24">
-                                                                <path
-                                                                        d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                        <div class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
+                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]"></div>
+                                                <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+                                                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
                                                         </svg>
                                                 </div>
-                                                <!-- Content -->
                                                 <div class="flex flex-col select-none">
-                                                        <h4 class="text-[#022a73] font-normal text-[20px] sm:text-[22px] leading-tight"
-                                                                style="font-family: 'DM Sans', sans-serif;">
-                                                                Shriram Narasimhan</h4>
-                                                        <p
-                                                                class="text-[#747682] text-[14px] sm:text-[15px] font-medium mt-0.5 sm:mt-1">
-                                                                Ex MNC Manager</p>
-                                                        <div class="mt-4 text-[#1d1c16] text-[19px] sm:text-[20px] leading-relaxed italic"
-                                                                style="font-family: 'Alegreya Sans', sans-serif;">
-                                                                “A real, honest suitcase of knowledge & living I can
-                                                                unpack the
-                                                                rest of my Life that results in meaningful Social Action
-                                                                too.”
+                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight" style="font-family: 'DM Sans', sans-serif;">Shriram Narasimhan</h4>
+                                                        <p class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">Ex MNC Manager</p>
+                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed italic" style="font-family: 'Alegreya Sans', sans-serif;">
+                                                                “A real, honest suitcase of knowledge & living I can unpack the rest of my Life that results in meaningful Social Action too.”
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <!-- Karan Trivedi Card -->
+                                        <div class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
+                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]"></div>
+                                                <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+                                                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                        </svg>
+                                                </div>
+                                                <div class="flex flex-col select-none">
+                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight" style="font-family: 'DM Sans', sans-serif;">Karan Trivedi</h4>
+                                                        <p class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">Software Architect · Ahmedabad</p>
+                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed" style="font-family: 'Alegreya Sans', sans-serif;">
+                                                                “इससे मुझे निर्णय लेने में जो स्पष्टता मिली है, वह अद्भुत है।”
+                                                                <span class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(The structural clarity this gave me in making decisions is absolutely amazing.)</span>
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <!-- Anjali Mehta Card -->
+                                        <div class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
+                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]"></div>
+                                                <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+                                                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                        </svg>
+                                                </div>
+                                                <div class="flex flex-col select-none">
+                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight" style="font-family: 'DM Sans', sans-serif;">Anjali Mehta</h4>
+                                                        <p class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">Associate Professor · Baroda</p>
+                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed" style="font-family: 'Alegreya Sans', sans-serif;">
+                                                                “इसने हमारे बच्चों और हमारे बीच की दूरी को पूरी तरह समाप्त कर दिया।”
+                                                                <span class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(It completely bridged the communication gap between my children and us.)</span>
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <!-- DUPLICATED SET FOR INFINITE LOOPING -->
+                                        <!-- Boni Patel Card (Dup) -->
+                                        <div class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
+                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]"></div>
+                                                <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+                                                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                        </svg>
+                                                </div>
+                                                <div class="flex flex-col select-none">
+                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight" style="font-family: 'DM Sans', sans-serif;">Boni Patel</h4>
+                                                        <p class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">Manager, Samarth Diamond · Visnagar</p>
+                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed" style="font-family: 'Alegreya Sans', sans-serif;">
+                                                                “इससे मुझमे और परिवार में तृप्ति का स्तर बढ़ता देख पाया।”
+                                                                <span class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(It brought growing contentment—in me and in my family.)</span>
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <!-- Shriram Narasimhan Card (Dup) -->
+                                        <div class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
+                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]"></div>
+                                                <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+                                                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                        </svg>
+                                                </div>
+                                                <div class="flex flex-col select-none">
+                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight" style="font-family: 'DM Sans', sans-serif;">Shriram Narasimhan</h4>
+                                                        <p class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">Ex MNC Manager</p>
+                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed italic" style="font-family: 'Alegreya Sans', sans-serif;">
+                                                                “A real, honest suitcase of knowledge & living I can unpack the rest of my Life that results in meaningful Social Action too.”
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <!-- Karan Trivedi Card (Dup) -->
+                                        <div class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
+                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]"></div>
+                                                <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+                                                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                        </svg>
+                                                </div>
+                                                <div class="flex flex-col select-none">
+                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight" style="font-family: 'DM Sans', sans-serif;">Karan Trivedi</h4>
+                                                        <p class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">Software Architect · Ahmedabad</p>
+                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed" style="font-family: 'Alegreya Sans', sans-serif;">
+                                                                “इससे मुझे निर्णय लेने में जो स्पष्टता मिली है, वह अद्भुत है।”
+                                                                <span class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(The structural clarity this gave me in making decisions is absolutely amazing.)</span>
+                                                        </div>
+                                                </div>
+                                        </div>
+
+                                        <!-- Anjali Mehta Card (Dup) -->
+                                        <div class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
+                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]"></div>
+                                                <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_8px_25px_rgba(0,0,0,0.12)] border border-gray-200 bg-gray-100 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
+                                                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                        </svg>
+                                                </div>
+                                                <div class="flex flex-col select-none">
+                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight" style="font-family: 'DM Sans', sans-serif;">Anjali Mehta</h4>
+                                                        <p class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">Associate Professor · Baroda</p>
+                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed" style="font-family: 'Alegreya Sans', sans-serif;">
+                                                                “इसने हमारे बच्चों और हमारे बीच की दूरी को पूरी तरह समाप्त कर दिया।”
+                                                                <span class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(It completely bridged the communication gap between my children and us.)</span>
                                                         </div>
                                                 </div>
                                         </div>
                                 </div>
-                        </div>
                 </section>
 
                 <!-- What is Sah Astitva Answers? -->
@@ -973,10 +1208,10 @@
                         class="snap-section py-28 md:py-0 bg-primary relative overflow-hidden md:h-screen md:min-h-screen md:flex md:flex-col md:justify-center w-full">
                         <!-- Topographic background image -->
                         <div class="absolute inset-0 z-0 pointer-events-none">
-                                <img src="Sah.png" class="w-full h-full object-cover opacity-80"
+                                <img src="Sah.png" class="w-full h-full object-cover"
                                         alt="Topographic background texture" />
                         </div>
-                        <div class="max-w-[1200px] mx-auto px-gutter relative z-10 w-full">
+                        <div class="max-w-[1200px] mx-auto px-6 md:px-gutter relative z-10 w-full">
                                 <div class="text-on-primary">
                                         <h2 class="font-headline-xl text-[42px] md:text-[62px] lg:text-[78px] xl:text-[88px] font-bold mb-stack-sm leading-tight text-white md:whitespace-nowrap"
                                                 style="font-family: 'DM Sans', sans-serif;">
@@ -1182,120 +1417,6 @@
                         </section>
                 </div>
         </div>
-
-        <!-- Mobile Menu & Premium Fluid Desktop Scroll Snapper -->
-        <script>
-                document.addEventListener('DOMContentLoaded', () => {
-                        // 1. Mobile Menu Functionality
-                        const menuBtn = document.getElementById('mobile-menu-btn');
-                        const closeBtn = document.getElementById('mobile-menu-close-btn');
-                        const overlay = document.getElementById('mobile-menu-overlay');
-
-                        if (menuBtn && closeBtn && overlay) {
-                                // Open menu
-                                menuBtn.addEventListener('click', () => {
-                                        overlay.classList.remove('translate-x-full');
-                                        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-                                });
-
-                                // Close menu
-                                const closeMenu = () => {
-                                        overlay.classList.add('translate-x-full');
-                                        document.body.style.overflow = ''; // Restore scrolling
-                                };
-
-                                closeBtn.addEventListener('click', closeMenu);
-
-                                // Close overlay when clicking any link
-                                overlay.querySelectorAll('a').forEach(link => {
-                                        link.addEventListener('click', closeMenu);
-                                });
-                        }
-
-                        // 2. High-performance Smooth Scroll Snapper (Only for Desktops/Laptops)
-                        const wrapper = document.querySelector('.snap-container');
-                        const sections = document.querySelectorAll('.snap-section');
-
-                        if (wrapper && sections.length > 0) {
-                                let currentSectionIndex = 0;
-                                let isScrolling = false;
-                                const scrollCooldown = 900; // time window to allow transition completion
-
-                                function scrollToSection(index) {
-                                        if (index < 0 || index >= sections.length) return;
-                                        isScrolling = true;
-                                        currentSectionIndex = index;
-
-                                        if (sections[index].classList.contains('snap-center-section')) {
-                                                const elementRect = sections[index].getBoundingClientRect();
-                                                const absoluteElementTop = elementRect.top + wrapper.scrollTop;
-                                                // Mathematically center the section so that the top visible peek (below the 72px navbar) is exactly, pixel-perfectly identical in height to the bottom visible peek
-                                                const targetScrollTop = absoluteElementTop - (wrapper.clientHeight - elementRect.height + (document.querySelector('nav') ? document.querySelector('nav').offsetHeight : 72)) / 2;
-
-                                                wrapper.scrollTo({
-                                                        top: targetScrollTop,
-                                                        behavior: 'smooth'
-                                                });
-                                        } else {
-                                                sections[index].scrollIntoView({
-                                                        behavior: 'smooth',
-                                                        block: 'start'
-                                                });
-                                        }
-
-                                        setTimeout(() => {
-                                                isScrolling = false;
-                                        }, scrollCooldown);
-                                }
-
-                                // Intercept mouse wheel scroll on desktop to snap instantly like water
-                                wrapper.addEventListener('wheel', (e) => {
-                                        if (window.innerWidth < 1024) return;
-
-                                        e.preventDefault();
-                                        if (isScrolling) return;
-
-                                        if (e.deltaY > 0) {
-                                                scrollToSection(currentSectionIndex + 1);
-                                        } else if (e.deltaY < 0) {
-                                                scrollToSection(currentSectionIndex - 1);
-                                        }
-                                }, { passive: false });
-
-                                // Keyboard Arrow/Page Snapping support
-                                window.addEventListener('keydown', (e) => {
-                                        if (window.innerWidth < 1024) return;
-
-                                        if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-                                                e.preventDefault();
-                                                scrollToSection(currentSectionIndex + 1);
-                                        } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-                                                e.preventDefault();
-                                                scrollToSection(currentSectionIndex - 1);
-                                        }
-                                });
-
-                                // Sync active index on scrollbar or external scroll
-                                const observerOptions = {
-                                        root: wrapper,
-                                        threshold: 0.3
-                                };
-
-                                const observer = new IntersectionObserver((entries) => {
-                                        entries.forEach((entry) => {
-                                                if (entry.isIntersecting && !isScrolling) {
-                                                        const index = Array.from(sections).indexOf(entry.target);
-                                                        if (index !== -1) {
-                                                                currentSectionIndex = index;
-                                                        }
-                                                }
-                                        });
-                                }, observerOptions);
-
-                                sections.forEach(section => observer.observe(section));
-                        }
-                });
-        </script>
 </body>
 
 </html>

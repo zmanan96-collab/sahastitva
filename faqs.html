@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FAQs — Sah Astitva Answers</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PT Sans', sans-serif;
+            background: #fdf3e9;
+            color: #111827;
+            min-height: 100vh;
+        }
+
+        .dm-sans {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .pt-sans {
+            font-family: 'PT Sans', sans-serif;
+        }
+
+        .acc-item {
+            border-bottom: 1px solid #e5e0d8;
+        }
+
+        .acc-item:first-child {
+            border-top: 1px solid #e5e0d8;
+        }
+
+        .acc-plus {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1.5px solid #e8651a;
+            color: #e8651a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1;
+            transition: transform .22s, background .18s;
+            user-select: none;
+        }
+
+        .acc-item.open .acc-plus {
+            transform: rotate(45deg);
+            background: #e8651a;
+            color: #fff;
+        }
+
+        .acc-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+
+        .acc-item.open .acc-body {
+            max-height: 1500px;
+            padding-bottom: 28px;
+        }
+
+        .acc-body ul {
+            margin: 8px 0 12px 0;
+            padding-left: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .acc-body ul li {
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .acc-body ul li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: #e8651a;
+            font-size: 13px;
+            top: 0px;
+        }
+
+        /* Tab Active Styles */
+        .tab-btn.active {
+            background: #ffffff;
+            color: #111827;
+            font-weight: 700;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "outline": "#747682",
+                        "surface-container": "#f6ece2",
+                        "on-secondary-fixed": "#351000",
+                        "surface-bright": "#fff8f3",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#b3c5ff",
+                        "primary": "#244996",
+                        "outline-variant": "#c4c6d2",
+                        "on-primary-container": "#7a95e3",
+                        "inverse-surface": "#353029",
+                        "surface": "#fef9f0",
+                        "surface-variant": "#ebe1d7",
+                        "on-surface-variant": "#444651",
+                        "on-tertiary-fixed": "#001849",
+                        "on-secondary-container": "#5f2200",
+                        "surface-container-low": "#fcf2e8",
+                        "on-secondary-fixed-variant": "#7b2f00",
+                        "surface-dim": "#e2d8cf",
+                        "primary-fixed": "#dbe1ff",
+                        "secondary": "#e8651a",
+                        "inverse-primary": "#b3c5ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#f0e7dd",
+                        "tertiary-fixed": "#dbe1ff",
+                        "on-tertiary-fixed-variant": "#25438b",
+                        "tertiary-container": "#022a73",
+                        "on-background": "#1f1b15",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#022a73",
+                        "inverse-on-surface": "#f9efe5",
+                        "on-surface": "#1d1c16",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#ebe1d7",
+                        "secondary-container": "#fe8a29",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#25438b",
+                        "secondary-fixed-dim": "#ffb695",
+                        "tertiary": "#001748",
+                        "on-primary-fixed": "#00184a",
+                        "on-tertiary-container": "#7a95e2",
+                        "surface-tint": "#3f5ba5",
+                        "background": "#fdf3e9",
+                        "secondary-fixed": "#ffdbcc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "section-padding-v": "100px",
+                        "stack-sm": "8px",
+                        "stack-lg": "32px",
+                        "container-max-width": "1200px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["DM Sans", "sans-serif"],
+                        "label-md": ["DM Sans", "sans-serif"],
+                        "headline-lg-mobile": ["DM Sans", "sans-serif"],
+                        "headline-md": ["DM Sans", "sans-serif"],
+                        "headline-lg": ["DM Sans", "sans-serif"],
+                        "body-lg": ["PT Sans", "sans-serif"],
+                        "body-md": ["PT Sans", "sans-serif"]
+                    }
+                },
+            },
+        };
+    </script>
+    <script>
+        function switchTab(categoryId, btn) {
+            // Update buttons
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Update panels
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+            const targetPanel = document.getElementById('panel-' + categoryId);
+            if (targetPanel) {
+                targetPanel.classList.remove('hidden');
+                // Ensure all accordions in the new panel are closed initially
+                targetPanel.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+            }
+        }
+
+        function toggleAcc(trigger) {
+            const item = trigger.closest('.acc-item');
+            const panel = trigger.closest('.tab-panel');
+            const isOpen = item.classList.contains('open');
+
+            // Close others in the same panel
+            panel.querySelectorAll('.acc-item').forEach(i => i.classList.remove('open'));
+
+            // Toggle current
+            if (!isOpen) {
+                item.classList.add('open');
+            }
+        }
+
+        // Initialize first tab & mobile menu
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstTab = document.querySelector('.tab-btn');
+            if (firstTab) switchTab('workshop', firstTab);
+
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('mobile-menu-close-btn');
+            const overlay = document.getElementById('mobile-menu-overlay');
+
+            if (menuBtn && closeBtn && overlay) {
+                // Open menu
+                menuBtn.addEventListener('click', () => {
+                    overlay.classList.remove('translate-x-full');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                });
+
+                // Close menu
+                const closeMenu = () => {
+                    overlay.classList.add('translate-x-full');
+                    document.body.style.overflow = ''; // Restore scrolling
+                };
+
+                closeBtn.addEventListener('click', closeMenu);
+
+                // Close overlay when clicking any link
+                overlay.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+            }
+
+            // Mobile Community Dropdown Accordion toggle
+            const mobileCommBtn = document.getElementById('mobile-community-btn');
+            const mobileCommDropdown = document.getElementById('mobile-community-dropdown');
+            const mobileCommCaret = document.getElementById('mobile-community-caret');
+            if (mobileCommBtn && mobileCommDropdown && mobileCommCaret) {
+                mobileCommBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isOpen = mobileCommDropdown.style.maxHeight && mobileCommDropdown.style.maxHeight !== '0px';
+                    if (isOpen) {
+                        mobileCommDropdown.style.maxHeight = '0px';
+                        mobileCommDropdown.classList.remove('py-3');
+                        mobileCommDropdown.classList.add('py-0');
+                        mobileCommCaret.classList.remove('rotate-180');
+                    } else {
+                        mobileCommDropdown.style.maxHeight = '200px';
+                        mobileCommDropdown.classList.remove('py-0');
+                        mobileCommDropdown.classList.add('py-3');
+                        mobileCommCaret.classList.add('rotate-180');
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet" />
+
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+
+</head>
+
+<body class="bg-background text-on-surface">
+    <!-- TOP NAV -->
+    <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
+        <div class="flex justify-between items-center max-w-[1300px] mx-auto px-6 lg:px-8 py-4 md:py-6">
+            <a class="flex items-center" href="index.html">
+                <img src="logo.png" alt="Sah Astitva Answers"
+                    class="-my-16 md:-my-24 lg:-my-[200px] -ml-8 md:-ml-16 lg:-ml-[160px] h-40 md:h-56 lg:h-[440px] w-auto object-contain" />
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="whyattend.html">
+                    Workshop
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="philosophy.html">
+                    Philosophy
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="journey.html">
+                    Journey
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="people.html">
+                    People
+                </a>
+                                <div class="relative group">
+                                        <button class="flex items-center gap-1 font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300 focus:outline-none">
+                                                Community
+                                                <svg class="w-4 h-4 text-primary transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
+                                                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 py-3 flex flex-col overflow-hidden">
+                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="blogs.html">Blogs</a>
+                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="media.html">News & Media</a>
+                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="stories.html">Stories</a>
+                                                </div>
+                                        </div>
+                                </div>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary border-b-2 border-secondary pb-1 hover:opacity-80 transition-all duration-300"
+                    href="faqs.html">
+                    FAQs
+                </a>
+            </div>
+            <a class="hidden md:inline-flex bg-[#244996] text-white rounded-full px-6 py-2.5 font-semibold text-[15px] hover:bg-[#1a3570] transition-all duration-300"
+                href="#">
+                Attend a Workshop
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-primary">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay"
+        class="fixed inset-0 z-[100] bg-surface/98 backdrop-blur-lg flex flex-col justify-center items-center gap-8 translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+        <!-- Close Button -->
+        <button id="mobile-menu-close-btn" class="absolute top-6 right-6 text-primary p-2 focus:outline-none">
+            <span class="material-symbols-outlined text-[32px]">close</span>
+        </button>
+        <!-- Navigation Links -->
+        <div class="flex flex-col items-center gap-6">
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="whyattend.html">Workshop</a>
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="philosophy.html">Philosophy</a>
+             <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="journey.html">Journey</a>
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="people.html">People</a>
+
+            <!-- Mobile Community Dropdown -->
+            <div class="flex flex-col items-center w-full">
+                <button id="mobile-community-btn" class="flex items-center gap-1.5 font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300 focus:outline-none">
+                    Community
+                    <svg id="mobile-community-caret" class="w-5 h-5 text-on-surface-variant transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="mobile-community-dropdown" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out w-full flex flex-col items-center gap-4 bg-gray-50/50 rounded-xl mt-2 py-0">
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200 mt-3" href="blogs.html">Blogs</a>
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200" href="media.html">News & Media</a>
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200 mb-3" href="stories.html">Stories</a>
+                </div>
+            </div>
+
+            <a class="font-headline-md text-headline-md text-primary font-bold hover:opacity-80 transition-all duration-300"
+                href="faqs.html">FAQs</a>
+        </div>
+        <!-- Call To Action -->
+        <a class="mt-4 bg-[#244996] text-white rounded-full px-8 py-3.5 font-semibold text-[16px] hover:bg-[#1a3570] transition-all duration-300 shadow-md"
+            href="#">
+            Attend a Workshop
+        </a>
+    </div>
+    <!-- MAIN PAGE -->
+    <main class="pt-[180px] md:pt-[220px] pb-24 max-w-[1200px] mx-auto px-6 md:px-8">
+        <!-- Header -->
+        <header class="mb-16">
+            <p class="dm-sans text-[12px] sm:text-[13px] font-bold tracking-[0.25em] uppercase text-[#fe8a29] mb-4">
+                Frequently Asked Questions
+            </p>
+            <h1
+                class="dm-sans text-[36px] sm:text-[48px] md:text-[64px] font-extrabold text-[#244996] leading-[1.1] tracking-tight">
+                Honest answers.
+            </h1>
+        </header>
+        <!-- Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-12 md:gap-20 items-start">
+            <!-- Sidebar Tabs -->
+            <aside class="flex flex-row flex-wrap md:flex-col gap-2 md:gap-1 md:sticky md:top-32">
+                <button
+                    class="tab-btn active dm-sans text-[14px] md:text-[15px] text-center md:text-left px-4 py-2.5 md:px-5 md:py-3.5 rounded-full md:rounded-md text-outline hover:text-on-surface transition-all duration-200"
+                    onclick="switchTab('workshop', this)">About the Workshop</button>
+                <button
+                    class="tab-btn dm-sans text-[14px] md:text-[15px] text-center md:text-left px-4 py-2.5 md:px-5 md:py-3.5 rounded-full md:rounded-md text-outline hover:text-on-surface transition-all duration-200"
+                    onclick="switchTab('logistics', this)">Logistics &amp; Participation</button>
+                <button
+                    class="tab-btn dm-sans text-[14px] md:text-[15px] text-center md:text-left px-4 py-2.5 md:px-5 md:py-3.5 rounded-full md:rounded-md text-outline hover:text-on-surface transition-all duration-200"
+                    onclick="switchTab('attend', this)">Who can Attend</button>
+            </aside>
+            <!-- Panels Content -->
+            <section class="panels">
+                <!-- Panel: About the Workshop -->
+                <div class="tab-panel" id="panel-workshop">
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">What
+                                is the Jeevan Vidya Shivir?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed space-y-4">
+                                <p>A 3-day residential workshop where you examine your own life through dialogue. Not a
+                                    lecture. Not a retreat. A structured conversation — about who you are, how you live,
+                                    and what you actually want.</p>
+                                <p>No preaching. No rituals. No texts to follow.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">What
+                                is the main objective?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed space-y-4">
+                                <p>To arrive at a clear, integral understanding of yourself — your mind, your
+                                    relationships, your place in the world.</p>
+                                <p>Not as a concept. As something you can actually live.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">What
+                                topics are covered?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed space-y-4">
+                                <p>The workshop moves from the inside out:</p>
+                                <p>Mind and consciousness → Relationships and family → Society and human purpose →
+                                    Nature and reality.</p>
+                                <p>Every topic connects to every other. By the end, the pieces form a coherent whole.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">What
+                                philosophy is it based on?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed space-y-4">
+                                <p>Jeevan Vidya is an introduction to Madhyasth Darshan (Coexistential Philosophy), a
+                                    framework developed by Shri A. Nagraj.</p>
+                                <p>It does not ask you to adopt this philosophy. It asks you to examine it — and draw
+                                    your own conclusions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">Is
+                                there any fee?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed space-y-4">
+                                <p class="dm-sans font-bold text-primary">No teaching fee. Ever.</p>
+                                <p>A nominal daily contribution of ₹300–600 covers food and basic accommodation for
+                                    residential participants. If this is a barrier, speak with the organizers —
+                                    contribution is never a condition for attending.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Panel: Logistics & Participation -->
+                <div class="tab-panel hidden" id="panel-logistics">
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">Where
+                                is the workshop held?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed">
+                                <p>At designated locations across India. Specific venues and dates are listed on the
+                                    Schedule page.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">What
+                                are the stay arrangements?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed">
+                                <p>Simple shared accommodation on campus. Basic bedding is provided — bring an extra
+                                    bedsheet or blanket if possible. Rooms are allotted based on availability.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">What
+                                about food?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed">
+                                <p>Nutritious vegetarian meals are provided throughout. Jain and dairy-free preferences
+                                    can be accommodated — check with organizers in advance. Children below 10 are not
+                                    charged for food.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">What
+                                should I bring?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed">
+                                <ul class="space-y-1">
+                                    <li>An extra bedsheet or blanket</li>
+                                    <li>Water bottle, personal medications, mosquito repellent</li>
+                                    <li>A notebook and pen</li>
+                                    <li>Warm clothes or an umbrella depending on the season</li>
+                                    <li>And an open mind</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">What
+                                are the daily timings?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed">
+                                <p>Classroom sessions run from 9:00 AM to 6:00 PM, with breaks for meals and tea. An
+                                    evening group dialogue is held from 8:00–9:00 PM after dinner.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">How
+                                do I reach the venue?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed">
+                                <p>Local driver contacts are shared with registered participants. Join the relevant
+                                    WhatsApp group or reach out to the organizers for travel details.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">Can
+                                I attend for fewer than 3 days?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed">
+                                <p>The workshop is designed as a complete journey — each day builds on the one before.
+                                    Partial attendance is possible, but it limits the understanding the workshop is
+                                    meant to give. Full attendance is strongly recommended.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">What
+                                restrictions apply during the workshop?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed">
+                                <p>No alcohol, tobacco, or intoxicants. Participants are advised not to bring valuables.
+                                    A simple lifestyle is expected throughout.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">What
+                                happens after the workshop?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed">
+                                <p>Beginners' reading material is shared. Advanced workshops and a study guide are
+                                    available for those who want to continue. Many participants stay connected with
+                                    facilitators and local groups for ongoing study.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Panel: Who can Attend -->
+                <div class="tab-panel hidden" id="panel-attend">
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">Who
+                                is this workshop for?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed space-y-4">
+                                <p>Anyone willing to think — honestly and independently.</p>
+                                <p>Students, professionals, homemakers, educators, thinkers, parents, social workers. No
+                                    prior knowledge needed. No belief system required.</p>
+                                <p>This workshop is for you if:</p>
+                                <ul class="space-y-1">
+                                    <li>Existing frameworks haven't answered your real questions</li>
+                                    <li>You don't want an authority figure telling you how to live</li>
+                                    <li>You're not looking for a guru or a following</li>
+                                    <li>You want to reason things out for yourself — and live what you find</li>
+                                    <li>You value relationships and want to understand them, not just manage them</li>
+                                    <li>You're looking for resolution, not just relief</li>
+                                </ul>
+                                <p class="dm-sans font-bold text-primary">You Exist. That's the only prerequisite.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">Is
+                                this a cult or a religious organization?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed space-y-4">
+                                <p>No. There is no guru to follow, no belief to adopt, no community to join.</p>
+                                <p>The facilitator is a fellow inquirer. Participants are encouraged to question
+                                    everything — including what is said in the workshop itself.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">Do
+                                I need to be 'spiritual' or religious?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed space-y-4">
+                                <p>No. The workshop does not rely on faith, scripture, or any religious tradition.</p>
+                                <p>It uses reflective reasoning — looking at reality as it is, and examining our own
+                                    minds honestly.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="w-full flex items-center justify-between gap-6 py-6 text-left group"
+                            onclick="toggleAcc(this)">
+                            <span
+                                class="dm-sans text-lg font-medium text-on-surface group-hover:text-secondary transition-colors">Will
+                                I be asked to change my lifestyle?</span>
+                            <span class="acc-plus">+</span>
+                        </button>
+                        <div class="acc-body">
+                            <div class="pt-sans text-body-md text-on-surface-variant leading-relaxed">
+                                <p>No. The workshop asks nothing of your life outside the room.</p>
+                                <p>What you do with what you understand — that's entirely up to you.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- BEGIN: Footer -->
+    <footer id="sec-footer" class="relative pt-24 pb-0 bg-[#fef9f0] overflow-hidden w-full" data-purpose="site-footer">
+        <div id="begin-section-container"
+            class="max-w-[1200px] mx-auto px-6 relative z-10 w-full md:flex-grow md:flex md:flex-col md:justify-center mb-16">
+            <h2 id="begin-section-heading"
+                class="font-headline-xl text-[42px] md:text-[62px] lg:text-[76px] xl:text-[88px] text-[#244996] font-bold mb-4 text-center leading-tight"
+                style="font-family: 'DM Sans', sans-serif;">
+                Wondering Where To Begin?
+            </h2>
+            <p id="begin-section-desc"
+                class="text-[20px] md:text-[24px] lg:text-[28px] text-[#244996] text-center mb-16 w-full max-w-none mx-auto leading-relaxed md:whitespace-nowrap"
+                style="font-family: 'Public Sans', sans-serif;">
+                Whether you want to explore, experience, or simply understand more — there’s a place to start.
+            </p>
+            <div id="begin-section-grid" class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.95fr_0.95fr] gap-8 lg:gap-10">
+                <!-- Column 1 (Highlighted & Large) -->
+                <div class="pl-6 border-l-4 border-[#fe8a29] flex flex-col items-start">
+                    <h3
+                        class="font-bold text-[24px] sm:text-[27px] md:text-[32px] lg:text-[36px] text-[#28221b] mb-2 leading-snug sm:whitespace-nowrap">
+                        Attend The 3-Day Workshop
+                    </h3>
+                    <p class="text-[18px] md:text-[20px] lg:text-[22px] text-[#5c5c5c] leading-relaxed max-w-md"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        A deeper in-person experience <span class="block">of Jeevan Vidya.</span>
+                    </p>
+                    <a class="inline-flex px-8 py-2.5 rounded-full border-2 border-[#fe8a29] text-[#fe8a29] bg-[#fffbf4] font-bold text-[17px] hover:bg-[#fe8a29]/10 transition-colors mt-6 shadow-sm"
+                        href="#">
+                        Attend Workshop
+                    </a>
+                </div>
+                <!-- Column 2 -->
+                <div class="pl-5 border-l border-[#fe8a29]/40 flex flex-col items-start justify-start pt-1">
+                    <h3
+                        class="font-bold text-[20px] md:text-[22px] lg:text-[25px] text-[#28221b] mb-1.5 leading-snug sm:whitespace-nowrap">
+                        Join The 3-Hour Online Session
+                    </h3>
+                    <p class="text-[15px] md:text-[16px] lg:text-[17.5px] text-[#5c5c5c] leading-relaxed"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        A short introduction to the <span class="block">dialogue and core ideas.</span>
+                    </p>
+                    <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
+                        href="#">
+                        Join Online
+                    </a>
+                </div>
+                <!-- Column 3 -->
+                <div class="pl-5 border-l border-[#fe8a29]/40 flex flex-col items-start justify-start pt-1">
+                    <h3
+                        class="font-bold text-[20px] md:text-[22px] lg:text-[25px] text-[#28221b] mb-1.5 leading-snug sm:whitespace-nowrap">
+                        Explore More
+                    </h3>
+                    <p class="text-[15px] md:text-[16px] lg:text-[17.5px] text-[#5c5c5c] leading-relaxed"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        <span class="sm:whitespace-nowrap">Read foundational ideas,</span> <span
+                            class="sm:block sm:whitespace-nowrap">questions and reflections.</span>
+                    </p>
+                    <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
+                        href="#">
+                        Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Mountain Landscape Absolute Background -->
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <img alt="Silhouetted mountain layers fading into the background"
+                class="w-full h-full object-cover object-bottom"
+                style="-webkit-mask-image: linear-gradient(to top, black 25%, transparent 85%); mask-image: linear-gradient(to top, black 25%, transparent 85%);"
+                src="footer.png" />
+        </div>
+        <!-- Footer content placed directly at the bottom of the section -->
+        <div id="begin-section-footer" class="w-full relative z-20 py-5 md:py-6 border-t border-white/10 mt-12">
+            <div
+                class="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 max-w-[1200px] mx-auto px-6 text-center md:text-left">
+                <!-- Left Column: Copyright Text -->
+                <div class="text-white/70 text-[13px] md:text-[14px] font-normal"
+                    style="font-family: 'Public Sans', sans-serif;">
+                    © 2026 Sah Astitva Answers. All rights reserved.
+                </div>
+                <!-- Right Column: Links in a Single Line -->
+                <div
+                    class="flex flex-row flex-wrap gap-x-6 md:gap-x-8 gap-y-2 items-center justify-center md:justify-end">
+                    <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                        style="font-family: 'Public Sans', sans-serif;" href="#">Instagram</a>
+                    <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                        style="font-family: 'Public Sans', sans-serif;" href="#">LinkedIn</a>
+                    <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                        style="font-family: 'Public Sans', sans-serif;" href="#">X</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END: Footer -->
+</body>
+
+</html>

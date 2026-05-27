@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sah Astitva - Stories</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet" />
+
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fffaf5;
+            color: #333;
+        }
+
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sah: {
+                            navy: '#1a4073',
+                            orange: '#f08221',
+                            lightbg: '#faf9f6',
+                            border: '#f2a665',
+                            darkbg: '#0f172a'
+                        },
+                        primary: '#022a73',
+                        secondary: '#954900',
+                        surface: '#fef9f0',
+                        'outline-variant': '#c4c6d2',
+                        'on-surface': '#1d1c16',
+                        'on-surface-variant': '#444651'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        "label-md": ["Public Sans"],
+                        "headline-md": ["DM Sans"],
+                    },
+                    fontSize: {
+                        "label-md": [
+                            "14px",
+                            {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "500"
+                            }
+                        ],
+                        "headline-md": [
+                            "28px",
+                            {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                            }
+                        ]
+                    }
+                }
+            }
+        };
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('mobile-menu-close-btn');
+            const overlay = document.getElementById('mobile-menu-overlay');
+
+            if (menuBtn && closeBtn && overlay) {
+                // Open menu
+                menuBtn.addEventListener('click', () => {
+                    overlay.classList.remove('translate-x-full');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                // Close menu
+                const closeMenu = () => {
+                    overlay.classList.add('translate-x-full');
+                    document.body.style.overflow = '';
+                };
+
+                closeBtn.addEventListener('click', closeMenu);
+
+                overlay.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+            }
+
+            // Mobile Community dropdown toggle
+            const mobileCommBtn = document.getElementById('mobile-community-btn');
+            const mobileCommDropdown = document.getElementById('mobile-community-dropdown');
+            const mobileCommCaret = document.getElementById('mobile-community-caret');
+            if (mobileCommBtn && mobileCommDropdown && mobileCommCaret) {
+                mobileCommBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isOpen = mobileCommDropdown.style.maxHeight && mobileCommDropdown.style.maxHeight !== '0px';
+                    if (isOpen) {
+                        mobileCommDropdown.style.maxHeight = '0px';
+                        mobileCommDropdown.classList.remove('py-3');
+                        mobileCommDropdown.classList.add('py-0');
+                        mobileCommCaret.classList.remove('rotate-180');
+                    } else {
+                        mobileCommDropdown.style.maxHeight = '200px';
+                        mobileCommDropdown.classList.remove('py-0');
+                        mobileCommDropdown.classList.add('py-3');
+                        mobileCommCaret.classList.add('rotate-180');
+                    }
+                });
+            }
+
+            // Filter logic for Written Stories
+            const filterButtons = document.querySelectorAll('.filter-pill');
+            const storyCards = document.querySelectorAll('.story-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('bg-[#244996]', 'text-white');
+                        btn.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+                    });
+                    button.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+                    button.classList.add('bg-[#244996]', 'text-white');
+
+                    const category = button.getAttribute('data-category');
+
+                    storyCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (category === 'all' || cardCategory === category) {
+                            card.style.display = 'flex';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                            }, 50);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.95)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 200);
+                        }
+                    });
+                });
+            });
+
+            // Video modal handlers
+            const videoCards = document.querySelectorAll('.video-card');
+            const videoModal = document.getElementById('video-modal');
+            const modalIframe = document.getElementById('modal-iframe');
+            const modalClose = document.getElementById('modal-close');
+
+            videoCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const videoUrl = card.getAttribute('data-video-url');
+                    if (videoModal && modalIframe) {
+                        modalIframe.src = videoUrl;
+                        videoModal.classList.remove('opacity-0', 'pointer-events-none');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            if (modalClose && videoModal && modalIframe) {
+                modalClose.addEventListener('click', () => {
+                    videoModal.classList.add('opacity-0', 'pointer-events-none');
+                    modalIframe.src = '';
+                    document.body.style.overflow = '';
+                });
+
+                // Close on overlay click
+                videoModal.addEventListener('click', (e) => {
+                    if (e.target === videoModal) {
+                        videoModal.classList.add('opacity-0', 'pointer-events-none');
+                        modalIframe.src = '';
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+            // Stats count up animation
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const animateStats = () => {
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-target'));
+                    const suffix = stat.getAttribute('data-suffix') || '';
+                    const duration = 2000; // 2 seconds animation duration
+                    const startTime = performance.now();
+
+                    const updateNumber = (currentTime) => {
+                        const elapsedTime = currentTime - startTime;
+                        const progress = Math.min(elapsedTime / duration, 1);
+
+                        // Smooth easeOutQuad progress easing
+                        const easeProgress = progress * (2 - progress);
+                        const currentValue = Math.floor(easeProgress * target);
+
+                        stat.textContent = currentValue.toLocaleString() + suffix;
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateNumber);
+                        } else {
+                            stat.textContent = target.toLocaleString() + suffix;
+                        }
+                    };
+
+                    requestAnimationFrame(updateNumber);
+                });
+            };
+
+            const statsObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            const statsSection = document.querySelector('.stat-number')?.closest('section');
+            if (statsSection) {
+                statsObserver.observe(statsSection);
+            }
+        });
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+
+<body class="antialiased bg-[#fffaf5]">
+    <!-- BEGIN: MainHeader -->
+    <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
+        <div class="flex justify-between items-center max-w-[1300px] mx-auto px-6 lg:px-8 py-4 md:py-6">
+            <a class="flex items-center" href="index.html">
+                <img src="logo.png" alt="Sah Astitva Answers"
+                    class="-my-16 md:-my-24 lg:-my-[200px] -ml-8 md:-ml-16 lg:-ml-[160px] h-40 md:h-56 lg:h-[440px] w-auto object-contain" />
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="whyattend.html">
+                    Workshop
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="philosophy.html">
+                    Philosophy
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="journey.html">
+                    Journey
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="people.html">
+                    People
+                </a>
+                <div class="relative group">
+                    <button
+                        class="flex items-center gap-1 font-['DM_Sans'] text-lg font-medium text-[#fe8a29] hover:opacity-80 transition-all duration-300 focus:outline-none">
+                        Community
+                        <svg class="w-4 h-4 text-[#fe8a29] transition-transform duration-300 group-hover:rotate-180"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl border border-gray-100 py-3 flex flex-col overflow-hidden">
+                            <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200"
+                                href="blogs.html">Blogs</a>
+                            <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200"
+                                href="media.html">News & Media</a>
+                            <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-semibold text-[#fe8a29] bg-[#fe8a29]/10 transition-all duration-200"
+                                href="stories.html">Stories</a>
+                        </div>
+                    </div>
+                </div>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="faqs.html">
+                    FAQs
+                </a>
+            </div>
+            <a class="hidden md:inline-flex bg-[#244996] text-white rounded-full px-6 py-2.5 font-semibold text-[15px] hover:bg-[#1a3570] transition-all duration-300"
+                href="#">
+                Attend a Workshop
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-primary">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay"
+        class="fixed inset-0 z-[100] bg-surface/98 backdrop-blur-lg flex flex-col justify-center items-center gap-8 translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+        <!-- Close Button -->
+        <button id="mobile-menu-close-btn" class="absolute top-6 right-6 text-primary p-2 focus:outline-none">
+            <span class="material-symbols-outlined text-[32px]">close</span>
+        </button>
+        <!-- Navigation Links -->
+        <div class="flex flex-col items-center gap-6">
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="whyattend.html">Workshop</a>
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="philosophy.html">Philosophy</a>
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="journey.html">Journey</a>
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="people.html">People</a>
+
+            <!-- Mobile Community Dropdown -->
+            <div class="flex flex-col items-center w-full">
+                <button id="mobile-community-btn"
+                    class="flex items-center gap-1.5 font-headline-md text-headline-md text-[#fe8a29] font-bold hover:opacity-80 transition-all duration-300 focus:outline-none">
+                    Community
+                    <svg id="mobile-community-caret"
+                        class="w-5 h-5 text-[#fe8a29] rotate-180 transition-transform duration-300" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="mobile-community-dropdown"
+                    class="overflow-hidden transition-all duration-300 ease-in-out w-full flex flex-col items-center gap-4 bg-gray-50/50 rounded-xl mt-2 py-3"
+                    style="max-height: 200px;">
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200 mt-1"
+                        href="blogs.html">Blogs</a>
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200"
+                        href="media.html">News & Media</a>
+                    <a class="font-headline-md text-[20px] text-[#fe8a29] font-bold transition-all duration-200 mb-1"
+                        href="stories.html">Stories</a>
+                </div>
+            </div>
+
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="faqs.html">FAQs</a>
+        </div>
+    </div>
+    <!-- END: MainHeader -->
+
+    <!-- ================= SECTION 1: HERO HEADER ================= -->
+    <section class="pt-32 sm:pt-40 pb-16 bg-[#fffaf5] relative overflow-hidden">
+        <div class="max-w-[1100px] mx-auto px-6">
+            <div class="flex flex-col items-center text-center">
+                <!-- Eyebrow with orange line decorations -->
+                <div class="flex items-center gap-3 mb-4 justify-center">
+                    <span class="text-[#fe8a29] tracking-widest text-[12px] sm:text-[13px] font-bold uppercase"
+                        style="font-family: 'Public Sans', sans-serif;">Stories & Impact</span>
+                </div>
+                <h1 class="text-[38px] sm:text-[52px] md:text-[66px] lg:text-[78px] font-bold text-[#244996] leading-[1.1] tracking-tight"
+                    style="font-family: 'DM Sans', sans-serif;">
+                    Real people. <span class="italic text-[#244996]">Real shifts.</span>
+                </h1>
+                <p class="text-[#6e6860] text-[15px] sm:text-[18px] max-w-[650px] leading-relaxed mt-6 mx-auto"
+                    style="font-family: 'Public Sans', sans-serif;">
+                    Not curated success stories. Honest accounts of what actually changed — and how.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 1.5: FEATURED STORY CARDS ================= -->
+    <section class="pb-20 bg-[#fffaf5]">
+        <div class="max-w-[1100px] mx-auto px-6 flex flex-col gap-8">
+
+            <!-- STORY CARD 1: Aarav Mehta -->
+            <div
+                class="bg-white rounded-[24px] border border-gray-100/90 shadow-[0_4px_24px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.09)]">
+                <!-- Left image panel -->
+                <div
+                    class="md:w-[160px] lg:w-[180px] flex-shrink-0 min-h-[200px] md:min-h-full relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400"
+                        alt="Aarav Mehta" class="w-full h-full object-cover object-center absolute inset-0" />
+                </div>
+                <!-- Right content -->
+                <div class="flex-1 p-7 sm:p-9">
+                    <h3 class="text-[26px] sm:text-[30px] font-bold text-[#1d1c16] leading-tight mb-1"
+                        style="font-family: 'DM Sans', sans-serif;">Aarav Mehta</h3>
+                    <p class="text-[#fe8a29] text-[11px] font-bold uppercase tracking-[0.18em] mb-5"
+                        style="font-family: 'Public Sans', sans-serif;">Tech Lead &amp; Workshop Participant · Bangalore
+                    </p>
+                    <p class="text-[#444651] text-[15px] sm:text-[15.5px] leading-[1.8] mb-4"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        Aarav had spent seven years chasing the next promotion. Each milestone arrived exactly as
+                        planned — and left him feeling exactly the same. A senior role, a bigger team, more money. And
+                        every Sunday evening, the same hollow weight.
+                    </p>
+                    <p class="text-[#444651] text-[15px] sm:text-[15.5px] leading-[1.8] mb-4"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        A colleague mentioned the workshop almost in passing. He attended skeptically. On the second
+                        day, a conversation about the nature of desire and fulfilment made something click — not
+                        intellectually, but in the way that only real understanding does.
+                    </p>
+                    <p class="text-[#444651] text-[15px] sm:text-[15.5px] leading-[1.8]"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        He still works in tech. But he no longer works <em class="text-[#fe8a29]">for</em> the next
+                        title. The shift was quiet — and complete.
+                    </p>
+                </div>
+            </div>
+
+            <!-- STORY CARD 2: Neha Sharma -->
+            <div
+                class="bg-white rounded-[24px] border border-gray-100/90 shadow-[0_4px_24px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.09)]">
+                <!-- Left image panel -->
+                <div
+                    class="md:w-[160px] lg:w-[180px] flex-shrink-0 min-h-[200px] md:min-h-full relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400"
+                        alt="Neha Sharma" class="w-full h-full object-cover object-center absolute inset-0" />
+                </div>
+                <!-- Right content -->
+                <div class="flex-1 p-7 sm:p-9">
+                    <h3 class="text-[26px] sm:text-[30px] font-bold text-[#1d1c16] leading-tight mb-1"
+                        style="font-family: 'DM Sans', sans-serif;">Neha Sharma</h3>
+                    <p class="text-[#fe8a29] text-[11px] font-bold uppercase tracking-[0.18em] mb-5"
+                        style="font-family: 'Public Sans', sans-serif;">Educator &amp; Workshop Participant · Delhi</p>
+                    <p class="text-[#444651] text-[15px] sm:text-[15.5px] leading-[1.8] mb-4"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        Neha had been teaching for twelve years. She loved her students — and had quietly stopped loving
+                        her home. Her marriage wasn't broken. But the conversations had grown careful, distant. She and
+                        her husband shared a house and very little else.
+                    </p>
+                    <p class="text-[#444651] text-[15px] sm:text-[15.5px] leading-[1.8] mb-4"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        At the workshop, a session on listening — real listening, without preparing a response — stopped
+                        her mid-breath. She realised she had not truly listened to her husband in years. Not because she
+                        didn't care, but because she had never understood what listening actually requires.
+                    </p>
+                    <p class="text-[#444651] text-[15px] sm:text-[15.5px] leading-[1.8]"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        Six months later, she describes their home as <em class="text-[#fe8a29]">"a place I actually
+                            want to come back to."</em> The workshop gave her a tool she uses every single day.
+                    </p>
+                </div>
+            </div>
+
+            <!-- STORY CARD 3: Vikram Roy -->
+            <div
+                class="bg-white rounded-[24px] border border-gray-100/90 shadow-[0_4px_24px_rgba(0,0,0,0.05)] overflow-hidden flex flex-col md:flex-row transition-all duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.09)]">
+                <!-- Left image panel -->
+                <div
+                    class="md:w-[160px] lg:w-[180px] flex-shrink-0 min-h-[200px] md:min-h-full relative overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400"
+                        alt="Vikram Roy" class="w-full h-full object-cover object-center absolute inset-0" />
+                </div>
+                <!-- Right content -->
+                <div class="flex-1 p-7 sm:p-9">
+                    <h3 class="text-[26px] sm:text-[30px] font-bold text-[#1d1c16] leading-tight mb-1"
+                        style="font-family: 'DM Sans', sans-serif;">Vikram Roy</h3>
+                    <p class="text-[#fe8a29] text-[11px] font-bold uppercase tracking-[0.18em] mb-5"
+                        style="font-family: 'Public Sans', sans-serif;">Entrepreneur &amp; Workshop Participant · Mumbai
+                    </p>
+                    <p class="text-[#444651] text-[15px] sm:text-[15.5px] leading-[1.8] mb-4"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        Vikram had built and sold two companies by the time he was thirty-eight. He had done everything
+                        the world said would make him happy. He was not unhappy — but he was restless in a way that
+                        success hadn't touched.
+                    </p>
+                    <p class="text-[#444651] text-[15px] sm:text-[15.5px] leading-[1.8] mb-4"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        He came to the workshop expecting frameworks. He found something older and quieter — a
+                        structured understanding of what human beings actually need, and why the usual answers keep
+                        falling short. The sessions on values and relationships were, in his words, <em
+                            class="text-[#fe8a29]">"the first time someone explained the architecture beneath
+                            everything."</em>
+                    </p>
+                    <p class="text-[#444651] text-[15px] sm:text-[15.5px] leading-[1.8]"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        He now mentors young founders — not on strategy, but on the foundations that make sustainable
+                        work possible at all.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- ================= SECTION 2: VIDEO STORIES ================= -->
+    <section class="py-16 sm:py-24 bg-[#fffaf5] border-t border-gray-100">
+        <div class="max-w-[1100px] mx-auto px-6">
+            <div class="flex flex-col items-center text-center mb-14">
+                <div class="flex items-center gap-3 mb-3 justify-center">
+                    <span class="text-[#fe8a29] tracking-widest text-[12px] sm:text-[13px] font-bold uppercase"
+                        style="font-family: 'Public Sans', sans-serif;">Video Stories</span>
+                </div>
+                <h2 class="text-[32px] sm:text-[42px] font-bold text-[#244996] tracking-tight"
+                    style="font-family: 'DM Sans', sans-serif;">
+                    Hear it in their <span class="italic text-[#244996]">own words</span>
+                </h2>
+            </div>
+
+            <!-- Video Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- VIDEO CARD 1 -->
+                <div class="video-card group cursor-pointer bg-[#141517] rounded-[20px] aspect-[4/3] flex flex-col justify-between p-6 relative overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1.5"
+                    data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
+                    <!-- Overlay background structure -->
+                    <div
+                        class="absolute inset-0 bg-black/40 group-hover:bg-black/25 transition-colors duration-300 z-10">
+                    </div>
+                    <!-- Ambient abstract graphics for beautiful premium look -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-[#fe8a29]/10 to-transparent opacity-80 z-0">
+                    </div>
+
+                    <div
+                        class="z-20 self-start bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-white/90 text-[11px] font-medium tracking-wider uppercase">
+                        Relationships
+                    </div>
+
+                    <!-- Centered play button icon -->
+                    <div class="z-20 self-center flex items-center justify-center">
+                        <div
+                            class="w-[56px] h-[56px] rounded-full bg-white/20 backdrop-blur-sm group-hover:bg-[#fe8a29] text-white flex items-center justify-center transition-all duration-300 shadow-md group-hover:scale-110">
+                            <span
+                                class="material-symbols-outlined fill-1 text-[28px] pl-1 select-none">play_arrow</span>
+                        </div>
+                    </div>
+
+                    <!-- User metadata at bottom -->
+                    <div class="z-20 text-center">
+                        <div class="text-white font-bold text-[16px] tracking-wide"
+                            style="font-family: 'DM Sans', sans-serif;">
+                            Priya M., Ahmedabad
+                        </div>
+                        <div class="text-white/70 text-[12px] mt-1 font-medium tracking-wide"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            Relationships · 3 min
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIDEO CARD 2 -->
+                <div class="video-card group cursor-pointer bg-[#141517] rounded-[20px] aspect-[4/3] flex flex-col justify-between p-6 relative overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1.5"
+                    data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
+                    <div
+                        class="absolute inset-0 bg-black/40 group-hover:bg-black/25 transition-colors duration-300 z-10">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-tr from-[#244996]/10 to-transparent opacity-80 z-0">
+                    </div>
+
+                    <div
+                        class="z-20 self-start bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-white/90 text-[11px] font-medium tracking-wider uppercase">
+                        Work & Purpose
+                    </div>
+
+                    <div class="z-20 self-center flex items-center justify-center">
+                        <div
+                            class="w-[56px] h-[56px] rounded-full bg-white/20 backdrop-blur-sm group-hover:bg-[#fe8a29] text-white flex items-center justify-center transition-all duration-300 shadow-md group-hover:scale-110">
+                            <span
+                                class="material-symbols-outlined fill-1 text-[28px] pl-1 select-none">play_arrow</span>
+                        </div>
+                    </div>
+
+                    <div class="z-20 text-center">
+                        <div class="text-white font-bold text-[16px] tracking-wide"
+                            style="font-family: 'DM Sans', sans-serif;">
+                            Rahul S., Mumbai
+                        </div>
+                        <div class="text-white/70 text-[12px] mt-1 font-medium tracking-wide"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            Purpose · 4 min
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIDEO CARD 3 -->
+                <div class="video-card group cursor-pointer bg-[#141517] rounded-[20px] aspect-[4/3] flex flex-col justify-between p-6 relative overflow-hidden shadow-lg transition-transform duration-300 hover:-translate-y-1.5"
+                    data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
+                    <div
+                        class="absolute inset-0 bg-black/40 group-hover:bg-black/25 transition-colors duration-300 z-10">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-tr from-[#fe8a29]/10 to-transparent opacity-80 z-0">
+                    </div>
+
+                    <div
+                        class="z-20 self-start bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-white/90 text-[11px] font-medium tracking-wider uppercase">
+                        Mind & Clarity
+                    </div>
+
+                    <div class="z-20 self-center flex items-center justify-center">
+                        <div
+                            class="w-[56px] h-[56px] rounded-full bg-white/20 backdrop-blur-sm group-hover:bg-[#fe8a29] text-white flex items-center justify-center transition-all duration-300 shadow-md group-hover:scale-110">
+                            <span
+                                class="material-symbols-outlined fill-1 text-[28px] pl-1 select-none">play_arrow</span>
+                        </div>
+                    </div>
+
+                    <div class="z-20 text-center">
+                        <div class="text-white font-bold text-[16px] tracking-wide"
+                            style="font-family: 'DM Sans', sans-serif;">
+                            Ananya K., Bangalore
+                        </div>
+                        <div class="text-white/70 text-[12px] mt-1 font-medium tracking-wide"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            Mind & Clarity · 2 min
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 3: WRITTEN STORIES (FILTERABLE) ================= -->
+    <section class="py-16 sm:py-24 bg-[#fffaf5] border-t border-gray-100">
+        <div class="max-w-[1100px] mx-auto px-6">
+            <div class="flex flex-col items-center text-center mb-12">
+                <div class="flex items-center gap-3 mb-3 justify-center">
+                    <span class="text-[#fe8a29] tracking-widest text-[12px] sm:text-[13px] font-bold uppercase"
+                        style="font-family: 'Public Sans', sans-serif;">Written Stories</span>
+                </div>
+                <h2 class="text-[32px] sm:text-[42px] font-bold text-[#244996] tracking-tight"
+                    style="font-family: 'DM Sans', sans-serif;">
+                    Filter by what <span class="italic text-[#244996]">matters to you</span>
+                </h2>
+            </div>
+
+            <!-- Filter Pills -->
+            <div class="flex flex-row flex-wrap gap-2.5 mb-12 justify-center"
+                style="font-family: 'Public Sans', sans-serif;">
+                <button
+                    class="filter-pill bg-[#244996] text-white text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-semibold shadow-sm transition-all"
+                    data-category="all">
+                    All
+                </button>
+                <button
+                    class="filter-pill bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all"
+                    data-category="relationships">
+                    Relationships
+                </button>
+                <button
+                    class="filter-pill bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all"
+                    data-category="work-purpose">
+                    Work & Purpose
+                </button>
+                <button
+                    class="filter-pill bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all"
+                    data-category="mind-clarity">
+                    Mind & Clarity
+                </button>
+                <button
+                    class="filter-pill bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all"
+                    data-category="health">
+                    Health
+                </button>
+            </div>
+
+            <!-- Written Stories Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- CARD 1: RELATIONSHIPS -->
+                <div class="story-card bg-white rounded-[24px] border-2 border-[#fe8a29]/30 hover:border-[#fe8a29]/80 overflow-hidden flex flex-col justify-between p-6 shadow-sm hover:shadow-md transition-all duration-300 h-[280px]"
+                    data-category="relationships">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="w-4 h-[1.5px] bg-[#fe8a29]"></span>
+                            <span class="text-[#fe8a29] text-[11px] font-bold uppercase tracking-wider"
+                                style="font-family: 'Public Sans', sans-serif;">Relationships</span>
+                        </div>
+                        <p class="text-[#444651] text-[15px] sm:text-[16px] leading-relaxed italic"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            "I stopped waiting for my husband to change. I understood why he does what he does. That was
+                            the whole shift."
+                        </p>
+                    </div>
+                    <!-- User Info at bottom -->
+                    <div class="flex items-center gap-3 mt-5">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#1b4b3e] text-white flex items-center justify-center font-bold text-[16px]">
+                            P
+                        </div>
+                        <div>
+                            <div class="text-[#28221b] font-bold text-[14px]"
+                                style="font-family: 'DM Sans', sans-serif;">Priya M.</div>
+                            <div class="text-gray-400 text-[12px]" style="font-family: 'Public Sans', sans-serif;">
+                                Ahmedabad</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2: WORK & PURPOSE -->
+                <div class="story-card bg-white rounded-[24px] border-2 border-[#fe8a29]/30 hover:border-[#fe8a29]/80 overflow-hidden flex flex-col justify-between p-6 shadow-sm hover:shadow-md transition-all duration-300 h-[280px]"
+                    data-category="work-purpose">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="w-4 h-[1.5px] bg-[#fe8a29]"></span>
+                            <span class="text-[#fe8a29] text-[11px] font-bold uppercase tracking-wider"
+                                style="font-family: 'Public Sans', sans-serif;">Work & Purpose</span>
+                        </div>
+                        <p class="text-[#444651] text-[15px] sm:text-[16px] leading-relaxed italic"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            "I had a good job, good salary — and I felt empty every Sunday evening. After the workshop I
+                            understood what work is actually for."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-5">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#8c5a3c] text-white flex items-center justify-center font-bold text-[16px]">
+                            R
+                        </div>
+                        <div>
+                            <div class="text-[#28221b] font-bold text-[14px]"
+                                style="font-family: 'DM Sans', sans-serif;">Rahul S.</div>
+                            <div class="text-gray-400 text-[12px]" style="font-family: 'Public Sans', sans-serif;">
+                                Mumbai</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 3: MIND & CLARITY -->
+                <div class="story-card bg-white rounded-[24px] border-2 border-[#fe8a29]/30 hover:border-[#fe8a29]/80 overflow-hidden flex flex-col justify-between p-6 shadow-sm hover:shadow-md transition-all duration-300 h-[280px]"
+                    data-category="mind-clarity">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="w-4 h-[1.5px] bg-[#fe8a29]"></span>
+                            <span class="text-[#fe8a29] text-[11px] font-bold uppercase tracking-wider"
+                                style="font-family: 'Public Sans', sans-serif;">Mind & Clarity</span>
+                        </div>
+                        <p class="text-[#444651] text-[15px] sm:text-[16px] leading-relaxed italic"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            "Three years of therapy helped me cope. Three days of this helped me understand. I stopped
+                            second-guessing myself."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-5">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#6a3c8c] text-white flex items-center justify-center font-bold text-[16px]">
+                            A
+                        </div>
+                        <div>
+                            <div class="text-[#28221b] font-bold text-[14px]"
+                                style="font-family: 'DM Sans', sans-serif;">Ananya K.</div>
+                            <div class="text-gray-400 text-[12px]" style="font-family: 'Public Sans', sans-serif;">
+                                Bangalore</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 4: RELATIONSHIPS -->
+                <div class="story-card bg-white rounded-[24px] border-2 border-[#fe8a29]/30 hover:border-[#fe8a29]/80 overflow-hidden flex flex-col justify-between p-6 shadow-sm hover:shadow-md transition-all duration-300 h-[280px]"
+                    data-category="relationships">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="w-4 h-[1.5px] bg-[#fe8a29]"></span>
+                            <span class="text-[#fe8a29] text-[11px] font-bold uppercase tracking-wider"
+                                style="font-family: 'Public Sans', sans-serif;">Relationships</span>
+                        </div>
+                        <p class="text-[#444651] text-[15px] sm:text-[16px] leading-relaxed italic"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            "My relationship with my mother had been painful for 20 years. I came for something else
+                            entirely. What shifted with her was the unexpected gift."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-5">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#1b3b4b] text-white flex items-center justify-center font-bold text-[16px]">
+                            M
+                        </div>
+                        <div>
+                            <div class="text-[#28221b] font-bold text-[14px]"
+                                style="font-family: 'DM Sans', sans-serif;">Meera J.</div>
+                            <div class="text-gray-400 text-[12px]" style="font-family: 'Public Sans', sans-serif;">
+                                Ahmedabad</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 5: WORK & PURPOSE -->
+                <div class="story-card bg-white rounded-[24px] border-2 border-[#fe8a29]/30 hover:border-[#fe8a29]/80 overflow-hidden flex flex-col justify-between p-6 shadow-sm hover:shadow-md transition-all duration-300 h-[280px]"
+                    data-category="work-purpose">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="w-4 h-[1.5px] bg-[#fe8a29]"></span>
+                            <span class="text-[#fe8a29] text-[11px] font-bold uppercase tracking-wider"
+                                style="font-family: 'Public Sans', sans-serif;">Work & Purpose</span>
+                        </div>
+                        <p class="text-[#444651] text-[15px] sm:text-[16px] leading-relaxed italic"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            "Built a company from nothing. Sold it. And felt nothing. The workshop helped me understand
+                            the difference between achievement and meaning."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-5">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#8c3c3c] text-white flex items-center justify-center font-bold text-[16px]">
+                            A
+                        </div>
+                        <div>
+                            <div class="text-[#28221b] font-bold text-[14px]"
+                                style="font-family: 'DM Sans', sans-serif;">Arjun S.</div>
+                            <div class="text-gray-400 text-[12px]" style="font-family: 'Public Sans', sans-serif;">
+                                Mumbai</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 6: HEALTH -->
+                <div class="story-card bg-white rounded-[24px] border-2 border-[#fe8a29]/30 hover:border-[#fe8a29]/80 overflow-hidden flex flex-col justify-between p-6 shadow-sm hover:shadow-md transition-all duration-300 h-[280px]"
+                    data-category="health">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="w-4 h-[1.5px] bg-[#fe8a29]"></span>
+                            <span class="text-[#fe8a29] text-[11px] font-bold uppercase tracking-wider"
+                                style="font-family: 'Public Sans', sans-serif;">Health</span>
+                        </div>
+                        <p class="text-[#444651] text-[15px] sm:text-[16px] leading-relaxed italic"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            "As a doctor I see chronic stress every day. This workshop gave me a framework I now share
+                            with patients. The understanding changes the body's baseline."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 mt-5">
+                        <div
+                            class="w-10 h-10 rounded-full bg-[#1b4b2e] text-white flex items-center justify-center font-bold text-[16px]">
+                            K
+                        </div>
+                        <div>
+                            <div class="text-[#28221b] font-bold text-[14px]"
+                                style="font-family: 'DM Sans', sans-serif;">Kiran P.</div>
+                            <div class="text-gray-400 text-[12px]" style="font-family: 'Public Sans', sans-serif;">
+                                Hyderabad</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 4: IMPACT IN NUMBERS ================= -->
+    <section class="py-20 bg-[#efe4d7] relative overflow-hidden">
+        <div class="max-w-[1100px] mx-auto px-6 text-center relative z-10">
+            <!-- Eyebrow -->
+            <div class="flex items-center gap-3 mb-4 justify-center">
+                <span class="text-[#fe8a29] tracking-widest text-[12px] sm:text-[13px] font-bold uppercase"
+                    style="font-family: 'Public Sans', sans-serif;">The Shift, At Scale</span>
+            </div>
+            <h2 class="text-[34px] sm:text-[44px] font-bold text-[#244996] tracking-tight leading-tight mb-14"
+                style="font-family: 'DM Sans', sans-serif;">
+                Impact <span class="italic text-[#244996]">in numbers</span>
+            </h2>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8 max-w-[950px] mx-auto">
+                <!-- Stat 1 -->
+                <div class="flex flex-col items-center">
+                    <div class="stat-number text-[44px] sm:text-[54px] font-bold text-[#244996] leading-none"
+                        data-target="80" data-suffix="+" style="font-family: 'DM Sans', sans-serif;">0+</div>
+                    <p class="text-[#5c5c5c] text-[13px] sm:text-[14.5px] max-w-[160px] mt-3.5 leading-relaxed"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        Workshops conducted since 2015
+                    </p>
+                </div>
+                <!-- Stat 2 -->
+                <div class="flex flex-col items-center">
+                    <div class="stat-number text-[44px] sm:text-[54px] font-bold text-[#244996] leading-none"
+                        data-target="12" data-suffix="" style="font-family: 'DM Sans', sans-serif;">0</div>
+                    <p class="text-[#5c5c5c] text-[#5c5c5c] text-[13px] sm:text-[14.5px] max-w-[160px] mt-3.5 leading-relaxed"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        Cities across India
+                    </p>
+                </div>
+                <!-- Stat 3 -->
+                <div class="flex flex-col items-center">
+                    <div class="stat-number text-[44px] sm:text-[54px] font-bold text-[#244996] leading-none"
+                        data-target="92" data-suffix="%" style="font-family: 'DM Sans', sans-serif;">0%</div>
+                    <p class="text-[#5c5c5c] text-[13px] sm:text-[14.5px] max-w-[160px] mt-3.5 leading-relaxed"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        Would recommend to someone they love
+                    </p>
+                </div>
+                <!-- Stat 4 -->
+                <div class="flex flex-col items-center">
+                    <div class="stat-number text-[44px] sm:text-[54px] font-bold text-[#244996] leading-none"
+                        data-target="2000" data-suffix="+" style="font-family: 'DM Sans', sans-serif;">0+</div>
+                    <p class="text-[#5c5c5c] text-[13px] sm:text-[14.5px] max-w-[160px] mt-3.5 leading-relaxed"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        Participants who have attended a Shivir
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 5: BEFORE / AFTER STORY DETAIL ================= -->
+    <section class="py-16 sm:py-24 bg-[#fffaf5] border-t border-gray-100">
+        <div class="max-w-[1100px] mx-auto px-6">
+            <div class="flex flex-col items-start mb-12">
+                <!-- Eyebrow -->
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="text-[#fe8a29] tracking-widest text-[12px] sm:text-[13px] font-bold uppercase"
+                        style="font-family: 'Public Sans', sans-serif;">Transformation Stories</span>
+                </div>
+                <h2 class="text-[32px] sm:text-[44px] font-bold text-[#244996] tracking-tight leading-none"
+                    style="font-family: 'DM Sans', sans-serif;">
+                    Before. The workshop. <br><span class="italic text-[#244996]">After.</span>
+                </h2>
+            </div>
+
+            <!-- Detail Card -->
+            <div
+                class="bg-white rounded-[24px] border border-gray-100/90 shadow-sm p-6 sm:p-10 flex flex-col justify-between max-w-[1050px] mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 pb-8 border-b border-gray-100">
+                    <!-- Column 1 -->
+                    <div>
+                        <div class="text-[#fe8a29] text-[11px] font-bold tracking-widest uppercase mb-4"
+                            style="font-family: 'Public Sans', sans-serif;">Before the Workshop</div>
+                        <p class="text-[#444651] text-[14.5px] sm:text-[15.5px] leading-relaxed"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            Sunita had been in her marketing role for 8 years. From the outside, things looked good.
+                            Internally, she felt like she was running on a treadmill — moving fast, going nowhere. A
+                            relationship had ended. She was sleeping badly.
+                        </p>
+                    </div>
+                    <!-- Column 2 -->
+                    <div>
+                        <div class="text-[#fe8a29] text-[11px] font-bold tracking-widest uppercase mb-4"
+                            style="font-family: 'Public Sans', sans-serif;">What Happened in 3 Days</div>
+                        <p class="text-[#444651] text-[14.5px] sm:text-[15.5px] leading-relaxed"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            On Day 2, something shifted. A discussion about the nature of expectation made her see —
+                            clearly, not abstractly — why her relationship had followed the pattern it did. Not whose
+                            fault. The structure underneath.
+                        </p>
+                    </div>
+                    <!-- Column 3 -->
+                    <div>
+                        <div class="text-[#fe8a29] text-[11px] font-bold tracking-widest uppercase mb-4"
+                            style="font-family: 'Public Sans', sans-serif;">Six Months Later</div>
+                        <p class="text-[#444651] text-[14.5px] sm:text-[15.5px] leading-relaxed"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            Sunita is still in the same job. But she is no longer at war with it. The anxiety that woke
+                            her at 3am has reduced significantly. She had one difficult conversation she'd avoided for
+                            two years. It was fine.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Author Profile Footer inside card -->
+                <div class="flex items-center gap-4 pt-6">
+                    <div
+                        class="w-11 h-11 rounded-full bg-[#1b4b45] text-white flex items-center justify-center font-bold text-[18px]">
+                        S
+                    </div>
+                    <div>
+                        <div class="text-[#28221b] font-bold text-[15px]" style="font-family: 'DM Sans', sans-serif;">
+                            Sunita Rao</div>
+                        <div class="text-gray-400 text-[12.5px] mt-0.5" style="font-family: 'Public Sans', sans-serif;">
+                            Pune · Marketing Manager · Relationships & Work domain
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SECTION 6: BE THE NEXT STORY CTA ================= -->
+    <section class="py-20 bg-[#efe4d7] relative overflow-hidden">
+        <div class="max-w-[1100px] mx-auto px-6 text-center relative z-10">
+            <h2 class="text-[36px] sm:text-[48px] md:text-[56px] font-bold text-[#244996] leading-tight tracking-tight"
+                style="font-family: 'DM Sans', sans-serif;">
+                Be the next <span class="italic text-[#244996]">story.</span>
+            </h2>
+            <p class="text-[#5c5c5c] text-[15px] sm:text-[18px] max-w-[650px] leading-relaxed mt-4 mx-auto"
+                style="font-family: 'Public Sans', sans-serif;">
+                The next 3-day Shivir is forming now. What shifts for you is yours to find out.
+            </p>
+            <div class="mt-8">
+                <a class="inline-flex bg-[#244996] hover:bg-[#1a3570] text-white font-bold rounded-xl px-8 py-3.5 transition-all duration-300 shadow-md text-[15px] sm:text-[16px]"
+                    href="#">
+                    Register for the Workshop &rarr;
+                </a>
+            </div>
+            <div class="mt-8 tracking-[0.2em] text-[#fe8a29] font-bold text-[12px] sm:text-[13px] uppercase"
+                style="font-family: 'DM Sans', sans-serif;">
+                YOU EXIST.
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= VIDEO POPUP CINEMATIC MODAL ================= -->
+    <div id="video-modal"
+        class="fixed inset-0 z-[200] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="relative w-full max-w-[850px] aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl">
+            <!-- Close button -->
+            <button id="modal-close"
+                class="absolute top-4 right-4 z-[210] text-white bg-black/50 hover:bg-black/80 w-10 h-10 rounded-full flex items-center justify-center focus:outline-none transition-colors">
+                <span class="material-symbols-outlined text-[24px]">close</span>
+            </button>
+            <iframe id="modal-iframe" class="w-full h-full border-none" src="" allow="autoplay; encrypted-media"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- BEGIN: Footer -->
+    <footer id="sec-footer" class="relative pt-24 pb-0 bg-[#fef9f0] overflow-hidden w-full" data-purpose="site-footer">
+        <div id="begin-section-container"
+            class="max-w-[1200px] mx-auto px-6 relative z-10 w-full md:flex-grow md:flex md:flex-col md:justify-center mb-16">
+            <h2 id="begin-section-heading"
+                class="font-headline-xl text-[42px] md:text-[62px] lg:text-[76px] xl:text-[88px] text-[#244996] font-bold mb-4 text-center leading-tight"
+                style="font-family: 'DM Sans', sans-serif;">
+                Wondering Where To Begin?
+            </h2>
+            <p id="begin-section-desc"
+                class="text-[20px] md:text-[24px] lg:text-[28px] text-[#244996] text-center mb-16 w-full max-w-none mx-auto leading-relaxed md:whitespace-nowrap"
+                style="font-family: 'Public Sans', sans-serif;">
+                Whether you want to explore, experience, or simply understand more — there’s a place to start.
+            </p>
+            <div id="begin-section-grid" class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.95fr_0.95fr] gap-8 lg:gap-10">
+                <!-- Column 1 (Highlighted & Large) -->
+                <div class="pl-6 border-l-4 border-[#fe8a29] flex flex-col items-start">
+                    <h3
+                        class="font-bold text-[24px] sm:text-[27px] md:text-[32px] lg:text-[36px] text-[#28221b] mb-2 leading-snug sm:whitespace-nowrap">
+                        Attend The 3-Day Workshop
+                    </h3>
+                    <p class="text-[18px] md:text-[20px] lg:text-[22px] text-[#5c5c5c] leading-relaxed max-w-md"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        A deeper in-person experience <span class="block">of Jeevan Vidya.</span>
+                    </p>
+                    <a class="inline-flex px-8 py-2.5 rounded-full border-2 border-[#fe8a29] text-[#fe8a29] bg-[#fffbf4] font-bold text-[17px] hover:bg-[#fe8a29]/10 transition-colors mt-6 shadow-sm"
+                        href="#">
+                        Attend Workshop
+                    </a>
+                </div>
+                <!-- Column 2 -->
+                <div class="pl-5 border-l border-[#fe8a29]/40 flex flex-col items-start justify-start pt-1">
+                    <h3
+                        class="font-bold text-[20px] md:text-[22px] lg:text-[25px] text-[#28221b] mb-1.5 leading-snug sm:whitespace-nowrap">
+                        Join The 3-Hour Online Session
+                    </h3>
+                    <p class="text-[15px] md:text-[16px] lg:text-[17.5px] text-[#5c5c5c] leading-relaxed"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        A short introduction to the <span class="block">dialogue and core ideas.</span>
+                    </p>
+                    <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
+                        href="#">
+                        Join Online
+                    </a>
+                </div>
+                <!-- Column 3 -->
+                <div class="pl-5 border-l border-[#fe8a29]/40 flex flex-col items-start justify-start pt-1">
+                    <h3
+                        class="font-bold text-[20px] md:text-[22px] lg:text-[25px] text-[#28221b] mb-1.5 leading-snug sm:whitespace-nowrap">
+                        Explore More
+                    </h3>
+                    <p class="text-[15px] md:text-[16px] lg:text-[17.5px] text-[#5c5c5c] leading-relaxed"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        <span class="sm:whitespace-nowrap">Read foundational ideas,</span> <span
+                            class="sm:block sm:whitespace-nowrap">questions and reflections.</span>
+                    </p>
+                    <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
+                        href="#">
+                        Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Mountain Landscape Absolute Background -->
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <img alt="Silhouetted mountain layers fading into the background"
+                class="w-full h-full object-cover object-bottom"
+                style="-webkit-mask-image: linear-gradient(to top, black 25%, transparent 85%); mask-image: linear-gradient(to top, black 25%, transparent 85%);"
+                src="footer.png" />
+        </div>
+        <!-- Footer content placed directly at the bottom of the section -->
+        <div id="begin-section-footer" class="w-full relative z-20 py-5 md:py-6 border-t border-white/10 mt-12">
+            <div
+                class="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 max-w-[1200px] mx-auto px-6 text-center md:text-left">
+                <!-- Left Column: Copyright Text -->
+                <div class="text-white/70 text-[13px] md:text-[14px] font-normal"
+                    style="font-family: 'Public Sans', sans-serif;">
+                    © 2026 Sah Astitva Answers. All rights reserved.
+                </div>
+                <!-- Right Column: Links in a Single Line -->
+                <div
+                    class="flex flex-row flex-wrap gap-x-6 md:gap-x-8 gap-y-2 items-center justify-center md:justify-end">
+                    <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                        style="font-family: 'Public Sans', sans-serif;" href="#">Instagram</a>
+                    <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                        style="font-family: 'Public Sans', sans-serif;" href="#">LinkedIn</a>
+                    <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                        style="font-family: 'Public Sans', sans-serif;" href="#">X</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END: Footer -->
+
+</body>
+
+</html>

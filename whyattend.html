@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sah Astitva - Why Attend</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=PT+Sans:wght@400;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        body {
+            background-color: #fdf3e9;
+            /* Cream background */
+            color: #244996;
+            /* Navy text */
+            font-family: 'PT Sans', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .check-mark {
+            color: #e8651a;
+            font-weight: bold;
+        }
+
+        .cross-mark {
+            color: #94a3b8;
+            font-weight: bold;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #d1d5db;
+        }
+
+        .section-spacing {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+    </style>
+    <!-- Tailwind CSS CDN -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#244996',
+                        terracotta: '#e8651a',
+                        cream: '#fdf3e9',
+                        'surface-dim': '#e2d8cf',
+                        "on-surface-variant": "#444651",
+                        "surface": "#fef9f0",
+                        "primary": "#022a73",
+                        "secondary": "#954900",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1d1c16",
+                    },
+                    fontFamily: {
+                        heading: ['"DM Sans"', 'sans-serif'],
+                        body: ['"PT Sans"', 'sans-serif'],
+                        "label-md": ["Public Sans"],
+                        "headline-md": ["DM Sans"],
+                    },
+                    borderRadius: {
+                        'custom': '8px',
+                    },
+                    fontSize: {
+                        "label-md": [
+                            "14px",
+                            {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "500"
+                            }
+                        ],
+                        "headline-md": [
+                            "28px",
+                            {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                            }
+                        ]
+                    }
+                }
+            }
+        };
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('mobile-menu-close-btn');
+            const overlay = document.getElementById('mobile-menu-overlay');
+
+            if (menuBtn && closeBtn && overlay) {
+                // Open menu
+                menuBtn.addEventListener('click', () => {
+                    overlay.classList.remove('translate-x-full');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                });
+
+                // Close menu
+                const closeMenu = () => {
+                    overlay.classList.add('translate-x-full');
+                    document.body.style.overflow = ''; // Restore scrolling
+                };
+
+                closeBtn.addEventListener('click', closeMenu);
+
+                // Close overlay when clicking any link
+                overlay.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+            }
+
+            // Mobile Community Dropdown Accordion toggle
+            const mobileCommBtn = document.getElementById('mobile-community-btn');
+            const mobileCommDropdown = document.getElementById('mobile-community-dropdown');
+            const mobileCommCaret = document.getElementById('mobile-community-caret');
+            if (mobileCommBtn && mobileCommDropdown && mobileCommCaret) {
+                mobileCommBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isOpen = mobileCommDropdown.style.maxHeight && mobileCommDropdown.style.maxHeight !== '0px';
+                    if (isOpen) {
+                        mobileCommDropdown.style.maxHeight = '0px';
+                        mobileCommDropdown.classList.remove('py-3');
+                        mobileCommDropdown.classList.add('py-0');
+                        mobileCommCaret.classList.remove('rotate-180');
+                    } else {
+                        mobileCommDropdown.style.maxHeight = '200px';
+                        mobileCommDropdown.classList.remove('py-0');
+                        mobileCommDropdown.classList.add('py-3');
+                        mobileCommCaret.classList.add('rotate-180');
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+
+<body class="antialiased">
+    <!-- BEGIN: TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
+        <div class="flex justify-between items-center max-w-[1300px] mx-auto px-6 lg:px-8 py-4 md:py-6">
+            <a class="flex items-center" href="index.html">
+                <img src="logo.png" alt="Sah Astitva Answers"
+                    class="-my-16 md:-my-24 lg:-my-[200px] -ml-8 md:-ml-16 lg:-ml-[160px] h-40 md:h-56 lg:h-[440px] w-auto object-contain" />
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary border-b-2 border-secondary pb-1 hover:opacity-80 transition-all duration-300"
+                    href="whyattend.html">
+                    Workshop
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="philosophy.html">
+                    Philosophy
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="journey.html">
+                    Journey
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="people.html">
+                    People
+                </a>
+                                <div class="relative group">
+                                        <button class="flex items-center gap-1 font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300 focus:outline-none">
+                                                Community
+                                                <svg class="w-4 h-4 text-primary transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
+                                                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 py-3 flex flex-col overflow-hidden">
+                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="blogs.html">Blogs</a>
+                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="media.html">News & Media</a>
+                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="stories.html">Stories</a>
+                                                </div>
+                                        </div>
+                                </div>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="faqs.html">
+                    FAQs
+                </a>
+            </div>
+            <a class="hidden md:inline-flex bg-[#244996] text-white rounded-full px-6 py-2.5 font-semibold text-[15px] hover:bg-[#1a3570] transition-all duration-300"
+                href="#">
+                Attend a Workshop
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-primary">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay"
+        class="fixed inset-0 z-[100] bg-surface/98 backdrop-blur-lg flex flex-col justify-center items-center gap-8 translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+        <!-- Close Button -->
+        <button id="mobile-menu-close-btn" class="absolute top-6 right-6 text-primary p-2 focus:outline-none">
+            <span class="material-symbols-outlined text-[32px]">close</span>
+        </button>
+        <!-- Navigation Links -->
+        <div class="flex flex-col items-center gap-6">
+            <a class="font-headline-md text-headline-md text-primary font-bold hover:opacity-80 transition-all duration-300"
+                href="whyattend.html">Workshop</a>
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="philosophy.html">Philosophy</a>
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="journey.html">Journey</a>
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="people.html">People</a>
+
+            <!-- Mobile Community Dropdown -->
+            <div class="flex flex-col items-center w-full">
+                <button id="mobile-community-btn" class="flex items-center gap-1.5 font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300 focus:outline-none">
+                    Community
+                    <svg id="mobile-community-caret" class="w-5 h-5 text-on-surface-variant transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="mobile-community-dropdown" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out w-full flex flex-col items-center gap-4 bg-gray-50/50 rounded-xl mt-2 py-0">
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200 mt-3" href="blogs.html">Blogs</a>
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200" href="media.html">News & Media</a>
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200 mb-3" href="stories.html">Stories</a>
+                </div>
+            </div>
+
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="faqs.html">FAQs</a>
+        </div>
+        <!-- Call To Action -->
+        <a class="mt-4 bg-[#244996] text-white rounded-full px-8 py-3.5 font-semibold text-[16px] hover:bg-[#1a3570] transition-all duration-300 shadow-md"
+            href="#">
+            Attend a Workshop
+        </a>
+    </div>
+    <!-- END: TopNavBar -->
+    <main class="pt-[72px] md:pt-[88px]">
+        <!-- BEGIN: HeroSection -->
+        <section class="max-w-[1200px] mx-auto px-6 pt-24 pb-12" style="font-family: 'Public Sans', sans-serif;">
+            <h1 class="text-[32px] sm:text-[42px] md:text-[50px] lg:text-[58px] font-bold text-[#244996] leading-tight text-left mb-10"
+                style="font-family: 'DM Sans', sans-serif;">
+                This workshop is for you if -
+            </h1>
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <!-- Benefits List -->
+                <div class="space-y-4" data-purpose="value-propositions">
+                    <!-- Card 1 -->
+                    <div class="flex items-center p-4 bg-white border border-[#fe8a29] rounded-[8px] gap-4 shadow-sm">
+                        <svg class="w-5 h-5 text-[#fe8a29] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L14.85 9.15L22 12L14.85 14.85L12 22L9.15 14.85L2 12L9.15 9.15L12 2Z" />
+                        </svg>
+                        <p class="text-[15px] sm:text-[16px] md:text-[17px] text-[#444651] font-medium leading-relaxed">
+                            You sense your deeper questions are unanswered.
+                        </p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="flex items-center p-4 bg-white border border-[#fe8a29] rounded-[8px] gap-4 shadow-sm">
+                        <svg class="w-5 h-5 text-[#fe8a29] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L14.85 9.15L22 12L14.85 14.85L12 22L9.15 14.85L2 12L9.15 9.15L12 2Z" />
+                        </svg>
+                        <p class="text-[15px] sm:text-[16px] md:text-[17px] text-[#444651] font-medium leading-relaxed">
+                            You want to arrive at your own conclusions.
+                        </p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="flex items-center p-4 bg-white border border-[#fe8a29] rounded-[8px] gap-4 shadow-sm">
+                        <svg class="w-5 h-5 text-[#fe8a29] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L14.85 9.15L22 12L14.85 14.85L12 22L9.15 14.85L2 12L9.15 9.15L12 2Z" />
+                        </svg>
+                        <p class="text-[15px] sm:text-[16px] md:text-[17px] text-[#444651] font-medium leading-relaxed">
+                            You value understanding that can be lived.
+                        </p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="flex items-center p-4 bg-white border border-[#fe8a29] rounded-[8px] gap-4 shadow-sm">
+                        <svg class="w-5 h-5 text-[#fe8a29] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L14.85 9.15L22 12L14.85 14.85L12 22L9.15 14.85L2 12L9.15 9.15L12 2Z" />
+                        </svg>
+                        <p class="text-[15px] sm:text-[16px] md:text-[17px] text-[#444651] font-medium leading-relaxed">
+                            You are looking for long-term resolution.
+                        </p>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="flex items-center p-4 bg-white border border-[#fe8a29] rounded-[8px] gap-4 shadow-sm">
+                        <svg class="w-5 h-5 text-[#fe8a29] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L14.85 9.15L22 12L14.85 14.85L12 22L9.15 14.85L2 12L9.15 9.15L12 2Z" />
+                        </svg>
+                        <p class="text-[15px] sm:text-[16px] md:text-[17px] text-[#444651] font-medium leading-relaxed">
+                            You value family, relationships, and meaningful social action.
+                        </p>
+                    </div>
+                </div>
+                <!-- Cave Illustration -->
+                <div class="border-[2px] border-[#fe8a29] rounded-[16px] overflow-hidden bg-white p-1 shadow-sm">
+                    <img alt="Person looking out from a cave" class="w-full aspect-[4/3] object-cover rounded-[12px]"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmpBbEabm4tl43STDmUQ2XN9YLSzS1OAMBm_aRzFeYFK7uYtfueACZee0Qh1NCR491Rz59ZWPfQ7-k77XBG9OQiLNUWziV60Sggsu3Q9IscoZT_kN1OUBOlIECWPRBt4Ig1f9NWEDKFd26UgAwj1HB0bozNoK6o8qVRBiuBEHBRzCJ2WLujY2d4J0-__0woFlU2M0iJ21UhnoMY7t7q3hEmCNVMbl5jP3NOiOKUxbmKHru2K9K49tFwhg1Xsr8IoD-E-WnJRsJdyA" />
+                </div>
+            </div>
+            <div class="text-center mt-20">
+                <h2 class="text-[64px] sm:text-[84px] md:text-[96px] lg:text-[108px] font-bold text-[#fe8a29] leading-none"
+                    style="font-family: 'DM Sans', sans-serif;">
+                    You Exist.
+                </h2>
+            </div>
+        </section>
+        <!-- END: HeroSection -->
+        <!-- BEGIN: ComparisonSection -->
+        <section class="bg-white/30 section-spacing border-t border-surface-dim">
+            <div class="max-w-[1200px] mx-auto px-6 text-center mb-12">
+                <h2 class="text-[32px] sm:text-[42px] md:text-[50px] font-bold text-[#244996] leading-tight"
+                    style="font-family: 'DM Sans', sans-serif;">
+                    What makes this different.
+                </h2>
+                <p class="text-[#fe8a29] text-[16px] sm:text-[18px] md:text-[20px] font-medium mt-3">
+                    A space to examine reality — and leave with a framework for the rest of your life.
+                </p>
+            </div>
+
+            <div class="max-w-[1000px] mx-auto px-6 overflow-x-auto select-none"
+                style="font-family: 'Public Sans', sans-serif;">
+                <div class="min-w-[850px] p-2 bg-transparent">
+
+                    <!-- Table Grid: 4 columns -->
+                    <div class="grid grid-cols-[2.5fr_1fr_1fr_1fr] gap-x-2 gap-y-2 w-full">
+
+                        <!-- ROW 0: HEADERS -->
+                        <!-- Cell 1: Empty -->
+                        <div class="h-[75px] bg-[#1a4073] rounded-[8px]"></div>
+
+                        <!-- Cell 2: Sah Astitva Answers -->
+                        <div
+                            class="h-[75px] bg-[#1a4073] rounded-[8px] flex flex-col justify-center items-center text-center p-2">
+                            <span class="text-[#fe8a29] font-bold text-[14px] md:text-[15px] leading-tight">Sah
+                                Astitva</span>
+                            <span
+                                class="text-[#fe8a29] font-bold text-[14px] md:text-[15px] leading-tight mt-0.5">Answers</span>
+                        </div>
+
+                        <!-- Cell 3: Self-Help Workshops -->
+                        <div
+                            class="h-[75px] bg-[#1a4073] rounded-[8px] flex flex-col justify-center items-center text-center p-2">
+                            <span class="text-white font-bold text-[14px] md:text-[15px] leading-tight">Self-Help</span>
+                            <span
+                                class="text-white font-bold text-[14px] md:text-[15px] leading-tight mt-0.5">Workshops</span>
+                        </div>
+
+                        <!-- Cell 4: Meditation Programs -->
+                        <div
+                            class="h-[75px] bg-[#1a4073] rounded-[8px] flex flex-col justify-center items-center text-center p-2">
+                            <span
+                                class="text-white font-bold text-[14px] md:text-[15px] leading-tight">Meditation</span>
+                            <span
+                                class="text-white font-bold text-[14px] md:text-[15px] leading-tight mt-0.5">Programs</span>
+                        </div>
+
+                        <!-- ROW 1 -->
+                        <!-- Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center px-6 text-white text-[14px] sm:text-[15px] font-bold text-left">
+                            Addresses the root, not the symptom
+                        </div>
+                        <!-- Tick Card -->
+                        <div
+                            class="h-[56px] bg-white border-[2.5px] border-[#fe8a29] rounded-[8px] flex items-center justify-center text-[24px] font-bold text-[#fe8a29]">
+                            ✓
+                        </div>
+                        <!-- X Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center justify-center text-white/90 text-[18px] font-medium">
+                            X
+                        </div>
+                        <!-- X Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center justify-center text-white/90 text-[18px] font-medium">
+                            X
+                        </div>
+
+                        <!-- ROW 2 -->
+                        <!-- Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center px-6 text-white text-[14px] sm:text-[15px] font-bold text-left">
+                            Complete picture — self, family, society, nature
+                        </div>
+                        <!-- Tick Card -->
+                        <div
+                            class="h-[56px] bg-white border-[2.5px] border-[#fe8a29] rounded-[8px] flex items-center justify-center text-[24px] font-bold text-[#fe8a29]">
+                            ✓
+                        </div>
+                        <!-- X Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center justify-center text-white/90 text-[18px] font-medium">
+                            X
+                        </div>
+                        <!-- X Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center justify-center text-white/90 text-[18px] font-medium">
+                            X
+                        </div>
+
+                        <!-- ROW 3 -->
+                        <!-- Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center px-6 text-white text-[14px] sm:text-[15px] font-bold text-left">
+                            Dialogue-based inquiry
+                        </div>
+                        <!-- Tick Card -->
+                        <div
+                            class="h-[56px] bg-white border-[2.5px] border-[#fe8a29] rounded-[8px] flex items-center justify-center text-[24px] font-bold text-[#fe8a29]">
+                            ✓
+                        </div>
+                        <!-- X Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center justify-center text-white/90 text-[18px] font-medium">
+                            X
+                        </div>
+                        <!-- X Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center justify-center text-white/90 text-[18px] font-medium">
+                            X
+                        </div>
+
+                        <!-- ROW 4 -->
+                        <!-- Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center px-6 text-white text-[14px] sm:text-[15px] font-bold text-left">
+                            Independent thinking encouraged
+                        </div>
+                        <!-- Tick Card -->
+                        <div
+                            class="h-[56px] bg-white border-[2.5px] border-[#fe8a29] rounded-[8px] flex items-center justify-center text-[24px] font-bold text-[#fe8a29]">
+                            ✓
+                        </div>
+                        <!-- X Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center justify-center text-white/90 text-[18px] font-medium">
+                            X
+                        </div>
+                        <!-- X Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center justify-center text-white/90 text-[18px] font-medium">
+                            X
+                        </div>
+
+                        <!-- ROW 5 -->
+                        <!-- Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center px-6 text-white text-[14px] sm:text-[15px] font-bold text-left">
+                            Open to all belief systems
+                        </div>
+                        <!-- Tick Card -->
+                        <div
+                            class="h-[56px] bg-white border-[2.5px] border-[#fe8a29] rounded-[8px] flex items-center justify-center text-[24px] font-bold text-[#fe8a29]">
+                            ✓
+                        </div>
+                        <!-- X Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center justify-center text-white/90 text-[18px] font-medium">
+                            X
+                        </div>
+                        <!-- X Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center justify-center text-white/90 text-[18px] font-medium">
+                            X
+                        </div>
+
+                        <!-- ROW 6 -->
+                        <!-- Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center px-6 text-white text-[14px] sm:text-[15px] font-bold text-left">
+                            Teaching offered freely
+                        </div>
+                        <!-- Tick Card -->
+                        <div
+                            class="h-[56px] bg-white border-[2.5px] border-[#fe8a29] rounded-[8px] flex items-center justify-center text-[24px] font-bold text-[#fe8a29]">
+                            ✓
+                        </div>
+                        <!-- X Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center justify-center text-white/90 text-[18px] font-medium">
+                            X
+                        </div>
+                        <!-- X Label -->
+                        <div
+                            class="h-[56px] bg-[#1a4073] rounded-[8px] flex items-center justify-center text-white/90 text-[18px] font-medium">
+                            X
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workshop Group Photo Section -->
+            <div class="max-w-[1000px] mx-auto px-6 mt-12 md:mt-16 w-full">
+                <div
+                    class="border-[3px] border-[#244996] rounded-[18px] overflow-hidden shadow-lg p-0.5 bg-white transition-all duration-300 hover:shadow-xl hover:scale-[1.01] w-full">
+                    <img alt="Group of diverse people in a circle"
+                        class="w-full h-auto aspect-[16/9] md:aspect-[21/10] object-cover rounded-[14px]"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4hEH5wN_2ebV1aQjhhw8bGkWkktR0wyly3ZVMfSBhHggQn9w1Ya6Z5Bh_0ShRN0yAYqPNJ4GUtkwyU9ky-UsxHI6E0CQbpEm6no82WxtuLzQFBE6AWq2s-lVHs9AZ29F3mKJOD3HRnUDHu3OC_9UALBiY40CGCeqlLNPB1Mt1WIseelM3g08_0sQR3G5I3FX8I4LTgBjKKmnytNX3o_csZcnUHiLNi0JC9wlL2ZGMmvcicWe2izlKbh_BOOwQbiV0PDpplylA6SI" />
+                </div>
+            </div>
+        </section>
+        <!-- END: ComparisonSection -->
+        <!-- BEGIN: TakeBackSection -->
+        <section class="section-spacing" style="background-color: #ffffff;">
+            <div class="max-w-[1200px] mx-auto px-6 text-center mb-16" style="font-family: 'Public Sans', sans-serif;">
+                <h2 class="text-[32px] sm:text-[42px] md:text-[50px] font-bold text-[#244996] leading-tight"
+                    style="font-family: 'DM Sans', sans-serif;">
+                    What participants take back.
+                </h2>
+                <p class="text-[#fe8a29] text-[16px] sm:text-[18px] md:text-[20px] font-medium mt-3">
+                    The framework speaks to every stage and situation of life.
+                </p>
+            </div>
+
+            <div class="max-w-[1000px] mx-auto px-6" style="font-family: 'Public Sans', sans-serif;">
+                <!-- Tab Buttons container (Horizontal flex wrap pills) -->
+                <div class="flex flex-wrap gap-2.5 justify-center mb-10">
+                    <button onclick="switchTakeBackTab('students', this)"
+                        class="takeback-tab-btn px-5 py-2.5 rounded-[8px] font-semibold text-[15px] border border-[#022a73] text-white bg-[#022a73] shadow-sm transition-all cursor-pointer">
+                        Students
+                    </button>
+                    <button onclick="switchTakeBackTab('adults', this)"
+                        class="takeback-tab-btn px-5 py-2.5 rounded-[8px] font-medium text-[15px] border border-[#cbd5e1] text-[#2b2d35] bg-white transition-all cursor-pointer hover:border-[#fe8a29] hover:text-[#fe8a29]">
+                        Adults & Parents
+                    </button>
+                    <button onclick="switchTakeBackTab('thinkers', this)"
+                        class="takeback-tab-btn px-5 py-2.5 rounded-[8px] font-medium text-[15px] border border-[#cbd5e1] text-[#2b2d35] bg-white transition-all cursor-pointer hover:border-[#fe8a29] hover:text-[#fe8a29]">
+                        Thinkers & Activists
+                    </button>
+                    <button onclick="switchTakeBackTab('scientists', this)"
+                        class="takeback-tab-btn px-5 py-2.5 rounded-[8px] font-medium text-[15px] border border-[#cbd5e1] text-[#2b2d35] bg-white transition-all cursor-pointer hover:border-[#fe8a29] hover:text-[#fe8a29]">
+                        Natural Scientists
+                    </button>
+                    <button onclick="switchTakeBackTab('spiritual', this)"
+                        class="takeback-tab-btn px-5 py-2.5 rounded-[8px] font-medium text-[15px] border border-[#cbd5e1] text-[#2b2d35] bg-white transition-all cursor-pointer hover:border-[#fe8a29] hover:text-[#fe8a29]">
+                        Spiritualists & Philosophers
+                    </button>
+                    <button onclick="switchTakeBackTab('psych', this)"
+                        class="takeback-tab-btn px-5 py-2.5 rounded-[8px] font-medium text-[15px] border border-[#cbd5e1] text-[#2b2d35] bg-white transition-all cursor-pointer hover:border-[#fe8a29] hover:text-[#fe8a29]">
+                        Psychology & Cognitive Sciences
+                    </button>
+                    <button onclick="switchTakeBackTab('social', this)"
+                        class="takeback-tab-btn px-5 py-2.5 rounded-[8px] font-medium text-[15px] border border-[#cbd5e1] text-[#2b2d35] bg-white transition-all cursor-pointer hover:border-[#fe8a29] hover:text-[#fe8a29]">
+                        Social & Economic Sciences
+                    </button>
+                    <button onclick="switchTakeBackTab('religion', this)"
+                        class="takeback-tab-btn px-5 py-2.5 rounded-[8px] font-medium text-[15px] border border-[#cbd5e1] text-[#2b2d35] bg-white transition-all cursor-pointer hover:border-[#fe8a29] hover:text-[#fe8a29]">
+                        Religionists
+                    </button>
+                </div>
+
+                <!-- Tabs Content Panels Container -->
+                <div class="max-w-[750px] mx-auto py-4">
+                    <!-- Students Content -->
+                    <div id="takeback-content-students" class="takeback-content-panel">
+                        <p class="text-[15.5px] italic text-[#fe8a29] mb-4">Making sense of your:</p>
+                        <ul class="space-y-3.5 text-[#444651] text-[16px] sm:text-[17px] leading-relaxed">
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Studies and career</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Peers and surroundings</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Relationships — with parents, siblings and friends</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Your aspirations, true capabilities, identity</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Your role in the 'larger scheme' of things</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Adults Content -->
+                    <div id="takeback-content-adults" class="takeback-content-panel hidden">
+                        <ul class="space-y-3.5 text-[#444651] text-[16px] sm:text-[17px] leading-relaxed">
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>'Balancing' your aspirations, work and family responsibilities</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Understanding yourself and your state of mind</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Relating to your children, spouses and friends</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Exploring your 'true-purpose' of life</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Thinkers Content -->
+                    <div id="takeback-content-thinkers" class="takeback-content-panel hidden">
+                        <ul class="space-y-3.5 text-[#444651] text-[16px] sm:text-[17px] leading-relaxed">
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Environmental activism — the basic laws of nature and how we can live with
+                                    complementarity</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Social Activism: evolutionary and societal reasons for inequality and how they can
+                                    be resolved</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>How the human race is one</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Scientists Content -->
+                    <div id="takeback-content-scientists" class="takeback-content-panel hidden">
+                        <ul class="space-y-3.5 text-[#444651] text-[16px] sm:text-[17px] leading-relaxed">
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Go beyond 'cause and effect' to understand the formless dimensions of
+                                    reality</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Understand the 'observer' in the 'observation'</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Spiritual Content -->
+                    <div id="takeback-content-spiritual" class="takeback-content-panel hidden">
+                        <ul class="space-y-3.5 text-[#444651] text-[16px] sm:text-[17px] leading-relaxed">
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Understand existence as reality and man's place in it</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>The true nature of the 'spirit' in a non-mystical, realisable manner</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Psych Content -->
+                    <div id="takeback-content-psych" class="takeback-content-panel hidden">
+                        <ul class="space-y-3.5 text-[#444651] text-[16px] sm:text-[17px] leading-relaxed">
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Resolve the mind-body problem</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>The nature of 'consciousness' and its many activities and its relationship with
+                                    the brain</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Social Content -->
+                    <div id="takeback-content-social" class="takeback-content-panel hidden">
+                        <ul class="space-y-3.5 text-[#444651] text-[16px] sm:text-[17px] leading-relaxed">
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Understand human behaviour and its actual basis and reasons</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Role of material needs and its relationship with prosperity and the dependency on
+                                    nature</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Religion Content -->
+                    <div id="takeback-content-religion" class="takeback-content-panel hidden">
+                        <ul class="space-y-3.5 text-[#444651] text-[16px] sm:text-[17px] leading-relaxed">
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>Role of beliefs and conditioning in our perspective of reality</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <span class="text-[#fe8a29] select-none font-bold mr-1">—</span>
+                                <span>How stones, plants and animals also have religion. How human religion is
+                                    one.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: TakeBackSection -->
+
+        <!-- BEGIN: Footer -->
+        <footer id="sec-footer" class="relative pt-24 pb-0 bg-[#fef9f0] overflow-hidden w-full"
+            data-purpose="site-footer">
+            <div id="begin-section-container"
+                class="max-w-[1200px] mx-auto px-6 relative z-10 w-full md:flex-grow md:flex md:flex-col md:justify-center mb-16">
+                <h2 id="begin-section-heading"
+                    class="font-headline-xl text-[42px] md:text-[62px] lg:text-[76px] xl:text-[88px] text-[#244996] font-bold mb-4 text-center leading-tight"
+                    style="font-family: 'DM Sans', sans-serif;">
+                    Wondering Where To Begin?
+                </h2>
+                <p id="begin-section-desc"
+                    class="text-[20px] md:text-[24px] lg:text-[28px] text-[#244996] text-center mb-16 w-full max-w-none mx-auto leading-relaxed md:whitespace-nowrap"
+                    style="font-family: 'Public Sans', sans-serif;">
+                    Whether you want to explore, experience, or simply understand more — there’s a place to start.
+                </p>
+                <div id="begin-section-grid"
+                    class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.95fr_0.95fr] gap-8 lg:gap-10">
+                    <!-- Column 1 (Highlighted & Large) -->
+                    <div class="pl-6 border-l-4 border-[#fe8a29] flex flex-col items-start">
+                        <h3
+                            class="font-bold text-[24px] sm:text-[27px] md:text-[32px] lg:text-[36px] text-[#28221b] mb-2 leading-snug sm:whitespace-nowrap">
+                            Attend The 3-Day Workshop
+                        </h3>
+                        <p class="text-[18px] md:text-[20px] lg:text-[22px] text-[#5c5c5c] leading-relaxed max-w-md"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            A deeper in-person experience <span class="block">of Jeevan Vidya.</span>
+                        </p>
+                        <a class="inline-flex px-8 py-2.5 rounded-full border-2 border-[#fe8a29] text-[#fe8a29] bg-[#fffbf4] font-bold text-[17px] hover:bg-[#fe8a29]/10 transition-colors mt-6 shadow-sm"
+                            href="#">
+                            Attend Workshop
+                        </a>
+                    </div>
+                    <!-- Column 2 -->
+                    <div class="pl-5 border-l border-[#fe8a29]/40 flex flex-col items-start justify-start pt-1">
+                        <h3
+                            class="font-bold text-[20px] md:text-[22px] lg:text-[25px] text-[#28221b] mb-1.5 leading-snug sm:whitespace-nowrap">
+                            Join The 3-Hour Online Session
+                        </h3>
+                        <p class="text-[15px] md:text-[16px] lg:text-[17.5px] text-[#5c5c5c] leading-relaxed"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            A short introduction to the <span class="block">dialogue and core ideas.</span>
+                        </p>
+                        <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
+                            href="#">
+                            Join Online
+                        </a>
+                    </div>
+                    <!-- Column 3 -->
+                    <div class="pl-5 border-l border-[#fe8a29]/40 flex flex-col items-start justify-start pt-1">
+                        <h3
+                            class="font-bold text-[20px] md:text-[22px] lg:text-[25px] text-[#28221b] mb-1.5 leading-snug sm:whitespace-nowrap">
+                            Explore More
+                        </h3>
+                        <p class="text-[15px] md:text-[16px] lg:text-[17.5px] text-[#5c5c5c] leading-relaxed"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            <span class="sm:whitespace-nowrap">Read foundational ideas,</span> <span
+                                class="sm:block sm:whitespace-nowrap">questions and reflections.</span>
+                        </p>
+                        <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
+                            href="#">
+                            Read More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Mountain Landscape Absolute Background -->
+            <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <img alt="Silhouetted mountain layers fading into the background"
+                    class="w-full h-full object-cover object-bottom"
+                    style="-webkit-mask-image: linear-gradient(to top, black 25%, transparent 85%); mask-image: linear-gradient(to top, black 25%, transparent 85%);"
+                    src="footer.png" />
+            </div>
+            <!-- Footer content placed directly at the bottom of the section -->
+            <div id="begin-section-footer" class="w-full relative z-20 py-5 md:py-6 border-t border-white/10 mt-12">
+                <div
+                    class="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 max-w-[1200px] mx-auto px-6 text-center md:text-left">
+                    <!-- Left Column: Copyright Text -->
+                    <div class="text-white/70 text-[13px] md:text-[14px] font-normal"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        © 2026 Sah Astitva Answers. All rights reserved.
+                    </div>
+                    <!-- Right Column: Links in a Single Line -->
+                    <div
+                        class="flex flex-row flex-wrap gap-x-6 md:gap-x-8 gap-y-2 items-center justify-center md:justify-end">
+                        <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                            style="font-family: 'Public Sans', sans-serif;" href="#">Instagram</a>
+                        <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                            style="font-family: 'Public Sans', sans-serif;" href="#">LinkedIn</a>
+                        <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                            style="font-family: 'Public Sans', sans-serif;" href="#">X</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- END: Footer -->
+
+        <script>
+            function switchTakeBackTab(tabId, btnElement) {
+                // Hide all panels
+                const panels = document.querySelectorAll('.takeback-content-panel');
+                panels.forEach(panel => {
+                    panel.classList.add('hidden');
+                });
+
+                // Show selected panel
+                const activePanel = document.getElementById('takeback-content-' + tabId);
+                if (activePanel) {
+                    activePanel.classList.remove('hidden');
+                }
+
+                // Reset all buttons style to inactive
+                const buttons = document.querySelectorAll('.takeback-tab-btn');
+                buttons.forEach(btn => {
+                    btn.className = "takeback-tab-btn px-5 py-2.5 rounded-[8px] font-medium text-[15px] border border-[#cbd5e1] text-[#2b2d35] bg-white transition-all cursor-pointer hover:border-[#fe8a29] hover:text-[#fe8a29]";
+                });
+
+                // Make clicked button active
+                btnElement.className = "takeback-tab-btn px-5 py-2.5 rounded-[8px] font-semibold text-[15px] border border-[#022a73] text-white bg-[#022a73] shadow-sm transition-all cursor-pointer";
+            }
+        </script>
+</body>
+
+</html>

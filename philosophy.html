@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sah Astitva - Essence</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+        rel="stylesheet" />
+
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #faf9f6;
+            color: #333;
+        }
+
+        .hero-bg {
+            background: linear-gradient(to bottom, #ffffff 0%, #f0f4f8 100%);
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background: #244996;
+        }
+
+        .marquee-content {
+            display: inline-flex;
+            align-items: center;
+            animation: marquee 25s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .table-grid {
+            display: grid;
+            grid-template-columns: 80px 1fr 60px 1fr;
+            gap: 0;
+            border: 2px solid #f2a665;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .table-cell {
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border: 1px solid #f2a665;
+            background-color: white;
+        }
+
+        .table-cell-header {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .table-icon-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border: 1px solid #f2a665;
+            padding: 1rem 0;
+        }
+
+        .table-icon-col span {
+            background-color: #f2a665;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 2px 0;
+            font-size: 0.75rem;
+            margin-top: 8px;
+        }
+
+        .bg-mountain {
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC4XhfIN08dPhnPU0VLCfCfy6fLHE4NKBclVZaX8N9ZPdPTMpGjPXxLroDDP7HInxo3fp8FSp0R_iLGpbfofN-Sa2Syp7qT5kp6NcsKXkhnUo-CD5TPiJRP4Vx5eJA3YOeEJLbY462Cb1U3jh9jKKYZuut6aH-VPeB5daIfFWokz6PdQEqebTv7WxDFYih25bUheHmw3HBtvSbdnY7FVDtcZUtLdUhFZI2I12qUuXMANDyxYSWUqtm8pLhBEJuephjPjVK8AEL6vCQ');
+            background-size: cover;
+            background-position: center bottom;
+        }
+
+        /* Accordion Styles */
+        .acc-body {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.3s ease;
+        }
+
+        .acc-body.open {
+            max-height: 600px;
+        }
+
+        .acc-icon {
+            transition: transform 0.25s;
+        }
+
+        .acc-icon.open {
+            transform: rotate(45deg);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sah: {
+                            navy: '#1a4073',
+                            orange: '#f08221',
+                            lightbg: '#faf9f6',
+                            border: '#f2a665',
+                            darkbg: '#0f172a'
+                        },
+                        primary: '#022a73',
+                        secondary: '#954900',
+                        surface: '#fef9f0',
+                        'outline-variant': '#c4c6d2',
+                        'on-surface': '#1d1c16',
+                        'on-surface-variant': '#444651'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        "label-md": ["Public Sans"],
+                        "headline-md": ["DM Sans"],
+                    },
+                    fontSize: {
+                        "label-md": [
+                            "14px",
+                            {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "500"
+                            }
+                        ],
+                        "headline-md": [
+                            "28px",
+                            {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                            }
+                        ]
+                    }
+                }
+            }
+        };
+    </script>
+    <script>
+        function toggle(trigger) {
+            const body = trigger.nextElementSibling;
+            const icon = trigger.querySelector('.acc-icon');
+            const isOpen = body.classList.contains('open');
+            body.classList.toggle('open', !isOpen);
+            icon.classList.toggle('open', !isOpen);
+            icon.textContent = isOpen ? '+' : '×';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('mobile-menu-close-btn');
+            const overlay = document.getElementById('mobile-menu-overlay');
+
+            if (menuBtn && closeBtn && overlay) {
+                // Open menu
+                menuBtn.addEventListener('click', () => {
+                    overlay.classList.remove('translate-x-full');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                });
+
+                // Close menu
+                const closeMenu = () => {
+                    overlay.classList.add('translate-x-full');
+                    document.body.style.overflow = ''; // Restore scrolling
+                };
+
+                closeBtn.addEventListener('click', closeMenu);
+
+                // Close overlay when clicking any link
+                overlay.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+            }
+
+            // Mobile Community Dropdown Accordion toggle
+            const mobileCommBtn = document.getElementById('mobile-community-btn');
+            const mobileCommDropdown = document.getElementById('mobile-community-dropdown');
+            const mobileCommCaret = document.getElementById('mobile-community-caret');
+            if (mobileCommBtn && mobileCommDropdown && mobileCommCaret) {
+                mobileCommBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isOpen = mobileCommDropdown.style.maxHeight && mobileCommDropdown.style.maxHeight !== '0px';
+                    if (isOpen) {
+                        mobileCommDropdown.style.maxHeight = '0px';
+                        mobileCommDropdown.classList.remove('py-3');
+                        mobileCommDropdown.classList.add('py-0');
+                        mobileCommCaret.classList.remove('rotate-180');
+                    } else {
+                        mobileCommDropdown.style.maxHeight = '200px';
+                        mobileCommDropdown.classList.remove('py-0');
+                        mobileCommDropdown.classList.add('py-3');
+                        mobileCommCaret.classList.add('rotate-180');
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+
+<body class="antialiased">
+    <!-- BEGIN: MainHeader -->
+    <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
+        <div class="flex justify-between items-center max-w-[1300px] mx-auto px-6 lg:px-8 py-4 md:py-6">
+            <a class="flex items-center" href="index.html">
+                <img src="logo.png" alt="Sah Astitva Answers"
+                    class="-my-16 md:-my-24 lg:-my-[200px] -ml-8 md:-ml-16 lg:-ml-[160px] h-40 md:h-56 lg:h-[440px] w-auto object-contain" />
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="whyattend.html">
+                    Workshop
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary border-b-2 border-secondary pb-1 hover:opacity-80 transition-all duration-300"
+                    href="philosophy.html">
+                    Philosophy
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="journey.html">
+                    Journey
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="people.html">
+                    People
+                </a>
+                <div class="relative group">
+                    <button
+                        class="flex items-center gap-1 font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300 focus:outline-none">
+                        Community
+                        <svg class="w-4 h-4 text-primary transition-transform duration-300 group-hover:rotate-180"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl border border-gray-100 py-3 flex flex-col overflow-hidden">
+                            <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200"
+                                href="blogs.html">Blogs</a>
+                            <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200"
+                                href="media.html">News & Media</a>
+                            <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200"
+                                href="stories.html">Stories</a>
+                        </div>
+                    </div>
+                </div>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="faqs.html">
+                    FAQs
+                </a>
+            </div>
+            <a class="hidden md:inline-flex bg-[#244996] text-white rounded-full px-6 py-2.5 font-semibold text-[15px] hover:bg-[#1a3570] transition-all duration-300"
+                href="#">
+                Attend a Workshop
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-primary">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay"
+        class="fixed inset-0 z-[100] bg-surface/98 backdrop-blur-lg flex flex-col justify-center items-center gap-8 translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+        <!-- Close Button -->
+        <button id="mobile-menu-close-btn" class="absolute top-6 right-6 text-primary p-2 focus:outline-none">
+            <span class="material-symbols-outlined text-[32px]">close</span>
+        </button>
+        <!-- Navigation Links -->
+        <div class="flex flex-col items-center gap-6">
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="whyattend.html">Workshop</a>
+            <a class="font-headline-md text-headline-md text-primary font-bold hover:opacity-80 transition-all duration-300"
+                href="philosophy.html">Philosophy</a>
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="journey.html">Journey</a>
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="people.html">People</a>
+
+            <!-- Mobile Community Dropdown -->
+            <div class="flex flex-col items-center w-full">
+                <button id="mobile-community-btn"
+                    class="flex items-center gap-1.5 font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300 focus:outline-none">
+                    Community
+                    <svg id="mobile-community-caret"
+                        class="w-5 h-5 text-on-surface-variant transition-transform duration-300" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="mobile-community-dropdown"
+                    class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out w-full flex flex-col items-center gap-4 bg-gray-50/50 rounded-xl mt-2 py-0">
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200 mt-3"
+                        href="blogs.html">Blogs</a>
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200"
+                        href="media.html">News & Media</a>
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200 mb-3"
+                        href="stories.html">Stories</a>
+                </div>
+            </div>
+
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="faqs.html">FAQs</a>
+        </div>
+        <!-- Call To Action -->
+        <a class="mt-4 bg-[#244996] text-white rounded-full px-8 py-3.5 font-semibold text-[16px] hover:bg-[#1a3570] transition-all duration-300 shadow-md"
+            href="#">
+            Attend a Workshop
+        </a>
+    </div>
+    <!-- END: MainHeader -->
+    <main class="pt-24">
+        <!-- BEGIN: Hero Section -->
+        <section
+            class="relative w-full min-h-[600px] md:min-h-[720px] lg:min-h-[800px] flex items-center bg-white overflow-hidden">
+            <div
+                class="max-w-[1200px] mx-auto px-6 md:px-8 w-full z-10 py-16 md:py-24 flex flex-col md:flex-row items-center relative">
+                <div class="w-full md:w-[72%] lg:w-[68%] pr-4 md:pr-8 space-y-8 z-10">
+                    <h1 class="text-[32px] sm:text-[44px] md:text-[54px] lg:text-[66px] xl:text-[76px] font-medium text-[#244996] leading-[1.08] tracking-tight"
+                        style="font-family: 'DM Sans', sans-serif;">
+                        <span class="sm:whitespace-nowrap">A framework for</span><br />
+                        <span class="sm:whitespace-nowrap">everything you've been</span><br />
+                        <span class="font-bold sm:whitespace-nowrap">wondering about.</span>
+                    </h1>
+                    <div class="space-y-6 text-[#fe8a29] font-medium text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] leading-relaxed max-w-xl"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        <p>Sah Astitva Answers is a proposal — for understanding<br class="hidden lg:inline" />
+                            coexistence, and for living in accordance with it.</p>
+                        <p>It begins where every honest human inquiry begins:<br class="hidden lg:inline" /> with a
+                            question.</p>
+                    </div>
+                </div>
+                <!-- Cliff Silhouette Graphic aligned bottom-right -->
+                <div
+                    class="md:w-2/5 absolute right-0 bottom-0 h-full w-full md:w-1/2 flex justify-end items-end z-0 opacity-20 md:opacity-100 pointer-events-none">
+                    <img alt="Silhouette on cliff"
+                        class="h-[90%] md:h-[95%] max-h-[700px] object-contain object-right-bottom mix-blend-multiply"
+                        src="5.png" />
+                </div>
+            </div>
+        </section>
+        <!-- END: Hero Section -->
+        <div class="marquee-container py-3 text-white/95 text-sm md:text-[16px] font-medium tracking-wide border-t border-b border-white/10"
+            style="font-family: 'Public Sans', sans-serif;">
+            <div class="marquee-content flex items-center gap-16 pr-16 select-none">
+                <span class="flex items-center gap-16 shrink-0">
+                    <span>What is my purpose?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What is happiness?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What are relationships?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What is love?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What causes conflict?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>Is earning money my only aim?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What is justice?</span>
+                </span>
+                <span class="flex items-center gap-16 shrink-0">
+                    <span>What is my purpose?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What is happiness?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What are relationships?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What is love?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What causes conflict?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>Is earning money my only aim?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What is justice?</span>
+                </span>
+            </div>
+        </div>
+        <!-- END: Questions Marquee -->
+        <!-- BEGIN: Comparison Section -->
+        <section class="max-w-[1100px] mx-auto px-6 py-24">
+            <div class="text-center mb-16">
+                <h2 class="text-[32px] sm:text-[42px] md:text-[52px] lg:text-[62px] font-bold text-[#244996] leading-tight"
+                    style="font-family: 'DM Sans', sans-serif;">
+                    The gap between where we are<br /><span class="font-normal">and where we could be..</span>
+                </h2>
+            </div>
+            <div class="w-full overflow-x-auto select-none" style="font-family: 'Public Sans', sans-serif;">
+                <div class="min-w-[800px] p-2 bg-[#fffcf7]">
+
+                    <!-- Two main columns: Left Column (110px) and Right Column (1fr) -->
+                    <div class="grid grid-cols-[110px_1fr] gap-x-4 gap-y-4 w-full">
+
+                        <!-- ROW 0: HEADERS -->
+                        <!-- Top Left Empty Box -->
+                        <div class="h-[80px] border-2 border-[#fe8a29] rounded-[12px] bg-white"></div>
+
+                        <!-- Unified Header Box -->
+                        <div
+                            class="h-[80px] border-2 border-[#fe8a29] rounded-[12px] bg-white relative overflow-hidden">
+                            <div class="grid grid-cols-2 h-full">
+                                <!-- Today Header -->
+                                <div
+                                    class="flex items-center justify-center font-bold text-[18px] md:text-[20px] text-[#28221b] bg-[#fffcf7]/50">
+                                    Today
+                                </div>
+
+                                <!-- The Possibility Header -->
+                                <div
+                                    class="flex items-center justify-center font-bold text-[18px] md:text-[20px] text-[#28221b] bg-[#fffcf7]/50">
+                                    The possibility
+                                </div>
+                            </div>
+
+                            <!-- Floating Image Container centered -->
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <div
+                                    class="w-[68px] h-[68px] md:w-[74px] md:h-[74px] rounded-full flex items-center justify-center pointer-events-auto select-none overflow-hidden">
+                                    <!-- Link your logo/arrow image here -->
+                                    <img src="arrow.png" alt="→" class="w-full h-full object-contain" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ROW 1: INDIVIDUAL -->
+                        <!-- Icon/Label Box -->
+                        <div
+                            class="h-[120px] border-2 border-[#fe8a29] rounded-[12px] bg-white overflow-hidden flex flex-col justify-between items-center pt-2">
+                            <!-- Link your Individual image icon here -->
+                            <img src="m1.png" alt="👤" class="w-[72px] h-[72px] object-contain" />
+                            <div class="w-full bg-[#fe8a29] text-white text-[12px] font-bold text-center py-1 mt-1">
+                                Individual
+                            </div>
+                        </div>
+                        <!-- Content Boxes (Two separate cards) -->
+                        <div class="grid grid-cols-2 gap-4 h-[120px]">
+                            <div
+                                class="border-2 border-[#fe8a29] rounded-[12px] bg-white flex items-center justify-center text-center px-6 py-4 text-[#444651] text-[16px] md:text-[17.5px] font-medium leading-relaxed">
+                                Confusion, loneliness, depression
+                            </div>
+                            <div
+                                class="border-2 border-[#fe8a29] rounded-[12px] bg-white flex items-center justify-center text-center px-6 py-4 text-[#444651] text-[16px] md:text-[17.5px] font-medium leading-relaxed">
+                                Clarity, trust in oneself, joy
+                            </div>
+                        </div>
+
+                        <!-- ROW 2: FAMILY -->
+                        <!-- Icon/Label Box -->
+                        <div
+                            class="h-[120px] border-2 border-[#fe8a29] rounded-[12px] bg-white overflow-hidden flex flex-col justify-between items-center pt-2">
+                            <!-- Link your Family image icon here -->
+                            <img src="fam.png" alt="👥" class="w-[72px] h-[72px] object-contain" />
+                            <div class="w-full bg-[#fe8a29] text-white text-[12px] font-bold text-center py-1 mt-1">
+                                Family
+                            </div>
+                        </div>
+                        <!-- Content Boxes (Two separate cards) -->
+                        <div class="grid grid-cols-2 gap-4 h-[120px]">
+                            <div
+                                class="border-2 border-[#fe8a29] rounded-[12px] bg-white flex items-center justify-center text-center px-6 py-4 text-[#444651] text-[16px] md:text-[17.5px] font-medium leading-relaxed">
+                                Unfulfilled expectations, discord
+                            </div>
+                            <div
+                                class="border-2 border-[#fe8a29] rounded-[12px] bg-white flex items-center justify-center text-center px-6 py-4 text-[#444651] text-[16px] md:text-[17.5px] font-medium leading-relaxed">
+                                Trust, mutual support, prosperity
+                            </div>
+                        </div>
+
+                        <!-- ROW 3: SOCIETY -->
+                        <!-- Icon/Label Box -->
+                        <div
+                            class="h-[120px] border-2 border-[#fe8a29] rounded-[12px] bg-white overflow-hidden flex flex-col justify-between items-center pt-2">
+                            <!-- Link your Society image icon here -->
+                            <img src="group.png" alt="🤝" class="w-[72px] h-[72px] object-contain" />
+                            <div class="w-full bg-[#fe8a29] text-white text-[12px] font-bold text-center py-1 mt-1">
+                                Society
+                            </div>
+                        </div>
+                        <!-- Content Boxes (Two separate cards) -->
+                        <div class="grid grid-cols-2 gap-4 h-[120px]">
+                            <div
+                                class="border-2 border-[#fe8a29] rounded-[12px] bg-white flex items-center justify-center text-center px-6 py-4 text-[#444651] text-[16px] md:text-[17.5px] font-medium leading-relaxed">
+                                Fear, exploitation, inequality
+                            </div>
+                            <div
+                                class="border-2 border-[#fe8a29] rounded-[12px] bg-white flex items-center justify-center text-center px-6 py-4 text-[#444651] text-[16px] md:text-[17.5px] font-medium leading-relaxed">
+                                Security, respect, cooperation
+                            </div>
+                        </div>
+
+                        <!-- ROW 4: PLANET -->
+                        <!-- Icon/Label Box -->
+                        <div
+                            class="h-[120px] border-2 border-[#fe8a29] rounded-[12px] bg-white overflow-hidden flex flex-col justify-between items-center pt-2">
+                            <!-- Link your Planet image icon here -->
+                            <img src="ea.png" alt="🌍" class="w-[72px] h-[72px] object-contain" />
+                            <div class="w-full bg-[#fe8a29] text-white text-[12px] font-bold text-center py-1 mt-1">
+                                Planet
+                            </div>
+                        </div>
+                        <!-- Content Boxes (Two separate cards) -->
+                        <div class="grid grid-cols-2 gap-4 h-[120px]">
+                            <div
+                                class="border-2 border-[#fe8a29] rounded-[12px] bg-white flex items-center justify-center text-center px-6 py-4 text-[#444651] text-[16px] md:text-[17.5px] font-medium leading-relaxed">
+                                Climate change, resource scarcity
+                            </div>
+                            <div
+                                class="border-2 border-[#fe8a29] rounded-[12px] bg-white flex flex-col items-center justify-center text-center px-6 py-4 text-[#444651] text-[16px] md:text-[17.5px] font-medium leading-relaxed">
+                                <span>Clean air, water, food — a planet</span>
+                                <span class="block mt-0.5">blooming with humans</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- END: Comparison Section -->
+        <!-- BEGIN: Essence Topics Accordion Section -->
+        <section class="max-w-[1200px] mx-auto px-6 py-16">
+            <div class="mb-12">
+                <p class="text-[13px] sm:text-[15px] tracking-[0.15em] uppercase text-[#f08221] mb-3 font-bold">Core
+                    topics</p>
+                <h2
+                    class="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[54px] font-bold text-[#244996] mb-4 tracking-tight leading-tight">
+                    Essence of every topic.</h2>
+                <p
+                    class="text-[16px] sm:text-[18px] md:text-[20px] text-[#244996] font-semibold leading-relaxed lg:whitespace-nowrap">
+                    Each topic explored in the Sah Astitva
+                    Answers Workshop — the core question and what the framework says.</p>
+            </div>
+            <div class="h-[0.5px] bg-outline-variant mb-8 w-full"></div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-surface rounded-lg p-6 mb-8 border border-outline-variant">
+                    <!-- INNER LIFE -->
+                    <div class="mb-8">
+                        <p
+                            class="text-[13px] sm:text-[14px] tracking-[0.13em] uppercase text-[#f08221] py-2.5 border-b-[0.5px] border-outline-variant mb-0 font-bold">
+                            The inner life</p>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Happiness</span>
+                                    <span class="text-xs text-on-surface-variant">सुख</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        What is
+                                        happiness — and why does it keep slipping away?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">Human beings
+                                        are naturally
+                                        सुखधर्मी — happiness is not something to be achieved, it is the innate state of
+                                        a
+                                        conscious self in resolution. What blocks it is not circumstance, but inner
+                                        contradiction. Four states — happiness, peace, contentment, and bliss — are the
+                                        precise outcomes of harmony within one's own consciousness. The question is not
+                                        how
+                                        to get happiness, but what lack of understanding is preventing it.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Mind</span>
+                                    <span class="text-xs text-on-surface-variant">मन</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        Where does
+                                        the mind exist — and how does it actually work?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">The mind (मन)
+                                        is not the brain.
+                                        It is a faculty of the conscious self — one of five: perception, intellect,
+                                        psyche,
+                                        intuition, and soul. In a state of delusion, the mind acts as master, chasing
+                                        sensory gratification. In an awakened state, it becomes a regulated instrument
+                                        guided by deeper understanding. The key to relationships, purpose, and happiness
+                                        lies in understanding this structure.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Emotions</span>
+                                    <span class="text-xs text-on-surface-variant">भावनाएं</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        Are your
+                                        feelings happening to you — or coming from within you?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">In a deluded
+                                        state, emotions
+                                        are reactive — triggered by external events and sensory circumstances. In an
+                                        awakened state, feelings originate from understanding — stable values like
+                                        trust,
+                                        respect, and affection, rather than volatile reactions. Mastery over the inner
+                                        world
+                                        is the harmony of the self's own faculties, where the deeper intellect guides
+                                        the
+                                        mind rather than the other way around.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Desire</span>
+                                    <span class="text-xs text-on-surface-variant">इच्छा</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        Why are
+                                        desires endless — and what are they really pointing toward?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">Desires
+                                        originate in the चित्त
+                                        — the faculty of imagination within consciousness. In delusion, the चित्त
+                                        creates
+                                        images of what it believes will bring pleasure, based on sensory memory and
+                                        borrowed
+                                        social ideas. In awakening, desire becomes singular and aligned: the natural
+                                        human
+                                        longing for resolution and coexistence. The randomness of desire is replaced by
+                                        a
+                                        clear, fulfilling purpose.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Ego</span>
+                                    <span class="text-xs text-on-surface-variant">अहंकार</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        What is the
+                                        ego — and where does it come from?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">Ego (अहंकार) is
+                                        the state of
+                                        the intellect when it is disconnected from the soul's direct experience of
+                                        reality.
+                                        It operates on borrowed beliefs — about identity, superiority, possession — that
+                                        are
+                                        not aligned with what is actually true. These unexamined assumptions create
+                                        conflict
+                                        within and with others. The journey of awakening is the gradual dissolution of
+                                        these
+                                        borrowed identities, replaced by direct understanding.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Motivation</span>
+                                    <span class="text-xs text-on-surface-variant">प्रेरणा</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        Why does
+                                        motivation from outside always fade?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">External
+                                        motivation is
+                                        temporary because it has no root in understanding. Permanent inspiration arises
+                                        when
+                                        a human being has clarity of purpose — when the true goal of awakening and
+                                        coexistence is understood. Actions then flow from within. The source of all
+                                        inspired
+                                        action in an awakened human is the experience of knowledge itself.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Laziness</span>
+                                    <span class="text-xs text-on-surface-variant">आलस</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        Is it
+                                        laziness — or the absence of a real reason to act?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">The conscious
+                                        self is
+                                        inherently active. When inaction persists despite knowing a task is right and
+                                        useful, it is a signal — not a character flaw. Work disconnected from purpose,
+                                        driven by fear or compulsion, produces no inner inspiration. When a human being
+                                        has
+                                        a clear and meaningful goal, the energy to act arises naturally.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Inferiority</span>
+                                    <span class="text-xs text-on-surface-variant">हीन भावना</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        Why do we
+                                        keep comparing ourselves — and how does it end?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">Feelings of
+                                        inferiority and
+                                        superiority both stem from identifying oneself with variable, temporary
+                                        attributes —
+                                        appearance, wealth, position. Since these can always be compared, the loop of
+                                        over-evaluation and under-evaluation never ends. The way out is to shift
+                                        identity to
+                                        the conscious self — the जीवन — which is the same in every human being in its
+                                        potential for understanding and happiness. Comparison loses its basis entirely.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- RELATIONSHIPS -->
+                    <div class="mb-8">
+                        <p
+                            class="text-[13px] sm:text-[14px] tracking-[0.13em] uppercase text-[#f08221] py-2.5 border-b-[0.5px] border-outline-variant mb-0 font-bold">
+                            Relationships &amp; family</p>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Love</span>
+                                    <span class="text-xs text-on-surface-variant">प्रेम</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        What is
+                                        love — really?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">True love
+                                        (प्रेम) is the
+                                        pinnacle of understanding — the complete acceptance that arises when one sees
+                                        oneself in all others, rooted in the realisation of coexistence. It begins with
+                                        affection (स्नेह) — the feeling of being non-opposed to another — and is the
+                                        combined expression of compassion, grace, and mercy. It is a stable state, not a
+                                        temporary wave dependent on another's behaviour.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Relationships</span>
+                                    <span class="text-xs text-on-surface-variant">संबंध</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        Why are
+                                        relationships so exhausting to maintain?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">Exhaustion in
+                                        relationships
+                                        comes from trying to manage undefined and conflicting expectations.
+                                        Relationships
+                                        are meant to be recognised and fulfilled — not managed. Every relationship
+                                        carries
+                                        inherent, universal values: trust, respect, gratitude, affection. These are the
+                                        natural expectations of every conscious self. When they are understood and
+                                        lived,
+                                        fulfillment becomes effortless.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Marriage</span>
+                                    <span class="text-xs text-on-surface-variant">विवाह</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        What is the
+                                        real purpose of marriage?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">Marriage is a
+                                        pivotal
+                                        relationship for mutual development toward a shared goal: awakening. The
+                                        ultimate
+                                        expression of marriage is "one mind and two bodies" — a harmony so deep that two
+                                        individuals act as a single, resolved unit. This is achieved through mutual
+                                        fulfillment based on clear values. It is a relationship where each person helps
+                                        the
+                                        other resolve their inner contradictions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Good
+                                        Parenting</span>
+                                    <span class="text-xs text-on-surface-variant">सही परवरिश</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        What is the
+                                        highest purpose of being a parent?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">The greatest
+                                        duty of a parent
+                                        is to provide an environment where a child develops right understanding — not
+                                        just
+                                        skills for a career. A child learns from the being of the parent, not from their
+                                        instructions. The greatest gift a parent can give is their own resolved state —
+                                        their own clarity and fearlessness.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SUFFERING -->
+                    <div class="mb-8">
+                        <p
+                            class="text-[13px] sm:text-[14px] tracking-[0.13em] uppercase text-[#f08221] py-2.5 border-b-[0.5px] border-outline-variant mb-0 font-bold">
+                            Suffering &amp; wellbeing</p>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Suffering</span>
+                                    <span class="text-xs text-on-surface-variant">दुःख</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        Where does
+                                        suffering actually come from?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">While external
+                                        events trigger
+                                        pain, the root of all suffering is internal — the state of contradiction within
+                                        one's own consciousness. A person in delusion is at war with themselves: the
+                                        mind
+                                        wanting one thing, the intellect knowing another. An awakened person, whose
+                                        inner
+                                        faculties are in harmony, remains stable even in difficult situations. The work
+                                        is
+                                        within.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Depression
+                                        &amp; Anxiety</span>
+                                    <span class="text-xs text-on-surface-variant">अवसाद और चिंता</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        What is
+                                        depression and anxiety, at the root?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">Depression and
+                                        anxiety are the
+                                        outcomes of a life lived in delusion — unresolved contradictions, lack of
+                                        clarity
+                                        about purpose, and constant inner conflict between desire and reality. They are
+                                        powerful signals that one's way of living and believing is out of alignment with
+                                        what is real. The solution addresses the root: the absence of resolution
+                                        (समाधान)
+                                        within consciousness.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Money</span>
+                                    <span class="text-xs text-on-surface-variant">पैसा</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        What is the
+                                        difference between wealth and prosperity?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">Wealth is the
+                                        accumulation of
+                                        material things. Prosperity is a feeling — the state of having more than is
+                                        required
+                                        for one's identified physical needs. Physical needs are limited and can be
+                                        known. A
+                                        person with ten crores can feel deprived while a person with far less feels
+                                        prosperous — because prosperity is a state of understanding, not a number.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- EXISTENCE -->
+                    <div class="mb-8">
+                        <p
+                            class="text-[13px] sm:text-[14px] tracking-[0.13em] uppercase text-[#f08221] py-2.5 border-b-[0.5px] border-outline-variant mb-0 font-bold">
+                            Existence &amp; philosophy</p>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Consciousness</span>
+                                    <span class="text-xs text-on-surface-variant">चेतना</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        What is
+                                        consciousness — and who am 'I'?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">You are not
+                                        just the body. You
+                                        are the जीवन — an eternal, self-organised conscious unit that uses the body as
+                                        its
+                                        instrument. The जीवन is the one that experiences, thinks, desires, and
+                                        understands.
+                                        The human journey is one of consciousness development — from survival to human
+                                        resolution to the experience of coexistence.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Spirituality</span>
+                                    <span class="text-xs text-on-surface-variant">अध्यात्म</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        What is
+                                        spirituality — beyond rituals and renunciation?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">Spirituality is
+                                        the process of
+                                        understanding existence as it is — a direct engagement with reality. It involves
+                                        understanding the self, the whole of existence, and how to live in harmony with
+                                        it.
+                                        The journey is from illusion to awakening, lived fully within family and
+                                        society.
+                                        True spirituality resolves inner conflict so one can live with fulfillment and
+                                        contribute to universal order.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Truth</span>
+                                    <span class="text-xs text-on-surface-variant">सत्य</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        What is
+                                        truth — and how is it known?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">Truth is not a
+                                        belief system or
+                                        a statement. It is reality as it is. The ultimate truth is coexistence
+                                        (सह-अस्तित्व)
+                                        — all of nature eternally submerged and energised within an all-pervading
+                                        reality.
+                                        The goal is to move from belief (मान्यता) to knowledge (ज्ञान) and finally to
+                                        direct
+                                        experience (अनुभव).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">God</span>
+                                    <span class="text-xs text-on-surface-variant">ईश्वर</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        What is the
+                                        nature of God — beyond belief and prayer?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">What is called
+                                        God is the
+                                        all-pervading, omnipresent reality (व्यापक वस्तु) in which all of nature is
+                                        submerged, energised, and regulated. Rather than praying to an entity for
+                                        intervention, the invitation is to understand this universal order and align
+                                        one's
+                                        own life with it — because this alignment is what produces harmony and
+                                        fulfillment.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Religion</span>
+                                    <span class="text-xs text-on-surface-variant">धर्म</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        What is the
+                                        universal dharma of being human?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">The dharma of
+                                        any entity is its
+                                        intrinsic, inseparable nature. The dharma of a human being is to live in a state
+                                        of
+                                        continuous happiness — not as a belief, but as a natural fact. This universal
+                                        human
+                                        dharma — seeking happiness through right understanding — is common to all
+                                        people,
+                                        irrespective of the organised religion they follow.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Liberation</span>
+                                    <span class="text-xs text-on-surface-variant">मुक्ति / मोक्ष</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        What is
+                                        liberation — and where is it found?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">Liberation is
+                                        freedom from
+                                        illusion (भ्रम मुक्ति) — not freedom from the world. The bondage is one's own
+                                        ignorance and the inner contradictions it creates. A liberated person lives
+                                        fully
+                                        within family and society, acting from resolution and harmony. Moksha is the
+                                        state
+                                        of being fully awakened while living this very life.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Rebirth</span>
+                                    <span class="text-xs text-on-surface-variant">पुनर्जन्म</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        What
+                                        actually carries forward — across lives?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">The conscious
+                                        self (जीवन) is
+                                        eternal. The body is temporary. What carries forward is the state of the जीवन —
+                                        its
+                                        accumulated understanding and unresolved illusions. The most critical task is to
+                                        resolve one's illusions and develop right understanding in this life. The key to
+                                        a
+                                        better future life is to make this present life fully understood and resolved.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SOCIETY -->
+                    <div class="mb-2">
+                        <p
+                            class="text-[13px] sm:text-[14px] tracking-[0.13em] uppercase text-[#f08221] py-2.5 border-b-[0.5px] border-outline-variant mb-0 font-bold">
+                            Society &amp; the world</p>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">War
+                                        &amp; Peace</span>
+                                    <span class="text-xs text-on-surface-variant">युद्ध और शांति</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        Is lasting
+                                        world peace actually possible?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">The war outside
+                                        is a
+                                        large-scale projection of the war within every human being. Conflict arises from
+                                        deluded consciousness operating from fear and a belief in separate, competing
+                                        identities. A resolved human being lives in coexistence — they see the
+                                        fundamental
+                                        oneness of the entire human race and the world as a single, undivided family.
+                                        War
+                                        becomes an absurdity.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Social
+                                        Conflict</span>
+                                    <span class="text-xs text-on-surface-variant">सामाजिक संघर्ष</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        Why do
+                                        humans keep dividing — and what resolves it?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">Social conflict
+                                        arises from
+                                        identifying with differences — caste, religion, class, ideology — that are
+                                        temporary
+                                        and superficial. The human race is one (मानव जाति एक). When a human being
+                                        elevates
+                                        from community consciousness to human consciousness, the basis for "us vs. them"
+                                        dissolves — not by ignoring differences, but by recognising a shared and
+                                        fundamental
+                                        oneness.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-b-[0.5px] border-outline-variant">
+                            <button
+                                class="w-full bg-transparent border-none cursor-pointer py-4 flex items-center justify-between text-left group"
+                                onclick="toggle(this)">
+                                <div class="flex items-baseline gap-2">
+                                    <span
+                                        class="text-[17px] sm:text-[18px] font-semibold text-on-surface group-hover:text-secondary transition-colors duration-150">Climate
+                                        Change</span>
+                                    <span class="text-xs text-on-surface-variant">जलवायु परिवर्तन</span>
+                                </div>
+                                <span class="acc-icon text-[18px] text-secondary flex-shrink-0 leading-none">+</span>
+                            </button>
+                            <div class="acc-body">
+                                <div class="pb-5">
+                                    <p
+                                        class="text-[15px] sm:text-[16px] font-semibold italic text-on-surface mb-2.5 leading-relaxed">
+                                        Is climate
+                                        change an environmental problem — or a human one?</p>
+                                    <p class="text-[15px] sm:text-[16px] text-[#244996] leading-relaxed">The
+                                        environmental crisis is the
+                                        direct result of a deluded relationship with nature: the belief that happiness
+                                        comes
+                                        from unlimited consumption, and the sense of separation from the natural world.
+                                        An
+                                        awakened human lives with the understanding of prosperity — having enough — and
+                                        sees
+                                        the health of the planet as inseparable from their own.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: Essence Topics Accordion Section -->
+        <!-- BEGIN: Footer -->
+        <footer id="sec-footer" class="relative pt-24 pb-0 bg-[#fef9f0] overflow-hidden w-full"
+            data-purpose="site-footer">
+            <div id="begin-section-container"
+                class="max-w-[1200px] mx-auto px-6 relative z-10 w-full md:flex-grow md:flex md:flex-col md:justify-center mb-16">
+                <h2 id="begin-section-heading"
+                    class="font-headline-xl text-[42px] md:text-[62px] lg:text-[76px] xl:text-[88px] text-[#244996] font-bold mb-4 text-center leading-tight"
+                    style="font-family: 'DM Sans', sans-serif;">
+                    Wondering Where To Begin?
+                </h2>
+                <p id="begin-section-desc"
+                    class="text-[20px] md:text-[24px] lg:text-[28px] text-[#244996] text-center mb-16 w-full max-w-none mx-auto leading-relaxed md:whitespace-nowrap"
+                    style="font-family: 'Public Sans', sans-serif;">
+                    Whether you want to explore, experience, or simply understand more — there’s a place to start.
+                </p>
+                <div id="begin-section-grid"
+                    class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.95fr_0.95fr] gap-8 lg:gap-10">
+                    <!-- Column 1 (Highlighted & Large) -->
+                    <div class="pl-6 border-l-4 border-[#fe8a29] flex flex-col items-start">
+                        <h3
+                            class="font-bold text-[24px] sm:text-[27px] md:text-[32px] lg:text-[36px] text-[#28221b] mb-2 leading-snug sm:whitespace-nowrap">
+                            Attend The 3-Day Workshop
+                        </h3>
+                        <p class="text-[18px] md:text-[20px] lg:text-[22px] text-[#5c5c5c] leading-relaxed max-w-md"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            A deeper in-person experience <span class="block">of Jeevan Vidya.</span>
+                        </p>
+                        <a class="inline-flex px-8 py-2.5 rounded-full border-2 border-[#fe8a29] text-[#fe8a29] bg-[#fffbf4] font-bold text-[17px] hover:bg-[#fe8a29]/10 transition-colors mt-6 shadow-sm"
+                            href="#">
+                            Attend Workshop
+                        </a>
+                    </div>
+                    <!-- Column 2 -->
+                    <div class="pl-5 border-l border-[#fe8a29]/40 flex flex-col items-start justify-start pt-1">
+                        <h3
+                            class="font-bold text-[20px] md:text-[22px] lg:text-[25px] text-[#28221b] mb-1.5 leading-snug sm:whitespace-nowrap">
+                            Join The 3-Hour Online Session
+                        </h3>
+                        <p class="text-[15px] md:text-[16px] lg:text-[17.5px] text-[#5c5c5c] leading-relaxed"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            A short introduction to the <span class="block">dialogue and core ideas.</span>
+                        </p>
+                        <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
+                            href="#">
+                            Join Online
+                        </a>
+                    </div>
+                    <!-- Column 3 -->
+                    <div class="pl-5 border-l border-[#fe8a29]/40 flex flex-col items-start justify-start pt-1">
+                        <h3
+                            class="font-bold text-[20px] md:text-[22px] lg:text-[25px] text-[#28221b] mb-1.5 leading-snug sm:whitespace-nowrap">
+                            Explore More
+                        </h3>
+                        <p class="text-[15px] md:text-[16px] lg:text-[17.5px] text-[#5c5c5c] leading-relaxed"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            <span class="sm:whitespace-nowrap">Read foundational ideas,</span> <span
+                                class="sm:block sm:whitespace-nowrap">questions and reflections.</span>
+                        </p>
+                        <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
+                            href="#">
+                            Read More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Mountain Landscape Absolute Background -->
+            <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <img alt="Silhouetted mountain layers fading into the background"
+                    class="w-full h-full object-cover object-bottom"
+                    style="-webkit-mask-image: linear-gradient(to top, black 25%, transparent 85%); mask-image: linear-gradient(to top, black 25%, transparent 85%);"
+                    src="footer.png" />
+            </div>
+            <!-- Footer content placed directly at the bottom of the section -->
+            <div id="begin-section-footer" class="w-full relative z-20 py-5 md:py-6 border-t border-white/10 mt-12">
+                <div
+                    class="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 max-w-[1200px] mx-auto px-6 text-center md:text-left">
+                    <!-- Left Column: Copyright Text -->
+                    <div class="text-white/70 text-[13px] md:text-[14px] font-normal"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        © 2026 Sah Astitva Answers. All rights reserved.
+                    </div>
+                    <!-- Right Column: Links in a Single Line -->
+                    <div
+                        class="flex flex-row flex-wrap gap-x-6 md:gap-x-8 gap-y-2 items-center justify-center md:justify-end">
+                        <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                            style="font-family: 'Public Sans', sans-serif;" href="#">Instagram</a>
+                        <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                            style="font-family: 'Public Sans', sans-serif;" href="#">LinkedIn</a>
+                        <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                            style="font-family: 'Public Sans', sans-serif;" href="#">X</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- END: Footer -->
+
+</body>
+
+</html>

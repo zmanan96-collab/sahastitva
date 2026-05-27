@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Journey - Sah Astitva</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=PT+Sans:wght@400;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'DM Sans', sans-serif;
+            color: #244996;
+            /* navy brand */
+        }
+
+        body {
+            font-family: 'PT Sans', sans-serif;
+            background-color: #ffffff;
+        }
+
+        .text-orange-accent {
+            color: #e8651a;
+        }
+
+        .bg-navy {
+            background-color: #244996;
+        }
+
+        .text-navy {
+            color: #244996;
+        }
+
+        .text-navy\/90 {
+            color: rgba(36, 73, 150, 0.9);
+        }
+
+        .bg-orange-accent {
+            background-color: #e8651a;
+        }
+
+        .syllabus-card {
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+        }
+
+        /* Syllabus 3D Card Flip Styles */
+        .syllabus-card-container {
+            perspective: 1200px;
+        }
+
+        .syllabus-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        /* Subtle tilt hover when not flipped */
+        .syllabus-card-container:not(.flipped):hover .syllabus-card-inner {
+            transform: rotateY(-15deg);
+        }
+
+        /* Full 180 degrees flip when active/clicked */
+        .syllabus-card-container.flipped .syllabus-card-inner {
+            transform: rotateY(-180deg);
+        }
+
+        .syllabus-card-front,
+        .syllabus-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            top: 0;
+            left: 0;
+            border-radius: 16px;
+        }
+
+        .syllabus-card-back {
+            transform: rotateY(-180deg);
+        }
+
+        /* Laptop/Notebook screens with constrained vertical height: scale down all sections to fit perfectly in 100vh */
+        @media (min-width: 1024px) and (max-width: 1600px),
+        (min-width: 1024px) and (max-height: 850px) {
+
+            /* Hero Section scaling */
+            #sec-hero h1 {
+                font-size: 52px !important;
+            }
+
+            #sec-hero p {
+                font-size: 16px !important;
+                margin-bottom: 16px !important;
+            }
+
+            #sec-hero img {
+                max-height: 420px !important;
+            }
+
+            /* Conduct Section scaling */
+            #sec-conduct h2 {
+                font-size: 36px !important;
+                margin-bottom: 8px !important;
+            }
+
+            #sec-conduct p.text-\[\#fe8a29\] {
+                font-size: 16px !important;
+                margin-bottom: 24px !important;
+            }
+
+            #sec-conduct .grid {
+                padding: 24px !important;
+                gap: 20px !important;
+            }
+
+            #sec-conduct .grid .w-\[180px\] {
+                width: 130px !important;
+                height: 130px !important;
+            }
+
+            #sec-conduct .grid h3 {
+                font-size: 18px !important;
+            }
+
+            #sec-conduct .grid p {
+                font-size: 13px !important;
+                line-height: 1.4 !important;
+            }
+
+            /* Syllabus Section scaling */
+            #sec-syllabus h2 {
+                font-size: 36px !important;
+                margin-bottom: 4px !important;
+            }
+
+            #sec-syllabus p.text-orange-400 {
+                font-size: 16px !important;
+            }
+
+            #sec-syllabus .syllabus-card {
+                padding: 12px !important;
+            }
+
+            /* Foundation Section scaling */
+            #sec-foundation h2 {
+                font-size: 36px !important;
+            }
+
+            #sec-foundation .space-y-4 {
+                gap: 8px !important;
+            }
+
+            #sec-foundation p {
+                font-size: 15px !important;
+                line-height: 1.4 !important;
+            }
+
+            #sec-foundation img {
+                max-height: 320px !important;
+            }
+
+            /* Footer Section scaling */
+            #sec-footer h2 {
+                font-size: 36px !important;
+            }
+
+            #sec-footer p {
+                font-size: 16px !important;
+            }
+
+            #sec-footer .grid {
+                gap: 16px !important;
+            }
+
+            #sec-footer .grid>div {
+                padding: 16px !important;
+            }
+
+            #sec-footer .grid h4 {
+                font-size: 16px !important;
+                margin-bottom: 4px !important;
+            }
+
+            #sec-footer .grid p {
+                font-size: 12px !important;
+                margin-bottom: 12px !important;
+            }
+
+            #sec-footer .grid a {
+                padding-top: 6px !important;
+                padding-bottom: 6px !important;
+                font-size: 14px !important;
+            }
+        }
+    </style>
+    <!-- Tailwind CSS v3 CDN -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#244996',
+                        orange: '#e8651a',
+                        cream: '#fdf3e9',
+                        "on-surface-variant": "#444651",
+                        "surface": "#fef9f0",
+                        "primary": "#022a73",
+                        "secondary": "#954900",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1d1c16",
+                    },
+                    fontFamily: {
+                        sans: ['PT Sans', 'sans-serif'],
+                        heading: ['DM Sans', 'sans-serif'],
+                        "label-md": ["Public Sans"],
+                        "headline-md": ["DM Sans"],
+                    },
+                    fontSize: {
+                        "label-md": [
+                            "14px",
+                            {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "500"
+                            }
+                        ],
+                        "headline-md": [
+                            "28px",
+                            {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                            }
+                        ]
+                    }
+                }
+            }
+        };
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Mobile Menu Functionality
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('mobile-menu-close-btn');
+            const overlay = document.getElementById('mobile-menu-overlay');
+
+            if (menuBtn && closeBtn && overlay) {
+                // Open menu
+                menuBtn.addEventListener('click', () => {
+                    overlay.classList.remove('translate-x-full');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                });
+
+                // Close menu
+                const closeMenu = () => {
+                    overlay.classList.add('translate-x-full');
+                    document.body.style.overflow = ''; // Restore scrolling
+                };
+
+                closeBtn.addEventListener('click', closeMenu);
+
+                // Close overlay when clicking any link
+                overlay.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+            }
+
+            // Mobile Community Dropdown Accordion toggle
+            const mobileCommBtn = document.getElementById('mobile-community-btn');
+            const mobileCommDropdown = document.getElementById('mobile-community-dropdown');
+            const mobileCommCaret = document.getElementById('mobile-community-caret');
+            if (mobileCommBtn && mobileCommDropdown && mobileCommCaret) {
+                mobileCommBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isOpen = mobileCommDropdown.style.maxHeight && mobileCommDropdown.style.maxHeight !== '0px';
+                    if (isOpen) {
+                        mobileCommDropdown.style.maxHeight = '0px';
+                        mobileCommDropdown.classList.remove('py-3');
+                        mobileCommDropdown.classList.add('py-0');
+                        mobileCommCaret.classList.remove('rotate-180');
+                    } else {
+                        mobileCommDropdown.style.maxHeight = '200px';
+                        mobileCommDropdown.classList.remove('py-0');
+                        mobileCommDropdown.classList.add('py-3');
+                        mobileCommCaret.classList.add('rotate-180');
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+
+<body class="bg-white text-navy font-sans antialiased overflow-x-hidden">
+    <!-- BEGIN: MainHeader -->
+    <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
+        <div class="flex justify-between items-center max-w-[1300px] mx-auto px-6 lg:px-8 py-4 md:py-6">
+            <a class="flex items-center" href="index.html">
+                <img src="logo.png" alt="Sah Astitva Answers"
+                    class="-my-16 md:-my-24 lg:-my-[200px] -ml-8 md:-ml-16 lg:-ml-[160px] h-40 md:h-56 lg:h-[440px] w-auto object-contain" />
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="whyattend.html">
+                    Workshop
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="philosophy.html">
+                    Philosophy
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary border-b-2 border-secondary pb-1 hover:opacity-80 transition-all duration-300"
+                    href="journey.html">
+                    Journey
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="people.html">
+                    People
+                </a>
+                                <div class="relative group">
+                                        <button class="flex items-center gap-1 font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300 focus:outline-none">
+                                                Community
+                                                <svg class="w-4 h-4 text-primary transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
+                                                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 py-3 flex flex-col overflow-hidden">
+                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="blogs.html">Blogs</a>
+                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="media.html">News & Media</a>
+                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="stories.html">Stories</a>
+                                                </div>
+                                        </div>
+                                </div>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="faqs.html">
+                    FAQs
+                </a>
+            </div>
+            <a class="hidden md:inline-flex bg-[#244996] text-white rounded-full px-6 py-2.5 font-semibold text-[15px] hover:bg-[#1a3570] transition-all duration-300"
+                href="#">
+                Attend a Workshop
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-primary">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay"
+        class="fixed inset-0 z-[100] bg-surface/98 backdrop-blur-lg flex flex-col justify-center items-center gap-8 translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+        <!-- Close Button -->
+        <button id="mobile-menu-close-btn" class="absolute top-6 right-6 text-primary p-2 focus:outline-none">
+            <span class="material-symbols-outlined text-[32px]">close</span>
+        </button>
+        <!-- Navigation Links -->
+        <div class="flex flex-col items-center gap-6">
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="whyattend.html">Workshop</a>
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="philosophy.html">Philosophy</a>
+             <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="journey.html">Journey</a>
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="people.html">People</a>
+
+            <!-- Mobile Community Dropdown -->
+            <div class="flex flex-col items-center w-full">
+                <button id="mobile-community-btn" class="flex items-center gap-1.5 font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300 focus:outline-none">
+                    Community
+                    <svg id="mobile-community-caret" class="w-5 h-5 text-on-surface-variant transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="mobile-community-dropdown" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out w-full flex flex-col items-center gap-4 bg-gray-50/50 rounded-xl mt-2 py-0">
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200 mt-3" href="blogs.html">Blogs</a>
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200" href="media.html">News & Media</a>
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200 mb-3" href="stories.html">Stories</a>
+                </div>
+            </div>
+
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="faqs.html">FAQs</a>
+        </div>
+        <!-- Call To Action -->
+        <a class="mt-4 bg-[#244996] text-white rounded-full px-8 py-3.5 font-semibold text-[16px] hover:bg-[#1a3570] transition-all duration-300 shadow-md"
+            href="#">
+            Attend a Workshop
+        </a>
+    </div>
+    <!-- END: MainHeader -->
+
+    <!-- Main Desktop Scroll Container -->
+    <div class="w-full">
+        <!-- Section 1: Hero Section -->
+        <section id="sec-hero" class="relative pt-[140px] pb-16 md:py-24 lg:py-32 overflow-hidden w-full bg-white">
+            <div
+                class="max-w-[1200px] mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-12 lg:gap-16 items-center w-full z-10">
+                <div class="text-left">
+                    <h1 class="text-[36px] sm:text-[46px] md:text-[54px] lg:text-[62px] xl:text-[72px] font-bold leading-[1.12] mb-6 text-navy"
+                        style="font-family: 'DM Sans', sans-serif;">
+                        <span class="lg:whitespace-nowrap">Leave with answers to the</span><br />
+                        <span class="font-normal text-navy/90 lg:whitespace-nowrap">questions you've been
+                            carrying</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-700 max-w-2xl mb-6 leading-relaxed">
+                        The Sah Astitva Answers Workshop takes you through yourself, your relationships, and the world —
+                        in 3 days of honest, facilitated dialogue.
+                    </p>
+                    <p class="text-orange-accent font-bold text-lg mb-8">For anyone ready to examine their own life.</p>
+                    <a class="inline-flex bg-navy text-white px-8 py-3 rounded-full font-bold hover:bg-opacity-90 transition-all cursor-pointer"
+                        href="#">
+                        Attend a Workshop
+                    </a>
+                </div>
+                <!-- Hero Illustration -->
+                <div
+                    class="flex justify-center items-center w-full h-[320px] sm:h-[420px] lg:h-[500px] xl:h-[580px] overflow-visible">
+                    <a href="#"
+                        class="flex items-center justify-center w-full h-full transform scale-115 sm:scale-120 lg:scale-[1.4] xl:scale-[1.65] lg:translate-y-2 lg:-translate-x-8 xl:translate-y-4 xl:-translate-x-12 transition-all duration-300 hover:scale-[1.2] sm:hover:scale-[1.25] lg:hover:scale-[1.45] xl:hover:scale-[1.7]">
+                        <img alt="Figure on Cliff looking at the water reflection"
+                            class="max-w-none w-[180px] sm:w-[240px] lg:w-[320px] xl:w-[360px] h-auto object-contain object-center"
+                            src="1.png" />
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Conduct Section -->
+        <section id="sec-conduct" class="py-16 md:py-24 lg:py-28 w-full bg-white">
+            <div class="max-w-[1200px] mx-auto px-6 md:px-8 w-full z-10">
+                <h2 class="text-[36px] sm:text-[44px] md:text-[52px] lg:text-[62px] font-bold mb-4 text-[#244996] leading-[1.1]"
+                    style="font-family: 'DM Sans', sans-serif; line-height: 1.1;">
+                    How the workshop<br />is conducted
+                </h2>
+                <p class="text-[#fe8a29] font-medium text-[16px] sm:text-[18px] md:text-[20px] mb-8 md:mb-12 max-w-2xl"
+                    style="font-family: 'Public Sans', sans-serif;">
+                    A facilitated dialogue designed to make you enquire about yourself and the fundamental nature of
+                    reality.
+                </p>
+                <div
+                    class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 bg-[#fffaf5] p-8 md:p-12 rounded-[32px] border border-[#fdf3e9]">
+                    <!-- Information -->
+                    <div class="space-y-4">
+                        <div
+                            class="w-[180px] h-[180px] bg-white border border-[#fe8a29]/30 rounded-[24px] flex items-center justify-center overflow-hidden">
+                            <a href="#"
+                                class="w-full h-full flex items-center justify-center transition-transform duration-300 hover:scale-105">
+                                <img alt="Information Icon" class="w-full h-full object-contain p-4" src="c1.png" />
+                            </a>
+                        </div>
+                        <h3 class="text-[#fe8a29] text-[24px] md:text-[28px] font-medium"
+                            style="font-family: 'DM Sans', sans-serif;">Information</h3>
+                        <p class="text-[#244996] font-bold text-[18px] md:text-[20px] leading-tight"
+                            style="font-family: 'DM Sans', sans-serif;">A dialogue open to every question</p>
+                        <p class="text-[#545454] text-[15px] leading-[1.6]"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            An interactive classroom setting where participants explore life through conversation,
+                            inquiry, and direct engagement with the facilitator.
+                        </p>
+                    </div>
+                    <!-- Knowledge -->
+                    <div class="space-y-4">
+                        <div
+                            class="w-[180px] h-[180px] bg-white border border-[#fe8a29]/30 rounded-[24px] flex items-center justify-center overflow-hidden">
+                            <a href="#"
+                                class="w-full h-full flex items-center justify-center transition-transform duration-300 hover:scale-105">
+                                <img alt="Knowledge Icon" class="w-full h-full object-contain p-4" src="c2.png" />
+                            </a>
+                        </div>
+                        <h3 class="text-[#fe8a29] text-[24px] md:text-[28px] font-medium"
+                            style="font-family: 'DM Sans', sans-serif;">Knowledge</h3>
+                        <p class="text-[#244996] font-bold text-[18px] md:text-[20px] leading-tight"
+                            style="font-family: 'DM Sans', sans-serif;">Proposals grounded in reality</p>
+                        <p class="text-[#545454] text-[15px] leading-[1.6]"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            Ideas are presented for open examination — questioned, reflected upon, and understood
+                            through one's own reasoning and experience.
+                        </p>
+                    </div>
+                    <!-- Wisdom -->
+                    <div class="space-y-4">
+                        <div
+                            class="w-[180px] h-[180px] bg-white border border-[#fe8a29]/30 rounded-[24px] flex items-center justify-center overflow-hidden">
+                            <a href="#"
+                                class="w-full h-full flex items-center justify-center transition-transform duration-300 hover:scale-105">
+                                <img alt="Wisdom Icon" class="w-full h-full object-contain p-4" src="c3.png" />
+                            </a>
+                        </div>
+                        <h3 class="text-[#fe8a29] text-[24px] md:text-[28px] font-medium"
+                            style="font-family: 'DM Sans', sans-serif;">Wisdom</h3>
+                        <p class="text-[#244996] font-bold text-[18px] md:text-[20px] leading-tight"
+                            style="font-family: 'DM Sans', sans-serif;">A framework for living</p>
+                        <p class="text-[#545454] text-[15px] leading-[1.6]"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            Participants leave with greater clarity, a deeper understanding of reality, and practical
+                            insight for everyday life.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Syllabus Section -->
+        <section id="sec-syllabus" class="py-16 md:py-24 lg:py-28 w-full bg-white">
+            <div class="max-w-[1200px] mx-auto px-6 md:px-8 w-full z-10">
+                <div class="text-center mb-16">
+                    <h2 class="text-[36px] sm:text-[44px] md:text-[52px] lg:text-[62px] font-bold text-[#fe8a29] mb-4"
+                        style="font-family: 'DM Sans', sans-serif; leading: 1.15;">
+                        3-Day Syllabus
+                    </h2>
+                    <p class="text-[#fe8a29]/80 font-medium text-[16px] sm:text-[18px] md:text-[20px] max-w-2xl mx-auto"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        From understanding yourself, to understanding others,<br class="hidden sm:inline" /> to
+                        understanding the world you live in.
+                    </p>
+                </div>
+
+                <!-- Alternating Vertical Timeline -->
+                <div class="relative max-w-5xl mx-auto">
+                    <!-- Central Vertical Line with Top & Bottom Caps -->
+                    <div
+                        class="absolute left-6 md:left-1/2 transform -translate-x-1/2 top-4 bottom-4 w-[2px] bg-[#022a73]">
+                        <!-- Top Cap -->
+                        <div
+                            class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[8px] h-[8px] bg-[#022a73] rounded-full">
+                        </div>
+                        <!-- Bottom Cap -->
+                        <div
+                            class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-[8px] h-[8px] bg-[#022a73] rounded-full">
+                        </div>
+                    </div>
+
+                    <!-- Timeline Steps -->
+                    <div class="space-y-12 md:space-y-20">
+
+                        <!-- Day 1 (Content on Right) -->
+                        <div class="relative flex flex-col md:flex-row items-start md:items-center w-full">
+                            <!-- Left spacer for desktop -->
+                            <div class="hidden md:block w-1/2"></div>
+
+                            <!-- Node Circle -->
+                            <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white border-2 border-[#244996] rounded-full flex items-center justify-center font-bold text-[#244996] text-xl shadow-sm z-10"
+                                style="font-family: 'DM Sans', sans-serif;">
+                                1
+                            </div>
+
+                            <!-- Content Box -->
+                            <div class="w-full md:w-1/2 pl-16 md:pl-16">
+                                <h3 class="text-[24px] md:text-[28px] font-bold text-[#244996] mb-1"
+                                    style="font-family: 'DM Sans', sans-serif;">Being here</h3>
+                                <p class="text-[#244996]/80 font-medium text-[15px] md:text-[16px] mb-4"
+                                    style="font-family: 'Public Sans', sans-serif;">We begin by naming what we actually
+                                    seek.</p>
+                                <div class="syllabus-card-container w-full max-w-[450px] aspect-[1.4] cursor-pointer"
+                                    onclick="this.classList.toggle('flipped')">
+                                    <div class="syllabus-card-inner">
+                                        <!-- Front Side: The Image -->
+                                        <div
+                                            class="syllabus-card-front bg-white border border-[#244996]/20 rounded-2xl shadow-sm flex items-center justify-center p-6">
+                                            <img alt="Day 1 Icon"
+                                                class="max-h-full object-contain transition-transform duration-300 hover:scale-105"
+                                                src="s1.png" />
+                                            <!-- Floating Flip Indicator -->
+                                            <div
+                                                class="absolute bottom-3 right-3 text-[11px] bg-[#244996] text-white px-2.5 py-1 rounded-full font-medium flex items-center gap-1 opacity-70 hover:opacity-100 transition-opacity">
+
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <!-- Back Side: Syllabus Details -->
+                                        <div
+                                            class="syllabus-card-back bg-gradient-to-br from-[#fffaf5] to-[#fff3e6] border border-[#fe8a29]/30 rounded-2xl shadow-md p-4 sm:p-5 lg:p-6 overflow-hidden flex flex-col justify-between">
+                                            <div class="space-y-3 sm:space-y-4 text-left">
+                                                <!-- Row 1 -->
+                                                <div>
+                                                    <h4 class="text-[#fe8a29] text-[13px] sm:text-[14px] lg:text-[15px] font-bold uppercase tracking-wider mb-0.5 sm:mb-1"
+                                                        style="font-family: 'DM Sans', sans-serif;">The human being</h4>
+                                                    <p class="text-[#545454] text-[11px] sm:text-[12px] lg:text-[13px] leading-snug sm:leading-relaxed"
+                                                        style="font-family: 'Public Sans', sans-serif;">
+                                                        Our dimensions of living — intellectual, behavioural,
+                                                        occupational, and what lies beyond the physical.
+                                                    </p>
+                                                </div>
+                                                <!-- Row 2 -->
+                                                <div>
+                                                    <h4 class="text-[#fe8a29] text-[13px] sm:text-[14px] lg:text-[15px] font-bold uppercase tracking-wider mb-0.5 sm:mb-1"
+                                                        style="font-family: 'DM Sans', sans-serif;">Mind & body</h4>
+                                                    <p class="text-[#545454] text-[11px] sm:text-[12px] lg:text-[13px] leading-snug sm:leading-relaxed"
+                                                        style="font-family: 'Public Sans', sans-serif;">
+                                                        The distinction between mind and body — explored through direct
+                                                        observation and reflective exercises.
+                                                    </p>
+                                                </div>
+                                                <!-- Row 3 -->
+                                                <div>
+                                                    <h4 class="text-[#fe8a29] text-[13px] sm:text-[14px] lg:text-[15px] font-bold uppercase tracking-wider mb-0.5 sm:mb-1"
+                                                        style="font-family: 'DM Sans', sans-serif;">The mind's faculties
+                                                    </h4>
+                                                    <p class="text-[#545454] text-[11px] sm:text-[12px] lg:text-[13px] leading-snug sm:leading-relaxed"
+                                                        style="font-family: 'Public Sans', sans-serif;">
+                                                        Reason, emotion, will — how they function, when they fall short,
+                                                        and what restores them.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- Highlight Box -->
+                                            <div class="mt-2 pt-2 border-t border-[#fe8a29]/20">
+                                                <p class="text-[#244996] font-bold italic text-[10px] sm:text-[11px] lg:text-[12px] text-center"
+                                                    style="font-family: 'DM Sans', sans-serif;">
+                                                    "Understanding the mind is the key to understanding everything
+                                                    else."
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day 2 (Content on Left) -->
+                        <div class="relative flex flex-col md:flex-row-reverse items-start md:items-center w-full">
+                            <!-- Right spacer for desktop -->
+                            <div class="hidden md:block w-1/2"></div>
+
+                            <!-- Node Circle -->
+                            <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white border-2 border-[#244996] rounded-full flex items-center justify-center font-bold text-[#244996] text-xl shadow-sm z-10"
+                                style="font-family: 'DM Sans', sans-serif;">
+                                2
+                            </div>
+
+                            <!-- Content Box -->
+                            <div
+                                class="w-full md:w-1/2 pr-0 md:pr-16 pl-16 md:pl-0 text-left md:text-right flex flex-col md:items-end">
+                                <h3 class="text-[24px] md:text-[28px] font-bold text-[#244996] mb-1"
+                                    style="font-family: 'DM Sans', sans-serif;">Relationships &amp; Family</h3>
+                                <p class="text-[#244996]/80 font-medium text-[15px] md:text-[16px] mb-4"
+                                    style="font-family: 'Public Sans', sans-serif;">Why relationships work and what is
+                                    at the root</p>
+                                <div class="syllabus-card-container w-full max-w-[450px] aspect-[1.4] cursor-pointer"
+                                    onclick="this.classList.toggle('flipped')">
+                                    <div class="syllabus-card-inner">
+                                        <!-- Front Side: The Image -->
+                                        <div
+                                            class="syllabus-card-front bg-white border border-[#244996]/20 rounded-2xl shadow-sm flex items-center justify-center p-6">
+                                            <img alt="Day 2 Icon"
+                                                class="max-h-full object-contain transition-transform duration-300 hover:scale-105"
+                                                src="s2.png" />
+                                            <!-- Floating Flip Indicator -->
+                                            <div
+                                                class="absolute bottom-3 right-3 text-[11px] bg-[#244996] text-white px-2.5 py-1 rounded-full font-medium flex items-center gap-1 opacity-70 hover:opacity-100 transition-opacity">
+
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <!-- Back Side: Syllabus Details -->
+                                        <div
+                                            class="syllabus-card-back bg-gradient-to-br from-[#fffaf5] to-[#fff3e6] border border-[#fe8a29]/30 rounded-2xl shadow-md p-4 sm:p-5 lg:p-6 overflow-hidden flex flex-col justify-between">
+                                            <div class="space-y-3 sm:space-y-4 text-left">
+                                                <!-- Row 1 -->
+                                                <div>
+                                                    <h4 class="text-[#fe8a29] text-[13px] sm:text-[14px] lg:text-[15px] font-bold uppercase tracking-wider mb-0.5 sm:mb-1"
+                                                        style="font-family: 'DM Sans', sans-serif;">Marriage & purpose
+                                                    </h4>
+                                                    <p class="text-[#545454] text-[11px] sm:text-[12px] lg:text-[13px] leading-snug sm:leading-relaxed"
+                                                        style="font-family: 'Public Sans', sans-serif;">
+                                                        Is marriage arbitrary, or does it carry real meaning? What holds
+                                                        it together over a lifetime?
+                                                    </p>
+                                                </div>
+                                                <!-- Row 2 -->
+                                                <div>
+                                                    <h4 class="text-[#fe8a29] text-[13px] sm:text-[14px] lg:text-[15px] font-bold uppercase tracking-wider mb-0.5 sm:mb-1"
+                                                        style="font-family: 'DM Sans', sans-serif;">Family life</h4>
+                                                    <p class="text-[#545454] text-[11px] sm:text-[12px] lg:text-[13px] leading-snug sm:leading-relaxed"
+                                                        style="font-family: 'Public Sans', sans-serif;">
+                                                        Responsibilities and expectations. Being a parent, a child, a
+                                                        sibling, a friend — what each role actually demands.
+                                                    </p>
+                                                </div>
+                                                <!-- Row 3 -->
+                                                <div>
+                                                    <h4 class="text-[#fe8a29] text-[13px] sm:text-[14px] lg:text-[15px] font-bold uppercase tracking-wider mb-0.5 sm:mb-1"
+                                                        style="font-family: 'DM Sans', sans-serif;">Emotional life</h4>
+                                                    <p class="text-[#545454] text-[11px] sm:text-[12px] lg:text-[13px] leading-snug sm:leading-relaxed"
+                                                        style="font-family: 'Public Sans', sans-serif;">
+                                                        Trust, affection, love — their actual nature, and how the mind
+                                                        shapes every relationship we have.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- Highlight Box -->
+                                            <div class="mt-2 pt-2 border-t border-[#fe8a29]/20">
+                                                <p class="text-[#244996] font-bold italic text-[10px] sm:text-[11px] lg:text-[12px] text-center"
+                                                    style="font-family: 'DM Sans', sans-serif;">
+                                                    "A deeper look at the core of all human interaction."
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day 3 (Content on Right) -->
+                        <div class="relative flex flex-col md:flex-row items-start md:items-center w-full">
+                            <!-- Left spacer for desktop -->
+                            <div class="hidden md:block w-1/2"></div>
+
+                            <!-- Node Circle -->
+                            <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white border-2 border-[#244996] rounded-full flex items-center justify-center font-bold text-[#244996] text-xl shadow-sm z-10"
+                                style="font-family: 'DM Sans', sans-serif;">
+                                3
+                            </div>
+
+                            <!-- Content Box -->
+                            <div class="w-full md:w-1/2 pl-16 md:pl-16">
+                                <h3 class="text-[24px] md:text-[28px] font-bold text-[#244996] mb-1"
+                                    style="font-family: 'DM Sans', sans-serif;">Society, nature &amp; reality</h3>
+                                <p class="text-[#244996]/80 font-medium text-[15px] md:text-[16px] mb-4"
+                                    style="font-family: 'Public Sans', sans-serif;">We examine education, production,
+                                    inequality, conflict.</p>
+                                <div class="syllabus-card-container w-full max-w-[450px] aspect-[1.4] cursor-pointer"
+                                    onclick="this.classList.toggle('flipped')">
+                                    <div class="syllabus-card-inner">
+                                        <!-- Front Side: The Image -->
+                                        <div
+                                            class="syllabus-card-front bg-white border border-[#244996]/20 rounded-2xl shadow-sm flex items-center justify-center p-6">
+                                            <img alt="Day 3 Icon"
+                                                class="max-h-full object-contain transition-transform duration-300 hover:scale-105"
+                                                src="s3.png" />
+                                            <!-- Floating Flip Indicator -->
+                                            <div
+                                                class="absolute bottom-3 right-3 text-[11px] bg-[#244996] text-white px-2.5 py-1 rounded-full font-medium flex items-center gap-1 opacity-70 hover:opacity-100 transition-opacity">
+
+                                                <svg class="w-3 h-3" fill="none" stroke="currentColor"
+                                                    viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <!-- Back Side: Syllabus Details -->
+                                        <div
+                                            class="syllabus-card-back bg-gradient-to-br from-[#fffaf5] to-[#fff3e6] border border-[#fe8a29]/30 rounded-2xl shadow-md p-4 sm:p-5 lg:p-6 overflow-hidden flex flex-col justify-between">
+                                            <div class="space-y-3 sm:space-y-4 text-left">
+                                                <!-- Row 1 -->
+                                                <div>
+                                                    <h4 class="text-[#fe8a29] text-[13px] sm:text-[14px] lg:text-[15px] font-bold uppercase tracking-wider mb-0.5 sm:mb-1"
+                                                        style="font-family: 'DM Sans', sans-serif;">The ultimate human
+                                                        goal</h4>
+                                                    <p class="text-[#545454] text-[11px] sm:text-[12px] lg:text-[13px] leading-snug sm:leading-relaxed"
+                                                        style="font-family: 'Public Sans', sans-serif;">
+                                                        What is the deepest aspiration of the human race? And how close
+                                                        are we to understanding it?
+                                                    </p>
+                                                </div>
+                                                <!-- Row 2 -->
+                                                <div>
+                                                    <h4 class="text-[#fe8a29] text-[13px] sm:text-[14px] lg:text-[15px] font-bold uppercase tracking-wider mb-0.5 sm:mb-1"
+                                                        style="font-family: 'DM Sans', sans-serif;">Nature & existence
+                                                    </h4>
+                                                    <p class="text-[#545454] text-[11px] sm:text-[12px] lg:text-[13px] leading-snug sm:leading-relaxed"
+                                                        style="font-family: 'Public Sans', sans-serif;">
+                                                        The fundamental building blocks of nature. Evolution, cosmic
+                                                        design, and our place within it.
+                                                    </p>
+                                                </div>
+                                                <!-- Row 3 -->
+                                                <div>
+                                                    <h4 class="text-[#fe8a29] text-[13px] sm:text-[14px] lg:text-[15px] font-bold uppercase tracking-wider mb-0.5 sm:mb-1"
+                                                        style="font-family: 'DM Sans', sans-serif;">Summary & way
+                                                        forward</h4>
+                                                    <p class="text-[#545454] text-[11px] sm:text-[12px] lg:text-[13px] leading-snug sm:leading-relaxed"
+                                                        style="font-family: 'Public Sans', sans-serif;">
+                                                        Mind, relationships, family, society, nature — tied into a
+                                                        coherent whole. What comes next for each participant.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- Highlight Box -->
+                                            <div class="mt-2 pt-2 border-t border-[#fe8a29]/20">
+                                                <p class="text-[#244996] font-bold italic text-[10px] sm:text-[11px] lg:text-[12px] text-center"
+                                                    style="font-family: 'DM Sans', sans-serif;">
+                                                    "Connecting all aspects of life into one continuous whole."
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Philosophy Foundation -->
+        <section id="sec-foundation"
+            class="py-16 md:py-24 lg:py-28 w-full bg-gradient-to-tr from-[#fff5ea] via-[#fffaf5] to-[#fffbf7] overflow-hidden">
+            <div
+                class="max-w-[1200px] mx-auto px-6 md:px-8 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 w-full z-10">
+                <div class="w-full lg:w-3/5 space-y-6">
+                    <h2 class="text-[36px] sm:text-[44px] md:text-[52px] lg:text-[62px] font-bold text-[#244996] leading-[1.12]"
+                        style="font-family: 'DM Sans', sans-serif;">
+                        What is this Workshop<br />based on?
+                    </h2>
+                    <div class="space-y-6 text-[#545454] text-[16px] md:text-[18px] leading-[1.65] max-w-2xl"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        <p>The Sah Astitva Answers Workshop is rooted in Jeevan Vidya — the universalisation wing of
+                            Madhyasth Darshan, a new discovery that transcends existing frameworks of human knowledge.
+                            Propounded by Shri A. Nagraj.</p>
+                        <p>It provides a grand unified view of existence: self, family, society, and nature as a single
+                            coherent whole.</p>
+                        <p>The philosophy offers a universal resolution to the questions we carry as individuals — and
+                            to the larger contradictions of our time: ecological, social, personal, and existential.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-3 pt-4">
+                        <span
+                            class="px-5 py-2 border border-[#fe8a29]/40 rounded-full text-[#fe8a29] font-medium text-sm md:text-base bg-white/40 shadow-sm transition-all"
+                            style="font-family: 'Public Sans', sans-serif;">Existential clarity</span>
+                        <span
+                            class="px-5 py-2 border border-[#fe8a29]/40 rounded-full text-[#fe8a29] font-medium text-sm md:text-base bg-white/40 shadow-sm transition-all"
+                            style="font-family: 'Public Sans', sans-serif;">Personal harmony</span>
+                        <span
+                            class="px-5 py-2 border border-[#fe8a29]/40 rounded-full text-[#fe8a29] font-medium text-sm md:text-base bg-white/40 shadow-sm transition-all"
+                            style="font-family: 'Public Sans', sans-serif;">Family &amp; relationships</span>
+                    </div>
+                </div>
+                <div class="w-full lg:w-2/5 flex justify-center overflow-visible">
+                    <a href="#"
+                        class="w-full flex justify-center transform scale-110 lg:scale-[1.3] lg:translate-x-12 translate-y-4 transition-all duration-300 hover:scale-[1.14] lg:hover:scale-[1.35]">
+                        <img alt="Watercolor Tree of Life"
+                            class="w-full h-auto max-h-[350px] lg:max-h-[500px] xl:max-h-[560px] object-contain"
+                            src="4.png" />
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- BEGIN: Footer -->
+        <footer id="sec-footer" class="relative pt-24 pb-0 bg-[#fef9f0] overflow-hidden w-full"
+            data-purpose="site-footer">
+            <div id="begin-section-container"
+                class="max-w-[1200px] mx-auto px-6 relative z-10 w-full md:flex-grow md:flex md:flex-col md:justify-center mb-16">
+                <h2 id="begin-section-heading"
+                    class="font-headline-xl text-[42px] md:text-[62px] lg:text-[76px] xl:text-[88px] text-[#244996] font-bold mb-4 text-center leading-tight"
+                    style="font-family: 'DM Sans', sans-serif;">
+                    Wondering Where To Begin?
+                </h2>
+                <p id="begin-section-desc"
+                    class="text-[20px] md:text-[24px] lg:text-[28px] text-[#244996] text-center mb-16 w-full max-w-none mx-auto leading-relaxed md:whitespace-nowrap"
+                    style="font-family: 'Public Sans', sans-serif;">
+                    Whether you want to explore, experience, or simply understand more — there’s a place to start.
+                </p>
+                <div id="begin-section-grid"
+                    class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.95fr_0.95fr] gap-8 lg:gap-10">
+                    <!-- Column 1 (Highlighted & Large) -->
+                    <div class="pl-6 border-l-4 border-[#fe8a29] flex flex-col items-start">
+                        <h3
+                            class="font-bold text-[24px] sm:text-[27px] md:text-[32px] lg:text-[36px] text-[#28221b] mb-2 leading-snug sm:whitespace-nowrap">
+                            Attend The 3-Day Workshop
+                        </h3>
+                        <p class="text-[18px] md:text-[20px] lg:text-[22px] text-[#5c5c5c] leading-relaxed max-w-md"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            A deeper in-person experience <span class="block">of Jeevan Vidya.</span>
+                        </p>
+                        <a class="inline-flex px-8 py-2.5 rounded-full border-2 border-[#fe8a29] text-[#fe8a29] bg-[#fffbf4] font-bold text-[17px] hover:bg-[#fe8a29]/10 transition-colors mt-6 shadow-sm"
+                            href="#">
+                            Attend Workshop
+                        </a>
+                    </div>
+                    <!-- Column 2 -->
+                    <div class="pl-5 border-l border-[#fe8a29]/40 flex flex-col items-start justify-start pt-1">
+                        <h3
+                            class="font-bold text-[20px] md:text-[22px] lg:text-[25px] text-[#28221b] mb-1.5 leading-snug sm:whitespace-nowrap">
+                            Join The 3-Hour Online Session
+                        </h3>
+                        <p class="text-[15px] md:text-[16px] lg:text-[17.5px] text-[#5c5c5c] leading-relaxed"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            A short introduction to the <span class="block">dialogue and core ideas.</span>
+                        </p>
+                        <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
+                            href="#">
+                            Join Online
+                        </a>
+                    </div>
+                    <!-- Column 3 -->
+                    <div class="pl-5 border-l border-[#fe8a29]/40 flex flex-col items-start justify-start pt-1">
+                        <h3
+                            class="font-bold text-[20px] md:text-[22px] lg:text-[25px] text-[#28221b] mb-1.5 leading-snug sm:whitespace-nowrap">
+                            Explore More
+                        </h3>
+                        <p class="text-[15px] md:text-[16px] lg:text-[17.5px] text-[#5c5c5c] leading-relaxed"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            <span class="sm:whitespace-nowrap">Read foundational ideas,</span> <span
+                                class="sm:block sm:whitespace-nowrap">questions and reflections.</span>
+                        </p>
+                        <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
+                            href="#">
+                            Read More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Mountain Landscape Absolute Background -->
+            <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <img alt="Silhouetted mountain layers fading into the background"
+                    class="w-full h-full object-cover object-bottom"
+                    style="-webkit-mask-image: linear-gradient(to top, black 25%, transparent 85%); mask-image: linear-gradient(to top, black 25%, transparent 85%);"
+                    src="footer.png" />
+            </div>
+            <!-- Footer content placed directly at the bottom of the section -->
+            <div id="begin-section-footer" class="w-full relative z-20 py-5 md:py-6 border-t border-white/10 mt-12">
+                <div
+                    class="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 max-w-[1200px] mx-auto px-6 text-center md:text-left">
+                    <!-- Left Column: Copyright Text -->
+                    <div class="text-white/70 text-[13px] md:text-[14px] font-normal"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        © 2026 Sah Astitva Answers. All rights reserved.
+                    </div>
+                    <!-- Right Column: Links in a Single Line -->
+                    <div
+                        class="flex flex-row flex-wrap gap-x-6 md:gap-x-8 gap-y-2 items-center justify-center md:justify-end">
+                        <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                            style="font-family: 'Public Sans', sans-serif;" href="#">Instagram</a>
+                        <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                            style="font-family: 'Public Sans', sans-serif;" href="#">LinkedIn</a>
+                        <a class="text-[13px] md:text-[14px] text-white/80 hover:text-white transition-colors font-medium"
+                            style="font-family: 'Public Sans', sans-serif;" href="#">X</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- END: Footer -->
+    </div>
+
+</body>
+
+</html>

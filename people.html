@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sah Astitva - People</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+        rel="stylesheet" />
+
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #faf9f6;
+            color: #333;
+        }
+
+        .bg-mountain {
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC4XhfIN08dPhnPU0VLCfCfy6fLHE4NKBclVZaX8N9ZPdPTMpGjPXxLroDDP7HInxo3fp8FSp0R_iLGpbfofN-Sa2Syp7qT5kp6NcsKXkhnUo-CD5TPiJRP4Vx5eJA3YOeEJLbY462Cb1U3jh9jKKYZuut6aH-VPeB5daIfFWokz6PdQEqebTv7WxDFYih25bUheHmw3HBtvSbdnY7FVDtcZUtLdUhFZI2I12qUuXMANDyxYSWUqtm8pLhBEJuephjPjVK8AEL6vCQ');
+            background-size: cover;
+            background-position: center bottom;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sah: {
+                            navy: '#1a4073',
+                            orange: '#f08221',
+                            lightbg: '#faf9f6',
+                            border: '#f2a665',
+                            darkbg: '#0f172a'
+                        },
+                        primary: '#022a73',
+                        secondary: '#954900',
+                        surface: '#fef9f0',
+                        'outline-variant': '#c4c6d2',
+                        'on-surface': '#1d1c16',
+                        'on-surface-variant': '#444651'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        "label-md": ["Public Sans"],
+                        "headline-md": ["DM Sans"],
+                    },
+                    fontSize: {
+                        "label-md": [
+                            "14px",
+                            {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "500"
+                            }
+                        ],
+                        "headline-md": [
+                            "28px",
+                            {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                            }
+                        ]
+                    }
+                }
+            }
+        };
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const closeBtn = document.getElementById('mobile-menu-close-btn');
+            const overlay = document.getElementById('mobile-menu-overlay');
+
+            if (menuBtn && closeBtn && overlay) {
+                // Open menu
+                menuBtn.addEventListener('click', () => {
+                    overlay.classList.remove('translate-x-full');
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                });
+
+                // Close menu
+                const closeMenu = () => {
+                    overlay.classList.add('translate-x-full');
+                    document.body.style.overflow = ''; // Restore scrolling
+                };
+
+                closeBtn.addEventListener('click', closeMenu);
+
+                // Close overlay when clicking any link
+                overlay.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', closeMenu);
+                });
+            }
+
+            // Mobile Community Dropdown Accordion toggle
+            const mobileCommBtn = document.getElementById('mobile-community-btn');
+            const mobileCommDropdown = document.getElementById('mobile-community-dropdown');
+            const mobileCommCaret = document.getElementById('mobile-community-caret');
+            if (mobileCommBtn && mobileCommDropdown && mobileCommCaret) {
+                mobileCommBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isOpen = mobileCommDropdown.style.maxHeight && mobileCommDropdown.style.maxHeight !== '0px';
+                    if (isOpen) {
+                        mobileCommDropdown.style.maxHeight = '0px';
+                        mobileCommDropdown.classList.remove('py-3');
+                        mobileCommDropdown.classList.add('py-0');
+                        mobileCommCaret.classList.remove('rotate-180');
+                    } else {
+                        mobileCommDropdown.style.maxHeight = '200px';
+                        mobileCommDropdown.classList.remove('py-0');
+                        mobileCommDropdown.classList.add('py-3');
+                        mobileCommCaret.classList.add('rotate-180');
+                    }
+                });
+            }
+        });
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+
+<body class="antialiased">
+    <!-- BEGIN: MainHeader -->
+    <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
+        <div class="flex justify-between items-center max-w-[1300px] mx-auto px-6 lg:px-8 py-4 md:py-6">
+            <a class="flex items-center" href="index.html">
+                <img src="logo.png" alt="Sah Astitva Answers"
+                    class="-my-16 md:-my-24 lg:-my-[200px] -ml-8 md:-ml-16 lg:-ml-[160px] h-40 md:h-56 lg:h-[440px] w-auto object-contain" />
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="whyattend.html">
+                    Workshop
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="philosophy.html">
+                    Philosophy
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="journey.html">
+                    Journey
+                </a>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary border-b-2 border-secondary pb-1 hover:opacity-80 transition-all duration-300"
+                    href="people.html">
+                    People
+                </a>
+                <div class="relative group">
+                    <button
+                        class="flex items-center gap-1 font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300 focus:outline-none">
+                        Community
+                        <svg class="w-4 h-4 text-primary transition-transform duration-300 group-hover:rotate-180"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl border border-gray-100 py-3 flex flex-col overflow-hidden">
+                            <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200"
+                                href="blogs.html">Blogs</a>
+                            <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200"
+                                href="media.html">News & Media</a>
+                            <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200"
+                                href="stories.html">Stories</a>
+                        </div>
+                    </div>
+                </div>
+                <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
+                    href="faqs.html">
+                    FAQs
+                </a>
+            </div>
+            <a class="hidden md:inline-flex bg-[#244996] text-white rounded-full px-6 py-2.5 font-semibold text-[15px] hover:bg-[#1a3570] transition-all duration-300"
+                href="#">
+                Attend a Workshop
+            </a>
+            <button id="mobile-menu-btn" class="md:hidden text-primary">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay"
+        class="fixed inset-0 z-[100] bg-surface/98 backdrop-blur-lg flex flex-col justify-center items-center gap-8 translate-x-full transition-transform duration-500 ease-in-out md:hidden">
+        <!-- Close Button -->
+        <button id="mobile-menu-close-btn" class="absolute top-6 right-6 text-primary p-2 focus:outline-none">
+            <span class="material-symbols-outlined text-[32px]">close</span>
+        </button>
+        <!-- Navigation Links -->
+        <div class="flex flex-col items-center gap-6">
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="whyattend.html">Workshop</a>
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="philosophy.html">Philosophy</a>
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="journey.html">Journey</a>
+            <a class="font-headline-md text-headline-md text-primary font-bold hover:opacity-80 transition-all duration-300"
+                href="people.html">People</a>
+
+            <!-- Mobile Community Dropdown -->
+            <div class="flex flex-col items-center w-full">
+                <button id="mobile-community-btn"
+                    class="flex items-center gap-1.5 font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300 focus:outline-none">
+                    Community
+                    <svg id="mobile-community-caret"
+                        class="w-5 h-5 text-on-surface-variant transition-transform duration-300" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="mobile-community-dropdown"
+                    class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out w-full flex flex-col items-center gap-4 bg-gray-50/50 rounded-xl mt-2 py-0">
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200 mt-3"
+                        href="blogs.html">Blogs</a>
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200"
+                        href="media.html">News & Media</a>
+                    <a class="font-headline-md text-[20px] text-gray-600 hover:text-[#244996] transition-all duration-200 mb-3"
+                        href="stories.html">Stories</a>
+                </div>
+            </div>
+
+            <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
+                href="faqs.html">FAQs</a>
+        </div>
+    </div>
+    <!-- END: MainHeader -->
+
+    <!-- BEGIN: MainContent -->
+    <main class="pt-32 md:pt-40 lg:pt-48 pb-20 bg-[#faf9f6]">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <!-- Header Section -->
+            <div class="text-center max-w-4xl mx-auto">
+                <h1
+                    class="font-headline-md text-[40px] sm:text-[46px] md:text-[54px] lg:text-[62px] text-[#244996] font-bold tracking-tight leading-[1.15]">
+                    The people who share this.
+                </h1>
+                <p class="text-[18px] sm:text-[20px] md:text-[24px] text-[#f08221] font-semibold mt-6 leading-relaxed">
+                    We are humans from diverse walks of life — driven by an honest quest to understand reality and live
+                    with meaning and harmony on this planet.
+                </p>
+            </div>
+
+            <!-- Introductory Paragraphs -->
+            <div class="mt-12 space-y-6 text-[#444651] text-[17px] md:text-[19px] leading-relaxed max-w-4xl mx-auto"
+                style="font-family: 'Public Sans', sans-serif;">
+                <p>
+                    We are engineers, farmers, architects, homemakers, scientists, social activists, corporate
+                    professionals, monks, educators, and students. Rich, middle-class, and poor. From villages, towns,
+                    and cities across India.
+                </p>
+                <p>
+                    We have no religious or political affiliation, no formal membership, and no hierarchy. What binds us
+                    is a common vision and a shared resolution — found in this framework.
+                </p>
+            </div>
+
+
+            <!-- Two-Column Grid: Network Image & Core Philosophy Card -->
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto mt-12 items-stretch">
+                <!-- Left Card: Beautiful Geometric Network representation -->
+                <div
+                    class="border-[2.5px] border-[#fe8a29] rounded-[24px] overflow-hidden p-1 bg-white shadow-sm flex items-center justify-center aspect-[4/3] md:aspect-auto">
+                    <img src="people_network.png"
+                        alt="Abstract interconnected network constellation representing human harmony"
+                        class="w-full h-full object-cover rounded-[20px]" />
+                </div>
+
+                <!-- Right Card: Lavender Quote Box -->
+                <div
+                    class="border border-[#cbd5e1] rounded-[24px] bg-[#f8faff] p-8 md:p-10 flex flex-col justify-center items-center text-center shadow-sm">
+                    <p
+                        class="italic text-[#1e2b4d] text-[19px] sm:text-[21px] lg:text-[23px] leading-[1.65] font-semibold font-headline-md">
+                        Workshops are not a source of livelihood. We are engaged in various activities for our material
+                        needs. The teaching is shared because we believe it is the fundamental need of the human being —
+                        and the long-term solution to humanity's problems.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Additional Detail Paragraph -->
+            <div class="mt-12 text-[#444651] text-[17px] md:text-[19px] leading-relaxed max-w-4xl mx-auto"
+                style="font-family: 'Public Sans', sans-serif;">
+                <p>
+                    Those engaged seriously with the philosophy number in the few hundreds. Some have come together at
+                    dedicated centres across India for study, practice, and dissemination. Not everyone who studies also
+                    conducts workshops.
+                </p>
+            </div>
+
+            <!-- Divider -->
+            <div class="max-w-4xl mx-auto my-10">
+                <hr class="border-t border-gray-200" />
+            </div>
+
+            <!-- Representative Note -->
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-[14px] md:text-[15px] text-gray-500 italic leading-relaxed max-w-3xl mx-auto"
+                    style="font-family: 'Public Sans', sans-serif;">
+                    The list below is representative. Names and pictures are intentionally withheld — the teaching is
+                    what matters. That said, the teaching resides in the teacher. Words are only a medium.
+                </p>
+            </div>
+
+            <!-- People List — Same format as reference image -->
+            <div class="max-w-4xl mx-auto mt-10 mb-8 flex flex-col">
+
+                <!-- Person 1 -->
+                <div class="py-7 border-b border-gray-200">
+                    <p class="text-[#f08221] text-[13px] font-bold uppercase tracking-[0.15em] mb-2"
+                        style="font-family: 'Public Sans', sans-serif;">Mining Engineer · Ayurveda Practitioner ·
+                        Amarkantak, MP</p>
+                    <p class="text-[#444651] text-[17px] md:text-[19px] leading-[1.8]"
+                        style="font-family: 'Public Sans', sans-serif;">A mining engineer by training who spent 20 years
+                        in full-time study and practice of Madhyasth Darshan. Now an organic farmer and Ayurveda
+                        practitioner with interests in astrology. Lives with his wife and daughter in Amarkantak.</p>
+                </div>
+
+                <!-- Person 2 -->
+                <div class="py-7 border-b border-gray-200">
+                    <p class="text-[#f08221] text-[13px] font-bold uppercase tracking-[0.15em] mb-2"
+                        style="font-family: 'Public Sans', sans-serif;">Engineers · Social Activists · Village near
+                        Raipur, CG</p>
+                    <p class="text-[#444651] text-[17px] md:text-[19px] leading-[1.8]"
+                        style="font-family: 'Public Sans', sans-serif;">After years in social development work, this
+                        couple realised that material growth has its limits. 18 years of study and practice of MD. An
+                        electrical engineer from Nagpur, now running a farm and dairy with his wife in a village near
+                        Raipur.</p>
+                </div>
+
+                <!-- Person 3 -->
+                <div class="py-7 border-b border-gray-200">
+                    <p class="text-[#f08221] text-[13px] font-bold uppercase tracking-[0.15em] mb-2"
+                        style="font-family: 'Public Sans', sans-serif;">IIT Delhi · Publisher · Farmer · Bemetra, CG</p>
+                    <p class="text-[#444651] text-[17px] md:text-[19px] leading-[1.8]"
+                        style="font-family: 'Public Sans', sans-serif;">Came in touch with MD during his college days at
+                        IIT Delhi. Has been pursuing the study since — alongside farming, publishing, and web work.
+                        Recently moved from Dehradun to Bemetra, CG with his wife and two daughters.</p>
+                </div>
+
+                <!-- Person 4 -->
+                <div class="py-7 border-b border-gray-200">
+                    <p class="text-[#f08221] text-[13px] font-bold uppercase tracking-[0.15em] mb-2"
+                        style="font-family: 'Public Sans', sans-serif;">IT Professional · Unilever Research ·
+                        Amarkantak, MP</p>
+                    <p class="text-[#444651] text-[17px] md:text-[19px] leading-[1.8]"
+                        style="font-family: 'Public Sans', sans-serif;">A few years in the IT world left one of them
+                        searching for answers to existential questions. The other was in Unilever research. Initial
+                        skepticism gave way to clarity. Six years of full-time study and practice. Now living in
+                        Amarkantak with their daughter.</p>
+                </div>
+
+                <!-- Person 5 -->
+                <div class="py-7 border-b border-gray-200">
+                    <p class="text-[#f08221] text-[13px] font-bold uppercase tracking-[0.15em] mb-2"
+                        style="font-family: 'Public Sans', sans-serif;">Oil MNC CXO · IIT Delhi · Raipur, CG</p>
+                    <p class="text-[#444651] text-[17px] md:text-[19px] leading-[1.8]"
+                        style="font-family: 'Public Sans', sans-serif;">Former head of commercial at an oil MNC, seeking
+                        a model for wisdom-based living. A colleague introduced him to MD. Now working to establish the
+                        first university based on MD. Moved from Surat to Raipur with his family.</p>
+                </div>
+
+                <!-- Person 6 -->
+                <div class="py-7">
+                    <p class="text-[#f08221] text-[13px] font-bold uppercase tracking-[0.15em] mb-2"
+                        style="font-family: 'Public Sans', sans-serif;">Sociologist · Educator · Alberta, Canada</p>
+                    <p class="text-[#444651] text-[17px] md:text-[19px] leading-[1.8]"
+                        style="font-family: 'Public Sans', sans-serif;">From modest beginnings in India, worked through
+                        college to a Master's degree. Took to MD immediately on contact. Met his partner at a workshop —
+                        now married with two children, and running a new Jeevan Vidya centre in Alberta with space for
+                        40 people, natural farming, and forest.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+    <!-- END: MainContent -->
+
+    <!-- ===== FACILITATOR CARD: Anil Joshi Style (Before Footer) ===== -->
+    <section class="bg-[#faf9f6] py-14 px-6">
+        <div class="max-w-[1200px] mx-auto">
+            <!-- Eyebrow -->
+            <div class="flex items-center gap-3 mb-5">
+                <span class="text-[#f08221] text-[11px] font-bold uppercase tracking-[0.2em]"
+                    style="font-family: 'Public Sans', sans-serif;">The Facilitator</span>
+            </div>
+            <!-- Main Card -->
+            <div
+                class="bg-white rounded-[24px] border border-gray-100 shadow-[0_4px_24px_rgba(0,0,0,0.06)] overflow-hidden flex flex-col md:flex-row">
+                <!-- Left: green panel + stats below -->
+                <div class="md:w-[200px] lg:w-[220px] flex-shrink-0 flex flex-col bg-[#faf9f6]">
+                    <!-- Green panel with A -->
+                    <div class="bg-[#1b4b3e] flex items-center justify-center min-h-[200px] flex-1">
+                        <span class="text-[90px] lg:text-[110px] font-bold text-white/15 select-none leading-none"
+                            style="font-family: 'DM Sans', sans-serif;">A</span>
+                    </div>
+                    <!-- Stats below panel -->
+                    <div class="flex flex-col px-4 py-4 gap-0">
+                        <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                            <span class="text-[11px] text-gray-400"
+                                style="font-family: 'Public Sans', sans-serif;">Practice</span>
+                            <span class="text-[#244996] font-bold text-[12px]"
+                                style="font-family: 'DM Sans', sans-serif;">18 years</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                            <span class="text-[11px] text-gray-400"
+                                style="font-family: 'Public Sans', sans-serif;">Workshops</span>
+                            <span class="text-[#244996] font-bold text-[12px]"
+                                style="font-family: 'DM Sans', sans-serif;">80+ conducted</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                            <span class="text-[11px] text-gray-400"
+                                style="font-family: 'Public Sans', sans-serif;">Cities</span>
+                            <span class="text-[#244996] font-bold text-[12px]"
+                                style="font-family: 'DM Sans', sans-serif;">12 across India</span>
+                        </div>
+                        <div class="flex justify-between items-center py-3">
+                            <span class="text-[11px] text-gray-400"
+                                style="font-family: 'Public Sans', sans-serif;">Basis</span>
+                            <span class="text-[#244996] font-bold text-[12px]"
+                                style="font-family: 'DM Sans', sans-serif;">Jeevan Vidya</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right: Content -->
+                <div class="flex-1 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+                    <!-- Name + subtitle + paragraphs -->
+                    <div>
+                        <h2 class="text-[30px] sm:text-[36px] font-bold text-[#1d1c16] leading-tight mb-1"
+                            style="font-family: 'DM Sans', sans-serif;">Anil Joshi</h2>
+                        <p class="text-[#f08221] text-[11.5px] font-bold uppercase tracking-[0.2em] mb-5"
+                            style="font-family: 'Public Sans', sans-serif;">Jeevan Vidya Practitioner &amp; Workshop
+                            Facilitator</p>
+                        <p class="text-[#444651] text-[15px] sm:text-[16px] leading-[1.75] mb-3"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            Anil didn't come to Jeevan Vidya through a guru or a recommendation. He came through
+                            exhaustion. After a decade of professional success and personal confusion — a marriage that
+                            had patterns he couldn't break, a career that rewarded him but didn't satisfy him — he sat
+                            down one day and asked himself the most honest question he'd ever asked: <em>"Is this
+                                it?"</em>
+                        </p>
+                        <p class="text-[#444651] text-[15px] sm:text-[16px] leading-[1.75] mb-3"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            A friend introduced him to Madhyasth Darshan. He left with the feeling that someone had
+                            finally answered a question he'd been carrying for ten years. He spent the next two years
+                            studying it seriously — not as a profession, but as a human being who had found something
+                            real.
+                        </p>
+                        <p class="text-[#444651] text-[15px] sm:text-[16px] leading-[1.75] mb-6"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            He facilitates not as a teacher who has transcended ordinary life, but as a person who has
+                            understood it more clearly — and who finds the deepest meaning in watching others do the
+                            same.
+                        </p>
+                    </div>
+                    <!-- Quote block — below paragraphs -->
+                    <div class="bg-[#0f172a] rounded-[14px] p-5 mt-2">
+                        <p class="text-white text-[14.5px] leading-[1.7] italic font-medium"
+                            style="font-family: 'Public Sans', sans-serif;">
+                            "I'm not here to give you answers. I'm here to help you find the questions clearly enough
+                            that the answers become obvious. That's what Jeevan Vidya did for me — and that's what I try
+                            to do in the room."
+                        </p>
+                        <p class="text-[#f08221] text-[13px] font-semibold mt-3"
+                            style="font-family: 'Public Sans', sans-serif;">— Anil Joshi</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- BEGIN: Footer -->
+    <footer id="sec-footer" class="relative pt-24 pb-0 bg-[#fef9f0] overflow-hidden w-full" data-purpose="site-footer">
+        <div id="begin-section-container"
+            class="max-w-[1200px] mx-auto px-6 relative z-10 w-full md:flex-grow md:flex md:flex-col md:justify-center mb-16">
+            <h2 id="begin-section-heading"
+                class="font-headline-xl text-[42px] md:text-[62px] lg:text-[76px] xl:text-[88px] text-[#244996] font-bold mb-4 text-center leading-tight"
+                style="font-family: 'DM Sans', sans-serif;">
+                Begin the Journey
+            </h2>
+            <p id="begin-section-desc"
+                class="text-[20px] md:text-[24px] lg:text-[28px] text-[#244996] text-center mb-16 w-full max-w-none mx-auto leading-relaxed md:whitespace-nowrap"
+                style="font-family: 'Public Sans', sans-serif;">
+                Whether you want to explore, experience, or simply understand more — there’s a place to start.
+            </p>
+            <div id="begin-section-grid" class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.95fr_0.95fr] gap-8 lg:gap-10">
+                <!-- Column 1 (Highlighted & Large) -->
+                <div class="pl-6 border-l-4 border-[#fe8a29] flex flex-col items-start">
+                    <h3
+                        class="font-bold text-[24px] sm:text-[27px] md:text-[32px] lg:text-[36px] text-[#28221b] mb-2 leading-snug sm:whitespace-nowrap">
+                        Attend The 3-Day Workshop
+                    </h3>
+                    <p class="text-[18px] md:text-[20px] lg:text-[22px] text-[#5c5c5c] leading-relaxed max-w-md"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        A deeper in-person experience <span class="block">of Jeevan Vidya.</span>
+                    </p>
+                    <a class="inline-flex px-8 py-2.5 rounded-full border-2 border-[#fe8a29] text-[#fe8a29] bg-[#fffbf4] font-bold text-[17px] hover:bg-[#fe8a29]/10 transition-colors mt-6 shadow-sm"
+                        href="#">
+                        Attend Workshop
+                    </a>
+                </div>
+                <!-- Column 2 -->
+                <div class="pl-5 border-l border-[#fe8a29]/40 flex flex-col items-start justify-start pt-1">
+                    <h3
+                        class="font-bold text-[20px] md:text-[22px] lg:text-[25px] text-[#28221b] mb-1.5 leading-snug sm:whitespace-nowrap">
+                        Join The 3-Hour Online Session
+                    </h3>
+                    <p class="text-[15px] md:text-[16px] lg:text-[17.5px] text-[#5c5c5c] leading-relaxed"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        A short introduction to the <span class="block">dialogue and core ideas.</span>
+                    </p>
+                    <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
+                        href="#">
+                        Join Online
+                    </a>
+                </div>
+                <!-- Column 3 -->
+                <div class="pl-5 border-l border-[#fe8a29]/40 flex flex-col items-start justify-start pt-1">
+                    <h3
+                        class="font-bold text-[20px] md:text-[22px] lg:text-[25px] text-[#28221b] mb-1.5 leading-snug sm:whitespace-nowrap">
+                        Explore More
+                    </h3>
+                    <p class="text-[15px] md:text-[16px] lg:text-[17.5px] text-[#5c5c5c] leading-relaxed"
+                        style="font-family: 'Public Sans', sans-serif;">
+                        <span class="sm:whitespace-nowrap">Read foundational ideas,</span> <span
+                            class="sm:block sm:whitespace-nowrap">questions and reflections.</span>
+                    </p>
+                    <a class="inline-flex text-[#fe8a29] font-bold text-[15px] hover:underline transition-all mt-4"
+                        href="#">
+                        Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Mountain Landscape Absolute Background -->
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <img alt="Silhouetted mountain layers fading into the background"
+                class="w-full h-full object-cover object-bottom"
+                style="-webkit-mask-image: linear-gradient(to top, black 25%, transparent 85%); mask-image: linear-gradient(to top, black 25%, transparent 85%);"
+                src="footer.png" />
+        </div>
+        <!-- Footer content placed directly at the bottom of the section -->
+        <div id="begin-section-footer" class="w-full relative z-20 py-5 md:py-6 border-t border-black/10 mt-12">
+            <div
+                class="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 max-w-[1200px] mx-auto px-6 text-center md:text-left">
+                <!-- Left Column: Copyright Text -->
+                <div class="text-[#5c5c5c] text-[13px] md:text-[14px] font-normal"
+                    style="font-family: 'Public Sans', sans-serif;">
+                    © 2026 Sah Astitva Answers. All rights reserved.
+                </div>
+                <!-- Right Column: Links in a Single Line -->
+                <div
+                    class="flex flex-row flex-wrap gap-x-6 md:gap-x-8 gap-y-2 items-center justify-center md:justify-end">
+                    <a class="text-[13px] md:text-[14px] text-[#5c5c5c] hover:text-[#244996] transition-colors font-medium"
+                        style="font-family: 'Public Sans', sans-serif;" href="#">Instagram</a>
+                    <a class="text-[13px] md:text-[14px] text-[#5c5c5c] hover:text-[#244996] transition-colors font-medium"
+                        style="font-family: 'Public Sans', sans-serif;" href="#">LinkedIn</a>
+                    <a class="text-[13px] md:text-[14px] text-[#5c5c5c] hover:text-[#244996] transition-colors font-medium"
+                        style="font-family: 'Public Sans', sans-serif;" href="#">X</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END: Footer -->
+</body>
+
+</html>
