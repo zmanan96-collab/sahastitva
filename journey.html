@@ -209,6 +209,15 @@
                 font-size: 14px !important;
             }
         }
+
+        #sec-foundation p {
+            margin-top: 0 !important;
+            margin-bottom: 12px !important;
+        }
+
+        #sec-foundation p:last-child {
+            margin-bottom: 0 !important;
+        }
     </style>
     <!-- Tailwind CSS v3 CDN -->
     <script>
@@ -425,7 +434,8 @@
     <!-- Main Desktop Scroll Container -->
     <div class="w-full">
         <!-- Section 1: Hero Section -->
-        <section id="sec-hero" class="relative pt-[140px] pb-16 md:py-24 lg:py-32 overflow-hidden w-full bg-white">
+        <section id="sec-hero"
+            class="relative pt-[115px] pb-12 md:pt-[85px] md:pb-16 lg:pt-[90px] lg:pb-20 xl:pt-[120px] xl:pb-28 overflow-hidden w-full bg-white">
             <div
                 class="max-w-[1200px] mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-12 lg:gap-16 items-center w-full z-10">
                 <div class="text-left">
@@ -846,14 +856,17 @@
                         style="font-family: 'DM Sans', sans-serif;">
                         What is this Workshop based on?
                     </h2>
-                    <div class="space-y-6 text-[#545454] text-[17.5px] md:text-[19px] lg:text-[21px] leading-relaxed max-w-2xl"
+                    <div class="text-[#545454] text-[17.5px] md:text-[19px] lg:text-[21px] leading-relaxed max-w-2xl"
                         style="font-family: 'Public Sans', sans-serif;">
-                        <p>The Sah Astitva Answers Workshop is rooted in Jeevan Vidya — the universalisation wing of
+                        <p class="my-0">The Sah Astitva Answers Workshop is rooted in Jeevan Vidya — the
+                            universalisation wing of
                             Madhyasth Darshan, a new discovery that transcends existing frameworks of human knowledge.
                             Propounded by Shri A. Nagraj.</p>
-                        <p>It provides a grand unified view of existence: self, family, society, and nature as a single
+                        <p class="my-0">It provides a grand unified view of existence: self, family, society, and nature
+                            as a single
                             coherent whole.</p>
-                        <p>The philosophy offers a universal resolution to the questions we carry as individuals — and
+                        <p class="my-0">The philosophy offers a universal resolution to the questions we carry as
+                            individuals — and
                             to the larger contradictions of our time: ecological, social, personal, and existential.</p>
                     </div>
                     <div class="flex flex-wrap gap-3 pt-4">
