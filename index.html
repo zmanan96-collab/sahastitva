@@ -583,100 +583,18 @@
                                 });
                         }
 
-                        // 2. High-performance Smooth Scroll Snapper (Only for Desktops/Laptops)
-                        const wrapper = document.querySelector('.snap-container');
-                        const sections = document.querySelectorAll('.snap-section');
-
-                        if (wrapper && sections.length > 0) {
-                                let currentSectionIndex = 0;
-                                let isScrolling = false;
-                                const scrollCooldown = 900; // time window to allow transition completion
-
-                                function scrollToSection(index) {
-                                        if (index < 0 || index >= sections.length) return;
-                                        isScrolling = true;
-                                        currentSectionIndex = index;
-
-                                        if (sections[index].classList.contains('snap-center-section')) {
-                                                const elementRect = sections[index].getBoundingClientRect();
-                                                const absoluteElementTop = elementRect.top + wrapper.scrollTop;
-                                                // Mathematically center the section so that the top visible peek (below the 72px navbar) is exactly, pixel-perfectly identical in height to the bottom visible peek
-                                                const targetScrollTop = absoluteElementTop - (wrapper.clientHeight - elementRect.height + (document.querySelector('nav') ? document.querySelector('nav').offsetHeight : 72)) / 2;
-
-                                                wrapper.scrollTo({
-                                                        top: targetScrollTop,
-                                                        behavior: 'smooth'
-                                                });
-                                        } else {
-                                                sections[index].scrollIntoView({
-                                                        behavior: 'smooth',
-                                                        block: 'start'
-                                                });
-                                        }
-
-                                        setTimeout(() => {
-                                                isScrolling = false;
-                                        }, scrollCooldown);
-                                }
-
-                                // Intercept mouse wheel scroll on desktop to snap instantly like water
-                                wrapper.addEventListener('wheel', (e) => {
-                                        if (window.innerWidth < 1024) return;
-
-                                        e.preventDefault();
-                                        if (isScrolling) return;
-
-                                        if (e.deltaY > 0) {
-                                                scrollToSection(currentSectionIndex + 1);
-                                        } else if (e.deltaY < 0) {
-                                                scrollToSection(currentSectionIndex - 1);
-                                        }
-                                }, { passive: false });
-
-                                // Keyboard Arrow/Page Snapping support
-                                window.addEventListener('keydown', (e) => {
-                                        if (window.innerWidth < 1024) return;
-
-                                        if (e.key === 'ArrowDown' || e.key === 'PageDown') {
-                                                e.preventDefault();
-                                                scrollToSection(currentSectionIndex + 1);
-                                        } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-                                                e.preventDefault();
-                                                scrollToSection(currentSectionIndex - 1);
-                                        }
-                                });
-
-                                // Sync active index on scrollbar or external scroll
-                                const observerOptions = {
-                                        root: wrapper,
-                                        threshold: 0.3
-                                };
-
-                                const observer = new IntersectionObserver((entries) => {
-                                        entries.forEach((entry) => {
-                                                if (entry.isIntersecting && !isScrolling) {
-                                                        const index = Array.from(sections).indexOf(entry.target);
-                                                        if (index !== -1) {
-                                                                currentSectionIndex = index;
-                                                        }
-                                                }
-                                        });
-                                }, observerOptions);
-
-                                sections.forEach(section => observer.observe(section));
-                        }
                 });
         </script>
         <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 </head>
 
-<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden md:overflow-hidden">
+<body class="bg-background text-on-surface font-body-md antialiased overflow-x-hidden">
         <!-- TopNavBar -->
         <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100">
                 <div class="flex justify-between items-center max-w-[1300px] mx-auto px-6 lg:px-8 py-4 md:py-6">
                         <a class="flex items-center" href="index.html">
                                 <img src="logo.png" alt="Sah Astitva Answers"
-                                        class="-my-16 md:-my-24 lg:-my-[200px] -ml-8 md:-ml-16 lg:-ml-[160px] h-40 md:h-56 lg:h-[440px] w-auto object-contain" />
+                                        class="-my-16 md:-my-24 lg:-my-[200px] -ml-4 md:-ml-10 lg:-ml-[115px] h-40 md:h-56 lg:h-[440px] w-auto object-contain" />
                         </a>
                         <div class="hidden md:flex items-center gap-8">
                                 <a class="font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300"
@@ -769,8 +687,8 @@
                 </a>
         </div>
 
-        <!-- Main Desktop Scroll Snapping Container -->
-        <div class="snap-container md:h-screen md:overflow-y-auto md:scroll-smooth">
+        <!-- Main Desktop Scroll Container -->
+        <div class="scroll-smooth">
                 <!-- Hero Section -->
                 <section id="sec-hero"
                         class="snap-section pt-[175px] md:pt-0 pb-0 md:pb-0 bg-surface relative overflow-hidden hero-bg md:h-screen md:min-h-screen md:flex md:items-center">
