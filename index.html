@@ -347,18 +347,18 @@
 
                         /* Section 7: How to Begin Section */
                         #sec-begin {
-                                height: auto !important;
+                                height: 100vh !important;
                                 min-height: 100vh !important;
-                                padding-top: 130px !important;
-                                padding-bottom: 50px !important;
-                                overflow: visible !important;
+                                padding-top: 100px !important;
+                                padding-bottom: 0px !important;
+                                overflow: hidden !important;
                                 display: flex !important;
                                 flex-direction: column !important;
-                                justify-content: center !important;
+                                justify-content: space-between !important;
                         }
 
                         #sec-begin h2 {
-                                font-size: 36px !important;
+                                font-size: 46px !important;
                                 margin-bottom: 12px !important;
                         }
 
@@ -466,15 +466,21 @@
                 .animate-marquee:hover {
                         animation-play-state: paused;
                 }
-        
-        /* Shift footer content slightly upward to clear the mountain silhouette on desktop/laptop */
-        @media (min-width: 1024px) {
-            #begin-section-container {
-                transform: translateY(-50px) !important;
-            }
-        }
 
-    </style>
+                /* Shift footer content slightly upward to clear the mountain silhouette on desktop/laptop */
+                @media (min-width: 1024px) {
+                        #begin-section-container {
+                                margin-top: auto !important;
+                                margin-bottom: auto !important;
+                                transform: translateY(-50px) !important;
+                        }
+
+                        #begin-section-footer {
+                                margin-top: auto !important;
+                                padding-bottom: 24px !important;
+                        }
+                }
+        </style>
         <!-- Tailwind CSS -->
         <script>
                 tailwind.config = {
