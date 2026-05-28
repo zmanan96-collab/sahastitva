@@ -218,6 +218,27 @@
         #sec-foundation p:last-child {
             margin-bottom: 0 !important;
         }
+
+        /* Universal styling to make footer exactly 1 full viewport height on desktop/laptop */
+        @media (min-width: 1024px) {
+            #sec-footer {
+                height: 100vh !important;
+                min-height: 100vh !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                padding-top: 100px !important;
+                padding-bottom: 0px !important;
+            }
+            #sec-footer #begin-section-container {
+                margin-top: auto !important;
+                margin-bottom: auto !important;
+                transform: translateY(-95px) !important;
+            }
+            #sec-footer #begin-section-footer {
+                margin-top: auto !important;
+            }
+        }
     </style>
     <!-- Tailwind CSS v3 CDN -->
     <script>

@@ -294,6 +294,7 @@
                         #sec-holistic .grid p {
                                 font-size: 18px !important;
                         }
+
                         #sec-whatis .relative.z-10 {
                                 transform: none !important;
                         }
@@ -357,34 +358,39 @@
                         }
 
                         #sec-begin h2 {
-                                font-size: 52px !important;
+                                font-size: 36px !important;
                                 margin-bottom: 12px !important;
                         }
 
-                        #sec-begin p.text-white\/80 {
-                                font-size: 19px !important;
+                        #sec-begin #begin-section-desc {
+                                font-size: 16px !important;
                                 margin-bottom: 36px !important;
                         }
 
                         #begin-section-grid {
-                                gap: 20px !important;
+                                gap: 16px !important;
+                        }
+
+                        #begin-section-grid>div {
+                                padding-left: 16px !important;
                         }
 
                         #begin-section-grid h3 {
-                                font-size: 23px !important;
+                                font-size: 16px !important;
                                 margin-bottom: 4px !important;
                         }
 
                         #begin-section-grid p {
-                                font-size: 17px !important;
+                                font-size: 12px !important;
                                 line-height: 1.35 !important;
+                                margin-bottom: 12px !important;
                         }
 
                         #begin-section-grid a {
                                 margin-top: 10px !important;
-                                padding-top: 5px !important;
-                                padding-bottom: 5px !important;
-                                font-size: 16px !important;
+                                padding-top: 6px !important;
+                                padding-bottom: 6px !important;
+                                font-size: 14px !important;
                         }
 
                         #begin-section-footer {
@@ -460,7 +466,15 @@
                 .animate-marquee:hover {
                         animation-play-state: paused;
                 }
-        </style>
+        
+        /* Shift footer content slightly upward to clear the mountain silhouette on desktop/laptop */
+        @media (min-width: 1024px) {
+            #begin-section-container {
+                transform: translateY(-50px) !important;
+            }
+        }
+
+    </style>
         <!-- Tailwind CSS -->
         <script>
                 tailwind.config = {
