@@ -31,6 +31,17 @@
                         font-weight: 700;
                 }
 
+                /* Global color style for Section 3 (1 lakh+ Families) on all viewports */
+                #sec-families h2,
+                #sec-families h2 * {
+                        color: #244996 !important;
+                }
+
+                #sec-families p,
+                #sec-families p * {
+                        color: #244996 !important;
+                }
+
                 @media (min-width: 768px) {
 
                         h1,
@@ -130,6 +141,10 @@
 
                         .center-diagram-img:hover {
                                 transform: scale(2.6) !important;
+                        }
+
+                        #sec-whatis .relative.z-10 {
+                                transform: translateY(-75px) !important;
                         }
                 }
 
@@ -259,15 +274,15 @@
                         }
 
                         #sec-holistic .grid {
-                                grid-template-columns: 1fr 270px 1fr !important;
+                                grid-template-columns: 1fr 280px 1fr !important;
                                 gap: 24px !important;
                                 margin-top: 36px !important;
                         }
 
                         #sec-holistic .center-diagram-img {
-                                width: 220px !important;
-                                height: 220px !important;
-                                transform: scale(1.4) !important;
+                                width: 320px !important;
+                                height: 320px !important;
+                                transform: scale(1.9) !important;
                         }
 
                         #sec-holistic .animate-fade-in h3,
@@ -278,6 +293,9 @@
                         #sec-holistic .animate-fade-in p,
                         #sec-holistic .grid p {
                                 font-size: 18px !important;
+                        }
+                        #sec-whatis .relative.z-10 {
+                                transform: none !important;
                         }
 
                         /* Section 5: Testimonials Section */
@@ -373,6 +391,51 @@
                                 margin-top: auto !important;
                                 padding-top: 12px !important;
                                 padding-bottom: 12px !important;
+                        }
+
+                        /* Section 2 Globe adjustments to prevent overflow/excessive spacing */
+                        #sec-stages .grid>div:last-child {
+                                height: 380px !important;
+                        }
+
+                        #sec-stages .grid img {
+                                transform: scale(2.4) !important;
+                        }
+
+                        /* Section 6: What is Sah Astitva Answers Section */
+                        #sec-whatis {
+                                height: auto !important;
+                                min-height: 100vh !important;
+                                padding-top: 140px !important;
+                                padding-bottom: 80px !important;
+                                display: flex !important;
+                                flex-direction: column !important;
+                                justify-content: flex-start !important;
+                        }
+
+                        #sec-whatis h2 {
+                                font-size: 56px !important;
+                                margin-bottom: 12px !important;
+                        }
+
+                        #sec-whatis p {
+                                font-size: 22px !important;
+                                margin-bottom: 24px !important;
+                        }
+
+                        #sec-whatis li span {
+                                font-size: 19px !important;
+                        }
+
+                        #sec-whatis li span:first-child {
+                                width: 24px !important;
+                                height: 24px !important;
+                                margin-top: 4px !important;
+                        }
+
+                        #sec-whatis li svg {
+                                width: 14px !important;
+                                height: 14px !important;
                         }
                 }
 
@@ -841,10 +904,10 @@
                                 </div>
                                 <div class="flex flex-col justify-center gap-4 md:gap-6 h-full py-1.5 md:pl-2">
                                         <h2
-                                                class="font-headline-xl text-[44px] md:text-[58px] lg:text-[76px] xl:text-[88px] text-primary font-black leading-[0.95] md:leading-[0.95] lg:leading-[0.95]">
+                                                class="font-headline-xl text-[44px] md:text-[58px] lg:text-[76px] xl:text-[88px] text-[#244996] font-black leading-[0.95] md:leading-[0.95] lg:leading-[0.95]">
                                                 1 lakh+ <br />Families
                                         </h2>
-                                        <p class="text-[22px] md:text-[22px] lg:text-[25px] xl:text-[27px] text-primary/80 font-normal leading-snug"
+                                        <p class="text-[22px] md:text-[22px] lg:text-[25px] xl:text-[27px] text-[#244996] font-normal leading-snug"
                                                 style="font-family: 'Public Sans', sans-serif;">
                                                 <span class="block md:whitespace-nowrap">have found greater
                                                         clarity</span>
