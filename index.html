@@ -378,17 +378,22 @@
 
                 /* Continuous Infinite Testimonial Marquee Scroll with GPU acceleration */
                 @keyframes marqueeScroll {
-                        0% { transform: translate3d(0, 0, 0); }
-                        100% { transform: translate3d(-50%, 0, 0); }
+                        0% {
+                                transform: translate3d(0, 0, 0);
+                        }
+
+                        100% {
+                                transform: translate3d(-50%, 0, 0);
+                        }
                 }
-                
+
                 .animate-marquee {
                         display: flex;
                         width: max-content;
                         animation: marqueeScroll 35s linear infinite;
                         will-change: transform;
                 }
-                
+
                 .animate-marquee:hover {
                         animation-play-state: paused;
                 }
@@ -623,18 +628,26 @@
                                         People
                                 </a>
                                 <div class="relative group">
-                                        <button class="flex items-center gap-1 font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300 focus:outline-none">
+                                        <button
+                                                class="flex items-center gap-1 font-['DM_Sans'] text-lg font-medium text-primary hover:opacity-80 transition-all duration-300 focus:outline-none">
                                                 Community
-                                                <svg class="w-4 h-4 text-primary transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                                                <svg class="w-4 h-4 text-primary transition-transform duration-300 group-hover:rotate-180"
+                                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                                stroke-width="2.5" d="M19 9l-7 7-7-7" />
                                                 </svg>
                                         </button>
                                         <!-- Dropdown Menu -->
-                                        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
-                                                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 py-3 flex flex-col overflow-hidden">
-                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="blogs.html">Blogs</a>
-                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="media.html">News & Media</a>
-                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="stories.html">Stories</a>
+                                        <div
+                                                class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
+                                                <div
+                                                        class="bg-white rounded-2xl shadow-xl border border-gray-100 py-3 flex flex-col overflow-hidden">
+                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200"
+                                                                href="blogs.html">Blogs</a>
+                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200"
+                                                                href="media.html">News & Media</a>
+                                                        <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200"
+                                                                href="stories.html">Stories</a>
                                                 </div>
                                         </div>
                                 </div>
@@ -670,19 +683,27 @@
                                 href="journey.html">Journey</a>
                         <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300"
                                 href="people.html">People</a>
-                        
+
                         <!-- Mobile Community Dropdown -->
                         <div class="flex flex-col items-center w-full">
-                                <button id="mobile-community-btn" class="flex items-center gap-1.5 font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300 focus:outline-none">
+                                <button id="mobile-community-btn"
+                                        class="flex items-center gap-1.5 font-headline-md text-headline-md text-on-surface-variant hover:text-primary hover:opacity-80 transition-all duration-300 focus:outline-none">
                                         Community
-                                        <svg id="mobile-community-caret" class="w-5 h-5 text-on-surface-variant transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                                        <svg id="mobile-community-caret"
+                                                class="w-5 h-5 text-on-surface-variant transition-transform duration-300"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                                        d="M19 9l-7 7-7-7" />
                                         </svg>
                                 </button>
-                                <div id="mobile-community-dropdown" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out w-full flex flex-col items-center gap-4 mt-2 py-0">
-                                        <a class="font-headline-md text-[16px] text-gray-600 hover:text-[#244996] transition-all duration-200 mt-3" href="blogs.html">Blogs</a>
-                                        <a class="font-headline-md text-[16px] text-gray-600 hover:text-[#244996] transition-all duration-200" href="media.html">News & Media</a>
-                                        <a class="font-headline-md text-[16px] text-gray-600 hover:text-[#244996] transition-all duration-200 mb-3" href="stories.html">Stories</a>
+                                <div id="mobile-community-dropdown"
+                                        class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out w-full flex flex-col items-center gap-4 mt-2 py-0">
+                                        <a class="font-headline-md text-[16px] text-gray-600 hover:text-[#244996] transition-all duration-200 mt-3"
+                                                href="blogs.html">Blogs</a>
+                                        <a class="font-headline-md text-[16px] text-gray-600 hover:text-[#244996] transition-all duration-200"
+                                                href="media.html">News & Media</a>
+                                        <a class="font-headline-md text-[16px] text-gray-600 hover:text-[#244996] transition-all duration-200 mb-3"
+                                                href="stories.html">Stories</a>
                                 </div>
                         </div>
 
@@ -977,153 +998,271 @@
                         <!-- Full Width Testimonial Cards Marquee -->
                         <div class="relative w-full overflow-hidden z-10 py-6">
                                 <!-- Gradient overlays to fade out edges beautifully -->
-                                <div class="absolute left-0 top-0 bottom-0 w-16 md:w-36 bg-gradient-to-r from-[#fef9f0] via-[#fef9f0]/80 to-transparent z-20 pointer-events-none"></div>
-                                <div class="absolute right-0 top-0 bottom-0 w-16 md:w-36 bg-gradient-to-l from-[#fef9f0] via-[#fef9f0]/80 to-transparent z-20 pointer-events-none"></div>
-                                
+                                <div
+                                        class="absolute left-0 top-0 bottom-0 w-16 md:w-36 bg-gradient-to-r from-[#fef9f0] via-[#fef9f0]/80 to-transparent z-20 pointer-events-none">
+                                </div>
+                                <div
+                                        class="absolute right-0 top-0 bottom-0 w-16 md:w-36 bg-gradient-to-l from-[#fef9f0] via-[#fef9f0]/80 to-transparent z-20 pointer-events-none">
+                                </div>
+
                                 <div class="animate-marquee gap-8 md:gap-12 px-6">
                                         <!-- ORIGINAL SET OF 4 CARDS -->
                                         <!-- Boni Patel Card -->
-                                        <div class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
+                                        <div
+                                                class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
                                                 <!-- Sharp Blue Vertical Bar on Right Edge -->
-                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]"></div>
+                                                <div
+                                                        class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]">
+                                                </div>
                                                 <!-- Overlapping Avatar -->
-                                                <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
-                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                <div
+                                                        class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300"
+                                                                fill="currentColor" viewBox="0 0 24 24">
+                                                                <path
+                                                                        d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
                                                         </svg>
                                                 </div>
                                                 <!-- Content -->
                                                 <div class="flex flex-col select-none">
-                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight" style="font-family: 'DM Sans', sans-serif;">Boni Patel</h4>
-                                                        <p class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">Manager, Samarth Diamond · Visnagar</p>
-                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed" style="font-family: 'Alegreya Sans', sans-serif;">
+                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight"
+                                                                style="font-family: 'DM Sans', sans-serif;">Boni Patel
+                                                        </h4>
+                                                        <p
+                                                                class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">
+                                                                Manager, Samarth Diamond · Visnagar</p>
+                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed"
+                                                                style="font-family: 'Alegreya Sans', sans-serif;">
                                                                 “इससे मुझमे और परिवार में तृप्ति का स्तर बढ़ता देख पाया।”
-                                                                <span class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(It brought growing contentment—in me and in my family.)</span>
+                                                                <span
+                                                                        class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(It
+                                                                        brought growing contentment—in me and in my
+                                                                        family.)</span>
                                                         </div>
                                                 </div>
                                         </div>
 
                                         <!-- Shriram Narasimhan Card -->
-                                        <div class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
-                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]"></div>
-                                                <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
-                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                        <div
+                                                class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
+                                                <div
+                                                        class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]">
+                                                </div>
+                                                <div
+                                                        class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300"
+                                                                fill="currentColor" viewBox="0 0 24 24">
+                                                                <path
+                                                                        d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
                                                         </svg>
                                                 </div>
                                                 <div class="flex flex-col select-none">
-                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight" style="font-family: 'DM Sans', sans-serif;">Shriram Narasimhan</h4>
-                                                        <p class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">Ex MNC Manager</p>
-                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed italic" style="font-family: 'Alegreya Sans', sans-serif;">
-                                                                “A real, honest suitcase of knowledge & living I can unpack the rest of my Life that results in meaningful Social Action too.”
+                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight"
+                                                                style="font-family: 'DM Sans', sans-serif;">Shriram
+                                                                Narasimhan</h4>
+                                                        <p
+                                                                class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">
+                                                                Ex MNC Manager</p>
+                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed italic"
+                                                                style="font-family: 'Alegreya Sans', sans-serif;">
+                                                                “A real, honest suitcase of knowledge & living I can
+                                                                unpack the rest of my Life that results in meaningful
+                                                                Social Action too.”
                                                         </div>
                                                 </div>
                                         </div>
 
                                         <!-- Karan Trivedi Card -->
-                                        <div class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
-                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]"></div>
-                                                <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
-                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                        <div
+                                                class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
+                                                <div
+                                                        class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]">
+                                                </div>
+                                                <div
+                                                        class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300"
+                                                                fill="currentColor" viewBox="0 0 24 24">
+                                                                <path
+                                                                        d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
                                                         </svg>
                                                 </div>
                                                 <div class="flex flex-col select-none">
-                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight" style="font-family: 'DM Sans', sans-serif;">Karan Trivedi</h4>
-                                                        <p class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">Software Architect · Ahmedabad</p>
-                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed" style="font-family: 'Alegreya Sans', sans-serif;">
-                                                                “इससे मुझे निर्णय लेने में जो स्पष्टता मिली है, वह अद्भुत है।”
-                                                                <span class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(The structural clarity this gave me in making decisions is absolutely amazing.)</span>
+                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight"
+                                                                style="font-family: 'DM Sans', sans-serif;">Karan
+                                                                Trivedi</h4>
+                                                        <p
+                                                                class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">
+                                                                Software Architect · Ahmedabad</p>
+                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed"
+                                                                style="font-family: 'Alegreya Sans', sans-serif;">
+                                                                “इससे मुझे निर्णय लेने में जो स्पष्टता मिली है, वह
+                                                                अद्भुत है।”
+                                                                <span
+                                                                        class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(The
+                                                                        structural clarity this gave me in making
+                                                                        decisions is absolutely amazing.)</span>
                                                         </div>
                                                 </div>
                                         </div>
 
                                         <!-- Anjali Mehta Card -->
-                                        <div class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
-                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]"></div>
-                                                <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
-                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                        <div
+                                                class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
+                                                <div
+                                                        class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]">
+                                                </div>
+                                                <div
+                                                        class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300"
+                                                                fill="currentColor" viewBox="0 0 24 24">
+                                                                <path
+                                                                        d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
                                                         </svg>
                                                 </div>
                                                 <div class="flex flex-col select-none">
-                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight" style="font-family: 'DM Sans', sans-serif;">Anjali Mehta</h4>
-                                                        <p class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">Associate Professor · Baroda</p>
-                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed" style="font-family: 'Alegreya Sans', sans-serif;">
-                                                                “इसने हमारे बच्चों और हमारे बीच की दूरी को पूरी तरह समाप्त कर दिया।”
-                                                                <span class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(It completely bridged the communication gap between my children and us.)</span>
+                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight"
+                                                                style="font-family: 'DM Sans', sans-serif;">Anjali Mehta
+                                                        </h4>
+                                                        <p
+                                                                class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">
+                                                                Associate Professor · Baroda</p>
+                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed"
+                                                                style="font-family: 'Alegreya Sans', sans-serif;">
+                                                                “इसने हमारे बच्चों और हमारे बीच की दूरी को पूरी तरह
+                                                                समाप्त कर दिया।”
+                                                                <span
+                                                                        class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(It
+                                                                        completely bridged the communication gap between
+                                                                        my children and us.)</span>
                                                         </div>
                                                 </div>
                                         </div>
 
                                         <!-- DUPLICATED SET FOR INFINITE LOOPING -->
                                         <!-- Boni Patel Card (Dup) -->
-                                        <div class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
-                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]"></div>
-                                                <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
-                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                        <div
+                                                class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
+                                                <div
+                                                        class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]">
+                                                </div>
+                                                <div
+                                                        class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300"
+                                                                fill="currentColor" viewBox="0 0 24 24">
+                                                                <path
+                                                                        d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
                                                         </svg>
                                                 </div>
                                                 <div class="flex flex-col select-none">
-                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight" style="font-family: 'DM Sans', sans-serif;">Boni Patel</h4>
-                                                        <p class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">Manager, Samarth Diamond · Visnagar</p>
-                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed" style="font-family: 'Alegreya Sans', sans-serif;">
+                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight"
+                                                                style="font-family: 'DM Sans', sans-serif;">Boni Patel
+                                                        </h4>
+                                                        <p
+                                                                class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">
+                                                                Manager, Samarth Diamond · Visnagar</p>
+                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed"
+                                                                style="font-family: 'Alegreya Sans', sans-serif;">
                                                                 “इससे मुझमे और परिवार में तृप्ति का स्तर बढ़ता देख पाया।”
-                                                                <span class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(It brought growing contentment—in me and in my family.)</span>
+                                                                <span
+                                                                        class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(It
+                                                                        brought growing contentment—in me and in my
+                                                                        family.)</span>
                                                         </div>
                                                 </div>
                                         </div>
 
                                         <!-- Shriram Narasimhan Card (Dup) -->
-                                        <div class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
-                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]"></div>
-                                                <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
-                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                        <div
+                                                class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
+                                                <div
+                                                        class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]">
+                                                </div>
+                                                <div
+                                                        class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300"
+                                                                fill="currentColor" viewBox="0 0 24 24">
+                                                                <path
+                                                                        d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
                                                         </svg>
                                                 </div>
                                                 <div class="flex flex-col select-none">
-                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight" style="font-family: 'DM Sans', sans-serif;">Shriram Narasimhan</h4>
-                                                        <p class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">Ex MNC Manager</p>
-                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed italic" style="font-family: 'Alegreya Sans', sans-serif;">
-                                                                “A real, honest suitcase of knowledge & living I can unpack the rest of my Life that results in meaningful Social Action too.”
+                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight"
+                                                                style="font-family: 'DM Sans', sans-serif;">Shriram
+                                                                Narasimhan</h4>
+                                                        <p
+                                                                class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">
+                                                                Ex MNC Manager</p>
+                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed italic"
+                                                                style="font-family: 'Alegreya Sans', sans-serif;">
+                                                                “A real, honest suitcase of knowledge & living I can
+                                                                unpack the rest of my Life that results in meaningful
+                                                                Social Action too.”
                                                         </div>
                                                 </div>
                                         </div>
 
                                         <!-- Karan Trivedi Card (Dup) -->
-                                        <div class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
-                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]"></div>
-                                                <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
-                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                        <div
+                                                class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
+                                                <div
+                                                        class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]">
+                                                </div>
+                                                <div
+                                                        class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_6px_20px_rgba(0,0,0,0.1)] border border-gray-100 bg-gray-50 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300"
+                                                                fill="currentColor" viewBox="0 0 24 24">
+                                                                <path
+                                                                        d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
                                                         </svg>
                                                 </div>
                                                 <div class="flex flex-col select-none">
-                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight" style="font-family: 'DM Sans', sans-serif;">Karan Trivedi</h4>
-                                                        <p class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">Software Architect · Ahmedabad</p>
-                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed" style="font-family: 'Alegreya Sans', sans-serif;">
-                                                                “इससे मुझे निर्णय लेने में जो स्पष्टता मिली है, वह अद्भुत है।”
-                                                                <span class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(The structural clarity this gave me in making decisions is absolutely amazing.)</span>
+                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight"
+                                                                style="font-family: 'DM Sans', sans-serif;">Karan
+                                                                Trivedi</h4>
+                                                        <p
+                                                                class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">
+                                                                Software Architect · Ahmedabad</p>
+                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed"
+                                                                style="font-family: 'Alegreya Sans', sans-serif;">
+                                                                “इससे मुझे निर्णय लेने में जो स्पष्टता मिली है, वह
+                                                                अद्भुत है।”
+                                                                <span
+                                                                        class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(The
+                                                                        structural clarity this gave me in making
+                                                                        decisions is absolutely amazing.)</span>
                                                         </div>
                                                 </div>
                                         </div>
 
                                         <!-- Anjali Mehta Card (Dup) -->
-                                        <div class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
-                                                <div class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]"></div>
-                                                <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_8px_25px_rgba(0,0,0,0.12)] border border-gray-200 bg-gray-100 flex items-center justify-center">
-                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                                        <div
+                                                class="group relative bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)] rounded-[20px] pt-10 pb-10 pl-16 pr-8 w-[310px] sm:w-[380px] md:w-[440px] flex-shrink-0 min-h-[220px] flex flex-col justify-center border border-gray-100/60 hover:-translate-y-1 hover:shadow-[0_16px_50px_rgba(0,0,0,0.1)] transition-all duration-300 mx-4">
+                                                <div
+                                                        class="absolute right-0 top-0 bottom-0 w-[6px] bg-[#022a73] rounded-r-[20px]">
+                                                </div>
+                                                <div
+                                                        class="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shadow-[0_8px_25px_rgba(0,0,0,0.12)] border border-gray-200 bg-gray-100 flex items-center justify-center">
+                                                        <svg class="w-full h-full text-gray-400 group-hover:scale-105 transition-transform duration-300"
+                                                                fill="currentColor" viewBox="0 0 24 24">
+                                                                <path
+                                                                        d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
                                                         </svg>
                                                 </div>
                                                 <div class="flex flex-col select-none">
-                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight" style="font-family: 'DM Sans', sans-serif;">Anjali Mehta</h4>
-                                                        <p class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">Associate Professor · Baroda</p>
-                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed" style="font-family: 'Alegreya Sans', sans-serif;">
-                                                                “इसने हमारे बच्चों और हमारे बीच की दूरी को पूरी तरह समाप्त कर दिया।”
-                                                                <span class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(It completely bridged the communication gap between my children and us.)</span>
+                                                        <h4 class="text-[#244996] font-bold text-[18px] sm:text-[20px] leading-tight"
+                                                                style="font-family: 'DM Sans', sans-serif;">Anjali Mehta
+                                                        </h4>
+                                                        <p
+                                                                class="text-[#747682] text-[13px] sm:text-[14px] font-medium mt-0.5">
+                                                                Associate Professor · Baroda</p>
+                                                        <div class="mt-3 text-[#1d1c16] text-[17px] sm:text-[18px] leading-relaxed"
+                                                                style="font-family: 'Alegreya Sans', sans-serif;">
+                                                                “इसने हमारे बच्चों और हमारे बीच की दूरी को पूरी तरह
+                                                                समाप्त कर दिया।”
+                                                                <span
+                                                                        class="italic text-[14.5px] sm:text-[15.5px] text-[#747682] mt-1 block leading-normal">(It
+                                                                        completely bridged the communication gap between
+                                                                        my children and us.)</span>
                                                         </div>
                                                 </div>
                                         </div>

@@ -416,7 +416,8 @@
                     The gap between where we are<br /><span class="font-normal">and where we could be..</span>
                 </h2>
             </div>
-            <div class="w-full overflow-x-auto select-none" style="font-family: 'Public Sans', sans-serif;">
+            <!-- Desktop Layout: Visible on tablet, laptop, MacBook, and desktop (sm: breakpoint and above) -->
+            <div class="hidden sm:block w-full overflow-x-auto select-none" style="font-family: 'Public Sans', sans-serif;">
                 <div class="min-w-[800px] p-2 bg-[#fffcf7]">
 
                     <!-- Two main columns: Left Column (110px) and Right Column (1fr) -->
@@ -544,6 +545,84 @@
 
                     </div>
 
+                </div>
+            </div>
+
+            <!-- Mobile Layout: Visible only on mobile screens (< 640px) with NO horizontal scroll/slide -->
+            <div class="block sm:hidden w-full space-y-6 select-none" style="font-family: 'Public Sans', sans-serif;">
+                <!-- Header Legend -->
+                <div class="grid grid-cols-2 gap-3 text-center mb-2">
+                    <div class="py-2 bg-[#fffcf7] border border-[#fe8a29]/30 rounded-[8px] font-bold text-[#fe8a29] text-[13px]">
+                        Today
+                    </div>
+                    <div class="py-2 bg-[#fffcf7] border border-[#fe8a29]/30 rounded-[8px] font-bold text-[#fe8a29] text-[13px]">
+                        The Possibility
+                    </div>
+                </div>
+
+                <!-- ROW 1: INDIVIDUAL -->
+                <div class="space-y-2">
+                    <div class="flex items-center justify-center gap-2.5 py-2 bg-[#fe8a29]/10 rounded-[8px] border border-[#fe8a29]/20 text-[#fe8a29] font-bold text-[15px]">
+                        <img src="m1.png" alt="👤" class="w-[28px] h-[28px] object-contain" />
+                        <span>Individual</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 h-[95px]">
+                        <div class="border-2 border-[#fe8a29] rounded-[12px] bg-white flex items-center justify-center text-center px-3 py-1.5 text-[#444651] text-[13px] font-medium leading-normal">
+                            Confusion, loneliness, depression
+                        </div>
+                        <div class="border-2 border-[#fe8a29] rounded-[12px] bg-white flex items-center justify-center text-center px-3 py-1.5 text-[#444651] text-[13px] font-medium leading-normal">
+                            Clarity, trust in oneself, joy
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROW 2: FAMILY -->
+                <div class="space-y-2">
+                    <div class="flex items-center justify-center gap-2.5 py-2 bg-[#fe8a29]/10 rounded-[8px] border border-[#fe8a29]/20 text-[#fe8a29] font-bold text-[15px]">
+                        <img src="fam.png" alt="👥" class="w-[28px] h-[28px] object-contain" />
+                        <span>Family</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 h-[95px]">
+                        <div class="border-2 border-[#fe8a29] rounded-[12px] bg-white flex items-center justify-center text-center px-3 py-1.5 text-[#444651] text-[13px] font-medium leading-normal">
+                            Unfulfilled expectations, discord
+                        </div>
+                        <div class="border-2 border-[#fe8a29] rounded-[12px] bg-white flex items-center justify-center text-center px-3 py-1.5 text-[#444651] text-[13px] font-medium leading-normal">
+                            Trust, mutual support, prosperity
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROW 3: SOCIETY -->
+                <div class="space-y-2">
+                    <div class="flex items-center justify-center gap-2.5 py-2 bg-[#fe8a29]/10 rounded-[8px] border border-[#fe8a29]/20 text-[#fe8a29] font-bold text-[15px]">
+                        <img src="group.png" alt="🤝" class="w-[28px] h-[28px] object-contain" />
+                        <span>Society</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 h-[95px]">
+                        <div class="border-2 border-[#fe8a29] rounded-[12px] bg-white flex items-center justify-center text-center px-3 py-1.5 text-[#444651] text-[13px] font-medium leading-normal">
+                            Fear, exploitation, inequality
+                        </div>
+                        <div class="border-2 border-[#fe8a29] rounded-[12px] bg-white flex items-center justify-center text-center px-3 py-1.5 text-[#444651] text-[13px] font-medium leading-normal">
+                            Security, respect, cooperation
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROW 4: PLANET -->
+                <div class="space-y-2">
+                    <div class="flex items-center justify-center gap-2.5 py-2 bg-[#fe8a29]/10 rounded-[8px] border border-[#fe8a29]/20 text-[#fe8a29] font-bold text-[15px]">
+                        <img src="ea.png" alt="🌍" class="w-[28px] h-[28px] object-contain" />
+                        <span>Planet</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 h-[95px]">
+                        <div class="border-2 border-[#fe8a29] rounded-[12px] bg-white flex items-center justify-center text-center px-3 py-1.5 text-[#444651] text-[13px] font-medium leading-normal">
+                            Climate change, resource scarcity
+                        </div>
+                        <div class="border-2 border-[#fe8a29] rounded-[12px] bg-white flex flex-col items-center justify-center text-center px-3 py-1.5 text-[#444651] text-[13px] font-medium leading-normal">
+                            <span>Clean air, water, food — a planet</span>
+                            <span class="block mt-0.5 text-[11px] xs:text-[13px]">blooming with humans</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
