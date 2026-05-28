@@ -121,6 +121,28 @@
                 margin-top: 10px !important;
             }
         }
+
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background: #244996;
+        }
+
+        .marquee-content {
+            display: inline-flex;
+            align-items: center;
+            animation: marquee 25s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
     </style>
     <!-- Tailwind CSS CDN -->
     <script>
@@ -406,6 +428,44 @@
             </div>
         </section>
         <!-- END: HeroSection -->
+
+        <!-- Text Marquee -->
+        <div class="marquee-container py-3 text-white/95 text-sm md:text-[16px] font-medium tracking-wide border-t border-b border-white/10"
+            style="font-family: 'Public Sans', sans-serif;">
+            <div class="marquee-content flex items-center gap-16 pr-16 select-none">
+                <span class="flex items-center gap-16 shrink-0">
+                    <span>What is my purpose?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What is happiness?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What are relationships?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What is love?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What causes conflict?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>Is earning money my only aim?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What is justice?</span>
+                </span>
+                <span class="flex items-center gap-16 shrink-0">
+                    <span>What is my purpose?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What is happiness?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What are relationships?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What is love?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What causes conflict?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>Is earning money my only aim?</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                    <span>What is justice?</span>
+                </span>
+            </div>
+        </div>
+
         <!-- BEGIN: ComparisonSection -->
         <section class="bg-white/30 section-spacing border-t border-surface-dim">
             <div class="max-w-[1200px] mx-auto px-6 text-center mb-12">

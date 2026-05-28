@@ -27,10 +27,10 @@
         .line-clamp-3 {
             display: -webkit-box;
             -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;  
+            -webkit-box-orient: vertical;
             overflow: hidden;
         }
-    
+
         /* Universal styling to make footer exactly 1 full viewport height on desktop/laptop */
         @media (min-width: 1024px) {
             #sec-footer {
@@ -42,11 +42,13 @@
                 padding-top: 100px !important;
                 padding-bottom: 0px !important;
             }
+
             #sec-footer #begin-section-container {
                 margin-top: auto !important;
                 margin-bottom: auto !important;
                 transform: translateY(-95px) !important;
             }
+
             #sec-footer #begin-section-footer {
                 margin-top: auto !important;
             }
@@ -98,7 +100,6 @@
                 margin-top: 10px !important;
             }
         }
-
     </style>
     <script>
         tailwind.config = {
@@ -275,18 +276,26 @@
                     People
                 </a>
                 <div class="relative group">
-                    <button class="flex items-center gap-1 font-['DM_Sans'] text-lg font-medium text-[#fe8a29] hover:opacity-80 transition-all duration-300 focus:outline-none">
+                    <button
+                        class="flex items-center gap-1 font-['DM_Sans'] text-lg font-medium text-[#fe8a29] hover:opacity-80 transition-all duration-300 focus:outline-none">
                         Community
-                        <svg class="w-4 h-4 text-[#fe8a29] transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                        <svg class="w-4 h-4 text-[#fe8a29] transition-transform duration-300 group-hover:rotate-180"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <!-- Dropdown Menu -->
-                    <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
-                        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 py-3 flex flex-col overflow-hidden">
-                            <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-semibold text-[#fe8a29] bg-[#fe8a29]/10 transition-all duration-200" href="blogs.html">Blogs</a>
-                            <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="media.html">News & Media</a>
-                            <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200" href="stories.html">Stories</a>
+                    <div
+                        class="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-52 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-[100]">
+                        <div
+                            class="bg-white rounded-2xl shadow-xl border border-gray-100 py-3 flex flex-col overflow-hidden">
+                            <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-semibold text-[#fe8a29] bg-[#fe8a29]/10 transition-all duration-200"
+                                href="blogs.html">Blogs</a>
+                            <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200"
+                                href="media.html">News & Media</a>
+                            <a class="px-5 py-2.5 font-['DM_Sans'] text-[15px] font-medium text-gray-700 hover:text-white hover:bg-[#244996] transition-all duration-200"
+                                href="stories.html">Stories</a>
                         </div>
                     </div>
                 </div>
@@ -325,16 +334,24 @@
 
             <!-- Mobile Community Dropdown -->
             <div class="flex flex-col items-center w-full">
-                <button id="mobile-community-btn" class="flex items-center gap-1.5 font-headline-md text-headline-md text-[#fe8a29] font-bold hover:opacity-80 transition-all duration-300 focus:outline-none">
+                <button id="mobile-community-btn"
+                    class="flex items-center gap-1.5 font-headline-md text-headline-md text-[#fe8a29] font-bold hover:opacity-80 transition-all duration-300 focus:outline-none">
                     Community
-                    <svg id="mobile-community-caret" class="w-5 h-5 text-[#fe8a29] rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg id="mobile-community-caret"
+                        class="w-5 h-5 text-[#fe8a29] rotate-180 transition-transform duration-300" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
-                <div id="mobile-community-dropdown" class="overflow-hidden transition-all duration-300 ease-in-out w-full flex flex-col items-center gap-4 mt-2 py-3" style="max-height: 200px;">
-                    <a class="font-headline-md text-[16px] text-[#fe8a29] font-bold transition-all duration-200 mt-1" href="blogs.html">Blogs</a>
-                    <a class="font-headline-md text-[16px] text-gray-600 hover:text-[#244996] transition-all duration-200" href="media.html">News & Media</a>
-                    <a class="font-headline-md text-[16px] text-gray-600 hover:text-[#244996] transition-all duration-200 mb-1" href="stories.html">Stories</a>
+                <div id="mobile-community-dropdown"
+                    class="overflow-hidden transition-all duration-300 ease-in-out w-full flex flex-col items-center gap-4 mt-2 py-3"
+                    style="max-height: 200px;">
+                    <a class="font-headline-md text-[16px] text-[#fe8a29] font-bold transition-all duration-200 mt-1"
+                        href="blogs.html">Blogs</a>
+                    <a class="font-headline-md text-[16px] text-gray-600 hover:text-[#244996] transition-all duration-200"
+                        href="media.html">News & Media</a>
+                    <a class="font-headline-md text-[16px] text-gray-600 hover:text-[#244996] transition-all duration-200 mb-1"
+                        href="stories.html">Stories</a>
                 </div>
             </div>
 
@@ -350,13 +367,17 @@
             <!-- Header Block -->
             <div class="flex flex-col items-center text-center">
                 <div class="flex items-center gap-3 mb-4 justify-center">
-                    <span class="text-[#fe8a29] tracking-widest text-[12px] sm:text-[13px] font-bold uppercase" style="font-family: 'Public Sans', sans-serif;">Blog</span>
+                    <span class="text-[#fe8a29] tracking-widest text-[12px] sm:text-[13px] font-bold uppercase"
+                        style="font-family: 'Public Sans', sans-serif;">Blog</span>
                 </div>
-                <h1 class="text-[38px] sm:text-[52px] md:text-[64px] font-bold text-[#244996] leading-[1.1] tracking-tight" style="font-family: 'DM Sans', sans-serif;">
+                <h1 class="text-[38px] sm:text-[52px] md:text-[64px] font-bold text-[#244996] leading-[1.1] tracking-tight"
+                    style="font-family: 'DM Sans', sans-serif;">
                     Questions worth <span class="italic text-[#244996] font-['DM_Sans'] font-normal">asking.</span>
                 </h1>
-                <p class="text-[#6e6860] text-[15px] sm:text-[18px] max-w-[650px] leading-relaxed mt-5 mx-auto" style="font-family: 'Public Sans', sans-serif;">
-                    Every post is a life question answered through the lens of Jeevan Vidya. Written for the curious, the struggling, and the searching.
+                <p class="text-[#6e6860] text-[15px] sm:text-[18px] max-w-[650px] leading-relaxed mt-5 mx-auto"
+                    style="font-family: 'Public Sans', sans-serif;">
+                    Every post is a life question answered through the lens of Jeevan Vidya. Written for the curious,
+                    the struggling, and the searching.
                 </p>
             </div>
         </div>
@@ -366,26 +387,41 @@
     <section class="py-12 bg-[#fffaf5]">
         <div class="max-w-[1250px] mx-auto px-6">
             <!-- Filter Pills -->
-            <div class="flex flex-row flex-wrap gap-2.5 mb-14 justify-center" style="font-family: 'Public Sans', sans-serif;">
-                <button class="filter-pill bg-[#0e0e0e] text-white text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all" data-category="all">
+            <div class="flex flex-row flex-wrap gap-2.5 mb-14 justify-center"
+                style="font-family: 'Public Sans', sans-serif;">
+                <button
+                    class="filter-pill bg-[#0e0e0e] text-white text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all"
+                    data-category="all">
                     All
                 </button>
-                <button class="filter-pill bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all" data-category="life-questions">
+                <button
+                    class="filter-pill bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all"
+                    data-category="life-questions">
                     Life Questions
                 </button>
-                <button class="filter-pill bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all" data-category="relationships">
+                <button
+                    class="filter-pill bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all"
+                    data-category="relationships">
                     Relationships
                 </button>
-                <button class="filter-pill bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all" data-category="work-purpose">
+                <button
+                    class="filter-pill bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all"
+                    data-category="work-purpose">
                     Work & Purpose
                 </button>
-                <button class="filter-pill bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all" data-category="mind-consciousness">
+                <button
+                    class="filter-pill bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all"
+                    data-category="mind-consciousness">
                     Mind & Consciousness
                 </button>
-                <button class="filter-pill bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all" data-category="philosophy">
+                <button
+                    class="filter-pill bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all"
+                    data-category="philosophy">
                     Philosophy
                 </button>
-                <button class="filter-pill bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all" data-category="workshop-stories">
+                <button
+                    class="filter-pill bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 text-[13px] sm:text-[14px] px-5 py-2.5 rounded-full font-medium transition-all"
+                    data-category="workshop-stories">
                     Workshop Stories
                 </button>
             </div>
@@ -393,132 +429,186 @@
             <!-- Blog Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- CARD 1 -->
-                <div class="blog-card bg-white rounded-[20px] border border-gray-100/80 overflow-hidden flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 min-h-[500px] h-auto pb-6" data-category="relationships">
-                    <div class="h-[180px] w-full bg-[#ebf5f3] flex items-center justify-center relative overflow-hidden select-none">
+                <div class="blog-card bg-white rounded-[20px] border border-gray-100/80 overflow-hidden flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 min-h-[500px] h-auto pb-6"
+                    data-category="relationships">
+                    <div
+                        class="h-[180px] w-full bg-[#ebf5f3] flex items-center justify-center relative overflow-hidden select-none">
                         <span class="text-[52px] transform hover:scale-110 transition-transform duration-300">💛</span>
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <span class="text-[#4f788a] text-[11px] sm:text-[12px] font-bold tracking-widest uppercase" style="font-family: 'Public Sans', sans-serif;">Relationships</span>
-                            <h3 class="text-[#28221b] font-['DM_Sans'] text-[19px] sm:text-[21px] font-bold leading-snug mt-2.5 hover:text-[#244996] transition-colors cursor-pointer">
+                            <span class="text-[#4f788a] text-[11px] sm:text-[12px] font-bold tracking-widest uppercase"
+                                style="font-family: 'Public Sans', sans-serif;">Relationships</span>
+                            <h3
+                                class="text-[#28221b] font-['DM_Sans'] text-[19px] sm:text-[21px] font-bold leading-snug mt-2.5 hover:text-[#244996] transition-colors cursor-pointer">
                                 Why Do I Keep Repeating the Same Relationship Patterns?
                             </h3>
-                            <p class="text-[#6e6860] text-[15px] sm:text-[16px] leading-relaxed mt-3 line-clamp-3 blog-desc" style="font-family: 'Public Sans', sans-serif;">
-                                Every relationship starts differently. Then, somehow, it ends up in the same place. The same arguments, the same distances, the same disappointments.
+                            <p class="text-[#6e6860] text-[15px] sm:text-[16px] leading-relaxed mt-3 line-clamp-3 blog-desc"
+                                style="font-family: 'Public Sans', sans-serif;">
+                                Every relationship starts differently. Then, somehow, it ends up in the same place. The
+                                same arguments, the same distances, the same disappointments.
                             </p>
-                            <button class="read-more-btn text-[#fe8a29] font-bold text-[14px] hover:underline mt-2 focus:outline-none cursor-pointer" onclick="toggleReadMore(this)">Read More</button>
+                            <button
+                                class="read-more-btn text-[#fe8a29] font-bold text-[14px] hover:underline mt-2 focus:outline-none cursor-pointer"
+                                onclick="toggleReadMore(this)">Read More</button>
                         </div>
-                        <div class="text-gray-400 text-[12px] font-medium mt-4 uppercase tracking-wider" style="font-family: 'Public Sans', sans-serif;">
+                        <div class="text-gray-400 text-[12px] font-medium mt-4 uppercase tracking-wider"
+                            style="font-family: 'Public Sans', sans-serif;">
                             8 min read
                         </div>
                     </div>
                 </div>
 
                 <!-- CARD 2 -->
-                <div class="blog-card bg-white rounded-[20px] border border-gray-100/80 overflow-hidden flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 min-h-[500px] h-auto pb-6" data-category="work-purpose">
-                    <div class="h-[180px] w-full bg-[#f7f2ea] flex items-center justify-center relative overflow-hidden select-none">
+                <div class="blog-card bg-white rounded-[20px] border border-gray-100/80 overflow-hidden flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 min-h-[500px] h-auto pb-6"
+                    data-category="work-purpose">
+                    <div
+                        class="h-[180px] w-full bg-[#f7f2ea] flex items-center justify-center relative overflow-hidden select-none">
                         <span class="text-[52px] transform hover:scale-110 transition-transform duration-300">🌿</span>
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <span class="text-[#8c7250] text-[11px] sm:text-[12px] font-bold tracking-widest uppercase" style="font-family: 'Public Sans', sans-serif;">Work & Purpose</span>
-                            <h3 class="text-[#28221b] font-['DM_Sans'] text-[19px] sm:text-[21px] font-bold leading-snug mt-2.5 hover:text-[#244996] transition-colors cursor-pointer">
+                            <span class="text-[#8c7250] text-[11px] sm:text-[12px] font-bold tracking-widest uppercase"
+                                style="font-family: 'Public Sans', sans-serif;">Work & Purpose</span>
+                            <h3
+                                class="text-[#28221b] font-['DM_Sans'] text-[19px] sm:text-[21px] font-bold leading-snug mt-2.5 hover:text-[#244996] transition-colors cursor-pointer">
                                 You Got What You Wanted. So Why Does It Still Feel Empty?
                             </h3>
-                            <p class="text-[#6e6860] text-[15px] sm:text-[16px] leading-relaxed mt-3 line-clamp-3 blog-desc" style="font-family: 'Public Sans', sans-serif;">
-                                The promotion came through. The relationship was good. The apartment was finally yours. And somewhere underneath, there it was again — that quiet hollow feeling.
+                            <p class="text-[#6e6860] text-[15px] sm:text-[16px] leading-relaxed mt-3 line-clamp-3 blog-desc"
+                                style="font-family: 'Public Sans', sans-serif;">
+                                The promotion came through. The relationship was good. The apartment was finally yours.
+                                And somewhere underneath, there it was again — that quiet hollow feeling.
                             </p>
-                            <button class="read-more-btn text-[#fe8a29] font-bold text-[14px] hover:underline mt-2 focus:outline-none cursor-pointer" onclick="toggleReadMore(this)">Read More</button>
+                            <button
+                                class="read-more-btn text-[#fe8a29] font-bold text-[14px] hover:underline mt-2 focus:outline-none cursor-pointer"
+                                onclick="toggleReadMore(this)">Read More</button>
                         </div>
-                        <div class="text-gray-400 text-[12px] font-medium mt-4 uppercase tracking-wider" style="font-family: 'Public Sans', sans-serif;">
+                        <div class="text-gray-400 text-[12px] font-medium mt-4 uppercase tracking-wider"
+                            style="font-family: 'Public Sans', sans-serif;">
                             6 min read
                         </div>
                     </div>
                 </div>
 
                 <!-- CARD 3 -->
-                <div class="blog-card bg-white rounded-[20px] border border-gray-100/80 overflow-hidden flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 min-h-[500px] h-auto pb-6" data-category="mind-consciousness">
-                    <div class="h-[180px] w-full bg-[#f2eff7] flex items-center justify-center relative overflow-hidden select-none">
+                <div class="blog-card bg-white rounded-[20px] border border-gray-100/80 overflow-hidden flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 min-h-[500px] h-auto pb-6"
+                    data-category="mind-consciousness">
+                    <div
+                        class="h-[180px] w-full bg-[#f2eff7] flex items-center justify-center relative overflow-hidden select-none">
                         <span class="text-[52px] transform hover:scale-110 transition-transform duration-300">🧠</span>
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <span class="text-[#7b6b91] text-[11px] sm:text-[12px] font-bold tracking-widest uppercase" style="font-family: 'Public Sans', sans-serif;">Mind & Consciousness</span>
-                            <h3 class="text-[#28221b] font-['DM_Sans'] text-[19px] sm:text-[21px] font-bold leading-snug mt-2.5 hover:text-[#244996] transition-colors cursor-pointer">
+                            <span class="text-[#7b6b91] text-[11px] sm:text-[12px] font-bold tracking-widest uppercase"
+                                style="font-family: 'Public Sans', sans-serif;">Mind & Consciousness</span>
+                            <h3
+                                class="text-[#28221b] font-['DM_Sans'] text-[19px] sm:text-[21px] font-bold leading-snug mt-2.5 hover:text-[#244996] transition-colors cursor-pointer">
                                 Why Meditation Apps Help — But Don't Actually Solve Anything
                             </h3>
-                            <p class="text-[#6e6860] text-[15px] sm:text-[16px] leading-relaxed mt-3 line-clamp-3 blog-desc" style="font-family: 'Public Sans', sans-serif;">
-                                Ten minutes of calm. Then the day begins. Meditation is genuinely useful — but if it's managing a state without changing its root, there's a ceiling to how much it can do.
+                            <p class="text-[#6e6860] text-[15px] sm:text-[16px] leading-relaxed mt-3 line-clamp-3 blog-desc"
+                                style="font-family: 'Public Sans', sans-serif;">
+                                Ten minutes of calm. Then the day begins. Meditation is genuinely useful — but if it's
+                                managing a state without changing its root, there's a ceiling to how much it can do.
                             </p>
-                            <button class="read-more-btn text-[#fe8a29] font-bold text-[14px] hover:underline mt-2 focus:outline-none cursor-pointer" onclick="toggleReadMore(this)">Read More</button>
+                            <button
+                                class="read-more-btn text-[#fe8a29] font-bold text-[14px] hover:underline mt-2 focus:outline-none cursor-pointer"
+                                onclick="toggleReadMore(this)">Read More</button>
                         </div>
-                        <div class="text-gray-400 text-[12px] font-medium mt-4 uppercase tracking-wider" style="font-family: 'Public Sans', sans-serif;">
+                        <div class="text-gray-400 text-[12px] font-medium mt-4 uppercase tracking-wider"
+                            style="font-family: 'Public Sans', sans-serif;">
                             7 min read
                         </div>
                     </div>
                 </div>
 
                 <!-- CARD 4 -->
-                <div class="blog-card bg-white rounded-[20px] border border-gray-100/80 overflow-hidden flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 min-h-[500px] h-auto pb-6" data-category="life-questions">
-                    <div class="h-[180px] w-full bg-[#f7ecea] flex items-center justify-center relative overflow-hidden select-none">
+                <div class="blog-card bg-white rounded-[20px] border border-gray-100/80 overflow-hidden flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 min-h-[500px] h-auto pb-6"
+                    data-category="life-questions">
+                    <div
+                        class="h-[180px] w-full bg-[#f7ecea] flex items-center justify-center relative overflow-hidden select-none">
                         <span class="text-[52px] transform hover:scale-110 transition-transform duration-300">😰</span>
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <span class="text-[#b8685c] text-[11px] sm:text-[12px] font-bold tracking-widest uppercase" style="font-family: 'Public Sans', sans-serif;">Life Questions</span>
-                            <h3 class="text-[#28221b] font-['DM_Sans'] text-[19px] sm:text-[21px] font-bold leading-snug mt-2.5 hover:text-[#244996] transition-colors cursor-pointer">
+                            <span class="text-[#b8685c] text-[11px] sm:text-[12px] font-bold tracking-widest uppercase"
+                                style="font-family: 'Public Sans', sans-serif;">Life Questions</span>
+                            <h3
+                                class="text-[#28221b] font-['DM_Sans'] text-[19px] sm:text-[21px] font-bold leading-snug mt-2.5 hover:text-[#244996] transition-colors cursor-pointer">
                                 What Is Anxiety Actually Telling You?
                             </h3>
-                            <p class="text-[#6e6860] text-[15px] sm:text-[16px] leading-relaxed mt-3 line-clamp-3 blog-desc" style="font-family: 'Public Sans', sans-serif;">
-                                Anxiety isn't a malfunction. It's information. The question is — what is it actually trying to say, and why won't it say it in a language you can act on?
+                            <p class="text-[#6e6860] text-[15px] sm:text-[16px] leading-relaxed mt-3 line-clamp-3 blog-desc"
+                                style="font-family: 'Public Sans', sans-serif;">
+                                Anxiety isn't a malfunction. It's information. The question is — what is it actually
+                                trying to say, and why won't it say it in a language you can act on?
                             </p>
-                            <button class="read-more-btn text-[#fe8a29] font-bold text-[14px] hover:underline mt-2 focus:outline-none cursor-pointer" onclick="toggleReadMore(this)">Read More</button>
+                            <button
+                                class="read-more-btn text-[#fe8a29] font-bold text-[14px] hover:underline mt-2 focus:outline-none cursor-pointer"
+                                onclick="toggleReadMore(this)">Read More</button>
                         </div>
-                        <div class="text-gray-400 text-[12px] font-medium mt-4 uppercase tracking-wider" style="font-family: 'Public Sans', sans-serif;">
+                        <div class="text-gray-400 text-[12px] font-medium mt-4 uppercase tracking-wider"
+                            style="font-family: 'Public Sans', sans-serif;">
                             9 min read
                         </div>
                     </div>
                 </div>
 
                 <!-- CARD 5 -->
-                <div class="blog-card bg-white rounded-[20px] border border-gray-100/80 overflow-hidden flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 min-h-[500px] h-auto pb-6" data-category="relationships">
-                    <div class="h-[180px] w-full bg-[#eaf5f7] flex items-center justify-center relative overflow-hidden select-none">
+                <div class="blog-card bg-white rounded-[20px] border border-gray-100/80 overflow-hidden flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 min-h-[500px] h-auto pb-6"
+                    data-category="relationships">
+                    <div
+                        class="h-[180px] w-full bg-[#eaf5f7] flex items-center justify-center relative overflow-hidden select-none">
                         <span class="text-[52px] transform hover:scale-110 transition-transform duration-300">🤝</span>
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <span class="text-[#4f788a] text-[11px] sm:text-[12px] font-bold tracking-widest uppercase" style="font-family: 'Public Sans', sans-serif;">Relationships</span>
-                            <h3 class="text-[#28221b] font-['DM_Sans'] text-[19px] sm:text-[21px] font-bold leading-snug mt-2.5 hover:text-[#244996] transition-colors cursor-pointer">
+                            <span class="text-[#4f788a] text-[11px] sm:text-[12px] font-bold tracking-widest uppercase"
+                                style="font-family: 'Public Sans', sans-serif;">Relationships</span>
+                            <h3
+                                class="text-[#28221b] font-['DM_Sans'] text-[19px] sm:text-[21px] font-bold leading-snug mt-2.5 hover:text-[#244996] transition-colors cursor-pointer">
                                 The Difference Between Love and Need — And Why It Matters
                             </h3>
-                            <p class="text-[#6e6860] text-[15px] sm:text-[16px] leading-relaxed mt-3 line-clamp-3 blog-desc" style="font-family: 'Public Sans', sans-serif;">
-                                We use the word love for two very different things. One is a recognition of another human being. The other is a need dressed up as care.
+                            <p class="text-[#6e6860] text-[15px] sm:text-[16px] leading-relaxed mt-3 line-clamp-3 blog-desc"
+                                style="font-family: 'Public Sans', sans-serif;">
+                                We use the word love for two very different things. One is a recognition of another
+                                human being. The other is a need dressed up as care.
                             </p>
-                            <button class="read-more-btn text-[#fe8a29] font-bold text-[14px] hover:underline mt-2 focus:outline-none cursor-pointer" onclick="toggleReadMore(this)">Read More</button>
+                            <button
+                                class="read-more-btn text-[#fe8a29] font-bold text-[14px] hover:underline mt-2 focus:outline-none cursor-pointer"
+                                onclick="toggleReadMore(this)">Read More</button>
                         </div>
-                        <div class="text-gray-400 text-[12px] font-medium mt-4 uppercase tracking-wider" style="font-family: 'Public Sans', sans-serif;">
+                        <div class="text-gray-400 text-[12px] font-medium mt-4 uppercase tracking-wider"
+                            style="font-family: 'Public Sans', sans-serif;">
                             5 min read
                         </div>
                     </div>
                 </div>
 
                 <!-- CARD 6 -->
-                <div class="blog-card bg-white rounded-[20px] border border-gray-100/80 overflow-hidden flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 min-h-[500px] h-auto pb-6" data-category="philosophy">
-                    <div class="h-[180px] w-full bg-[#f5ebd8]/50 flex items-center justify-center relative overflow-hidden select-none">
+                <div class="blog-card bg-white rounded-[20px] border border-gray-100/80 overflow-hidden flex flex-col justify-between shadow-[0_2px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 min-h-[500px] h-auto pb-6"
+                    data-category="philosophy">
+                    <div
+                        class="h-[180px] w-full bg-[#f5ebd8]/50 flex items-center justify-center relative overflow-hidden select-none">
                         <span class="text-[52px] transform hover:scale-110 transition-transform duration-300">⚔️</span>
                     </div>
                     <div class="p-6 flex-1 flex flex-col justify-between">
                         <div>
-                            <span class="text-[#82775a] text-[11px] sm:text-[12px] font-bold tracking-widest uppercase" style="font-family: 'Public Sans', sans-serif;">Philosophy</span>
-                            <h3 class="text-[#28221b] font-['DM_Sans'] text-[19px] sm:text-[21px] font-bold leading-snug mt-2.5 hover:text-[#244996] transition-colors cursor-pointer">
+                            <span class="text-[#82775a] text-[11px] sm:text-[12px] font-bold tracking-widest uppercase"
+                                style="font-family: 'Public Sans', sans-serif;">Philosophy</span>
+                            <h3
+                                class="text-[#28221b] font-['DM_Sans'] text-[19px] sm:text-[21px] font-bold leading-snug mt-2.5 hover:text-[#244996] transition-colors cursor-pointer">
                                 Every Argument Has a Root. Here's How to Find It.
                             </h3>
-                            <p class="text-[#6e6860] text-[15px] sm:text-[16px] leading-relaxed mt-3 line-clamp-3 blog-desc" style="font-family: 'Public Sans', sans-serif;">
-                                Conflict is not random. Every recurring argument has an identical structure underneath — an unmet expectation, a mismatched understanding.
+                            <p class="text-[#6e6860] text-[15px] sm:text-[16px] leading-relaxed mt-3 line-clamp-3 blog-desc"
+                                style="font-family: 'Public Sans', sans-serif;">
+                                Conflict is not random. Every recurring argument has an identical structure underneath —
+                                an unmet expectation, a mismatched understanding.
                             </p>
-                            <button class="read-more-btn text-[#fe8a29] font-bold text-[14px] hover:underline mt-2 focus:outline-none cursor-pointer" onclick="toggleReadMore(this)">Read More</button>
+                            <button
+                                class="read-more-btn text-[#fe8a29] font-bold text-[14px] hover:underline mt-2 focus:outline-none cursor-pointer"
+                                onclick="toggleReadMore(this)">Read More</button>
                         </div>
-                        <div class="text-gray-400 text-[12px] font-medium mt-4 uppercase tracking-wider" style="font-family: 'Public Sans', sans-serif;">
+                        <div class="text-gray-400 text-[12px] font-medium mt-4 uppercase tracking-wider"
+                            style="font-family: 'Public Sans', sans-serif;">
                             8 min read
                         </div>
                     </div>
@@ -530,26 +620,30 @@
     <!-- BOTTOM CTA BANNER (DARK BANNER FROM SCREENSHOT 2) -->
     <section class="bg-[#efe4d7] py-20 md:py-28 relative overflow-hidden">
         <div class="max-w-[1000px] mx-auto px-6 text-center relative z-10">
-            <h2 class="text-[28px] sm:text-[38px] md:text-[48px] font-bold text-[#244996] tracking-tight leading-tight" style="font-family: 'DM Sans', sans-serif;">
+            <h2 class="text-[28px] sm:text-[38px] md:text-[48px] font-bold text-[#244996] tracking-tight leading-tight"
+                style="font-family: 'DM Sans', sans-serif;">
                 Want the full <span class="italic text-[#244996]">understanding?</span>
             </h2>
-            <p class="text-[#5c5c5c] text-[14.5px] sm:text-[16px] md:text-[17.5px] max-w-[620px] mx-auto mt-5 leading-relaxed" style="font-family: 'Public Sans', sans-serif;">
-                The workshop takes these questions and gives you a complete framework — in dialogue, over three days, with others asking the same things.
+            <p class="text-[#5c5c5c] text-[14.5px] sm:text-[16px] md:text-[17.5px] max-w-[620px] mx-auto mt-5 leading-relaxed"
+                style="font-family: 'Public Sans', sans-serif;">
+                The workshop takes these questions and gives you a complete framework — in dialogue, over three days,
+                with others asking the same things.
             </p>
             <div class="mt-8">
-                <a class="inline-flex items-center justify-center bg-[#244996] hover:bg-[#1a3570] text-white font-semibold text-[15px] sm:text-[16px] px-8 py-3.5 rounded-lg transition-all shadow-md gap-2" href="#">
+                <a class="inline-flex items-center justify-center bg-[#244996] hover:bg-[#1a3570] text-white font-semibold text-[15px] sm:text-[16px] px-8 py-3.5 rounded-lg transition-all shadow-md gap-2"
+                    href="#">
                     Register for the Workshop &rarr;
                 </a>
             </div>
-            <a class="text-[#fe8a29] hover:text-[#954900] text-[13px] sm:text-[14px] font-semibold mt-6 inline-block transition-colors underline underline-offset-4" style="font-family: 'Public Sans', sans-serif;" href="https://sahastitvanevers.org" target="_blank">
+            <a class="text-[#fe8a29] hover:text-[#954900] text-[13px] sm:text-[14px] font-semibold mt-6 inline-block transition-colors underline underline-offset-4"
+                style="font-family: 'Public Sans', sans-serif;" href="https://sahastitvanevers.org" target="_blank">
                 Or explore more answers at sahastitvanevers.org &rarr;
             </a>
         </div>
     </section>
 
     <!-- BEGIN: Footer -->
-    <footer id="sec-footer" class="relative pt-24 pb-0 bg-[#fef9f0] overflow-hidden w-full"
-        data-purpose="site-footer">
+    <footer id="sec-footer" class="relative pt-24 pb-0 bg-[#fef9f0] overflow-hidden w-full" data-purpose="site-footer">
         <div id="begin-section-container"
             class="max-w-[1200px] mx-auto px-6 relative z-10 w-full md:flex-grow md:flex md:flex-col md:justify-center mb-16">
             <h2 id="begin-section-heading"
@@ -562,8 +656,7 @@
                 style="font-family: 'Public Sans', sans-serif;">
                 Whether you want to explore, experience, or simply understand more — there’s a place to start.
             </p>
-            <div id="begin-section-grid"
-                class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.95fr_0.95fr] gap-8 lg:gap-10">
+            <div id="begin-section-grid" class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.95fr_0.95fr] gap-8 lg:gap-10">
                 <!-- Column 1 (Highlighted & Large) -->
                 <div class="pl-6 border-l-4 border-[#fe8a29] flex flex-col items-start">
                     <h3

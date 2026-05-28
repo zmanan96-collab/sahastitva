@@ -241,6 +241,27 @@
                 margin-top: auto !important;
             }
         }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background: #244996;
+        }
+
+        .marquee-content {
+            display: inline-flex;
+            align-items: center;
+            animation: marquee 25s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
     </style>
     <!-- Tailwind CSS v3 CDN -->
     <script>
@@ -462,7 +483,7 @@
             <div
                 class="max-w-[1200px] mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-12 lg:gap-16 items-center w-full z-10">
                 <div class="text-left">
-                    <h1 class="text-[36px] sm:text-[46px] md:text-[54px] lg:text-[62px] xl:text-[72px] font-bold leading-[1.12] mb-6 text-navy"
+                    <h1 class="text-[38px] sm:text-[49px] md:text-[58px] lg:text-[66px] xl:text-[78px] font-bold leading-[1.12] mb-6 text-navy"
                         style="font-family: 'DM Sans', sans-serif;">
                         <span class="lg:whitespace-nowrap">Leave with answers to the</span><br />
                         <span class="font-normal text-navy/90 lg:whitespace-nowrap">questions you've been
@@ -482,17 +503,53 @@
                 <div
                     class="flex justify-center items-center w-full h-[320px] sm:h-[420px] lg:h-[500px] xl:h-[580px] overflow-visible">
                     <a href="#"
-                        class="flex items-center justify-center w-full h-full transform scale-[1.35] sm:scale-120 lg:scale-[1.4] xl:scale-[1.65] lg:translate-y-2 lg:-translate-x-8 xl:translate-y-4 xl:-translate-x-12 transition-all duration-300 hover:scale-[1.2] sm:hover:scale-[1.25] lg:hover:scale-[1.45] xl:hover:scale-[1.7]">
+                        class="flex items-center justify-center w-full h-full transform scale-[1.35] sm:scale-120 lg:scale-[1.4] xl:scale-[1.65] lg:translate-y-2 lg:-translate-x-2 xl:translate-y-4 xl:-translate-x-4 transition-all duration-300 hover:scale-[1.2] sm:hover:scale-[1.25] lg:hover:scale-[1.45] xl:hover:scale-[1.7]">
                         <img alt="Figure on Cliff looking at the water reflection"
                             class="max-w-none w-[230px] sm:w-[240px] lg:w-[320px] xl:w-[360px] h-auto object-contain object-center"
                             src="1.png" />
                     </a>
                 </div>
             </div>
+            <!-- Text Marquee -->
+            <div class="marquee-container mt-8 sm:mt-12 md:mt-16 lg:mt-20 xl:mt-24 py-3 text-white/95 text-sm md:text-[16px] font-medium tracking-wide border-t border-b border-white/10"
+                style="font-family: 'Public Sans', sans-serif;">
+                <div class="marquee-content flex items-center gap-16 pr-16 select-none">
+                    <span class="flex items-center gap-16 shrink-0">
+                        <span>What is my purpose?</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                        <span>What is happiness?</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                        <span>What are relationships?</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                        <span>What is love?</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                        <span>What causes conflict?</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                        <span>Is earning money my only aim?</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                        <span>What is justice?</span>
+                    </span>
+                    <span class="flex items-center gap-16 shrink-0">
+                        <span>What is my purpose?</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                        <span>What is happiness?</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                        <span>What are relationships?</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                        <span>What is love?</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                        <span>What causes conflict?</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                        <span>Is earning money my only aim?</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#fe8a29] shrink-0"></span>
+                        <span>What is justice?</span>
+                    </span>
+                </div>
+            </div>
         </section>
 
         <!-- Section 2: Conduct Section -->
-        <section id="sec-conduct" class="py-16 md:py-24 lg:py-28 w-full bg-white">
+        <section id="sec-conduct" class="pt-8 pb-16 md:pt-10 md:pb-24 lg:pt-12 lg:pb-28 w-full bg-white">
             <div class="max-w-[1200px] mx-auto px-6 md:px-8 w-full z-10">
                 <h2 class="text-[38px] sm:text-[48px] md:text-[58px] lg:text-[68px] font-bold mb-4 text-[#244996] leading-[1.1]"
                     style="font-family: 'DM Sans', sans-serif; line-height: 1.1;">
